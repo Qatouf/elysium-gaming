@@ -714,3 +714,156 @@ section {
         font-size: 50px;
     }
 }
+/* =========================================
+   MAT & DRYCK
+========================================= */
+
+.food-section {
+    background: #05070a;
+    padding: 110px 7%;
+    text-align: center;
+    color: #ffffff;
+}
+
+.food-header {
+    max-width: 750px;
+    margin: 0 auto 60px;
+}
+
+.food-header .section-label {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.food-header h2 {
+    color: #ffffff;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.food-header > p:last-child {
+    color: #aeb4bd;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.food-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.food-card {
+    position: relative;
+
+    background: linear-gradient(
+        145deg,
+        #0d1117,
+        #080a0d
+    );
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+
+    padding: 45px 30px;
+
+    text-align: left;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.food-card.featured {
+    border-color: rgba(212, 175, 55, 0.55);
+}
+
+.food-number {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.food-card h3 {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.food-card > p {
+    color: #9ca3ad;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.food-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.food-items span {
+    color: #d4af37;
+
+    border: 1px solid rgba(212, 175, 55, 0.35);
+
+    padding: 7px 11px;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.food-note {
+    margin-top: 40px;
+
+    color: #777b82;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MAT & DRYCK - MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .food-section {
+        padding: 80px 5%;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-card {
+        padding: 35px 25px;
+    }
+
+    .food-header h2 {
+        font-size: 40px;
+    }
+}
