@@ -284,12 +284,17 @@ footer {
 
 /* ELYSIUM HERO BACKGROUND */
 .hero {
-  background:
-    linear-gradient(rgba(3, 4, 5, 0.45), rgba(3, 4, 5, 0.72)),
-    url("e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png") center center / cover no-repeat;
+  background-image:
+    linear-gradient(rgba(3, 4, 5, 0.35), rgba(3, 4, 5, 0.65)),
+    url("./e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   min-height: 90vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
