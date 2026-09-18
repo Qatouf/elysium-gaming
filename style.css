@@ -1287,3 +1287,159 @@ html {
 section {
     scroll-margin-top: 100px;
 }
+/* =========================================
+   KONTAKT
+========================================= */
+
+.contact-section {
+    background: #080a0e;
+    padding: 110px 7%;
+    color: #ffffff;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 60px;
+}
+
+.contact-header .section-label {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.contact-header h2 {
+    font-size: clamp(38px, 6vw, 65px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.contact-header > p:last-child {
+    color: #aeb4bd;
+    font-size: 17px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.contact-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(212,175,55,0.30);
+    border-radius: 8px;
+    padding: 35px 30px;
+    min-height: 190px;
+}
+
+.contact-card span {
+    display: block;
+    color: #d4af37;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.contact-card strong {
+    display: block;
+    color: #ffffff;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #9ca3ad;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #040506;
+    border-top: 1px solid rgba(212,175,55,0.25);
+    padding: 55px 7% 35px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.footer-logo {
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+footer > p {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: #9ca3ad;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #d4af37;
+}
+
+footer small {
+    color: #60646b;
+    font-size: 11px;
+}
+
+
+/* KONTAKT + FOOTER MOBIL */
+
+@media (max-width: 850px) {
+
+    .contact-section {
+        padding: 80px 5%;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-header h2 {
+        font-size: 38px;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}
