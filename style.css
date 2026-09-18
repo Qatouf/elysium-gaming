@@ -280,3 +280,16 @@ footer {
         padding: 75px 5%;
     }
 }
+
+
+/* ELYSIUM HERO BACKGROUND */
+.hero {
+  background:
+    linear-gradient(rgba(3, 4, 5, 0.45), rgba(3, 4, 5, 0.72)),
+    url("e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png") center center / cover no-repeat;
+
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
