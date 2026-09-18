@@ -1,24 +1,29 @@
 /* =========================================
-   ELYSIUM GAMING LOUNGE
-   Main stylesheet
+   RESET
 ========================================= */
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  background: #080a0e;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+    background: #05070a;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
+
+a {
+    color: inherit;
 }
 
 
@@ -27,62 +32,48 @@ body {
 ========================================= */
 
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  padding: 0 7%;
+    padding: 22px 7%;
 
-  background: rgba(5, 7, 10, 0.92);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+    background: rgba(5, 7, 10, 0.92);
+    backdrop-filter: blur(12px);
 
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.35);
 }
-
-
-/* =========================================
-   LOGO
-========================================= */
 
 .logo {
-  color: #d4af37;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 5px;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: 4px;
 }
 
-
-/* =========================================
-   NAVIGATION
-========================================= */
-
 nav {
-  display: flex;
-  align-items: center;
-  gap: 35px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 nav a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 1px;
-
-  transition: 0.25s ease;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s ease;
 }
 
 nav a:hover {
-  color: #d4af37;
+    color: #d4af37;
 }
 
 
@@ -91,414 +82,190 @@ nav a:hover {
 ========================================= */
 
 .hero {
-  min-height: 100vh;
-
-  padding: 150px 7% 80px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  position: relative;
-  overflow: hidden;
-
-  background-image:
-    linear-gradient(
-      rgba(3, 4, 5, 0.40),
-      rgba(3, 4, 5, 0.72)
-    ),
-    url("./e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-/* GOLD GLOW */
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 700px;
-  height: 700px;
-
-  border-radius: 50%;
-
-  background: rgba(212, 175, 55, 0.08);
-
-  filter: blur(120px);
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
-
-/* Keep hero content above effects */
-
-.hero > * {
-  position: relative;
-  z-index: 1;
-}
-
-
-/* =========================================
-   SMALL TITLE
-========================================= */
-
-.small-title {
-  color: #ffffff;
-
-  font-size: 16px;
-  font-weight: 700;
-
-  letter-spacing: 4px;
-
-  margin-bottom: 25px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================
-   HERO TITLE
-========================================= */
-
-.hero h1 {
-  color: #d4af37;
-
-  font-size: clamp(52px, 8vw, 105px);
-
-  font-weight: 900;
-
-  letter-spacing: 10px;
-
-  line-height: 0.95;
-
-  text-transform: uppercase;
-
-  margin-bottom: 25px;
-
-  text-shadow:
-    0 3px 20px rgba(0, 0, 0, 0.7),
-    0 0 35px rgba(212, 175, 55, 0.15);
-}
-
-
-/* =========================================
-   TAGLINE
-========================================= */
-
-.tagline {
-  color: #ffffff;
-
-  font-size: 18px;
-
-  font-weight: 800;
-
-  letter-spacing: 3px;
-
-  margin-bottom: 25px;
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================
-   DESCRIPTION
-========================================= */
-
-.description {
-  max-width: 650px;
-
-  color: #eeeeee;
-
-  font-size: 18px;
-
-  line-height: 1.7;
-
-  margin-bottom: 35px;
-
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-}
-
-
-/* =========================================
-   BUTTONS
-========================================= */
-
-.buttons {
-  display: flex;
-
-  justify-content: center;
-
-  gap: 15px;
-
-  flex-wrap: wrap;
-}
-
-.buttons button {
-  min-width: 170px;
-
-  padding: 16px 25px;
-
-  border: 2px solid #d4af37;
-
-  background: #d4af37;
-
-  color: #080a0e;
-
-  font-size: 13px;
-
-  font-weight: 900;
-
-  letter-spacing: 1px;
-
-  cursor: pointer;
-
-  transition: 0.25s ease;
-}
-
-.buttons button:hover {
-  background: transparent;
-
-  color: #d4af37;
-
-  transform: translateY(-3px);
-
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.22);
-}
-
-
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
-
-section {
-  padding: 90px 7%;
-}
-
-
-/* =========================================
-   CARDS
-========================================= */
-
-.cards {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 25px;
-}
-
-
-/* =========================================
-   TABLET
-========================================= */
-
-@media (max-width: 900px) {
-
-  header {
-    padding: 0 5%;
-  }
-
-  nav {
-    gap: 18px;
-  }
-
-  nav a {
-    font-size: 13px;
-  }
-
-  .logo {
-    font-size: 23px;
-  }
-
-  .hero {
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-
-  .hero h1 {
-    letter-spacing: 6px;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 650px) {
-
-  header {
-    height: auto;
-
-    min-height: 75px;
-
-    padding: 18px 5%;
-
-    flex-direction: column;
-
-    gap: 14px;
-  }
-
-  .logo {
-    font-size: 21px;
-
-    letter-spacing: 4px;
-  }
-
-  nav {
-    width: 100%;
-
-    justify-content: center;
-
-    gap: 13px;
-
-    flex-wrap: wrap;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  .hero {
     min-height: 100vh;
 
-    padding: 160px 5% 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 
+    padding: 150px 7% 90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.86) 0%,
+            rgba(0,0,0,0.58) 45%,
+            rgba(0,0,0,0.30) 100%
+        ),
+        url("e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png");
+
+    background-size: cover;
     background-position: center;
-  }
-
-  .small-title {
-    font-size: 12px;
-
-    letter-spacing: 3px;
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 14vw, 70px);
-
-    letter-spacing: 4px;
-  }
-
-  .tagline {
-    font-size: 14px;
-  }
-
-  .description {
-    font-size: 15px;
-  }
-
-  .buttons {
-    width: 100%;
-  }
-
-  .buttons button {
-    width: 100%;
-
-    max-width: 300px;
-  }
+    background-repeat: no-repeat;
 }
 
-/* =========================================
-   GAMING SECTION
-========================================= */
-
-.gaming-section {
-    background: #05070a;
-    padding: 100px 7%;
-    text-align: center;
-    position: relative;
-}
-
-.gaming-section .section-label {
+.hero .small-title {
     color: #d4af37;
     font-size: 13px;
+    font-weight: 800;
     letter-spacing: 4px;
-    font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
-.gaming-section h2 {
-    color: #ffffff;
-    font-size: clamp(36px, 6vw, 70px);
+.hero h1 {
+    font-size: clamp(70px, 12vw, 150px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.tagline {
+    color: #d4af37;
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 900;
     letter-spacing: 4px;
     margin-bottom: 20px;
+}
+
+.description {
+    max-width: 650px;
+    color: #d2d5da;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+
+    border: 1px solid #d4af37;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #d4af37;
+    color: #05070a;
+}
+
+
+/* =========================================
+   COMMON TITLES
+========================================= */
+
+.section-label,
+.small-title {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
     text-transform: uppercase;
 }
 
-.gaming-section .section-description {
+.section-heading,
+.pricing-header,
+.food-header,
+.events-header,
+.contact-header {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.section-heading h2,
+.pricing-header h2,
+.food-header h2,
+.events-header h2,
+.contact-header h2 {
+    color: #ffffff;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 12px 0 18px;
+}
+
+.section-heading > p:last-child,
+.pricing-header > p:last-child,
+.food-header > p:last-child,
+.events-header > p:last-child,
+.contact-header > p:last-child {
     color: #aeb4bd;
     font-size: 17px;
     line-height: 1.7;
-    max-width: 700px;
-    margin: 0 auto 55px;
+}
+
+
+/* =========================================
+   GAMING
+========================================= */
+
+.gaming-section {
+    background: #080a0e;
+    padding: 110px 7%;
 }
 
 .gaming-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
     max-width: 1200px;
     margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
 }
 
 .gaming-card {
+    min-height: 360px;
+    padding: 40px 30px;
+
     background: linear-gradient(
         145deg,
-        #0d1117,
-        #080a0d
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
     );
-    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    border: 1px solid rgba(212,175,55,0.30);
     border-radius: 8px;
-    padding: 45px 30px;
-    text-align: left;
-    transition: transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+
+    transition: 0.3s ease;
 }
 
 .gaming-card:hover {
     transform: translateY(-8px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
 }
 
 .card-number {
     color: #d4af37;
     font-size: 13px;
+    font-weight: 900;
     letter-spacing: 3px;
-    font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 }
 
 .gaming-card h3 {
-    color: #ffffff;
-    font-size: 24px;
-    letter-spacing: 2px;
+    font-size: 28px;
     margin-bottom: 15px;
 }
 
 .gaming-card p {
     color: #9ca3ad;
-    font-size: 15px;
     line-height: 1.7;
     margin-bottom: 30px;
 }
@@ -510,108 +277,64 @@ section {
 }
 
 .specs span {
+    border: 1px solid rgba(212,175,55,0.35);
     color: #d4af37;
-    border: 1px solid rgba(212, 175, 55, 0.35);
-    padding: 7px 11px;
+    padding: 7px 10px;
     font-size: 11px;
-    letter-spacing: 1px;
+    font-weight: 800;
 }
 
-/* MOBILE */
 
-@media (max-width: 850px) {
-
-    .gaming-section {
-        padding: 75px 5%;
-    }
-
-    .gaming-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .gaming-card {
-        padding: 35px 25px;
-    }
-}
 /* =========================================
-   PRICING SECTION
+   PRICING
 ========================================= */
 
 .pricing-section {
-    background: #080a0e;
+    background: #05070a;
     padding: 110px 7%;
     text-align: center;
-    color: #ffffff;
-}
-
-.pricing-header {
-    max-width: 750px;
-    margin: 0 auto 60px;
-}
-
-.pricing-header .small-title {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.pricing-header h2 {
-    color: #ffffff;
-    font-size: clamp(38px, 6vw, 70px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.pricing-header p {
-    color: #b9b9b9;
-    font-size: 17px;
-    line-height: 1.7;
 }
 
 .pricing-grid {
     max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
-    align-items: stretch;
 }
 
 .price-card {
     position: relative;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.035),
-        rgba(255,255,255,0.01)
-    );
-    border: 1px solid rgba(212,175,55,0.35);
-    border-radius: 8px;
-    padding: 45px 30px;
+
     min-height: 350px;
+    padding: 45px 30px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    transition: transform 0.3s ease,
-                border-color 0.3s ease,
-                box-shadow 0.3s ease;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
 }
 
 .price-card:hover {
     transform: translateY(-8px);
     border-color: #d4af37;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
 }
 
 .price-card.featured {
     border: 2px solid #d4af37;
     transform: scale(1.04);
+
     background: linear-gradient(
         145deg,
         rgba(212,175,55,0.10),
@@ -619,22 +342,21 @@ section {
     );
 }
 
-.price-card.featured:hover {
-    transform: scale(1.04) translateY(-8px);
-}
-
 .popular {
     position: absolute;
     top: 0;
     left: 50%;
+
     transform: translate(-50%, -50%);
+
     background: #d4af37;
-    color: #080a0e;
+    color: #05070a;
+
     padding: 8px 20px;
+
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 2px;
-    white-space: nowrap;
 }
 
 .price-label {
@@ -646,17 +368,13 @@ section {
 }
 
 .price-card h3 {
-    color: #ffffff;
     font-size: 27px;
-    font-weight: 900;
-    letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
 .price {
     color: #d4af37;
     font-size: 58px;
-    line-height: 1;
     font-weight: 900;
     margin-bottom: 22px;
 }
@@ -664,13 +382,10 @@ section {
 .price span {
     color: #ffffff;
     font-size: 15px;
-    font-weight: 700;
-    margin-left: 5px;
 }
 
 .price-card > p:last-child {
     color: #aeb0b5;
-    font-size: 15px;
     line-height: 1.6;
 }
 
@@ -681,77 +396,13 @@ section {
 }
 
 
-/* MOBILE */
-
-@media (max-width: 850px) {
-
-    .pricing-section {
-        padding: 80px 5%;
-    }
-
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-    }
-
-    .price-card {
-        min-height: 300px;
-    }
-
-    .price-card.featured {
-        transform: none;
-    }
-
-    .price-card.featured:hover {
-        transform: translateY(-8px);
-    }
-
-    .pricing-header h2 {
-        font-size: 40px;
-    }
-
-    .price {
-        font-size: 50px;
-    }
-}
 /* =========================================
    MAT & DRYCK
 ========================================= */
 
 .food-section {
-    background: #05070a;
+    background: #080a0e;
     padding: 110px 7%;
-    text-align: center;
-    color: #ffffff;
-}
-
-.food-header {
-    max-width: 750px;
-    margin: 0 auto 60px;
-}
-
-.food-header .section-label {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.food-header h2 {
-    color: #ffffff;
-    font-size: clamp(38px, 6vw, 70px);
-    font-weight: 900;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.food-header > p:last-child {
-    color: #aeb4bd;
-    font-size: 17px;
-    line-height: 1.7;
 }
 
 .food-grid {
@@ -764,7 +415,7 @@ section {
 }
 
 .food-card {
-    position: relative;
+    padding: 45px 30px;
 
     background: linear-gradient(
         145deg,
@@ -772,48 +423,36 @@ section {
         #080a0d
     );
 
-    border: 1px solid rgba(212, 175, 55, 0.25);
+    border: 1px solid rgba(212,175,55,0.25);
     border-radius: 8px;
 
-    padding: 45px 30px;
-
-    text-align: left;
-
-    transition:
-        transform 0.3s ease,
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .food-card:hover {
     transform: translateY(-8px);
     border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
 }
 
 .food-card.featured {
-    border-color: rgba(212, 175, 55, 0.55);
+    border-color: rgba(212,175,55,0.55);
 }
 
 .food-number {
     color: #d4af37;
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 3px;
     margin-bottom: 25px;
 }
 
 .food-card h3 {
-    color: #ffffff;
     font-size: 26px;
-    font-weight: 900;
-    letter-spacing: 2px;
     margin-bottom: 15px;
 }
 
 .food-card > p {
     color: #9ca3ad;
-    font-size: 15px;
     line-height: 1.7;
     margin-bottom: 30px;
 }
@@ -826,99 +465,44 @@ section {
 
 .food-items span {
     color: #d4af37;
-
-    border: 1px solid rgba(212, 175, 55, 0.35);
-
+    border: 1px solid rgba(212,175,55,0.35);
     padding: 7px 11px;
-
     font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: 800;
 }
 
 .food-note {
     margin-top: 40px;
-
+    text-align: center;
     color: #777b82;
-
     font-size: 13px;
 }
 
 
 /* =========================================
-   MAT & DRYCK - MOBILE
-========================================= */
-
-@media (max-width: 850px) {
-
-    .food-section {
-        padding: 80px 5%;
-    }
-
-    .food-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .food-card {
-        padding: 35px 25px;
-    }
-
-    .food-header h2 {
-        font-size: 40px;
-    }
-}
-/* =========================================
-   EVENTS & TURNERINGAR
+   EVENTS
 ========================================= */
 
 .events-section {
-    background: #080a0e;
+    background: #05070a;
     padding: 110px 7%;
-    color: #ffffff;
-}
-
-.events-header {
-    max-width: 800px;
-    margin: 0 auto 60px;
-    text-align: center;
-}
-
-.events-header .section-label {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.events-header h2 {
-    color: #ffffff;
-    font-size: clamp(38px, 6vw, 70px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.events-header > p:last-child {
-    color: #aeb4bd;
-    font-size: 17px;
-    line-height: 1.7;
 }
 
 .events-grid {
     max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
 .event-card {
-    position: relative;
     min-height: 370px;
     padding: 40px 30px;
+
+    display: flex;
+    flex-direction: column;
 
     background: linear-gradient(
         145deg,
@@ -929,20 +513,17 @@ section {
     border: 1px solid rgba(212,175,55,0.30);
     border-radius: 8px;
 
-    display: flex;
-    flex-direction: column;
-
     transition: 0.3s ease;
 }
 
 .event-card:hover {
     transform: translateY(-8px);
     border-color: #d4af37;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
 }
 
 .event-card.featured {
     border: 2px solid #d4af37;
+
     background: linear-gradient(
         145deg,
         rgba(212,175,55,0.10),
@@ -959,24 +540,20 @@ section {
 }
 
 .event-type {
-    color: #d4af37 !important;
-    font-size: 11px !important;
+    color: #d4af37;
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 3px;
-    margin-bottom: 10px !important;
+    margin-bottom: 10px;
 }
 
 .event-card h3 {
-    color: #ffffff;
     font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 2px;
     margin-bottom: 15px;
 }
 
 .event-card > p:not(.event-type) {
     color: #9ca3ad;
-    font-size: 15px;
     line-height: 1.7;
 }
 
@@ -990,204 +567,39 @@ section {
     letter-spacing: 2px;
 }
 
-/* MOBILE */
-
-@media (max-width: 850px) {
-
-    .events-section {
-        padding: 80px 5%;
-    }
-
-    .events-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .event-card {
-        min-height: 300px;
-    }
-
-    .events-header h2 {
-        font-size: 40px;
-    }
-}
-
-/* =========================================
-   EVENTS & TURNERINGAR
-========================================= */
-
-.events-section {
-    background: #080a0e;
-    padding: 110px 7%;
-    color: #ffffff;
-}
-
-.events-header {
-    max-width: 800px;
-    margin: 0 auto 60px;
-    text-align: center;
-}
-
-.events-header .section-label {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.events-header h2 {
-    color: #ffffff;
-    font-size: clamp(38px, 6vw, 70px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-}
-
-.events-header > p:last-child {
-    color: #aeb4bd;
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.events-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-}
-
-.event-card {
-    position: relative;
-    min-height: 370px;
-    padding: 40px 30px;
-    background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.035),
-        rgba(255,255,255,0.01)
-    );
-    border: 1px solid rgba(212,175,55,0.30);
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s ease;
-}
-
-.event-card:hover {
-    transform: translateY(-8px);
-    border-color: #d4af37;
-    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
-}
-
-.event-card.featured {
-    border: 2px solid #d4af37;
-    background: linear-gradient(
-        145deg,
-        rgba(212,175,55,0.10),
-        rgba(255,255,255,0.02)
-    );
-}
-
-.event-number {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    margin-bottom: 45px;
-}
-
-.event-type {
-    color: #d4af37 !important;
-    font-size: 11px !important;
-    font-weight: 800;
-    letter-spacing: 3px;
-    margin-bottom: 10px !important;
-}
-
-.event-card h3 {
-    color: #ffffff;
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
-
-.event-card > p:not(.event-type) {
-    color: #9ca3ad;
-    font-size: 15px;
-    line-height: 1.7;
-}
-
-.event-card > span {
-    margin-top: auto;
-    padding-top: 30px;
-    color: #d4af37;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-/* EVENTS - MOBIL */
-
-@media (max-width: 850px) {
-    .events-section {
-        padding: 80px 5%;
-    }
-
-    .events-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .event-card {
-        min-height: 300px;
-    }
-
-    .events-header h2 {
-        font-size: 40px;
-    }
-}
 
 /* =========================================
    OM ELYSIUM
 ========================================= */
 
 .about-section {
-    background: #05070a;
+    background: #080a0e;
     padding: 110px 7%;
-    color: #ffffff;
 }
 
 .about-container {
     max-width: 1200px;
     margin: 0 auto;
+
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 80px;
+
     align-items: center;
 }
 
 .about-left .section-label {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-transform: uppercase;
     margin-bottom: 14px;
 }
 
 .about-left h2 {
-    color: #ffffff;
     font-size: clamp(42px, 6vw, 72px);
     font-weight: 900;
     letter-spacing: 3px;
-    text-transform: uppercase;
     margin-bottom: 30px;
 }
 
 .about-lead {
-    color: #ffffff;
     font-size: 21px;
     font-weight: 600;
     line-height: 1.6;
@@ -1209,25 +621,22 @@ section {
 .about-stat {
     min-height: 170px;
     padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
     background: linear-gradient(
         145deg,
         rgba(255,255,255,0.035),
         rgba(255,255,255,0.01)
     );
+
     border: 1px solid rgba(212,175,55,0.30);
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.about-stat:hover {
-    transform: translateY(-6px);
-    border-color: #d4af37;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .about-stat strong {
@@ -1238,94 +647,24 @@ section {
 }
 
 .about-stat span {
-    color: #ffffff;
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 2px;
 }
 
-/* OM ELYSIUM - MOBIL */
 
-@media (max-width: 850px) {
-
-    .about-section {
-        padding: 80px 5%;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .about-right {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-left h2 {
-        font-size: 40px;
-    }
-
-    .about-lead {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .about-right {
-        grid-template-columns: 1fr;
-    }
-}
-/* =========================================
-   SMOOTH NAVIGATION
-========================================= */
-
-html {
-    scroll-behavior: smooth;
-}
-
-section {
-    scroll-margin-top: 100px;
-}
 /* =========================================
    KONTAKT
 ========================================= */
 
 .contact-section {
-    background: #080a0e;
+    background: #05070a;
     padding: 110px 7%;
-    color: #ffffff;
 }
 
 .contact-container {
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.contact-header {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 60px;
-}
-
-.contact-header .section-label {
-    color: #d4af37;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: 4px;
-    margin-bottom: 12px;
-}
-
-.contact-header h2 {
-    font-size: clamp(38px, 6vw, 65px);
-    font-weight: 900;
-    letter-spacing: 3px;
-    margin-bottom: 15px;
-}
-
-.contact-header > p:last-child {
-    color: #aeb4bd;
-    font-size: 17px;
 }
 
 .contact-grid {
@@ -1335,6 +674,9 @@ section {
 }
 
 .contact-card {
+    min-height: 190px;
+    padding: 35px 30px;
+
     background: linear-gradient(
         145deg,
         rgba(255,255,255,0.035),
@@ -1343,22 +685,21 @@ section {
 
     border: 1px solid rgba(212,175,55,0.30);
     border-radius: 8px;
-    padding: 35px 30px;
-    min-height: 190px;
 }
 
 .contact-card span {
     display: block;
+
     color: #d4af37;
     font-size: 11px;
     font-weight: 900;
     letter-spacing: 3px;
+
     margin-bottom: 18px;
 }
 
 .contact-card strong {
     display: block;
-    color: #ffffff;
     font-size: 21px;
     margin-bottom: 10px;
 }
@@ -1374,11 +715,13 @@ section {
 ========================================= */
 
 footer {
-    background: #040506;
+    background: #030405;
+
     border-top: 1px solid rgba(212,175,55,0.25);
+
     padding: 55px 7% 35px;
+
     text-align: center;
-    color: #ffffff;
 }
 
 .footer-logo {
@@ -1390,9 +733,8 @@ footer {
 }
 
 footer > p {
-    color: #ffffff;
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 3px;
     margin-bottom: 25px;
 }
@@ -1423,20 +765,103 @@ footer small {
 }
 
 
-/* KONTAKT + FOOTER MOBIL */
+/* =========================================
+   MOBILE
+========================================= */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
 
-    .contact-section {
-        padding: 80px 5%;
+    header {
+        padding: 18px 5%;
     }
 
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .gaming-grid,
+    .pricing-grid,
+    .food-grid,
+    .events-grid,
     .contact-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-header h2 {
+    .price-card.featured {
+        transform: none;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    header {
+        position: sticky;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 5px;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    .hero {
+        min-height: 88vh;
+        padding: 120px 5% 70px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .tagline {
+        font-size: 25px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .gaming-section,
+    .pricing-section,
+    .food-section,
+    .events-section,
+    .about-section,
+    .contact-section {
+        padding: 80px 5%;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
         font-size: 38px;
+    }
+
+    .about-right {
+        grid-template-columns: 1fr;
     }
 
     .footer-links {
