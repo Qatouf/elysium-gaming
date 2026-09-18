@@ -416,3 +416,120 @@ section {
     max-width: 300px;
   }
 }
+
+/* =========================================
+   GAMING SECTION
+========================================= */
+
+.gaming-section {
+    background: #05070a;
+    padding: 100px 7%;
+    text-align: center;
+    position: relative;
+}
+
+.gaming-section .section-label {
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.gaming-section h2 {
+    color: #ffffff;
+    font-size: clamp(36px, 6vw, 70px);
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.gaming-section .section-description {
+    color: #aeb4bd;
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.gaming-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gaming-card {
+    background: linear-gradient(
+        145deg,
+        #0d1117,
+        #080a0d
+    );
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 8px;
+    padding: 45px 30px;
+    text-align: left;
+    transition: transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.gaming-card:hover {
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+}
+
+.card-number {
+    color: #d4af37;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.gaming-card h3 {
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.gaming-card p {
+    color: #9ca3ad;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.specs span {
+    color: #d4af37;
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    padding: 7px 11px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .gaming-section {
+        padding: 75px 5%;
+    }
+
+    .gaming-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gaming-card {
+        padding: 35px 25px;
+    }
+}
