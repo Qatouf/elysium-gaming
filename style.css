@@ -1276,3 +1276,14 @@ section {
         grid-template-columns: 1fr;
     }
 }
+/* =========================================
+   SMOOTH NAVIGATION
+========================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 100px;
+}
