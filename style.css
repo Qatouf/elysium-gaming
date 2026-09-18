@@ -868,3 +868,161 @@ footer small {
         gap: 15px;
     }
 }
+/* =========================================
+   EXTRA MOBILE POLISH
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 14px 5%;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        gap: 14px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 115px 5% 60px;
+        background-position: 58% center;
+    }
+
+    .hero .small-title {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: 2px;
+    }
+
+    .tagline {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .description {
+        max-width: 95%;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 15px 18px;
+    }
+
+    .section-heading,
+    .pricing-header,
+    .food-header,
+    .events-header,
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
+        font-size: 34px;
+        line-height: 1.1;
+        letter-spacing: 1.5px;
+    }
+
+    .gaming-card,
+    .price-card,
+    .food-card,
+    .event-card,
+    .contact-card {
+        min-height: auto;
+        padding: 30px 22px;
+    }
+
+    .price {
+        font-size: 48px;
+    }
+
+    .about-container {
+        gap: 35px;
+    }
+
+    .about-lead {
+        font-size: 17px;
+    }
+
+    .about-text {
+        font-size: 15px;
+    }
+
+    .about-stat {
+        min-height: 135px;
+    }
+
+    .about-stat strong {
+        font-size: 26px;
+    }
+
+    footer {
+        padding: 45px 5% 30px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .tagline {
+        font-size: 19px;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
+        font-size: 30px;
+    }
+}
