@@ -1148,3 +1148,131 @@ section {
         font-size: 40px;
     }
 }
+
+/* =========================================
+   OM ELYSIUM
+========================================= */
+
+.about-section {
+    background: #05070a;
+    padding: 110px 7%;
+    color: #ffffff;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-left .section-label {
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.about-left h2 {
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.about-lead {
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    color: #9ca3ad;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.about-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.about-stat {
+    min-height: 170px;
+    padding: 30px 20px;
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+    border: 1px solid rgba(212,175,55,0.30);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.about-stat:hover {
+    transform: translateY(-6px);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.about-stat strong {
+    color: #d4af37;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.about-stat span {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* OM ELYSIUM - MOBIL */
+
+@media (max-width: 850px) {
+
+    .about-section {
+        padding: 80px 5%;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-right {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-left h2 {
+        font-size: 40px;
+    }
+
+    .about-lead {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .about-right {
+        grid-template-columns: 1fr;
+    }
+}
