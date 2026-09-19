@@ -1,140 +1,346 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mat & Dryck | Elysium Gaming Lounge</title>
+    <title>Elysium Gaming Lounge - Meny</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #05070a;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .menu-page {
+            min-height: 100vh;
+            padding: 50px 20px 70px;
+        }
+
+        .header {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .logo {
+            color: #d4af37;
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 35px;
+        }
+
+        .label {
+            color: #d4af37;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #9ca3ad;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .category {
+            max-width: 800px;
+            margin: 0 auto 25px;
+            padding: 25px 22px;
+
+            background: #0b0e13;
+            border: 1px solid rgba(212,175,55,0.35);
+            border-radius: 8px;
+        }
+
+        .category-title {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 3px;
+
+            padding-bottom: 18px;
+            margin-bottom: 5px;
+
+            border-bottom: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            padding: 20px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            color: #ffffff;
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .item-description {
+            color: #777f89;
+            font-size: 13px;
+        }
+
+        .price {
+            color: #d4af37;
+            font-size: 18px;
+            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .info {
+            max-width: 800px;
+            margin: 45px auto 0;
+            text-align: center;
+        }
+
+        .info p {
+            color: #777f89;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .back {
+            display: inline-block;
+            padding: 14px 22px;
+
+            border: 1px solid #d4af37;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .back:hover {
+            background: #d4af37;
+            color: #05070a;
+        }
+
+        @media (max-width: 600px) {
+
+            .menu-page {
+                padding: 35px 14px 50px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            h1 {
+                font-size: 38px;
+            }
+
+            .category {
+                padding: 22px 18px;
+            }
+
+            .item {
+                padding: 17px 0;
+            }
+
+            .item-name {
+                font-size: 15px;
+            }
+
+            .item-description {
+                font-size: 12px;
+            }
+
+            .price {
+                font-size: 15px;
+            }
+
+            .back {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <main>
+<div class="menu-page">
 
-        <section class="menu-page">
+    <div class="header">
 
-            <div class="menu-top">
-                <a href="index.html" class="menu-logo">ELYSIUM</a>
+        <div class="logo">
+            ELYSIUM
+        </div>
 
-                <p class="section-label">FUEL YOUR GAME</p>
+        <div class="label">
+            FUEL YOUR GAME
+        </div>
 
-                <h1>MAT & DRYCK</h1>
+        <h1>
+            MAT & DRYCK
+        </h1>
 
-                <p class="menu-intro">
-                    Beställ något gott under din gaming-session.
-                </p>
+        <p class="intro">
+            Beställ något gott under din gaming-session.
+        </p>
+
+    </div>
+
+
+    <!-- DRYCK -->
+
+    <div class="category">
+
+        <div class="category-title">
+            DRYCK
+        </div>
+
+        <div class="item">
+            <div>
+                <div class="item-name">Coca-Cola</div>
+                <div class="item-description">33 cl</div>
             </div>
 
+            <div class="price">25 KR</div>
+        </div>
 
-            <div class="menu-category">
-
-                <h2>DRYCK</h2>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Coca-Cola</h3>
-                        <p>33 cl</p>
-                    </div>
-                    <strong>25 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Fanta</h3>
-                        <p>33 cl</p>
-                    </div>
-                    <strong>25 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Energidryck</h3>
-                        <p>Sortiment kan variera</p>
-                    </div>
-                    <strong>35 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Vatten</h3>
-                        <p>50 cl</p>
-                    </div>
-                    <strong>20 KR</strong>
-                </div>
-
+        <div class="item">
+            <div>
+                <div class="item-name">Fanta</div>
+                <div class="item-description">33 cl</div>
             </div>
 
+            <div class="price">25 KR</div>
+        </div>
 
-            <div class="menu-category">
-
-                <h2>SNACKS</h2>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Chips</h3>
-                        <p>Olika smaker</p>
-                    </div>
-                    <strong>25 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Godis</h3>
-                        <p>Sortiment kan variera</p>
-                    </div>
-                    <strong>25 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Proteinbar</h3>
-                        <p>Olika smaker</p>
-                    </div>
-                    <strong>30 KR</strong>
-                </div>
-
+        <div class="item">
+            <div>
+                <div class="item-name">Energidryck</div>
+                <div class="item-description">Olika sorter</div>
             </div>
 
+            <div class="price">35 KR</div>
+        </div>
 
-            <div class="menu-category">
-
-                <h2>MAT</h2>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Kall macka</h3>
-                        <p>Fyllning kan variera</p>
-                    </div>
-                    <strong>49 KR</strong>
-                </div>
-
-                <div class="menu-item">
-                    <div>
-                        <h3>Gaming Combo</h3>
-                        <p>Macka + valfri läsk</p>
-                    </div>
-                    <strong>69 KR</strong>
-                </div>
-
+        <div class="item">
+            <div>
+                <div class="item-name">Vatten</div>
+                <div class="item-description">50 cl</div>
             </div>
 
+            <div class="price">20 KR</div>
+        </div>
 
-            <div class="menu-info">
-                <p>
-                    Sortiment och priser kan komma att ändras inför öppningen.
-                </p>
+    </div>
 
-                <a href="index.html" class="btn">
-                    TILLBAKA TILL ELYSIUM
-                </a>
+
+    <!-- SNACKS -->
+
+    <div class="category">
+
+        <div class="category-title">
+            SNACKS
+        </div>
+
+        <div class="item">
+            <div>
+                <div class="item-name">Chips</div>
+                <div class="item-description">Olika smaker</div>
             </div>
 
-        </section>
+            <div class="price">25 KR</div>
+        </div>
 
-    </main>
+        <div class="item">
+            <div>
+                <div class="item-name">Godis</div>
+                <div class="item-description">Olika sorter</div>
+            </div>
+
+            <div class="price">25 KR</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <div class="item-name">Proteinbar</div>
+                <div class="item-description">Olika smaker</div>
+            </div>
+
+            <div class="price">30 KR</div>
+        </div>
+
+    </div>
+
+
+    <!-- MAT -->
+
+    <div class="category">
+
+        <div class="category-title">
+            MAT
+        </div>
+
+        <div class="item">
+            <div>
+                <div class="item-name">Kall macka</div>
+                <div class="item-description">Olika fyllningar</div>
+            </div>
+
+            <div class="price">49 KR</div>
+        </div>
+
+        <div class="item">
+            <div>
+                <div class="item-name">Gaming Combo</div>
+                <div class="item-description">Macka + valfri läsk</div>
+            </div>
+
+            <div class="price">69 KR</div>
+        </div>
+
+    </div>
+
+
+    <div class="info">
+
+        <p>
+            Sortiment och priser är preliminära och kan ändras inför öppningen.
+        </p>
+
+        <a href="index.html" class="back">
+            ← TILLBAKA TILL ELYSIUM
+        </a>
+
+    </div>
+
+</div>
 
 </body>
 </html>
