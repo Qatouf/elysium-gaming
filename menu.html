@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Elysium Gaming Lounge - Meny</title>
+    <title>Elysium Gaming Lounge | Meny</title>
 
     <style>
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
@@ -20,19 +22,21 @@
         }
 
         .menu-page {
-            min-height: 100vh;
-            padding: 50px 20px 70px;
+            max-width: 850px;
+            margin: auto;
+            padding: 35px 16px 140px;
         }
 
-        .header {
-            max-width: 800px;
-            margin: 0 auto 50px;
+        /* HEADER */
+
+        .menu-header {
             text-align: center;
+            margin-bottom: 45px;
         }
 
         .logo {
             color: #d4af37;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 900;
             letter-spacing: 5px;
             margin-bottom: 35px;
@@ -40,55 +44,51 @@
 
         .label {
             color: #d4af37;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 800;
             letter-spacing: 4px;
             margin-bottom: 12px;
         }
 
-        h1 {
-            font-size: 48px;
+        .menu-header h1 {
+            font-size: 44px;
             font-weight: 900;
             letter-spacing: 3px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .intro {
-            color: #9ca3ad;
-            font-size: 16px;
-            line-height: 1.6;
+            color: #9299a3;
+            font-size: 15px;
         }
 
-        .category {
-            max-width: 800px;
-            margin: 0 auto 25px;
-            padding: 25px 22px;
+        /* CATEGORIES */
 
+        .category {
+            margin-bottom: 28px;
             background: #0b0e13;
-            border: 1px solid rgba(212,175,55,0.35);
-            border-radius: 8px;
+            border: 1px solid rgba(212,175,55,0.30);
+            border-radius: 9px;
+            padding: 22px 18px;
         }
 
         .category-title {
             color: #d4af37;
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 900;
             letter-spacing: 3px;
-
-            padding-bottom: 18px;
-            margin-bottom: 5px;
-
-            border-bottom: 1px solid rgba(212,175,55,0.2);
+            padding-bottom: 17px;
+            border-bottom: 1px solid rgba(212,175,55,0.20);
         }
+
+        /* PRODUCTS */
 
         .item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
-
-            padding: 20px 0;
-
+            gap: 15px;
+            padding: 17px 0;
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
 
@@ -96,46 +96,142 @@
             border-bottom: none;
         }
 
+        .item-info {
+            flex: 1;
+        }
+
         .item-name {
             color: #ffffff;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             margin-bottom: 5px;
         }
 
         .item-description {
-            color: #777f89;
-            font-size: 13px;
+            color: #737b86;
+            font-size: 12px;
         }
 
-        .price {
+        .item-price {
             color: #d4af37;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 900;
             white-space: nowrap;
         }
 
-        .info {
-            max-width: 800px;
-            margin: 45px auto 0;
-            text-align: center;
+        /* QUANTITY */
+
+        .quantity {
+            display: flex;
+            align-items: center;
+            gap: 7px;
         }
 
-        .info p {
-            color: #777f89;
-            font-size: 12px;
+        .quantity button {
+            width: 32px;
+            height: 32px;
+
+            border: 1px solid rgba(212,175,55,0.45);
+            background: transparent;
+            color: #d4af37;
+
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        .quantity button:hover {
+            background: #d4af37;
+            color: #05070a;
+        }
+
+        .quantity span {
+            width: 22px;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        /* ORDER BOX */
+
+        .order-box {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+
+            background: rgba(5,7,10,0.96);
+            backdrop-filter: blur(12px);
+
+            border-top: 1px solid rgba(212,175,55,0.35);
+
+            padding: 15px 18px;
+
+            z-index: 100;
+        }
+
+        .order-inner {
+            max-width: 850px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .total-label {
+            color: #9299a3;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .total {
+            color: #d4af37;
+            font-size: 22px;
+            font-weight: 900;
+            margin-top: 3px;
+        }
+
+        .order-button {
+            border: none;
+            background: #d4af37;
+            color: #05070a;
+
+            padding: 14px 22px;
+
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+
+            cursor: pointer;
+        }
+
+        .order-button:hover {
+            background: #ffffff;
+        }
+
+        /* INFO */
+
+        .menu-info {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .menu-info p {
+            color: #656c75;
+            font-size: 11px;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .back {
             display: inline-block;
-            padding: 14px 22px;
 
             border: 1px solid #d4af37;
-
             color: #ffffff;
+
             text-decoration: none;
+
+            padding: 13px 20px;
 
             font-size: 11px;
             font-weight: 900;
@@ -147,53 +243,55 @@
             color: #05070a;
         }
 
-        @media (max-width: 600px) {
+        /* MOBILE */
+
+        @media (max-width: 500px) {
 
             .menu-page {
-                padding: 35px 14px 50px;
+                padding: 30px 12px 130px;
             }
 
-            .logo {
-                font-size: 25px;
-            }
-
-            h1 {
-                font-size: 38px;
-            }
-
-            .category {
-                padding: 22px 18px;
+            .menu-header h1 {
+                font-size: 36px;
             }
 
             .item {
-                padding: 17px 0;
+                gap: 8px;
             }
 
             .item-name {
-                font-size: 15px;
+                font-size: 14px;
             }
 
             .item-description {
-                font-size: 12px;
+                font-size: 11px;
             }
 
-            .price {
-                font-size: 15px;
+            .item-price {
+                font-size: 14px;
             }
 
-            .back {
-                width: 100%;
-                text-align: center;
+            .quantity button {
+                width: 29px;
+                height: 29px;
+            }
+
+            .order-button {
+                padding: 13px 15px;
             }
         }
+
     </style>
 </head>
+
 
 <body>
 
 <div class="menu-page">
 
-    <div class="header">
+    <!-- HEADER -->
+
+    <div class="menu-header">
 
         <div class="logo">
             ELYSIUM
@@ -208,7 +306,7 @@
         </h1>
 
         <p class="intro">
-            Beställ något gott under din gaming-session.
+            Välj dina produkter och lägg dem i din beställning.
         </p>
 
     </div>
@@ -222,40 +320,229 @@
             DRYCK
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Coca-Cola</div>
-                <div class="item-description">33 cl</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Coca-Cola
+                </div>
+
+                <div class="item-description">
+                    33 cl
+                </div>
             </div>
 
-            <div class="price">25 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('cola', -1)">−</button>
+                <span id="cola">0</span>
+                <button onclick="changeQuantity('cola', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Fanta</div>
-                <div class="item-description">33 cl</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Coca-Cola Zero
+                </div>
+
+                <div class="item-description">
+                    33 cl
+                </div>
             </div>
 
-            <div class="price">25 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('cola-zero', -1)">−</button>
+                <span id="cola-zero">0</span>
+                <button onclick="changeQuantity('cola-zero', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Energidryck</div>
-                <div class="item-description">Olika sorter</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Fanta
+                </div>
+
+                <div class="item-description">
+                    33 cl
+                </div>
             </div>
 
-            <div class="price">35 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('fanta', -1)">−</button>
+                <span id="fanta">0</span>
+                <button onclick="changeQuantity('fanta', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Vatten</div>
-                <div class="item-description">50 cl</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Sprite
+                </div>
+
+                <div class="item-description">
+                    33 cl
+                </div>
             </div>
 
-            <div class="price">20 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('sprite', -1)">−</button>
+                <span id="sprite">0</span>
+                <button onclick="changeQuantity('sprite', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Red Bull
+                </div>
+
+                <div class="item-description">
+                    Energidryck
+                </div>
+            </div>
+
+            <div class="item-price">
+                35 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('redbull', -1)">−</button>
+                <span id="redbull">0</span>
+                <button onclick="changeQuantity('redbull', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Monster
+                </div>
+
+                <div class="item-description">
+                    Energidryck
+                </div>
+            </div>
+
+            <div class="item-price">
+                35 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('monster', -1)">−</button>
+                <span id="monster">0</span>
+                <button onclick="changeQuantity('monster', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Nocco
+                </div>
+
+                <div class="item-description">
+                    Energidryck
+                </div>
+            </div>
+
+            <div class="item-price">
+                35 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('nocco', -1)">−</button>
+                <span id="nocco">0</span>
+                <button onclick="changeQuantity('nocco', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Celsius
+                </div>
+
+                <div class="item-description">
+                    Energidryck
+                </div>
+            </div>
+
+            <div class="item-price">
+                35 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('celsius', -1)">−</button>
+                <span id="celsius">0</span>
+                <button onclick="changeQuantity('celsius', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Vatten
+                </div>
+
+                <div class="item-description">
+                    50 cl
+                </div>
+            </div>
+
+            <div class="item-price">
+                20 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('water', -1)">−</button>
+                <span id="water">0</span>
+                <button onclick="changeQuantity('water', 1)">+</button>
+            </div>
+
         </div>
 
     </div>
@@ -269,31 +556,104 @@
             SNACKS
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Chips</div>
-                <div class="item-description">Olika smaker</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Chips
+                </div>
+
+                <div class="item-description">
+                    Olika smaker
+                </div>
             </div>
 
-            <div class="price">25 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('chips', -1)">−</button>
+                <span id="chips">0</span>
+                <button onclick="changeQuantity('chips', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Godis</div>
-                <div class="item-description">Olika sorter</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Godis
+                </div>
+
+                <div class="item-description">
+                    Olika sorter
+                </div>
             </div>
 
-            <div class="price">25 KR</div>
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('candy', -1)">−</button>
+                <span id="candy">0</span>
+                <button onclick="changeQuantity('candy', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Proteinbar</div>
-                <div class="item-description">Olika smaker</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Proteinbar
+                </div>
+
+                <div class="item-description">
+                    Olika smaker
+                </div>
             </div>
 
-            <div class="price">30 KR</div>
+            <div class="item-price">
+                30 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('proteinbar', -1)">−</button>
+                <span id="proteinbar">0</span>
+                <button onclick="changeQuantity('proteinbar', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Popcorn
+                </div>
+
+                <div class="item-description">
+                    Snacks
+                </div>
+            </div>
+
+            <div class="item-price">
+                25 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('popcorn', -1)">−</button>
+                <span id="popcorn">0</span>
+                <button onclick="changeQuantity('popcorn', 1)">+</button>
+            </div>
+
         </div>
 
     </div>
@@ -307,28 +667,223 @@
             MAT
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Kall macka</div>
-                <div class="item-description">Olika fyllningar</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Kall macka
+                </div>
+
+                <div class="item-description">
+                    Olika fyllningar
+                </div>
             </div>
 
-            <div class="price">49 KR</div>
+            <div class="item-price">
+                49 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('macka', -1)">−</button>
+                <span id="macka">0</span>
+                <button onclick="changeQuantity('macka', 1)">+</button>
+            </div>
+
         </div>
 
+
         <div class="item">
-            <div>
-                <div class="item-name">Gaming Combo</div>
-                <div class="item-description">Macka + valfri läsk</div>
+
+            <div class="item-info">
+                <div class="item-name">
+                    Wrap
+                </div>
+
+                <div class="item-description">
+                    Olika fyllningar
+                </div>
             </div>
 
-            <div class="price">69 KR</div>
+            <div class="item-price">
+                55 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('wrap', -1)">−</button>
+                <span id="wrap">0</span>
+                <button onclick="changeQuantity('wrap', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Toast
+                </div>
+
+                <div class="item-description">
+                    Ost & skinka
+                </div>
+            </div>
+
+            <div class="item-price">
+                45 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('toast', -1)">−</button>
+                <span id="toast">0</span>
+                <button onclick="changeQuantity('toast', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Korv med bröd
+                </div>
+
+                <div class="item-description">
+                    Enkel gaming-snack
+                </div>
+            </div>
+
+            <div class="item-price">
+                35 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('korv', -1)">−</button>
+                <span id="korv">0</span>
+                <button onclick="changeQuantity('korv', 1)">+</button>
+            </div>
+
         </div>
 
     </div>
 
 
-    <div class="info">
+    <!-- COMBOS -->
+
+    <div class="category">
+
+        <div class="category-title">
+            GAMING COMBOS
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Gaming Combo 1
+                </div>
+
+                <div class="item-description">
+                    Läsk + chips
+                </div>
+            </div>
+
+            <div class="item-price">
+                45 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('combo1', -1)">−</button>
+                <span id="combo1">0</span>
+                <button onclick="changeQuantity('combo1', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Gaming Combo 2
+                </div>
+
+                <div class="item-description">
+                    Energidryck + snacks
+                </div>
+            </div>
+
+            <div class="item-price">
+                55 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('combo2', -1)">−</button>
+                <span id="combo2">0</span>
+                <button onclick="changeQuantity('combo2', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Gaming Combo 3
+                </div>
+
+                <div class="item-description">
+                    Kall macka + läsk
+                </div>
+            </div>
+
+            <div class="item-price">
+                69 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('combo3', -1)">−</button>
+                <span id="combo3">0</span>
+                <button onclick="changeQuantity('combo3', 1)">+</button>
+            </div>
+
+        </div>
+
+
+        <div class="item">
+
+            <div class="item-info">
+                <div class="item-name">
+                    Gaming Combo 4
+                </div>
+
+                <div class="item-description">
+                    Macka + energidryck + snacks
+                </div>
+            </div>
+
+            <div class="item-price">
+                89 KR
+            </div>
+
+            <div class="quantity">
+                <button onclick="changeQuantity('combo4', -1)">−</button>
+                <span id="combo4">0</span>
+                <button onclick="changeQuantity('combo4', 1)">+</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INFO -->
+
+    <div class="menu-info">
 
         <p>
             Sortiment och priser är preliminära och kan ändras inför öppningen.
@@ -341,6 +896,124 @@
     </div>
 
 </div>
+
+
+<!-- ORDER BAR -->
+
+<div class="order-box">
+
+    <div class="order-inner">
+
+        <div>
+            <div class="total-label">
+                TOTALT
+            </div>
+
+            <div class="total" id="total">
+                0 KR
+            </div>
+        </div>
+
+        <button class="order-button" onclick="placeOrder()">
+            BESTÄLL
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const products = {
+
+        cola: 25,
+        "cola-zero": 25,
+        fanta: 25,
+        sprite: 25,
+        redbull: 35,
+        monster: 35,
+        nocco: 35,
+        celsius: 35,
+        water: 20,
+
+        chips: 25,
+        candy: 25,
+        proteinbar: 30,
+        popcorn: 25,
+
+        macka: 49,
+        wrap: 55,
+        toast: 45,
+        korv: 35,
+
+        combo1: 45,
+        combo2: 55,
+        combo3: 69,
+        combo4: 89
+    };
+
+
+    const quantities = {};
+
+
+    function changeQuantity(product, amount) {
+
+        if (!quantities[product]) {
+            quantities[product] = 0;
+        }
+
+        quantities[product] += amount;
+
+        if (quantities[product] < 0) {
+            quantities[product] = 0;
+        }
+
+        document.getElementById(product).textContent =
+            quantities[product];
+
+        calculateTotal();
+    }
+
+
+    function calculateTotal() {
+
+        let total = 0;
+
+        for (const product in quantities) {
+
+            total +=
+                quantities[product] *
+                products[product];
+        }
+
+        document.getElementById("total").textContent =
+            total + " KR";
+    }
+
+
+    function placeOrder() {
+
+        let totalItems = 0;
+
+        for (const product in quantities) {
+            totalItems += quantities[product];
+        }
+
+        if (totalItems === 0) {
+
+            alert("Välj minst en produkt innan du beställer.");
+
+            return;
+        }
+
+        alert(
+            "Din beställning är redo!\\n\\n" +
+            "Nästa steg blir att koppla beställningen till Elysiums riktiga beställningssystem."
+        );
+    }
+
+</script>
 
 </body>
 </html>
