@@ -922,96 +922,127 @@
 
 </div>
 
-
 <script>
 
-    const products = {
+const products = {
+    cola: { name: "Coca-Cola", price: 25 },
+    "cola-zero": { name: "Coca-Cola Zero", price: 25 },
+    fanta: { name: "Fanta", price: 25 },
+    sprite: { name: "Sprite", price: 25 },
+    redbull: { name: "Red Bull", price: 35 },
+    monster: { name: "Monster", price: 35 },
+    nocco: { name: "Nocco", price: 35 },
+    celsius: { name: "Celsius", price: 35 },
+    water: { name: "Vatten", price: 20 },
 
-        cola: 25,
-        "cola-zero": 25,
-        fanta: 25,
-        sprite: 25,
-        redbull: 35,
-        monster: 35,
-        nocco: 35,
-        celsius: 35,
-        water: 20,
+    chips: { name: "Chips", price: 25 },
+    candy: { name: "Godis", price: 25 },
+    proteinbar: { name: "Proteinbar", price: 30 },
+    popcorn: { name: "Popcorn", price: 25 },
 
-        chips: 25,
-        candy: 25,
-        proteinbar: 30,
-        popcorn: 25,
+    macka: { name: "Kall macka", price: 49 },
+    wrap: { name: "Wrap", price: 55 },
+    toast: { name: "Toast", price: 45 },
+    korv: { name: "Korv med bröd", price: 35 },
 
-        macka: 49,
-        wrap: 55,
-        toast: 45,
-        korv: 35,
+    combo1: { name: "Gaming Combo 1", price: 45 },
+    combo2: { name: "Gaming Combo 2", price: 55 },
+    combo3: { name: "Gaming Combo 3", price: 69 },
+    combo4: { name: "Gaming Combo 4", price: 89 }
+};
 
-        combo1: 45,
-        combo2: 55,
-        combo3: 69,
-        combo4: 89
+const quantities = {};
+
+function changeQuantity(product, amount) {
+    if (!quantities[product]) {
+        quantities[product] = 0;
+    }
+
+    quantities[product] += amount;
+
+    if (quantities[product] < 0) {
+        quantities[product] = 0;
+    }
+
+    document.getElementById(product).textContent = quantities[product];
+
+    calculateTotal();
+}
+
+function calculateTotal() {
+    let total = 0;
+
+    for (const product in quantities) {
+        total += quantities[product] * products[product].price;
+    }
+
+    document.getElementById("total").textContent = total + " KR";
+}
+
+function placeOrder() {
+    let orderItems = [];
+    let total = 0;
+
+    for (const product in quantities) {
+        const quantity = quantities[product];
+
+        if (quantity > 0) {
+            const item = products[product];
+
+            orderItems.push(quantity + "× " + item.name);
+
+            total += quantity * item.price;
+        }
+    }
+
+    if (orderItems.length === 0) {
+        alert("Välj minst en produkt innan du beställer.");
+        return;
+    }
+
+    const place = prompt(
+        "Ange din plats, exempelvis PC 12 eller PS5 1:"
+    );
+
+    if (!place) {
+        alert("Du måste ange din plats.");
+        return;
+    }
+
+    const orderText = orderItems.join(", ");
+
+    const data = {
+        place: place,
+        order: orderText,
+        total: total
     };
 
-
-    const quantities = {};
-
-
-    function changeQuantity(product, amount) {
-
-        if (!quantities[product]) {
-            quantities[product] = 0;
+    fetch(
+        "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
+        {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8"
+            },
+            body: JSON.stringify(data)
         }
+    );
 
-        quantities[product] += amount;
+    alert(
+        "BESTÄLLNING SKICKAD!\n\n" +
+        "Plats: " + place + "\n" +
+        "Beställning: " + orderText + "\n" +
+        "Totalt: " + total + " KR"
+    );
 
-        if (quantities[product] < 0) {
-            quantities[product] = 0;
-        }
-
-        document.getElementById(product).textContent =
-            quantities[product];
-
-        calculateTotal();
+    for (const product in quantities) {
+        quantities[product] = 0;
+        document.getElementById(product).textContent = "0";
     }
 
-
-    function calculateTotal() {
-
-        let total = 0;
-
-        for (const product in quantities) {
-
-            total +=
-                quantities[product] *
-                products[product];
-        }
-
-        document.getElementById("total").textContent =
-            total + " KR";
-    }
-
-
-    function placeOrder() {
-
-        let totalItems = 0;
-
-        for (const product in quantities) {
-            totalItems += quantities[product];
-        }
-
-        if (totalItems === 0) {
-
-            alert("Välj minst en produkt innan du beställer.");
-
-            return;
-        }
-
-        alert(
-            "Din beställning är redo!\\n\\n" +
-            "Nästa steg blir att koppla beställningen till Elysiums riktiga beställningssystem."
-        );
-    }
+    calculateTotal();
+}
 
 </script>
 
