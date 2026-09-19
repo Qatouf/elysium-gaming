@@ -1026,3 +1026,191 @@ footer small {
         font-size: 30px;
     }
 }
+/* =========================================
+   QR MENU
+========================================= */
+
+.menu-page {
+    min-height: 100vh;
+    background: #05070a;
+    color: #ffffff;
+    padding: 100px 6% 60px;
+}
+
+.menu-top {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.menu-logo {
+    display: inline-block;
+    color: #d4af37;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 45px;
+}
+
+.menu-top .section-label {
+    margin-bottom: 12px;
+}
+
+.menu-top h1 {
+    font-size: clamp(42px, 8vw, 75px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.menu-intro {
+    color: #aeb4bd;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* MENU CATEGORIES */
+
+.menu-category {
+    max-width: 800px;
+    margin: 0 auto 35px;
+
+    background: linear-gradient(
+        145deg,
+        #0d1117,
+        #080a0d
+    );
+
+    border: 1px solid rgba(212,175,55,0.30);
+    border-radius: 8px;
+
+    padding: 30px;
+}
+
+.menu-category h2 {
+    color: #d4af37;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    padding-bottom: 18px;
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid rgba(212,175,55,0.20);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    color: #777f89;
+    font-size: 13px;
+}
+
+.menu-item strong {
+    color: #d4af37;
+    font-size: 17px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+
+/* MENU INFO */
+
+.menu-info {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+.menu-info p {
+    color: #777f89;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.menu-info .btn {
+    display: inline-block;
+}
+
+
+/* MOBILE MENU */
+
+@media (max-width: 600px) {
+
+    .menu-page {
+        padding: 60px 5% 40px;
+    }
+
+    .menu-logo {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .menu-top {
+        margin-bottom: 40px;
+    }
+
+    .menu-top h1 {
+        font-size: 40px;
+    }
+
+    .menu-intro {
+        font-size: 15px;
+    }
+
+    .menu-category {
+        padding: 22px 18px;
+        margin-bottom: 20px;
+    }
+
+    .menu-category h2 {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        padding: 17px 0;
+    }
+
+    .menu-item h3 {
+        font-size: 15px;
+    }
+
+    .menu-item p {
+        font-size: 12px;
+    }
+
+    .menu-item strong {
+        font-size: 15px;
+    }
+
+    .menu-info {
+        margin-top: 35px;
+    }
+
+    .menu-info .btn {
+        width: 100%;
+    }
+}
