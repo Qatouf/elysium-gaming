@@ -353,8 +353,88 @@
                 padding: 13px 15px;
             }
         }
+.confirmation-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.82);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+}
 
-    </style>
+.confirmation-box {
+    width: 100%;
+    max-width: 420px;
+    background: #0b0e13;
+    border: 1px solid #d4af37;
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.confirmation-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.confirmation-box h2 {
+    color: #ffffff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.confirmation-subtitle {
+    color: #9299a3;
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.confirmation-place {
+    color: #d4af37;
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.confirmation-order {
+    background: #05070a;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 18px;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.confirmation-total {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.confirmation-close {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 4px;
+    background: #d4af37;
+    color: #05070a;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+}    </style>
 
 </head>
 
@@ -1229,8 +1309,47 @@
 
 </div>
 
+<!-- ORDER CONFIRMATION -->
 
-<!-- ORDER BAR -->
+<div class="confirmation-overlay" id="confirmationOverlay">
+
+    <div class="confirmation-box">
+
+        <div class="confirmation-icon">
+            ✓
+        </div>
+
+        <h2>
+            BESTÄLLNING MOTTAGEN
+        </h2>
+
+        <div class="confirmation-subtitle">
+            Din beställning har skickats till personalen.
+        </div>
+
+        <div class="confirmation-place" id="confirmationPlace">
+            PC 12
+        </div>
+
+        <div class="confirmation-order" id="confirmationOrder">
+            Din beställning
+        </div>
+
+        <div class="confirmation-total" id="confirmationTotal">
+            0 KR
+        </div>
+
+        <button
+            class="confirmation-close"
+            onclick="closeConfirmation()">
+
+            KLART
+
+        </button>
+
+    </div>
+
+</div><!-- ORDER BAR -->
 
 <div class="order-box">
 
@@ -1645,23 +1764,15 @@
            BEKRÄFTA
         ============================ */
 
-        alert(
+document.getElementById("confirmationPlace").textContent = place;
 
-            "BESTÄLLNING SKICKAD!\n\n" +
+document.getElementById("confirmationOrder").textContent = orderText;
 
-            "Plats: " +
-            place +
-            "\n\n" +
+document.getElementById("confirmationTotal").textContent = total + " KR";
 
-            "Beställning:\n" +
-            orderText +
-            "\n\n" +
+document.getElementById("confirmationOverlay").style.display = "flex";          
 
-            "Totalt: " +
-            total +
-            " KR"
-
-        );
+    
 
 
         /* ============================
@@ -1689,8 +1800,9 @@
         calculateTotal();
 
     }
-
-</script>
+function closeConfirmation() {
+    document.getElementById("confirmationOverlay").style.display = "none";
+}</script>
 
 
 </body>
