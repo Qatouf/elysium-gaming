@@ -2,361 +2,247 @@
 <html lang="sv">
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Elysium Gaming Lounge | Meny</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #05070a;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.menu-page {
+    max-width: 850px;
+    margin: auto;
+    padding: 35px 15px 140px;
+}
+
+/* HEADER */
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+.label {
+    color: #d4af37;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.menu-header h1 {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.intro {
+    color: #9299a3;
+    font-size: 15px;
+}
+
+.station {
+    display: none;
+    margin-top: 18px;
+    color: #d4af37;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* CATEGORY */
+
+.category {
+    margin-bottom: 25px;
+    padding: 22px 18px;
+    background: #0b0e13;
+    border: 1px solid rgba(212,175,55,0.30);
+    border-radius: 9px;
+}
+
+.category-title {
+    color: #d4af37;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid rgba(212,175,55,0.20);
+}
+
+
+/* PRODUCT */
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-name {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.item-description {
+    color: #737b86;
+    font-size: 12px;
+}
+
+.item-price {
+    color: #d4af37;
+    font-size: 15px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+
+/* PLUS / MINUS */
+
+.quantity {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quantity button {
+    width: 31px;
+    height: 31px;
+    border: 1px solid rgba(212,175,55,0.5);
+    background: transparent;
+    color: #d4af37;
+    font-size: 19px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.quantity button:hover {
+    background: #d4af37;
+    color: #05070a;
+}
+
+.quantity span {
+    width: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+/* ORDER BAR */
+
+.order-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(5,7,10,0.97);
+    border-top: 1px solid rgba(212,175,55,0.35);
+    padding: 13px 15px;
+    z-index: 100;
+}
+
+.order-inner {
+    max-width: 850px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.total-label {
+    color: #9299a3;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.total {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+.order-button {
+    border: none;
+    background: #d4af37;
+    color: #05070a;
+    padding: 14px 22px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+
+/* BACK BUTTON */
+
+.menu-info {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.menu-info p {
+    color: #656c75;
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.back {
+    display: inline-block;
+    border: 1px solid #d4af37;
+    color: white;
+    text-decoration: none;
+    padding: 13px 20px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* BEKRÄFTELSERUTA */
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Elysium Gaming Lounge | Meny</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background: #05070a;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .menu-page {
-            max-width: 850px;
-            margin: auto;
-            padding: 35px 15px 140px;
-        }
-
-        /* HEADER */
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .logo {
-            color: #d4af37;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 35px;
-        }
-
-        .label {
-            color: #d4af37;
-            font-size: 11px;
-            font-weight: 800;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-        }
-
-        .menu-header h1 {
-            font-size: 44px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 12px;
-        }
-
-        .intro {
-            color: #9299a3;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        .station {
-            display: none;
-            margin-top: 18px;
-            color: #d4af37;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-
-        /* CATEGORY */
-
-        .category {
-            margin-bottom: 25px;
-            padding: 22px 18px;
-
-            background: #0b0e13;
-
-            border: 1px solid rgba(212,175,55,0.30);
-
-            border-radius: 9px;
-        }
-
-        .category-title {
-            color: #d4af37;
-
-            font-size: 17px;
-            font-weight: 900;
-
-            letter-spacing: 3px;
-
-            padding-bottom: 17px;
-
-            border-bottom: 1px solid rgba(212,175,55,0.20);
-        }
-
-
-        /* PRODUCT */
-
-        .item {
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            padding: 17px 0;
-
-            border-bottom: 1px solid rgba(255,255,255,0.07);
-        }
-
-        .item:last-child {
-            border-bottom: none;
-        }
-
-        .item-info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .item-name {
-            color: #ffffff;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            margin-bottom: 5px;
-        }
-
-        .item-description {
-            color: #737b86;
-
-            font-size: 12px;
-        }
-
-        .item-price {
-            color: #d4af37;
-
-            font-size: 15px;
-
-            font-weight: 900;
-
-            white-space: nowrap;
-        }
-
-
-        /* QUANTITY */
-
-        .quantity {
-            display: flex;
-
-            align-items: center;
-
-            gap: 6px;
-        }
-
-        .quantity button {
-            width: 31px;
-            height: 31px;
-
-            border: 1px solid rgba(212,175,55,0.5);
-
-            background: transparent;
-
-            color: #d4af37;
-
-            font-size: 19px;
-
-            cursor: pointer;
-
-            border-radius: 4px;
-        }
-
-        .quantity button:active {
-            background: #d4af37;
-
-            color: #05070a;
-        }
-
-        .quantity span {
-            width: 20px;
-
-            text-align: center;
-
-            font-size: 14px;
-
-            font-weight: 800;
-        }
-
-
-        /* ORDER BAR */
-
-        .order-box {
-            position: fixed;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100%;
-
-            background: rgba(5,7,10,0.97);
-
-            border-top: 1px solid rgba(212,175,55,0.35);
-
-            padding: 13px 15px;
-
-            z-index: 100;
-        }
-
-        .order-inner {
-            max-width: 850px;
-
-            margin: auto;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 15px;
-        }
-
-        .total-label {
-            color: #9299a3;
-
-            font-size: 10px;
-
-            letter-spacing: 2px;
-        }
-
-        .total {
-            color: #d4af37;
-
-            font-size: 22px;
-
-            font-weight: 900;
-
-            margin-top: 3px;
-        }
-
-        .order-button {
-            border: none;
-
-            background: #d4af37;
-
-            color: #05070a;
-
-            padding: 14px 22px;
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-
-            cursor: pointer;
-
-            border-radius: 3px;
-        }
-
-        .order-button:active {
-            transform: scale(0.97);
-        }
-
-
-        /* INFO */
-
-        .menu-info {
-            text-align: center;
-
-            margin-top: 40px;
-        }
-
-        .menu-info p {
-            color: #656c75;
-
-            font-size: 11px;
-
-            line-height: 1.6;
-
-            margin-bottom: 22px;
-        }
-
-        .back {
-            display: inline-block;
-
-            border: 1px solid #d4af37;
-
-            color: white;
-
-            text-decoration: none;
-
-            padding: 13px 20px;
-
-            font-size: 11px;
-
-            font-weight: 900;
-
-            letter-spacing: 2px;
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 500px) {
-
-            .menu-page {
-                padding: 30px 12px 125px;
-            }
-
-            .logo {
-                font-size: 25px;
-            }
-
-            .menu-header h1 {
-                font-size: 36px;
-            }
-
-            .category {
-                padding: 20px 15px;
-            }
-
-            .item {
-                gap: 7px;
-            }
-
-            .item-name {
-                font-size: 14px;
-            }
-
-            .item-description {
-                font-size: 11px;
-            }
-
-            .item-price {
-                font-size: 14px;
-            }
-
-            .quantity button {
-                width: 29px;
-                height: 29px;
-            }
-
-            .order-button {
-                padding: 13px 15px;
-            }
-        }
 .confirmation-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.82);
+    background: rgba(0,0,0,0.86);
     display: none;
     align-items: center;
     justify-content: center;
@@ -372,6 +258,7 @@
     border-radius: 12px;
     padding: 32px 24px;
     text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
 
 .confirmation-icon {
@@ -390,13 +277,15 @@
 
 .confirmation-box h2 {
     color: #ffffff;
-    font-size: 22px;
+    font-size: 21px;
     margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .confirmation-subtitle {
     color: #9299a3;
     font-size: 13px;
+    line-height: 1.5;
     margin-bottom: 22px;
 }
 
@@ -404,6 +293,7 @@
     color: #d4af37;
     font-size: 15px;
     font-weight: 900;
+    letter-spacing: 2px;
     margin-bottom: 18px;
 }
 
@@ -414,6 +304,7 @@
     margin-bottom: 18px;
     color: #ffffff;
     font-size: 13px;
+    line-height: 1.7;
 }
 
 .confirmation-total {
@@ -434,7 +325,57 @@
     font-weight: 900;
     letter-spacing: 2px;
     cursor: pointer;
-}    </style>
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .menu-page {
+        padding: 30px 12px 125px;
+    }
+
+    .logo {
+        font-size: 25px;
+    }
+
+    .menu-header h1 {
+        font-size: 36px;
+    }
+
+    .category {
+        padding: 20px 15px;
+    }
+
+    .item {
+        gap: 7px;
+    }
+
+    .item-name {
+        font-size: 14px;
+    }
+
+    .item-description {
+        font-size: 11px;
+    }
+
+    .item-price {
+        font-size: 14px;
+    }
+
+    .quantity button {
+        width: 29px;
+        height: 29px;
+    }
+
+    .order-button {
+        padding: 13px 15px;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -445,1364 +386,926 @@
 <div class="menu-page">
 
 
-    <!-- HEADER -->
+<div class="menu-header">
 
-    <div class="menu-header">
-
-        <div class="logo">
-            ELYSIUM
-        </div>
-
-        <div class="label">
-            FUEL YOUR GAME
-        </div>
-
-        <h1>
-            MAT & DRYCK
-        </h1>
-
-        <p class="intro">
-            Välj dina produkter och lägg dem i din beställning.
-        </p>
-
-        <div class="station" id="station">
-            PC
-        </div>
-
+    <div class="logo">
+        ELYSIUM
     </div>
 
-
-    <!-- DRYCK -->
-
-    <div class="category">
-
-        <div class="category-title">
-            DRYCK
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Coca-Cola
-                </div>
-
-                <div class="item-description">
-                    33 cl
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('cola', -1)">
-                    −
-                </button>
-
-                <span id="cola">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('cola', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Coca-Cola Zero
-                </div>
-
-                <div class="item-description">
-                    33 cl
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('cola-zero', -1)">
-                    −
-                </button>
-
-                <span id="cola-zero">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('cola-zero', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Fanta
-                </div>
-
-                <div class="item-description">
-                    33 cl
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('fanta', -1)">
-                    −
-                </button>
-
-                <span id="fanta">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('fanta', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Sprite
-                </div>
-
-                <div class="item-description">
-                    33 cl
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('sprite', -1)">
-                    −
-                </button>
-
-                <span id="sprite">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('sprite', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Red Bull
-                </div>
-
-                <div class="item-description">
-                    Energidryck
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                35 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('redbull', -1)">
-                    −
-                </button>
-
-                <span id="redbull">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('redbull', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Monster
-                </div>
-
-                <div class="item-description">
-                    Energidryck
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                35 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('monster', -1)">
-                    −
-                </button>
-
-                <span id="monster">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('monster', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Nocco
-                </div>
-
-                <div class="item-description">
-                    Energidryck
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                35 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('nocco', -1)">
-                    −
-                </button>
-
-                <span id="nocco">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('nocco', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Celsius
-                </div>
-
-                <div class="item-description">
-                    Energidryck
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                35 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('celsius', -1)">
-                    −
-                </button>
-
-                <span id="celsius">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('celsius', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Vatten
-                </div>
-
-                <div class="item-description">
-                    50 cl
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                20 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('water', -1)">
-                    −
-                </button>
-
-                <span id="water">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('water', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
+    <div class="label">
+        FUEL YOUR GAME
     </div>
 
-
-    <!-- SNACKS -->
-
-    <div class="category">
-
-        <div class="category-title">
-            SNACKS
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Chips
-                </div>
-
-                <div class="item-description">
-                    Olika smaker
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('chips', -1)">
-                    −
-                </button>
-
-                <span id="chips">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('chips', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Godis
-                </div>
-
-                <div class="item-description">
-                    Olika sorter
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('candy', -1)">
-                    −
-                </button>
-
-                <span id="candy">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('candy', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Proteinbar
-                </div>
-
-                <div class="item-description">
-                    Olika smaker
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                30 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('proteinbar', -1)">
-                    −
-                </button>
-
-                <span id="proteinbar">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('proteinbar', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Popcorn
-                </div>
-
-                <div class="item-description">
-                    Snacks
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                25 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('popcorn', -1)">
-                    −
-                </button>
-
-                <span id="popcorn">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('popcorn', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- MAT -->
-
-    <div class="category">
-
-        <div class="category-title">
-            MAT
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Kall macka
-                </div>
-
-                <div class="item-description">
-                    Olika fyllningar
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                49 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('macka', -1)">
-                    −
-                </button>
-
-                <span id="macka">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('macka', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Wrap
-                </div>
-
-                <div class="item-description">
-                    Olika fyllningar
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                55 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('wrap', -1)">
-                    −
-                </button>
-
-                <span id="wrap">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('wrap', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Toast
-                </div>
-
-                <div class="item-description">
-                    Ost & skinka
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                45 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('toast', -1)">
-                    −
-                </button>
-
-                <span id="toast">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('toast', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Korv med bröd
-                </div>
-
-                <div class="item-description">
-                    Enkel gaming-snack
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                35 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('korv', -1)">
-                    −
-                </button>
-
-                <span id="korv">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('korv', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- GAMING COMBOS -->
-
-    <div class="category">
-
-        <div class="category-title">
-            GAMING COMBOS
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Gaming Combo 1
-                </div>
-
-                <div class="item-description">
-                    Läsk + chips
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                45 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('combo1', -1)">
-                    −
-                </button>
-
-                <span id="combo1">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('combo1', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Gaming Combo 2
-                </div>
-
-                <div class="item-description">
-                    Energidryck + snacks
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                55 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('combo2', -1)">
-                    −
-                </button>
-
-                <span id="combo2">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('combo2', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Gaming Combo 3
-                </div>
-
-                <div class="item-description">
-                    Kall macka + läsk
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                69 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('combo3', -1)">
-                    −
-                </button>
-
-                <span id="combo3">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('combo3', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="item">
-
-            <div class="item-info">
-
-                <div class="item-name">
-                    Gaming Combo 4
-                </div>
-
-                <div class="item-description">
-                    Macka + energidryck + snacks
-                </div>
-
-            </div>
-
-            <div class="item-price">
-                89 KR
-            </div>
-
-            <div class="quantity">
-
-                <button onclick="changeQuantity('combo4', -1)">
-                    −
-                </button>
-
-                <span id="combo4">
-                    0
-                </span>
-
-                <button onclick="changeQuantity('combo4', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- INFO -->
-
-    <div class="menu-info">
-
-        <p>
-            Sortiment och priser är preliminära och kan ändras inför öppningen.
-        </p>
-
-        <a href="index.html" class="back">
-            ← TILLBAKA TILL ELYSIUM
-        </a>
-
-    </div>
+    <h1>
+        MAT & DRYCK
+    </h1>
+
+    <p class="intro">
+        Välj dina produkter och lägg dem i din beställning.
+    </p>
+
+    <div class="station" id="station"></div>
 
 </div>
 
-<!-- ORDER CONFIRMATION -->
+
+<!-- DRYCK -->
+
+<div class="category">
+
+<div class="category-title">
+    DRYCK
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Coca-Cola</div>
+    <div class="item-description">33 cl</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('cola',-1)">−</button>
+    <span id="cola">0</span>
+    <button onclick="changeQuantity('cola',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Coca-Cola Zero</div>
+    <div class="item-description">33 cl</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('cola-zero',-1)">−</button>
+    <span id="cola-zero">0</span>
+    <button onclick="changeQuantity('cola-zero',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Fanta</div>
+    <div class="item-description">33 cl</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('fanta',-1)">−</button>
+    <span id="fanta">0</span>
+    <button onclick="changeQuantity('fanta',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Sprite</div>
+    <div class="item-description">33 cl</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('sprite',-1)">−</button>
+    <span id="sprite">0</span>
+    <button onclick="changeQuantity('sprite',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Red Bull</div>
+    <div class="item-description">Energidryck</div>
+</div>
+
+<div class="item-price">35 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('redbull',-1)">−</button>
+    <span id="redbull">0</span>
+    <button onclick="changeQuantity('redbull',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Monster</div>
+    <div class="item-description">Energidryck</div>
+</div>
+
+<div class="item-price">35 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('monster',-1)">−</button>
+    <span id="monster">0</span>
+    <button onclick="changeQuantity('monster',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Nocco</div>
+    <div class="item-description">Energidryck</div>
+</div>
+
+<div class="item-price">35 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('nocco',-1)">−</button>
+    <span id="nocco">0</span>
+    <button onclick="changeQuantity('nocco',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Celsius</div>
+    <div class="item-description">Energidryck</div>
+</div>
+
+<div class="item-price">35 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('celsius',-1)">−</button>
+    <span id="celsius">0</span>
+    <button onclick="changeQuantity('celsius',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Vatten</div>
+    <div class="item-description">50 cl</div>
+</div>
+
+<div class="item-price">20 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('water',-1)">−</button>
+    <span id="water">0</span>
+    <button onclick="changeQuantity('water',1)">+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SNACKS -->
+
+<div class="category">
+
+<div class="category-title">
+    SNACKS
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Chips</div>
+    <div class="item-description">Olika smaker</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('chips',-1)">−</button>
+    <span id="chips">0</span>
+    <button onclick="changeQuantity('chips',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Godis</div>
+    <div class="item-description">Olika sorter</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('candy',-1)">−</button>
+    <span id="candy">0</span>
+    <button onclick="changeQuantity('candy',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Proteinbar</div>
+    <div class="item-description">Olika smaker</div>
+</div>
+
+<div class="item-price">30 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('proteinbar',-1)">−</button>
+    <span id="proteinbar">0</span>
+    <button onclick="changeQuantity('proteinbar',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Popcorn</div>
+    <div class="item-description">Snacks</div>
+</div>
+
+<div class="item-price">25 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('popcorn',-1)">−</button>
+    <span id="popcorn">0</span>
+    <button onclick="changeQuantity('popcorn',1)">+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MAT -->
+
+<div class="category">
+
+<div class="category-title">
+    MAT
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Kall macka</div>
+    <div class="item-description">Olika fyllningar</div>
+</div>
+
+<div class="item-price">49 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('macka',-1)">−</button>
+    <span id="macka">0</span>
+    <button onclick="changeQuantity('macka',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Wrap</div>
+    <div class="item-description">Olika fyllningar</div>
+</div>
+
+<div class="item-price">55 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('wrap',-1)">−</button>
+    <span id="wrap">0</span>
+    <button onclick="changeQuantity('wrap',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Toast</div>
+    <div class="item-description">Ost & skinka</div>
+</div>
+
+<div class="item-price">45 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('toast',-1)">−</button>
+    <span id="toast">0</span>
+    <button onclick="changeQuantity('toast',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Korv med bröd</div>
+    <div class="item-description">Enkel gaming-snack</div>
+</div>
+
+<div class="item-price">35 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('korv',-1)">−</button>
+    <span id="korv">0</span>
+    <button onclick="changeQuantity('korv',1)">+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- COMBOS -->
+
+<div class="category">
+
+<div class="category-title">
+    GAMING COMBOS
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Gaming Combo 1</div>
+    <div class="item-description">Läsk + chips</div>
+</div>
+
+<div class="item-price">45 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('combo1',-1)">−</button>
+    <span id="combo1">0</span>
+    <button onclick="changeQuantity('combo1',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Gaming Combo 2</div>
+    <div class="item-description">Energidryck + snacks</div>
+</div>
+
+<div class="item-price">55 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('combo2',-1)">−</button>
+    <span id="combo2">0</span>
+    <button onclick="changeQuantity('combo2',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Gaming Combo 3</div>
+    <div class="item-description">Kall macka + läsk</div>
+</div>
+
+<div class="item-price">69 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('combo3',-1)">−</button>
+    <span id="combo3">0</span>
+    <button onclick="changeQuantity('combo3',1)">+</button>
+</div>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-info">
+    <div class="item-name">Gaming Combo 4</div>
+    <div class="item-description">Macka + energidryck + snacks</div>
+</div>
+
+<div class="item-price">89 KR</div>
+
+<div class="quantity">
+    <button onclick="changeQuantity('combo4',-1)">−</button>
+    <span id="combo4">0</span>
+    <button onclick="changeQuantity('combo4',1)">+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="menu-info">
+
+<p>
+    Sortiment och priser är preliminära och kan ändras inför öppningen.
+</p>
+
+<a href="index.html" class="back">
+    ← TILLBAKA TILL ELYSIUM
+</a>
+
+</div>
+
+</div>
+
+
+<!-- BEKRÄFTELSERUTA -->
 
 <div class="confirmation-overlay" id="confirmationOverlay">
 
-    <div class="confirmation-box">
+<div class="confirmation-box">
 
-        <div class="confirmation-icon">
-            ✓
-        </div>
+<div class="confirmation-icon">
+    ✓
+</div>
 
-        <h2>
-            BESTÄLLNING MOTTAGEN
-        </h2>
+<h2>
+    BESTÄLLNING MOTTAGEN
+</h2>
 
-        <div class="confirmation-subtitle">
-            Din beställning har skickats till personalen.
-        </div>
+<div class="confirmation-subtitle">
+    Din beställning har skickats till personalen.
+</div>
 
-        <div class="confirmation-place" id="confirmationPlace">
-            PC 12
-        </div>
+<div class="confirmation-place" id="confirmationPlace">
+    PC
+</div>
 
-        <div class="confirmation-order" id="confirmationOrder">
-            Din beställning
-        </div>
+<div class="confirmation-order" id="confirmationOrder">
+    Din beställning
+</div>
 
-        <div class="confirmation-total" id="confirmationTotal">
-            0 KR
-        </div>
+<div class="confirmation-total" id="confirmationTotal">
+    0 KR
+</div>
 
-        <button
-            class="confirmation-close"
-            onclick="closeConfirmation()">
+<button
+    class="confirmation-close"
+    onclick="closeConfirmation()">
 
-            KLART
+    KLART
 
-        </button>
+</button>
 
-    </div>
+</div>
 
-</div><!-- ORDER BAR -->
+</div>
+
+
+<!-- ORDER BAR -->
 
 <div class="order-box">
 
-    <div class="order-inner">
+<div class="order-inner">
 
-        <div>
+<div>
 
-            <div class="total-label">
-                TOTALT
-            </div>
+<div class="total-label">
+    TOTALT
+</div>
 
-            <div class="total" id="total">
-                0 KR
-            </div>
+<div class="total" id="total">
+    0 KR
+</div>
 
-        </div>
+</div>
 
-        <button
-            class="order-button"
-            onclick="placeOrder()">
+<button
+    class="order-button"
+    onclick="placeOrder()">
 
-            BESTÄLL
+    BESTÄLL
 
-        </button>
+</button>
 
-    </div>
+</div>
 
 </div>
 
 
 <script>
 
-    /* ============================
-       PRODUKTER
-    ============================ */
+/* PRODUKTER */
 
-    const products = {
+const products = {
 
-        cola: {
-            name: "Coca-Cola",
-            price: 25
-        },
+    cola: {
+        name: "Coca-Cola",
+        price: 25
+    },
 
-        "cola-zero": {
-            name: "Coca-Cola Zero",
-            price: 25
-        },
+    "cola-zero": {
+        name: "Coca-Cola Zero",
+        price: 25
+    },
 
-        fanta: {
-            name: "Fanta",
-            price: 25
-        },
+    fanta: {
+        name: "Fanta",
+        price: 25
+    },
 
-        sprite: {
-            name: "Sprite",
-            price: 25
-        },
+    sprite: {
+        name: "Sprite",
+        price: 25
+    },
 
-        redbull: {
-            name: "Red Bull",
-            price: 35
-        },
+    redbull: {
+        name: "Red Bull",
+        price: 35
+    },
 
-        monster: {
-            name: "Monster",
-            price: 35
-        },
+    monster: {
+        name: "Monster",
+        price: 35
+    },
 
-        nocco: {
-            name: "Nocco",
-            price: 35
-        },
+    nocco: {
+        name: "Nocco",
+        price: 35
+    },
 
-        celsius: {
-            name: "Celsius",
-            price: 35
-        },
+    celsius: {
+        name: "Celsius",
+        price: 35
+    },
 
-        water: {
-            name: "Vatten",
-            price: 20
-        },
+    water: {
+        name: "Vatten",
+        price: 20
+    },
 
-        chips: {
-            name: "Chips",
-            price: 25
-        },
+    chips: {
+        name: "Chips",
+        price: 25
+    },
 
-        candy: {
-            name: "Godis",
-            price: 25
-        },
+    candy: {
+        name: "Godis",
+        price: 25
+    },
 
-        proteinbar: {
-            name: "Proteinbar",
-            price: 30
-        },
+    proteinbar: {
+        name: "Proteinbar",
+        price: 30
+    },
 
-        popcorn: {
-            name: "Popcorn",
-            price: 25
-        },
+    popcorn: {
+        name: "Popcorn",
+        price: 25
+    },
 
-        macka: {
-            name: "Kall macka",
-            price: 49
-        },
+    macka: {
+        name: "Kall macka",
+        price: 49
+    },
 
-        wrap: {
-            name: "Wrap",
-            price: 55
-        },
+    wrap: {
+        name: "Wrap",
+        price: 55
+    },
 
-        toast: {
-            name: "Toast",
-            price: 45
-        },
+    toast: {
+        name: "Toast",
+        price: 45
+    },
 
-        korv: {
-            name: "Korv med bröd",
-            price: 35
-        },
+    korv: {
+        name: "Korv med bröd",
+        price: 35
+    },
 
-        combo1: {
-            name: "Gaming Combo 1",
-            price: 45
-        },
+    combo1: {
+        name: "Gaming Combo 1",
+        price: 45
+    },
 
-        combo2: {
-            name: "Gaming Combo 2",
-            price: 55
-        },
+    combo2: {
+        name: "Gaming Combo 2",
+        price: 55
+    },
 
-        combo3: {
-            name: "Gaming Combo 3",
-            price: 69
-        },
+    combo3: {
+        name: "Gaming Combo 3",
+        price: 69
+    },
 
-        combo4: {
-            name: "Gaming Combo 4",
-            price: 89
+    combo4: {
+        name: "Gaming Combo 4",
+        price: 89
+    }
+
+};
+
+
+const quantities = {};
+
+
+/* PLUS / MINUS */
+
+function changeQuantity(product, amount) {
+
+    if (!quantities[product]) {
+        quantities[product] = 0;
+    }
+
+    quantities[product] += amount;
+
+    if (quantities[product] < 0) {
+        quantities[product] = 0;
+    }
+
+    document.getElementById(product).textContent =
+        quantities[product];
+
+    calculateTotal();
+
+}
+
+
+/* TOTAL */
+
+function calculateTotal() {
+
+    let total = 0;
+
+    for (const product in quantities) {
+
+        if (products[product]) {
+
+            total +=
+                quantities[product] *
+                products[product].price;
+
         }
-
-    };
-
-
-    /* ============================
-       ANTAL
-    ============================ */
-
-    const quantities = {};
-
-
-    /* ============================
-       PLUS / MINUS
-    ============================ */
-
-    function changeQuantity(product, amount) {
-
-        if (!quantities[product]) {
-
-            quantities[product] = 0;
-
-        }
-
-        quantities[product] += amount;
-
-
-        if (quantities[product] < 0) {
-
-            quantities[product] = 0;
-
-        }
-
-
-        const counter =
-            document.getElementById(product);
-
-
-        if (counter) {
-
-            counter.textContent =
-                quantities[product];
-
-        }
-
-
-        calculateTotal();
 
     }
 
+    document.getElementById("total").textContent =
+        total + " KR";
 
-    /* ============================
-       TOTAL
-    ============================ */
-
-    function calculateTotal() {
-
-        let total = 0;
+}
 
 
-        for (const product in quantities) {
+/* PC-NUMMER */
 
-            if (products[product]) {
+function getStation() {
 
-                total +=
-                    quantities[product] *
-                    products[product].price;
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-            }
+    const pc =
+        params.get("pc");
 
-        }
+    if (pc) {
 
-
-        document.getElementById("total")
-            .textContent = total + " KR";
+        return "PC " + pc;
 
     }
 
+    return null;
 
-    /* ============================
-       PC-NUMMER FRÅN QR-LÄNK
-       
-       Exempel:
-       menu.html?pc=12
-    ============================ */
+}
 
-    function getStation() {
 
-        const params =
-            new URLSearchParams(
-                window.location.search
+const station = getStation();
+
+
+if (station) {
+
+    const stationElement =
+        document.getElementById("station");
+
+    stationElement.textContent =
+        "PLATS: " + station;
+
+    stationElement.style.display =
+        "block";
+
+}
+
+
+/* BESTÄLL */
+
+function placeOrder() {
+
+    let orderItems = [];
+
+    let total = 0;
+
+
+    for (const product in quantities) {
+
+        const quantity =
+            quantities[product];
+
+
+        if (
+            quantity > 0 &&
+            products[product]
+        ) {
+
+            const item =
+                products[product];
+
+
+            orderItems.push(
+                quantity +
+                "× " +
+                item.name
             );
 
 
-        const pc =
-            params.get("pc");
-
-
-        if (pc) {
-
-            return "PC " + pc;
+            total +=
+                quantity *
+                item.price;
 
         }
-
-
-        return null;
 
     }
 
 
-    /* ============================
-       VISA PC-NUMMER
-    ============================ */
+    if (orderItems.length === 0) {
 
-    const station =
-        getStation();
+        showMessage(
+            "Välj minst en produkt innan du beställer."
+        );
 
-
-    if (station) {
-
-        const stationElement =
-            document.getElementById("station");
-
-
-        stationElement.textContent =
-            "PLATS: " + station;
-
-
-        stationElement.style.display =
-            "block";
+        return;
 
     }
 
 
-    /* ============================
-       BESTÄLLNING
-    ============================ */
-
-    function placeOrder() {
-
-        let orderItems = [];
-
-        let total = 0;
+    let place = station;
 
 
-        for (const product in quantities) {
+    if (!place) {
 
-            const quantity =
-                quantities[product];
+        place = prompt(
+            "Ange din plats, exempelvis PC 12:"
+        );
 
-
-            if (
-                quantity > 0 &&
-                products[product]
-            ) {
-
-                const item =
-                    products[product];
-
-
-                orderItems.push(
-
-                    quantity +
-                    "× " +
-                    item.name
-
-                );
-
-
-                total +=
-
-                    quantity *
-                    item.price;
-
-            }
-
-        }
-
-
-        /* INGET VALT */
-
-        if (orderItems.length === 0) {
-
-            alert(
-                "Välj minst en produkt innan du beställer."
-            );
+        if (!place) {
 
             return;
 
         }
 
-
-        /* ============================
-           BESTÄM PLATS
-        ============================ */
-
-        let place = station;
+    }
 
 
-        /* OM QR-KOD SAKNAS */
-
-        if (!place) {
-
-            place = prompt(
-                "Ange din plats, exempelvis PC 12 eller PS5 1:"
-            );
+    const orderText =
+        orderItems.join(", ");
 
 
-            if (!place) {
+    const data = {
 
-                alert(
-                    "Du måste ange din plats."
-                );
+        place: place,
 
-                return;
+        order: orderText,
 
-            }
+        total: total
 
-        }
+    };
 
 
-        /* ============================
-           BESTÄLLNINGSTEXT
-        ============================ */
+    fetch(
 
-        const orderText =
-            orderItems.join(", ");
+        "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
 
+        {
 
-        const data = {
+            method: "POST",
 
-            place: place,
+            mode: "no-cors",
 
-            order: orderText,
+            headers: {
 
-            total: total
+                "Content-Type":
+                    "text/plain;charset=utf-8"
 
-        };
+            },
 
-
-        /* ============================
-           SKICKA TILL GOOGLE SHEETS
-        ============================ */
-
-        fetch(
-
-            "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
-
-            {
-
-                method: "POST",
-
-                mode: "no-cors",
-
-                headers: {
-
-                    "Content-Type":
-                        "text/plain;charset=utf-8"
-
-                },
-
-                body:
-                    JSON.stringify(data)
-
-            }
-
-        );
-
-
-        /* ============================
-           BEKRÄFTA
-        ============================ */
-
-document.getElementById("confirmationPlace").textContent = place;
-
-document.getElementById("confirmationOrder").textContent = orderText;
-
-document.getElementById("confirmationTotal").textContent = total + " KR";
-
-document.getElementById("confirmationOverlay").style.display = "flex";          
-
-    
-
-
-        /* ============================
-           NOLLSTÄLL
-        ============================ */
-
-        for (const product in quantities) {
-
-            quantities[product] = 0;
-
-
-            const counter =
-                document.getElementById(product);
-
-
-            if (counter) {
-
-                counter.textContent = "0";
-
-            }
+            body:
+                JSON.stringify(data)
 
         }
 
+    );
 
-        calculateTotal();
+
+    /* VISA SNYGG BEKRÄFTELSE */
+
+    document.getElementById(
+        "confirmationPlace"
+    ).textContent = place;
+
+
+    document.getElementById(
+        "confirmationOrder"
+    ).textContent = orderText;
+
+
+    document.getElementById(
+        "confirmationTotal"
+    ).textContent =
+        total + " KR";
+
+
+    document.getElementById(
+        "confirmationOverlay"
+    ).style.display = "flex";
+
+
+    /* NOLLSTÄLL */
+
+    for (const product in quantities) {
+
+        quantities[product] = 0;
+
+        document.getElementById(product)
+            .textContent = "0";
 
     }
+
+
+    calculateTotal();
+
+}
+
+
+/* STÄNG BEKRÄFTELSERUTA */
+
 function closeConfirmation() {
-    document.getElementById("confirmationOverlay").style.display = "none";
-}</script>
+
+    document.getElementById(
+        "confirmationOverlay"
+    ).style.display = "none";
+
+}
+
+
+/* VANLIGA MEDDELANDEN */
+
+function showMessage(message) {
+
+    document.getElementById(
+        "confirmationPlace"
+    ).textContent = "";
+
+    document.getElementById(
+        "confirmationOrder"
+    ).textContent = message;
+
+    document.getElementById(
+        "confirmationTotal"
+    ).textContent = "";
+
+    document.getElementById(
+        "confirmationOverlay"
+    ).style.display = "flex";
+
+}
+
+</script>
 
 
 </body>
