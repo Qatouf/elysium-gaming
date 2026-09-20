@@ -1000,7 +1000,14 @@ function placeOrder() {
         return;
     }
 
-    const place = prompt(
+    const urlParams = new URLSearchParams(window.location.search);
+
+let place = urlParams.get("pc");
+
+if (place) {
+    place = "PC " + place;
+} else {
+    place = prompt(
         "Ange din plats, exempelvis PC 12 eller PS5 1:"
     );
 
@@ -1008,6 +1015,7 @@ function placeOrder() {
         alert("Du måste ange din plats.");
         return;
     }
+}    }
 
     const orderText = orderItems.join(", ");
 
