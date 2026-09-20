@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Elysium Gaming Lounge | Meny</title>
@@ -17,14 +18,14 @@
 
         body {
             background: #05070a;
-            color: #ffffff;
+            color: white;
             font-family: Arial, Helvetica, sans-serif;
         }
 
         .menu-page {
             max-width: 850px;
             margin: auto;
-            padding: 35px 16px 140px;
+            padding: 35px 15px 140px;
         }
 
         /* HEADER */
@@ -60,35 +61,57 @@
         .intro {
             color: #9299a3;
             font-size: 15px;
+            line-height: 1.6;
         }
 
-        /* CATEGORIES */
+        .station {
+            display: none;
+            margin-top: 18px;
+            color: #d4af37;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+
+        /* CATEGORY */
 
         .category {
-            margin-bottom: 28px;
-            background: #0b0e13;
-            border: 1px solid rgba(212,175,55,0.30);
-            border-radius: 9px;
+            margin-bottom: 25px;
             padding: 22px 18px;
+
+            background: #0b0e13;
+
+            border: 1px solid rgba(212,175,55,0.30);
+
+            border-radius: 9px;
         }
 
         .category-title {
             color: #d4af37;
+
             font-size: 17px;
             font-weight: 900;
+
             letter-spacing: 3px;
+
             padding-bottom: 17px;
+
             border-bottom: 1px solid rgba(212,175,55,0.20);
         }
 
-        /* PRODUCTS */
+
+        /* PRODUCT */
 
         .item {
             display: flex;
-            justify-content: space-between;
+
             align-items: center;
-            gap: 15px;
+
+            gap: 12px;
+
             padding: 17px 0;
+
             border-bottom: 1px solid rgba(255,255,255,0.07);
         }
 
@@ -98,128 +121,171 @@
 
         .item-info {
             flex: 1;
+            min-width: 0;
         }
 
         .item-name {
             color: #ffffff;
-            font-size: 16px;
+
+            font-size: 15px;
+
             font-weight: 700;
+
             margin-bottom: 5px;
         }
 
         .item-description {
             color: #737b86;
+
             font-size: 12px;
         }
 
         .item-price {
             color: #d4af37;
-            font-size: 16px;
+
+            font-size: 15px;
+
             font-weight: 900;
+
             white-space: nowrap;
         }
+
 
         /* QUANTITY */
 
         .quantity {
             display: flex;
+
             align-items: center;
-            gap: 7px;
+
+            gap: 6px;
         }
 
         .quantity button {
-            width: 32px;
-            height: 32px;
+            width: 31px;
+            height: 31px;
 
-            border: 1px solid rgba(212,175,55,0.45);
+            border: 1px solid rgba(212,175,55,0.5);
+
             background: transparent;
+
             color: #d4af37;
 
             font-size: 19px;
+
             cursor: pointer;
+
+            border-radius: 4px;
         }
 
-        .quantity button:hover {
+        .quantity button:active {
             background: #d4af37;
+
             color: #05070a;
         }
 
         .quantity span {
-            width: 22px;
+            width: 20px;
+
             text-align: center;
+
+            font-size: 14px;
+
             font-weight: 800;
         }
 
-        /* ORDER BOX */
+
+        /* ORDER BAR */
 
         .order-box {
             position: fixed;
-            bottom: 0;
+
             left: 0;
+            bottom: 0;
+
             width: 100%;
 
-            background: rgba(5,7,10,0.96);
-            backdrop-filter: blur(12px);
+            background: rgba(5,7,10,0.97);
 
             border-top: 1px solid rgba(212,175,55,0.35);
 
-            padding: 15px 18px;
+            padding: 13px 15px;
 
             z-index: 100;
         }
 
         .order-inner {
             max-width: 850px;
+
             margin: auto;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 15px;
         }
 
         .total-label {
             color: #9299a3;
-            font-size: 11px;
+
+            font-size: 10px;
+
             letter-spacing: 2px;
         }
 
         .total {
             color: #d4af37;
+
             font-size: 22px;
+
             font-weight: 900;
+
             margin-top: 3px;
         }
 
         .order-button {
             border: none;
+
             background: #d4af37;
+
             color: #05070a;
 
             padding: 14px 22px;
 
             font-size: 11px;
+
             font-weight: 900;
+
             letter-spacing: 2px;
 
             cursor: pointer;
+
+            border-radius: 3px;
         }
 
-        .order-button:hover {
-            background: #ffffff;
+        .order-button:active {
+            transform: scale(0.97);
         }
+
 
         /* INFO */
 
         .menu-info {
             text-align: center;
-            margin-top: 45px;
+
+            margin-top: 40px;
         }
 
         .menu-info p {
             color: #656c75;
+
             font-size: 11px;
+
             line-height: 1.6;
+
             margin-bottom: 22px;
         }
 
@@ -227,36 +293,43 @@
             display: inline-block;
 
             border: 1px solid #d4af37;
-            color: #ffffff;
+
+            color: white;
 
             text-decoration: none;
 
             padding: 13px 20px;
 
             font-size: 11px;
+
             font-weight: 900;
+
             letter-spacing: 2px;
         }
 
-        .back:hover {
-            background: #d4af37;
-            color: #05070a;
-        }
 
         /* MOBILE */
 
         @media (max-width: 500px) {
 
             .menu-page {
-                padding: 30px 12px 130px;
+                padding: 30px 12px 125px;
+            }
+
+            .logo {
+                font-size: 25px;
             }
 
             .menu-header h1 {
                 font-size: 36px;
             }
 
+            .category {
+                padding: 20px 15px;
+            }
+
             .item {
-                gap: 8px;
+                gap: 7px;
             }
 
             .item-name {
@@ -282,12 +355,15 @@
         }
 
     </style>
+
 </head>
 
 
 <body>
 
+
 <div class="menu-page">
+
 
     <!-- HEADER -->
 
@@ -309,6 +385,10 @@
             Välj dina produkter och lägg dem i din beställning.
         </p>
 
+        <div class="station" id="station">
+            PC
+        </div>
+
     </div>
 
 
@@ -324,6 +404,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Coca-Cola
                 </div>
@@ -331,6 +412,7 @@
                 <div class="item-description">
                     33 cl
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -338,9 +420,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('cola', -1)">−</button>
-                <span id="cola">0</span>
-                <button onclick="changeQuantity('cola', 1)">+</button>
+
+                <button onclick="changeQuantity('cola', -1)">
+                    −
+                </button>
+
+                <span id="cola">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('cola', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -349,6 +441,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Coca-Cola Zero
                 </div>
@@ -356,6 +449,7 @@
                 <div class="item-description">
                     33 cl
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -363,9 +457,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('cola-zero', -1)">−</button>
-                <span id="cola-zero">0</span>
-                <button onclick="changeQuantity('cola-zero', 1)">+</button>
+
+                <button onclick="changeQuantity('cola-zero', -1)">
+                    −
+                </button>
+
+                <span id="cola-zero">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('cola-zero', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -374,6 +478,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Fanta
                 </div>
@@ -381,6 +486,7 @@
                 <div class="item-description">
                     33 cl
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -388,9 +494,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('fanta', -1)">−</button>
-                <span id="fanta">0</span>
-                <button onclick="changeQuantity('fanta', 1)">+</button>
+
+                <button onclick="changeQuantity('fanta', -1)">
+                    −
+                </button>
+
+                <span id="fanta">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('fanta', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -399,6 +515,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Sprite
                 </div>
@@ -406,6 +523,7 @@
                 <div class="item-description">
                     33 cl
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -413,9 +531,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('sprite', -1)">−</button>
-                <span id="sprite">0</span>
-                <button onclick="changeQuantity('sprite', 1)">+</button>
+
+                <button onclick="changeQuantity('sprite', -1)">
+                    −
+                </button>
+
+                <span id="sprite">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('sprite', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -424,6 +552,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Red Bull
                 </div>
@@ -431,6 +560,7 @@
                 <div class="item-description">
                     Energidryck
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -438,9 +568,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('redbull', -1)">−</button>
-                <span id="redbull">0</span>
-                <button onclick="changeQuantity('redbull', 1)">+</button>
+
+                <button onclick="changeQuantity('redbull', -1)">
+                    −
+                </button>
+
+                <span id="redbull">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('redbull', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -449,6 +589,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Monster
                 </div>
@@ -456,6 +597,7 @@
                 <div class="item-description">
                     Energidryck
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -463,9 +605,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('monster', -1)">−</button>
-                <span id="monster">0</span>
-                <button onclick="changeQuantity('monster', 1)">+</button>
+
+                <button onclick="changeQuantity('monster', -1)">
+                    −
+                </button>
+
+                <span id="monster">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('monster', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -474,6 +626,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Nocco
                 </div>
@@ -481,6 +634,7 @@
                 <div class="item-description">
                     Energidryck
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -488,9 +642,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('nocco', -1)">−</button>
-                <span id="nocco">0</span>
-                <button onclick="changeQuantity('nocco', 1)">+</button>
+
+                <button onclick="changeQuantity('nocco', -1)">
+                    −
+                </button>
+
+                <span id="nocco">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('nocco', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -499,6 +663,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Celsius
                 </div>
@@ -506,6 +671,7 @@
                 <div class="item-description">
                     Energidryck
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -513,9 +679,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('celsius', -1)">−</button>
-                <span id="celsius">0</span>
-                <button onclick="changeQuantity('celsius', 1)">+</button>
+
+                <button onclick="changeQuantity('celsius', -1)">
+                    −
+                </button>
+
+                <span id="celsius">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('celsius', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -524,6 +700,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Vatten
                 </div>
@@ -531,6 +708,7 @@
                 <div class="item-description">
                     50 cl
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -538,9 +716,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('water', -1)">−</button>
-                <span id="water">0</span>
-                <button onclick="changeQuantity('water', 1)">+</button>
+
+                <button onclick="changeQuantity('water', -1)">
+                    −
+                </button>
+
+                <span id="water">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('water', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -560,6 +748,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Chips
                 </div>
@@ -567,6 +756,7 @@
                 <div class="item-description">
                     Olika smaker
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -574,9 +764,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('chips', -1)">−</button>
-                <span id="chips">0</span>
-                <button onclick="changeQuantity('chips', 1)">+</button>
+
+                <button onclick="changeQuantity('chips', -1)">
+                    −
+                </button>
+
+                <span id="chips">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('chips', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -585,6 +785,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Godis
                 </div>
@@ -592,6 +793,7 @@
                 <div class="item-description">
                     Olika sorter
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -599,9 +801,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('candy', -1)">−</button>
-                <span id="candy">0</span>
-                <button onclick="changeQuantity('candy', 1)">+</button>
+
+                <button onclick="changeQuantity('candy', -1)">
+                    −
+                </button>
+
+                <span id="candy">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('candy', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -610,6 +822,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Proteinbar
                 </div>
@@ -617,6 +830,7 @@
                 <div class="item-description">
                     Olika smaker
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -624,9 +838,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('proteinbar', -1)">−</button>
-                <span id="proteinbar">0</span>
-                <button onclick="changeQuantity('proteinbar', 1)">+</button>
+
+                <button onclick="changeQuantity('proteinbar', -1)">
+                    −
+                </button>
+
+                <span id="proteinbar">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('proteinbar', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -635,6 +859,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Popcorn
                 </div>
@@ -642,6 +867,7 @@
                 <div class="item-description">
                     Snacks
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -649,9 +875,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('popcorn', -1)">−</button>
-                <span id="popcorn">0</span>
-                <button onclick="changeQuantity('popcorn', 1)">+</button>
+
+                <button onclick="changeQuantity('popcorn', -1)">
+                    −
+                </button>
+
+                <span id="popcorn">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('popcorn', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -671,6 +907,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Kall macka
                 </div>
@@ -678,6 +915,7 @@
                 <div class="item-description">
                     Olika fyllningar
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -685,9 +923,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('macka', -1)">−</button>
-                <span id="macka">0</span>
-                <button onclick="changeQuantity('macka', 1)">+</button>
+
+                <button onclick="changeQuantity('macka', -1)">
+                    −
+                </button>
+
+                <span id="macka">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('macka', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -696,6 +944,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Wrap
                 </div>
@@ -703,6 +952,7 @@
                 <div class="item-description">
                     Olika fyllningar
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -710,9 +960,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('wrap', -1)">−</button>
-                <span id="wrap">0</span>
-                <button onclick="changeQuantity('wrap', 1)">+</button>
+
+                <button onclick="changeQuantity('wrap', -1)">
+                    −
+                </button>
+
+                <span id="wrap">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('wrap', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -721,6 +981,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Toast
                 </div>
@@ -728,6 +989,7 @@
                 <div class="item-description">
                     Ost & skinka
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -735,9 +997,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('toast', -1)">−</button>
-                <span id="toast">0</span>
-                <button onclick="changeQuantity('toast', 1)">+</button>
+
+                <button onclick="changeQuantity('toast', -1)">
+                    −
+                </button>
+
+                <span id="toast">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('toast', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -746,6 +1018,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Korv med bröd
                 </div>
@@ -753,6 +1026,7 @@
                 <div class="item-description">
                     Enkel gaming-snack
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -760,9 +1034,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('korv', -1)">−</button>
-                <span id="korv">0</span>
-                <button onclick="changeQuantity('korv', 1)">+</button>
+
+                <button onclick="changeQuantity('korv', -1)">
+                    −
+                </button>
+
+                <span id="korv">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('korv', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -770,7 +1054,7 @@
     </div>
 
 
-    <!-- COMBOS -->
+    <!-- GAMING COMBOS -->
 
     <div class="category">
 
@@ -782,6 +1066,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Gaming Combo 1
                 </div>
@@ -789,6 +1074,7 @@
                 <div class="item-description">
                     Läsk + chips
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -796,9 +1082,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('combo1', -1)">−</button>
-                <span id="combo1">0</span>
-                <button onclick="changeQuantity('combo1', 1)">+</button>
+
+                <button onclick="changeQuantity('combo1', -1)">
+                    −
+                </button>
+
+                <span id="combo1">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('combo1', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -807,6 +1103,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Gaming Combo 2
                 </div>
@@ -814,6 +1111,7 @@
                 <div class="item-description">
                     Energidryck + snacks
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -821,9 +1119,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('combo2', -1)">−</button>
-                <span id="combo2">0</span>
-                <button onclick="changeQuantity('combo2', 1)">+</button>
+
+                <button onclick="changeQuantity('combo2', -1)">
+                    −
+                </button>
+
+                <span id="combo2">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('combo2', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -832,6 +1140,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Gaming Combo 3
                 </div>
@@ -839,6 +1148,7 @@
                 <div class="item-description">
                     Kall macka + läsk
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -846,9 +1156,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('combo3', -1)">−</button>
-                <span id="combo3">0</span>
-                <button onclick="changeQuantity('combo3', 1)">+</button>
+
+                <button onclick="changeQuantity('combo3', -1)">
+                    −
+                </button>
+
+                <span id="combo3">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('combo3', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -857,6 +1177,7 @@
         <div class="item">
 
             <div class="item-info">
+
                 <div class="item-name">
                     Gaming Combo 4
                 </div>
@@ -864,6 +1185,7 @@
                 <div class="item-description">
                     Macka + energidryck + snacks
                 </div>
+
             </div>
 
             <div class="item-price">
@@ -871,9 +1193,19 @@
             </div>
 
             <div class="quantity">
-                <button onclick="changeQuantity('combo4', -1)">−</button>
-                <span id="combo4">0</span>
-                <button onclick="changeQuantity('combo4', 1)">+</button>
+
+                <button onclick="changeQuantity('combo4', -1)">
+                    −
+                </button>
+
+                <span id="combo4">
+                    0
+                </span>
+
+                <button onclick="changeQuantity('combo4', 1)">
+                    +
+                </button>
+
             </div>
 
         </div>
@@ -905,6 +1237,7 @@
     <div class="order-inner">
 
         <div>
+
             <div class="total-label">
                 TOTALT
             </div>
@@ -912,147 +1245,453 @@
             <div class="total" id="total">
                 0 KR
             </div>
+
         </div>
 
-        <button class="order-button" onclick="placeOrder()">
+        <button
+            class="order-button"
+            onclick="placeOrder()">
+
             BESTÄLL
+
         </button>
 
     </div>
 
 </div>
 
+
 <script>
 
-const products = {
-    cola: { name: "Coca-Cola", price: 25 },
-    "cola-zero": { name: "Coca-Cola Zero", price: 25 },
-    fanta: { name: "Fanta", price: 25 },
-    sprite: { name: "Sprite", price: 25 },
-    redbull: { name: "Red Bull", price: 35 },
-    monster: { name: "Monster", price: 35 },
-    nocco: { name: "Nocco", price: 35 },
-    celsius: { name: "Celsius", price: 35 },
-    water: { name: "Vatten", price: 20 },
+    /* ============================
+       PRODUKTER
+    ============================ */
 
-    chips: { name: "Chips", price: 25 },
-    candy: { name: "Godis", price: 25 },
-    proteinbar: { name: "Proteinbar", price: 30 },
-    popcorn: { name: "Popcorn", price: 25 },
+    const products = {
 
-    macka: { name: "Kall macka", price: 49 },
-    wrap: { name: "Wrap", price: 55 },
-    toast: { name: "Toast", price: 45 },
-    korv: { name: "Korv med bröd", price: 35 },
+        cola: {
+            name: "Coca-Cola",
+            price: 25
+        },
 
-    combo1: { name: "Gaming Combo 1", price: 45 },
-    combo2: { name: "Gaming Combo 2", price: 55 },
-    combo3: { name: "Gaming Combo 3", price: 69 },
-    combo4: { name: "Gaming Combo 4", price: 89 }
-};
+        "cola-zero": {
+            name: "Coca-Cola Zero",
+            price: 25
+        },
 
-const quantities = {};
+        fanta: {
+            name: "Fanta",
+            price: 25
+        },
 
-function changeQuantity(product, amount) {
-    if (!quantities[product]) {
-        quantities[product] = 0;
-    }
+        sprite: {
+            name: "Sprite",
+            price: 25
+        },
 
-    quantities[product] += amount;
+        redbull: {
+            name: "Red Bull",
+            price: 35
+        },
 
-    if (quantities[product] < 0) {
-        quantities[product] = 0;
-    }
+        monster: {
+            name: "Monster",
+            price: 35
+        },
 
-    document.getElementById(product).textContent = quantities[product];
+        nocco: {
+            name: "Nocco",
+            price: 35
+        },
 
-    calculateTotal();
-}
+        celsius: {
+            name: "Celsius",
+            price: 35
+        },
 
-function calculateTotal() {
-    let total = 0;
+        water: {
+            name: "Vatten",
+            price: 20
+        },
 
-    for (const product in quantities) {
-        total += quantities[product] * products[product].price;
-    }
+        chips: {
+            name: "Chips",
+            price: 25
+        },
 
-    document.getElementById("total").textContent = total + " KR";
-}
+        candy: {
+            name: "Godis",
+            price: 25
+        },
 
-function placeOrder() {
-    let orderItems = [];
-    let total = 0;
+        proteinbar: {
+            name: "Proteinbar",
+            price: 30
+        },
 
-    for (const product in quantities) {
-        const quantity = quantities[product];
+        popcorn: {
+            name: "Popcorn",
+            price: 25
+        },
 
-        if (quantity > 0) {
-            const item = products[product];
+        macka: {
+            name: "Kall macka",
+            price: 49
+        },
 
-            orderItems.push(quantity + "× " + item.name);
+        wrap: {
+            name: "Wrap",
+            price: 55
+        },
 
-            total += quantity * item.price;
+        toast: {
+            name: "Toast",
+            price: 45
+        },
+
+        korv: {
+            name: "Korv med bröd",
+            price: 35
+        },
+
+        combo1: {
+            name: "Gaming Combo 1",
+            price: 45
+        },
+
+        combo2: {
+            name: "Gaming Combo 2",
+            price: 55
+        },
+
+        combo3: {
+            name: "Gaming Combo 3",
+            price: 69
+        },
+
+        combo4: {
+            name: "Gaming Combo 4",
+            price: 89
         }
-    }
 
-    if (orderItems.length === 0) {
-        alert("Välj minst en produkt innan du beställer.");
-        return;
-    }
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-let place = urlParams.get("pc");
-
-if (place) {
-    place = "PC " + place;
-} else {
-    place = prompt(
-        "Ange din plats, exempelvis PC 12 eller PS5 1:"
-    );
-
-    if (!place) {
-        alert("Du måste ange din plats.");
-        return;
-    }
-}    }
-
-    const orderText = orderItems.join(", ");
-
-    const data = {
-        place: place,
-        order: orderText,
-        total: total
     };
 
-    fetch(
-        "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
-        {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-                "Content-Type": "text/plain;charset=utf-8"
-            },
-            body: JSON.stringify(data)
+
+    /* ============================
+       ANTAL
+    ============================ */
+
+    const quantities = {};
+
+
+    /* ============================
+       PLUS / MINUS
+    ============================ */
+
+    function changeQuantity(product, amount) {
+
+        if (!quantities[product]) {
+
+            quantities[product] = 0;
+
         }
-    );
 
-    alert(
-        "BESTÄLLNING SKICKAD!\n\n" +
-        "Plats: " + place + "\n" +
-        "Beställning: " + orderText + "\n" +
-        "Totalt: " + total + " KR"
-    );
+        quantities[product] += amount;
 
-    for (const product in quantities) {
-        quantities[product] = 0;
-        document.getElementById(product).textContent = "0";
+
+        if (quantities[product] < 0) {
+
+            quantities[product] = 0;
+
+        }
+
+
+        const counter =
+            document.getElementById(product);
+
+
+        if (counter) {
+
+            counter.textContent =
+                quantities[product];
+
+        }
+
+
+        calculateTotal();
+
     }
 
-    calculateTotal();
-}
+
+    /* ============================
+       TOTAL
+    ============================ */
+
+    function calculateTotal() {
+
+        let total = 0;
+
+
+        for (const product in quantities) {
+
+            if (products[product]) {
+
+                total +=
+                    quantities[product] *
+                    products[product].price;
+
+            }
+
+        }
+
+
+        document.getElementById("total")
+            .textContent = total + " KR";
+
+    }
+
+
+    /* ============================
+       PC-NUMMER FRÅN QR-LÄNK
+       
+       Exempel:
+       menu.html?pc=12
+    ============================ */
+
+    function getStation() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const pc =
+            params.get("pc");
+
+
+        if (pc) {
+
+            return "PC " + pc;
+
+        }
+
+
+        return null;
+
+    }
+
+
+    /* ============================
+       VISA PC-NUMMER
+    ============================ */
+
+    const station =
+        getStation();
+
+
+    if (station) {
+
+        const stationElement =
+            document.getElementById("station");
+
+
+        stationElement.textContent =
+            "PLATS: " + station;
+
+
+        stationElement.style.display =
+            "block";
+
+    }
+
+
+    /* ============================
+       BESTÄLLNING
+    ============================ */
+
+    function placeOrder() {
+
+        let orderItems = [];
+
+        let total = 0;
+
+
+        for (const product in quantities) {
+
+            const quantity =
+                quantities[product];
+
+
+            if (
+                quantity > 0 &&
+                products[product]
+            ) {
+
+                const item =
+                    products[product];
+
+
+                orderItems.push(
+
+                    quantity +
+                    "× " +
+                    item.name
+
+                );
+
+
+                total +=
+
+                    quantity *
+                    item.price;
+
+            }
+
+        }
+
+
+        /* INGET VALT */
+
+        if (orderItems.length === 0) {
+
+            alert(
+                "Välj minst en produkt innan du beställer."
+            );
+
+            return;
+
+        }
+
+
+        /* ============================
+           BESTÄM PLATS
+        ============================ */
+
+        let place = station;
+
+
+        /* OM QR-KOD SAKNAS */
+
+        if (!place) {
+
+            place = prompt(
+                "Ange din plats, exempelvis PC 12 eller PS5 1:"
+            );
+
+
+            if (!place) {
+
+                alert(
+                    "Du måste ange din plats."
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        /* ============================
+           BESTÄLLNINGSTEXT
+        ============================ */
+
+        const orderText =
+            orderItems.join(", ");
+
+
+        const data = {
+
+            place: place,
+
+            order: orderText,
+
+            total: total
+
+        };
+
+
+        /* ============================
+           SKICKA TILL GOOGLE SHEETS
+        ============================ */
+
+        fetch(
+
+            "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
+
+            {
+
+                method: "POST",
+
+                mode: "no-cors",
+
+                headers: {
+
+                    "Content-Type":
+                        "text/plain;charset=utf-8"
+
+                },
+
+                body:
+                    JSON.stringify(data)
+
+            }
+
+        );
+
+
+        /* ============================
+           BEKRÄFTA
+        ============================ */
+
+        alert(
+
+            "BESTÄLLNING SKICKAD!\n\n" +
+
+            "Plats: " +
+            place +
+            "\n\n" +
+
+            "Beställning:\n" +
+            orderText +
+            "\n\n" +
+
+            "Totalt: " +
+            total +
+            " KR"
+
+        );
+
+
+        /* ============================
+           NOLLSTÄLL
+        ============================ */
+
+        for (const product in quantities) {
+
+            quantities[product] = 0;
+
+
+            const counter =
+                document.getElementById(product);
+
+
+            if (counter) {
+
+                counter.textContent = "0";
+
+            }
+
+        }
+
+
+        calculateTotal();
+
+    }
 
 </script>
+
 
 </body>
 </html>
