@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Elysium Gaming Lounge | Meny</title>
 
+
 <style>
+
+/* =========================
+   GRUND
+========================= */
 
 * {
     box-sizing: border-box;
@@ -24,10 +31,13 @@ body {
 .menu-page {
     max-width: 850px;
     margin: auto;
-    padding: 35px 15px 140px;
+    padding: 35px 15px 150px;
 }
 
-/* HEADER */
+
+/* =========================
+   HEADER
+========================= */
 
 .menu-header {
     text-align: center;
@@ -60,19 +70,22 @@ body {
 .intro {
     color: #9299a3;
     font-size: 15px;
+    line-height: 1.6;
 }
 
 .station {
     display: none;
-    margin-top: 18px;
     color: #d4af37;
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 2px;
+    margin-top: 18px;
 }
 
 
-/* CATEGORY */
+/* =========================
+   KATEGORI
+========================= */
 
 .category {
     margin-bottom: 25px;
@@ -92,7 +105,9 @@ body {
 }
 
 
-/* PRODUCT */
+/* =========================
+   PRODUKT
+========================= */
 
 .item {
     display: flex;
@@ -131,7 +146,9 @@ body {
 }
 
 
-/* PLUS / MINUS */
+/* =========================
+   ANTAL
+========================= */
 
 .quantity {
     display: flex;
@@ -142,11 +159,17 @@ body {
 .quantity button {
     width: 31px;
     height: 31px;
-    border: 1px solid rgba(212,175,55,0.5);
+
+    border: 1px solid rgba(212,175,55,0.55);
+
     background: transparent;
+
     color: #d4af37;
+
     font-size: 19px;
+
     cursor: pointer;
+
     border-radius: 4px;
 }
 
@@ -163,55 +186,9 @@ body {
 }
 
 
-/* ORDER BAR */
-
-.order-box {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background: rgba(5,7,10,0.97);
-    border-top: 1px solid rgba(212,175,55,0.35);
-    padding: 13px 15px;
-    z-index: 100;
-}
-
-.order-inner {
-    max-width: 850px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-}
-
-.total-label {
-    color: #9299a3;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-.total {
-    color: #d4af37;
-    font-size: 22px;
-    font-weight: 900;
-    margin-top: 3px;
-}
-
-.order-button {
-    border: none;
-    background: #d4af37;
-    color: #05070a;
-    padding: 14px 22px;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
-
-/* BACK BUTTON */
+/* =========================
+   INFO
+========================= */
 
 .menu-info {
     text-align: center;
@@ -228,7 +205,7 @@ body {
 .back {
     display: inline-block;
     border: 1px solid #d4af37;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 13px 20px;
     font-size: 11px;
@@ -237,103 +214,405 @@ body {
 }
 
 
-/* BEKRÄFTELSERUTA */
+/* =========================
+   BOTTEN
+========================= */
+
+.order-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    background: rgba(5,7,10,0.97);
+
+    border-top: 1px solid rgba(212,175,55,0.35);
+
+    padding: 13px 15px;
+
+    z-index: 500;
+}
+
+.order-inner {
+    max-width: 850px;
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.total-area {
+    cursor: pointer;
+}
+
+.total-label {
+    color: #9299a3;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.total {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 3px;
+}
+
+.view-cart-button {
+    border: none;
+
+    background: #d4af37;
+
+    color: #05070a;
+
+    padding: 14px 22px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    border-radius: 4px;
+}
+
+
+/* =========================
+   VARUKORG
+========================= */
+
+.cart-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.86);
+
+    display: none;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    z-index: 2000;
+}
+
+.cart-box {
+    width: 100%;
+
+    max-width: 600px;
+
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    background: #0b0e13;
+
+    border-top: 1px solid #d4af37;
+
+    border-radius: 18px 18px 0 0;
+
+    padding: 25px 20px 30px;
+}
+
+.cart-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+.cart-header h2 {
+    font-size: 20px;
+
+    color: #ffffff;
+
+    letter-spacing: 1px;
+}
+
+.cart-close {
+    background: transparent;
+
+    border: none;
+
+    color: #9299a3;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.cart-place {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.cart-empty {
+    color: #9299a3;
+
+    text-align: center;
+
+    padding: 30px 10px;
+
+    font-size: 14px;
+}
+
+.cart-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cart-item-name {
+    color: #ffffff;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.cart-item-price {
+    color: #d4af37;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    white-space: nowrap;
+}
+
+.cart-total {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 22px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(212,175,55,0.30);
+}
+
+.cart-total-label {
+    color: #9299a3;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.cart-total-price {
+    color: #d4af37;
+
+    font-size: 23px;
+
+    font-weight: 900;
+}
+
+.payment-button {
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    background: #d4af37;
+
+    color: #05070a;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   BEKRÄFTELSERUTA
+========================= */
 
 .confirmation-overlay {
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,0.86);
+
+    background: rgba(0,0,0,0.88);
+
     display: none;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 20px;
-    z-index: 9999;
+
+    z-index: 3000;
 }
 
 .confirmation-box {
     width: 100%;
+
     max-width: 420px;
+
     background: #0b0e13;
+
     border: 1px solid #d4af37;
+
     border-radius: 12px;
+
     padding: 32px 24px;
+
     text-align: center;
+
     box-shadow: 0 20px 60px rgba(0,0,0,0.7);
 }
 
 .confirmation-icon {
     width: 58px;
+
     height: 58px;
+
     margin: 0 auto 18px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     border: 2px solid #d4af37;
+
     border-radius: 50%;
+
     color: #d4af37;
+
     font-size: 28px;
+
     font-weight: 900;
 }
 
 .confirmation-box h2 {
     color: #ffffff;
+
     font-size: 21px;
+
     margin-bottom: 10px;
-    letter-spacing: 1px;
 }
 
 .confirmation-subtitle {
     color: #9299a3;
+
     font-size: 13px;
+
     line-height: 1.5;
+
     margin-bottom: 22px;
 }
 
 .confirmation-place {
     color: #d4af37;
+
     font-size: 15px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
+
     margin-bottom: 18px;
 }
 
 .confirmation-order {
     background: #05070a;
+
     border-radius: 8px;
+
     padding: 15px;
+
     margin-bottom: 18px;
+
     color: #ffffff;
+
     font-size: 13px;
+
     line-height: 1.7;
 }
 
 .confirmation-total {
     color: #d4af37;
+
     font-size: 22px;
+
     font-weight: 900;
+
     margin-bottom: 25px;
 }
 
 .confirmation-close {
     width: 100%;
+
     padding: 14px;
+
     border: none;
+
     border-radius: 4px;
+
     background: #d4af37;
+
     color: #05070a;
+
     font-size: 11px;
+
     font-weight: 900;
+
     letter-spacing: 2px;
+
     cursor: pointer;
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBIL
+========================= */
 
 @media (max-width: 500px) {
 
     .menu-page {
-        padding: 30px 12px 125px;
+        padding: 30px 12px 140px;
     }
 
     .logo {
@@ -369,130 +648,12 @@ body {
         height: 29px;
     }
 
-    .order-button {
+    .view-cart-button {
         padding: 13px 15px;
     }
 
 }
-/* VARUKORG */
 
-.cart-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: none;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 9000;
-}
-
-.cart-box {
-    width: 100%;
-    max-width: 600px;
-    max-height: 85vh;
-    overflow-y: auto;
-
-    background: #0b0e13;
-    border-top: 1px solid #d4af37;
-
-    border-radius: 18px 18px 0 0;
-
-    padding: 25px 20px 30px;
-}
-
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 20px;
-}
-
-.cart-header h2 {
-    color: #ffffff;
-    font-size: 20px;
-}
-
-.cart-close {
-    background: transparent;
-    border: none;
-
-    color: #9299a3;
-    font-size: 25px;
-
-    cursor: pointer;
-}
-
-.cart-place {
-    color: #d4af37;
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 2px;
-
-    margin-bottom: 18px;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 13px 0;
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.cart-item-name {
-    color: #ffffff;
-    font-size: 14px;
-}
-
-.cart-item-price {
-    color: #d4af37;
-    font-size: 14px;
-    font-weight: 800;
-}
-
-.cart-total {
-    display: flex;
-    justify-content: space-between;
-
-    margin-top: 22px;
-    padding-top: 18px;
-
-    border-top: 1px solid rgba(212,175,55,0.25);
-}
-
-.cart-total span:first-child {
-    color: #9299a3;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.cart-total span:last-child {
-    color: #d4af37;
-    font-size: 22px;
-    font-weight: 900;
-}
-
-.cart-payment-button {
-    width: 100%;
-
-    margin-top: 22px;
-    padding: 15px;
-
-    border: none;
-    border-radius: 4px;
-
-    background: #d4af37;
-    color: #05070a;
-
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 2px;
-
-    cursor: pointer;
-}
 </style>
 
 </head>
@@ -503,6 +664,10 @@ body {
 
 <div class="menu-page">
 
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <div class="menu-header">
 
@@ -522,12 +687,17 @@ body {
         Välj dina produkter och lägg dem i din beställning.
     </p>
 
-    <div class="station" id="station"></div>
+    <div
+        class="station"
+        id="station">
+    </div>
 
 </div>
 
 
-<!-- DRYCK -->
+<!-- =========================
+     DRYCK
+========================= -->
 
 <div class="category">
 
@@ -539,16 +709,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Coca-Cola</div>
-    <div class="item-description">33 cl</div>
+
+<div class="item-name">
+    Coca-Cola
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    33 cl
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('cola',-1)">−</button>
-    <span id="cola">0</span>
-    <button onclick="changeQuantity('cola',1)">+</button>
+
+<button onclick="changeQuantity('cola',-1)">
+    −
+</button>
+
+<span id="cola">
+    0
+</span>
+
+<button onclick="changeQuantity('cola',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -557,16 +746,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Coca-Cola Zero</div>
-    <div class="item-description">33 cl</div>
+
+<div class="item-name">
+    Coca-Cola Zero
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    33 cl
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('cola-zero',-1)">−</button>
-    <span id="cola-zero">0</span>
-    <button onclick="changeQuantity('cola-zero',1)">+</button>
+
+<button onclick="changeQuantity('cola-zero',-1)">
+    −
+</button>
+
+<span id="cola-zero">
+    0
+</span>
+
+<button onclick="changeQuantity('cola-zero',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -575,16 +783,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Fanta</div>
-    <div class="item-description">33 cl</div>
+
+<div class="item-name">
+    Fanta
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    33 cl
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('fanta',-1)">−</button>
-    <span id="fanta">0</span>
-    <button onclick="changeQuantity('fanta',1)">+</button>
+
+<button onclick="changeQuantity('fanta',-1)">
+    −
+</button>
+
+<span id="fanta">
+    0
+</span>
+
+<button onclick="changeQuantity('fanta',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -593,16 +820,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Sprite</div>
-    <div class="item-description">33 cl</div>
+
+<div class="item-name">
+    Sprite
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    33 cl
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('sprite',-1)">−</button>
-    <span id="sprite">0</span>
-    <button onclick="changeQuantity('sprite',1)">+</button>
+
+<button onclick="changeQuantity('sprite',-1)">
+    −
+</button>
+
+<span id="sprite">
+    0
+</span>
+
+<button onclick="changeQuantity('sprite',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -611,16 +857,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Red Bull</div>
-    <div class="item-description">Energidryck</div>
+
+<div class="item-name">
+    Red Bull
 </div>
 
-<div class="item-price">35 KR</div>
+<div class="item-description">
+    Energidryck
+</div>
+
+</div>
+
+<div class="item-price">
+    35 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('redbull',-1)">−</button>
-    <span id="redbull">0</span>
-    <button onclick="changeQuantity('redbull',1)">+</button>
+
+<button onclick="changeQuantity('redbull',-1)">
+    −
+</button>
+
+<span id="redbull">
+    0
+</span>
+
+<button onclick="changeQuantity('redbull',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -629,16 +894,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Monster</div>
-    <div class="item-description">Energidryck</div>
+
+<div class="item-name">
+    Monster
 </div>
 
-<div class="item-price">35 KR</div>
+<div class="item-description">
+    Energidryck
+</div>
+
+</div>
+
+<div class="item-price">
+    35 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('monster',-1)">−</button>
-    <span id="monster">0</span>
-    <button onclick="changeQuantity('monster',1)">+</button>
+
+<button onclick="changeQuantity('monster',-1)">
+    −
+</button>
+
+<span id="monster">
+    0
+</span>
+
+<button onclick="changeQuantity('monster',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -647,16 +931,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Nocco</div>
-    <div class="item-description">Energidryck</div>
+
+<div class="item-name">
+    Nocco
 </div>
 
-<div class="item-price">35 KR</div>
+<div class="item-description">
+    Energidryck
+</div>
+
+</div>
+
+<div class="item-price">
+    35 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('nocco',-1)">−</button>
-    <span id="nocco">0</span>
-    <button onclick="changeQuantity('nocco',1)">+</button>
+
+<button onclick="changeQuantity('nocco',-1)">
+    −
+</button>
+
+<span id="nocco">
+    0
+</span>
+
+<button onclick="changeQuantity('nocco',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -665,16 +968,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Celsius</div>
-    <div class="item-description">Energidryck</div>
+
+<div class="item-name">
+    Celsius
 </div>
 
-<div class="item-price">35 KR</div>
+<div class="item-description">
+    Energidryck
+</div>
+
+</div>
+
+<div class="item-price">
+    35 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('celsius',-1)">−</button>
-    <span id="celsius">0</span>
-    <button onclick="changeQuantity('celsius',1)">+</button>
+
+<button onclick="changeQuantity('celsius',-1)">
+    −
+</button>
+
+<span id="celsius">
+    0
+</span>
+
+<button onclick="changeQuantity('celsius',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -683,24 +1005,45 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Vatten</div>
-    <div class="item-description">50 cl</div>
+
+<div class="item-name">
+    Vatten
 </div>
 
-<div class="item-price">20 KR</div>
+<div class="item-description">
+    50 cl
+</div>
+
+</div>
+
+<div class="item-price">
+    20 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('water',-1)">−</button>
-    <span id="water">0</span>
-    <button onclick="changeQuantity('water',1)">+</button>
-</div>
+
+<button onclick="changeQuantity('water',-1)">
+    −
+</button>
+
+<span id="water">
+    0
+</span>
+
+<button onclick="changeQuantity('water',1)">
+    +
+</button>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- SNACKS -->
+
+<!-- =========================
+     SNACKS
+========================= -->
 
 <div class="category">
 
@@ -712,16 +1055,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Chips</div>
-    <div class="item-description">Olika smaker</div>
+
+<div class="item-name">
+    Chips
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    Olika smaker
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('chips',-1)">−</button>
-    <span id="chips">0</span>
-    <button onclick="changeQuantity('chips',1)">+</button>
+
+<button onclick="changeQuantity('chips',-1)">
+    −
+</button>
+
+<span id="chips">
+    0
+</span>
+
+<button onclick="changeQuantity('chips',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -730,16 +1092,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Godis</div>
-    <div class="item-description">Olika sorter</div>
+
+<div class="item-name">
+    Godis
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    Olika sorter
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('candy',-1)">−</button>
-    <span id="candy">0</span>
-    <button onclick="changeQuantity('candy',1)">+</button>
+
+<button onclick="changeQuantity('candy',-1)">
+    −
+</button>
+
+<span id="candy">
+    0
+</span>
+
+<button onclick="changeQuantity('candy',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -748,16 +1129,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Proteinbar</div>
-    <div class="item-description">Olika smaker</div>
+
+<div class="item-name">
+    Proteinbar
 </div>
 
-<div class="item-price">30 KR</div>
+<div class="item-description">
+    Olika smaker
+</div>
+
+</div>
+
+<div class="item-price">
+    30 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('proteinbar',-1)">−</button>
-    <span id="proteinbar">0</span>
-    <button onclick="changeQuantity('proteinbar',1)">+</button>
+
+<button onclick="changeQuantity('proteinbar',-1)">
+    −
+</button>
+
+<span id="proteinbar">
+    0
+</span>
+
+<button onclick="changeQuantity('proteinbar',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -766,24 +1166,45 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Popcorn</div>
-    <div class="item-description">Snacks</div>
+
+<div class="item-name">
+    Popcorn
 </div>
 
-<div class="item-price">25 KR</div>
+<div class="item-description">
+    Snacks
+</div>
+
+</div>
+
+<div class="item-price">
+    25 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('popcorn',-1)">−</button>
-    <span id="popcorn">0</span>
-    <button onclick="changeQuantity('popcorn',1)">+</button>
-</div>
+
+<button onclick="changeQuantity('popcorn',-1)">
+    −
+</button>
+
+<span id="popcorn">
+    0
+</span>
+
+<button onclick="changeQuantity('popcorn',1)">
+    +
+</button>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- MAT -->
+
+<!-- =========================
+     MAT
+========================= -->
 
 <div class="category">
 
@@ -795,16 +1216,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Kall macka</div>
-    <div class="item-description">Olika fyllningar</div>
+
+<div class="item-name">
+    Kall macka
 </div>
 
-<div class="item-price">49 KR</div>
+<div class="item-description">
+    Olika fyllningar
+</div>
+
+</div>
+
+<div class="item-price">
+    49 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('macka',-1)">−</button>
-    <span id="macka">0</span>
-    <button onclick="changeQuantity('macka',1)">+</button>
+
+<button onclick="changeQuantity('macka',-1)">
+    −
+</button>
+
+<span id="macka">
+    0
+</span>
+
+<button onclick="changeQuantity('macka',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -813,16 +1253,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Wrap</div>
-    <div class="item-description">Olika fyllningar</div>
+
+<div class="item-name">
+    Wrap
 </div>
 
-<div class="item-price">55 KR</div>
+<div class="item-description">
+    Olika fyllningar
+</div>
+
+</div>
+
+<div class="item-price">
+    55 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('wrap',-1)">−</button>
-    <span id="wrap">0</span>
-    <button onclick="changeQuantity('wrap',1)">+</button>
+
+<button onclick="changeQuantity('wrap',-1)">
+    −
+</button>
+
+<span id="wrap">
+    0
+</span>
+
+<button onclick="changeQuantity('wrap',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -831,16 +1290,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Toast</div>
-    <div class="item-description">Ost & skinka</div>
+
+<div class="item-name">
+    Toast
 </div>
 
-<div class="item-price">45 KR</div>
+<div class="item-description">
+    Ost & skinka
+</div>
+
+</div>
+
+<div class="item-price">
+    45 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('toast',-1)">−</button>
-    <span id="toast">0</span>
-    <button onclick="changeQuantity('toast',1)">+</button>
+
+<button onclick="changeQuantity('toast',-1)">
+    −
+</button>
+
+<span id="toast">
+    0
+</span>
+
+<button onclick="changeQuantity('toast',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -849,24 +1327,45 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Korv med bröd</div>
-    <div class="item-description">Enkel gaming-snack</div>
+
+<div class="item-name">
+    Korv med bröd
 </div>
 
-<div class="item-price">35 KR</div>
+<div class="item-description">
+    Enkel gaming-snack
+</div>
+
+</div>
+
+<div class="item-price">
+    35 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('korv',-1)">−</button>
-    <span id="korv">0</span>
-    <button onclick="changeQuantity('korv',1)">+</button>
-</div>
+
+<button onclick="changeQuantity('korv',-1)">
+    −
+</button>
+
+<span id="korv">
+    0
+</span>
+
+<button onclick="changeQuantity('korv',1)">
+    +
+</button>
 
 </div>
 
 </div>
 
+</div>
 
-<!-- COMBOS -->
+
+<!-- =========================
+     GAMING COMBOS
+========================= -->
 
 <div class="category">
 
@@ -878,16 +1377,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Gaming Combo 1</div>
-    <div class="item-description">Läsk + chips</div>
+
+<div class="item-name">
+    Gaming Combo 1
 </div>
 
-<div class="item-price">45 KR</div>
+<div class="item-description">
+    Läsk + chips
+</div>
+
+</div>
+
+<div class="item-price">
+    45 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('combo1',-1)">−</button>
-    <span id="combo1">0</span>
-    <button onclick="changeQuantity('combo1',1)">+</button>
+
+<button onclick="changeQuantity('combo1',-1)">
+    −
+</button>
+
+<span id="combo1">
+    0
+</span>
+
+<button onclick="changeQuantity('combo1',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -896,16 +1414,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Gaming Combo 2</div>
-    <div class="item-description">Energidryck + snacks</div>
+
+<div class="item-name">
+    Gaming Combo 2
 </div>
 
-<div class="item-price">55 KR</div>
+<div class="item-description">
+    Energidryck + snacks
+</div>
+
+</div>
+
+<div class="item-price">
+    55 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('combo2',-1)">−</button>
-    <span id="combo2">0</span>
-    <button onclick="changeQuantity('combo2',1)">+</button>
+
+<button onclick="changeQuantity('combo2',-1)">
+    −
+</button>
+
+<span id="combo2">
+    0
+</span>
+
+<button onclick="changeQuantity('combo2',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -914,16 +1451,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Gaming Combo 3</div>
-    <div class="item-description">Kall macka + läsk</div>
+
+<div class="item-name">
+    Gaming Combo 3
 </div>
 
-<div class="item-price">69 KR</div>
+<div class="item-description">
+    Kall macka + läsk
+</div>
+
+</div>
+
+<div class="item-price">
+    69 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('combo3',-1)">−</button>
-    <span id="combo3">0</span>
-    <button onclick="changeQuantity('combo3',1)">+</button>
+
+<button onclick="changeQuantity('combo3',-1)">
+    −
+</button>
+
+<span id="combo3">
+    0
+</span>
+
+<button onclick="changeQuantity('combo3',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -932,16 +1488,35 @@ body {
 <div class="item">
 
 <div class="item-info">
-    <div class="item-name">Gaming Combo 4</div>
-    <div class="item-description">Macka + energidryck + snacks</div>
+
+<div class="item-name">
+    Gaming Combo 4
 </div>
 
-<div class="item-price">89 KR</div>
+<div class="item-description">
+    Macka + energidryck + snacks
+</div>
+
+</div>
+
+<div class="item-price">
+    89 KR
+</div>
 
 <div class="quantity">
-    <button onclick="changeQuantity('combo4',-1)">−</button>
-    <span id="combo4">0</span>
-    <button onclick="changeQuantity('combo4',1)">+</button>
+
+<button onclick="changeQuantity('combo4',-1)">
+    −
+</button>
+
+<span id="combo4">
+    0
+</span>
+
+<button onclick="changeQuantity('combo4',1)">
+    +
+</button>
+
 </div>
 
 </div>
@@ -955,104 +1530,144 @@ body {
     Sortiment och priser är preliminära och kan ändras inför öppningen.
 </p>
 
-<a href="index.html" class="back">
+<a
+    href="index.html"
+    class="back">
+
     ← TILLBAKA TILL ELYSIUM
+
 </a>
 
 </div>
 
 </div>
 
-<!-- VARUKORG -->
 
-<div class="cart-overlay" id="cartOverlay">
+<!-- =========================
+     VARUKORG
+========================= -->
 
-    <div class="cart-box">
+<div
+    class="cart-overlay"
+    id="cartOverlay">
 
-        <div class="cart-header">
-
-            <h2>
-                DIN BESTÄLLNING
-            </h2>
-
-            <button
-                class="cart-close"
-                onclick="closeCart()">
-
-                ×
-
-            </button>
-
-        </div>
+<div class="cart-box">
 
 
-        <div
-            class="cart-place"
-            id="cartPlace">
+<div class="cart-header">
 
-            PC
+<h2>
+    DIN BESTÄLLNING
+</h2>
 
-        </div>
+<button
+    class="cart-close"
+    onclick="closeCart()">
 
+    ×
 
-        <div id="cartItems">
-
-        </div>
-
-
-        <div class="cart-total">
-
-            <span>
-                TOTALT
-            </span>
-
-            <span id="cartTotal">
-                0 KR
-            </span>
-
-        </div>
-
-
-        <button
-            class="cart-payment-button"
-            onclick="continueToPayment()">
-
-            FORTSÄTT TILL BETALNING
-
-        </button>
-
-    </div>
+</button>
 
 </div>
-<!-- BEKRÄFTELSERUTA -->
 
-<div class="confirmation-overlay" id="confirmationOverlay">
+
+<div
+    class="cart-place"
+    id="cartPlace">
+
+    PLATS
+
+</div>
+
+
+<div id="cartItems">
+
+</div>
+
+
+<div class="cart-total">
+
+<div class="cart-total-label">
+    TOTALT
+</div>
+
+<div
+    class="cart-total-price"
+    id="cartTotal">
+
+    0 KR
+
+</div>
+
+</div>
+
+
+<button
+    class="payment-button"
+    onclick="continueToPayment()">
+
+    FORTSÄTT TILL BETALNING
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     BEKRÄFTELSE
+========================= -->
+
+<div
+    class="confirmation-overlay"
+    id="confirmationOverlay">
 
 <div class="confirmation-box">
+
 
 <div class="confirmation-icon">
     ✓
 </div>
 
+
 <h2>
     BESTÄLLNING MOTTAGEN
 </h2>
+
 
 <div class="confirmation-subtitle">
     Din beställning har skickats till personalen.
 </div>
 
-<div class="confirmation-place" id="confirmationPlace">
+
+<div
+    class="confirmation-place"
+    id="confirmationPlace">
+
     PC
+
 </div>
 
-<div class="confirmation-order" id="confirmationOrder">
+
+<div
+    class="confirmation-order"
+    id="confirmationOrder">
+
     Din beställning
+
 </div>
 
-<div class="confirmation-total" id="confirmationTotal">
+
+<div
+    class="confirmation-total"
+    id="confirmationTotal">
+
     0 KR
+
 </div>
+
 
 <button
     class="confirmation-close"
@@ -1062,36 +1677,48 @@ body {
 
 </button>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- ORDER BAR -->
+
+<!-- =========================
+     BOTTEN
+========================= -->
 
 <div class="order-box">
 
 <div class="order-inner">
 
-<div>
+
+<div
+    class="total-area"
+    onclick="openCart()">
 
 <div class="total-label">
     TOTALT
 </div>
 
-<div class="total" id="total" onclick="openCart()" style="cursor:pointer;">
+<div
+    class="total"
+    id="total">
+
     0 KR
+
 </div>
 
 </div>
+
 
 <button
-    class="order-button"
-    onclick="placeOrder()">
+    class="view-cart-button"
+    onclick="openCart()">
 
-    BESTÄLL
+    VISA VARUKORG
 
 </button>
+
 
 </div>
 
@@ -1100,7 +1727,10 @@ body {
 
 <script>
 
-/* PRODUKTER */
+
+/* =========================
+   PRODUKTER
+========================= */
 
 const products = {
 
@@ -1215,33 +1845,54 @@ const products = {
 const quantities = {};
 
 
-/* PLUS / MINUS */
+/* =========================
+   PLUS / MINUS
+========================= */
 
 function changeQuantity(product, amount) {
 
     if (!quantities[product]) {
+
         quantities[product] = 0;
+
     }
+
 
     quantities[product] += amount;
 
+
     if (quantities[product] < 0) {
+
         quantities[product] = 0;
+
     }
 
-    document.getElementById(product).textContent =
-        quantities[product];
+
+    const counter =
+        document.getElementById(product);
+
+
+    if (counter) {
+
+        counter.textContent =
+            quantities[product];
+
+    }
+
 
     calculateTotal();
 
 }
 
 
-/* TOTAL */
+/* =========================
+   TOTAL
+========================= */
 
 function calculateTotal() {
 
     let total = 0;
+
 
     for (const product in quantities) {
 
@@ -1255,13 +1906,18 @@ function calculateTotal() {
 
     }
 
-    document.getElementById("total").textContent =
+
+    document.getElementById(
+        "total"
+    ).textContent =
         total + " KR";
 
 }
 
 
-/* PC-NUMMER */
+/* =========================
+   PC FRÅN QR
+========================= */
 
 function getStation() {
 
@@ -1270,8 +1926,10 @@ function getStation() {
             window.location.search
         );
 
+
     const pc =
         params.get("pc");
+
 
     if (pc) {
 
@@ -1279,12 +1937,14 @@ function getStation() {
 
     }
 
+
     return null;
 
 }
 
 
-const station = getStation();
+const station =
+    getStation();
 
 
 if (station) {
@@ -1292,8 +1952,10 @@ if (station) {
     const stationElement =
         document.getElementById("station");
 
+
     stationElement.textContent =
         "PLATS: " + station;
+
 
     stationElement.style.display =
         "block";
@@ -1301,74 +1963,174 @@ if (station) {
 }
 
 
-/* BESTÄLL */
+/* =========================
+   ÖPPNA VARUKORG
+========================= */
+
 function openCart() {
 
-    const cartItems = document.getElementById("cartItems");
-    const cartPlace = document.getElementById("cartPlace");
-    const cartTotal = document.getElementById("cartTotal");
+    const cartItems =
+        document.getElementById("cartItems");
+
+
+    const cartPlace =
+        document.getElementById("cartPlace");
+
+
+    const cartTotal =
+        document.getElementById("cartTotal");
+
 
     cartItems.innerHTML = "";
 
+
     let total = 0;
+
     let hasItems = false;
+
 
     for (const product in quantities) {
 
-        const quantity = quantities[product];
+        const quantity =
+            quantities[product];
 
-        if (quantity > 0 && products[product]) {
+
+        if (
+            quantity > 0 &&
+            products[product]
+        ) {
 
             hasItems = true;
 
-            const item = products[product];
-            const itemTotal = quantity * item.price;
+
+            const item =
+                products[product];
+
+
+            const itemTotal =
+                quantity * item.price;
+
 
             total += itemTotal;
 
-            const row = document.createElement("div");
 
-            row.className = "cart-item";
+            const row =
+                document.createElement("div");
+
+
+            row.className =
+                "cart-item";
+
 
             row.innerHTML =
-                '<span class="cart-item-name">' +
-                quantity + " × " + item.name +
-                '</span>' +
-                '<span class="cart-item-price">' +
-                itemTotal + " KR" +
-                '</span>';
+
+                '<div class="cart-item-name">' +
+
+                quantity +
+                " × " +
+                item.name +
+
+                '</div>' +
+
+                '<div class="cart-item-price">' +
+
+                itemTotal +
+                " KR" +
+
+                '</div>';
+
 
             cartItems.appendChild(row);
+
         }
+
     }
+
 
     if (!hasItems) {
 
         cartItems.innerHTML =
-            '<div class="cart-item-name">Din varukorg är tom.</div>';
+
+            '<div class="cart-empty">' +
+
+            "Din varukorg är tom." +
+
+            "</div>";
 
     }
 
-    cartTotal.textContent = total + " KR";
 
-    const station = getStation();
+    cartTotal.textContent =
+        total + " KR";
+
 
     cartPlace.textContent =
-        station ? "PLATS: " + station : "PLATS EJ ANGIVEN";
 
-    document.getElementById("cartOverlay").style.display = "flex";
+        station
+        ? "PLATS: " + station
+        : "PLATS EJ ANGIVEN";
+
+
+    document.getElementById(
+        "cartOverlay"
+    ).style.display = "flex";
+
 }
 
+
+/* =========================
+   STÄNG VARUKORG
+========================= */
 
 function closeCart() {
 
-    document.getElementById("cartOverlay").style.display = "none";
+    document.getElementById(
+        "cartOverlay"
+    ).style.display = "none";
+
+}
+
+
+/* =========================
+   BETALNING
+========================= */
+
 function continueToPayment() {
 
-    alert("Betalningslösning kommer snart.");
+    let total = 0;
+
+
+    for (const product in quantities) {
+
+        if (products[product]) {
+
+            total +=
+                quantities[product] *
+                products[product].price;
+
+        }
+
+    }
+
+
+    if (total === 0) {
+
+        return;
+
+    }
+
+
+    alert(
+        "Betalningslösning kommer snart."
+    );
 
 }
-}
+
+
+/* =========================
+   BESTÄLLNING
+========================= */
+
 function placeOrder() {
 
     let orderItems = [];
@@ -1392,13 +2154,16 @@ function placeOrder() {
 
 
             orderItems.push(
+
                 quantity +
                 "× " +
                 item.name
+
             );
 
 
             total +=
+
                 quantity *
                 item.price;
 
@@ -1409,16 +2174,13 @@ function placeOrder() {
 
     if (orderItems.length === 0) {
 
-        showMessage(
-            "Välj minst en produkt innan du beställer."
-        );
-
         return;
 
     }
 
 
-    let place = station;
+    let place =
+        station;
 
 
     if (!place) {
@@ -1426,6 +2188,7 @@ function placeOrder() {
         place = prompt(
             "Ange din plats, exempelvis PC 12:"
         );
+
 
         if (!place) {
 
@@ -1476,16 +2239,16 @@ function placeOrder() {
     );
 
 
-    /* VISA SNYGG BEKRÄFTELSE */
-
     document.getElementById(
         "confirmationPlace"
-    ).textContent = place;
+    ).textContent =
+        place;
 
 
     document.getElementById(
         "confirmationOrder"
-    ).textContent = orderText;
+    ).textContent =
+        orderText;
 
 
     document.getElementById(
@@ -1495,18 +2258,31 @@ function placeOrder() {
 
 
     document.getElementById(
+        "cartOverlay"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
         "confirmationOverlay"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
-
-    /* NOLLSTÄLL */
 
     for (const product in quantities) {
 
         quantities[product] = 0;
 
-        document.getElementById(product)
-            .textContent = "0";
+
+        const counter =
+            document.getElementById(product);
+
+
+        if (counter) {
+
+            counter.textContent = "0";
+
+        }
 
     }
 
@@ -1516,41 +2292,23 @@ function placeOrder() {
 }
 
 
-/* STÄNG BEKRÄFTELSERUTA */
+/* =========================
+   STÄNG BEKRÄFTELSE
+========================= */
 
 function closeConfirmation() {
 
     document.getElementById(
         "confirmationOverlay"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 }
 
-
-/* VANLIGA MEDDELANDEN */
-
-function showMessage(message) {
-
-    document.getElementById(
-        "confirmationPlace"
-    ).textContent = "";
-
-    document.getElementById(
-        "confirmationOrder"
-    ).textContent = message;
-
-    document.getElementById(
-        "confirmationTotal"
-    ).textContent = "";
-
-    document.getElementById(
-        "confirmationOverlay"
-    ).style.display = "flex";
-
-}
 
 </script>
 
 
 </body>
+
 </html>
