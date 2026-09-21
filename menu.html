@@ -374,7 +374,125 @@ body {
     }
 
 }
+/* VARUKORG */
 
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 9000;
+}
+
+.cart-box {
+    width: 100%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background: #0b0e13;
+    border-top: 1px solid #d4af37;
+
+    border-radius: 18px 18px 0 0;
+
+    padding: 25px 20px 30px;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.cart-header h2 {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.cart-close {
+    background: transparent;
+    border: none;
+
+    color: #9299a3;
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+.cart-place {
+    color: #d4af37;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cart-item-name {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.cart-item-price {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 22px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(212,175,55,0.25);
+}
+
+.cart-total span:first-child {
+    color: #9299a3;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.cart-total span:last-child {
+    color: #d4af37;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.cart-payment-button {
+    width: 100%;
+
+    margin-top: 22px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 4px;
+
+    background: #d4af37;
+    color: #05070a;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
 </style>
 
 </head>
@@ -845,7 +963,67 @@ body {
 
 </div>
 
+<!-- VARUKORG -->
 
+<div class="cart-overlay" id="cartOverlay">
+
+    <div class="cart-box">
+
+        <div class="cart-header">
+
+            <h2>
+                DIN BESTÄLLNING
+            </h2>
+
+            <button
+                class="cart-close"
+                onclick="closeCart()">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-place"
+            id="cartPlace">
+
+            PC
+
+        </div>
+
+
+        <div id="cartItems">
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <span>
+                TOTALT
+            </span>
+
+            <span id="cartTotal">
+                0 KR
+            </span>
+
+        </div>
+
+
+        <button
+            class="cart-payment-button"
+            onclick="continueToPayment()">
+
+            FORTSÄTT TILL BETALNING
+
+        </button>
+
+    </div>
+
+</div>
 <!-- BEKRÄFTELSERUTA -->
 
 <div class="confirmation-overlay" id="confirmationOverlay">
@@ -901,7 +1079,7 @@ body {
     TOTALT
 </div>
 
-<div class="total" id="total">
+<div class="total" id="total" onclick="openCart()" style="cursor:pointer;">
     0 KR
 </div>
 
@@ -1124,7 +1302,73 @@ if (station) {
 
 
 /* BESTÄLL */
+function openCart() {
 
+    const cartItems = document.getElementById("cartItems");
+    const cartPlace = document.getElementById("cartPlace");
+    const cartTotal = document.getElementById("cartTotal");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let hasItems = false;
+
+    for (const product in quantities) {
+
+        const quantity = quantities[product];
+
+        if (quantity > 0 && products[product]) {
+
+            hasItems = true;
+
+            const item = products[product];
+            const itemTotal = quantity * item.price;
+
+            total += itemTotal;
+
+            const row = document.createElement("div");
+
+            row.className = "cart-item";
+
+            row.innerHTML =
+                '<span class="cart-item-name">' +
+                quantity + " × " + item.name +
+                '</span>' +
+                '<span class="cart-item-price">' +
+                itemTotal + " KR" +
+                '</span>';
+
+            cartItems.appendChild(row);
+        }
+    }
+
+    if (!hasItems) {
+
+        cartItems.innerHTML =
+            '<div class="cart-item-name">Din varukorg är tom.</div>';
+
+    }
+
+    cartTotal.textContent = total + " KR";
+
+    const station = getStation();
+
+    cartPlace.textContent =
+        station ? "PLATS: " + station : "PLATS EJ ANGIVEN";
+
+    document.getElementById("cartOverlay").style.display = "flex";
+}
+
+
+function closeCart() {
+
+    document.getElementById("cartOverlay").style.display = "none";
+function continueToPayment() {
+
+    alert("Betalningslösning kommer snart.");
+
+}
+}
 function placeOrder() {
 
     let orderItems = [];
