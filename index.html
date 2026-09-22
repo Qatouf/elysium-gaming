@@ -1,29 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#05070a">
 
     <title>Elysium Gaming Lounge | Kristianstad</title>
 
-    <meta
-        name="description"
-        content="Elysium Gaming Lounge i Kristianstad – gaming, tävlingar, events, mat och dryck."
-    >
+    <meta name="description"
+        content="Elysium Gaming Lounge i Kristianstad – PC gaming, PS5, biljard, bordfotboll, events, mat och dryck. Öppnar snart.">
 
     <link rel="stylesheet" href="style.css">
 
-<style>
-.faq-section{max-width:900px;margin:100px auto 80px;padding:0 20px}.faq-header{text-align:center;margin-bottom:40px}.faq-header .section-label{color:#d4af37;font-size:11px;font-weight:900;letter-spacing:4px;margin-bottom:12px}.faq-header h2{color:#fff;font-size:36px;font-weight:900;letter-spacing:2px;margin-bottom:15px}.faq-header>p:last-child{color:#9299a3;font-size:14px;line-height:1.6}.faq-container{display:flex;flex-direction:column;gap:10px}.faq-item{background:#0b0e13;border:1px solid rgba(212,175,55,.25);border-radius:8px;overflow:hidden}.faq-item summary{position:relative;padding:20px 55px 20px 20px;color:#fff;font-size:14px;font-weight:800;cursor:pointer;list-style:none}.faq-item summary::-webkit-details-marker{display:none}.faq-item summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:#d4af37;font-size:24px;font-weight:400}.faq-item[open] summary{color:#d4af37}.faq-item[open] summary::after{content:"−"}.faq-item p{margin:0;padding:0 20px 20px;color:#9299a3;font-size:13px;line-height:1.7}.faq-item a{color:#d4af37;text-decoration:none}@media(max-width:600px){.faq-section{margin:70px auto 60px;padding:0 15px}.faq-header h2{font-size:28px}.faq-item summary{padding:18px 45px 18px 16px;font-size:13px}.faq-item p{padding:0 16px 18px;font-size:12px}}
-</style>
+    <style>
+        html, body {
+            min-height: 100%;
+        }
+
+        body {
+            overflow-y: auto;
+        }
+
+        .food-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 36px;
+        }
+
+        .food-cta .btn {
+            text-align: center;
+        }
+
+        .faq-section {
+            scroll-margin-top: 120px;
+        }
+
+        @media (max-width: 700px) {
+            .food-cta .btn {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .hero h1 {
+                overflow-wrap: normal;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ================================
-         HEADER
-    ================================= -->
+    <!-- HEADER -->
 
     <header>
 
@@ -31,10 +60,10 @@
             ELYSIUM
         </a>
 
-        <nav>
+        <nav aria-label="Huvudmeny">
             <a href="#gaming">Gaming</a>
             <a href="#priser">Priser</a>
-            <a href="#mat-dryck">Mat & Dryck</a>
+            <a href="#mat-dryck">Mat &amp; Dryck</a>
             <a href="#events">Events</a>
             <a href="#om-elysium">Om oss</a>
             <a href="#kontakt">Kontakt</a>
@@ -43,12 +72,9 @@
 
     </header>
 
-
     <main>
 
-        <!-- ================================
-             HERO
-        ================================= -->
+        <!-- HERO -->
 
         <section class="hero" id="home">
 
@@ -56,9 +82,7 @@
                 KRISTIANSTAD'S NEW GAMING DESTINATION
             </p>
 
-            <h1>
-                ELYSIUM
-            </h1>
+            <h1>ELYSIUM</h1>
 
             <p class="tagline">
                 MORE THAN GAMING.
@@ -76,7 +100,7 @@
                 </a>
 
                 <a href="#mat-dryck" class="btn">
-                    MAT & DRYCK
+                    MAT &amp; DRYCK
                 </a>
 
             </div>
@@ -84,9 +108,7 @@
         </section>
 
 
-        <!-- ================================
-             GAMING
-        ================================= -->
+        <!-- GAMING -->
 
         <section class="gaming-section" id="gaming">
 
@@ -94,3 +116,692 @@
 
                 <p class="section-label">
                     THE ELYSIUM EXPERIENCE
+                </p>
+
+                <h2>
+                    GAMING PÅ EN NY NIVÅ
+                </h2>
+
+                <p>
+                    Här möts spel, tävling och gemenskap.
+                    Utforska våra planerade gamingstationer
+                    och aktiviteter.
+                </p>
+
+            </div>
+
+            <div class="gaming-grid">
+
+                <article class="gaming-card">
+
+                    <p class="card-number">
+                        01 / PC GAMING
+                    </p>
+
+                    <h3>20 PC-STATIONER</h3>
+
+                    <p>
+                        Ta plats vid en av våra 20 planerade
+                        gamingdatorer. Spela med vänner,
+                        träna eller tävla mot andra.
+                    </p>
+
+                    <div class="specs">
+                        <span>20 STATIONER</span>
+                        <span>200 HZ</span>
+                        <span>RTX 5060*</span>
+                    </div>
+
+                </article>
+
+
+                <article class="gaming-card">
+
+                    <p class="card-number">
+                        02 / CONSOLE
+                    </p>
+
+                    <h3>PS5 LOUNGE</h3>
+
+                    <p>
+                        Utmana kompisarna på PlayStation 5.
+                        En social spelupplevelse för både
+                        spontana matcher och planerade
+                        spelkvällar.
+                    </p>
+
+                    <div class="specs">
+                        <span>PLAYSTATION 5</span>
+                        <span>MULTIPLAYER</span>
+                        <span>FC</span>
+                    </div>
+
+                </article>
+
+
+                <article class="gaming-card">
+
+                    <p class="card-number">
+                        03 / SOCIAL GAMING
+                    </p>
+
+                    <h3>MER ÄN GAMING</h3>
+
+                    <p>
+                        Ta en paus från skärmen med biljard,
+                        bordfotboll, snacks och skönt häng
+                        tillsammans med vännerna.
+                    </p>
+
+                    <div class="specs">
+                        <span>BILJARD</span>
+                        <span>BORDFOTBOLL</span>
+                        <span>LOUNGE</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="pricing-note">
+                *Utrustning och specifikationer är planerade
+                och kan justeras inför öppningen.
+            </p>
+
+        </section>
+
+
+        <!-- PRISER -->
+
+        <section class="pricing-section" id="priser">
+
+            <div class="pricing-header">
+
+                <p class="section-label">
+                    PLAY YOUR WAY
+                </p>
+
+                <h2>VÅRA PRISER</h2>
+
+                <p>
+                    Välj speltid efter hur länge du vill stanna.
+                    Nedan visas preliminära exempelpriser
+                    för PC gaming.
+                </p>
+
+            </div>
+
+            <div class="pricing-grid">
+
+                <article class="price-card">
+
+                    <p class="price-label">
+                        QUICK SESSION
+                    </p>
+
+                    <h3>1 TIMME</h3>
+
+                    <p class="price">
+                        49 <span>KR</span>
+                    </p>
+
+                    <p>
+                        För en snabb match eller en stunds gaming.
+                    </p>
+
+                </article>
+
+
+                <article class="price-card featured">
+
+                    <span class="popular">
+                        POPULÄRT PAKET
+                    </span>
+
+                    <p class="price-label">
+                        EXTENDED SESSION
+                    </p>
+
+                    <h3>3 TIMMAR</h3>
+
+                    <p class="price">
+                        129 <span>KR</span>
+                    </p>
+
+                    <p>
+                        För dig som vill hinna spela flera matcher.
+                    </p>
+
+                </article>
+
+
+                <article class="price-card">
+
+                    <p class="price-label">
+                        LONG SESSION
+                    </p>
+
+                    <h3>5 TIMMAR</h3>
+
+                    <p class="price">
+                        199 <span>KR</span>
+                    </p>
+
+                    <p>
+                        För långa gamingpass och heldagshäng.
+                    </p>
+
+                </article>
+
+            </div>
+
+            <p class="pricing-note">
+                Alla priser är preliminära och kan ändras
+                före öppning. Information om PS5, biljard
+                och övriga aktiviteter kommer senare.
+            </p>
+
+        </section>
+
+
+        <!-- MAT OCH DRYCK -->
+
+        <section class="food-section" id="mat-dryck">
+
+            <div class="food-header">
+
+                <p class="section-label">
+                    FUEL YOUR GAME
+                </p>
+
+                <h2>MAT &amp; DRYCK</h2>
+
+                <p>
+                    Fyll på med energi under spelpasset.
+                    Utforska vårt planerade utbud av
+                    drycker, snacks och enklare mat.
+                </p>
+
+            </div>
+
+            <div class="food-grid">
+
+                <article class="food-card">
+
+                    <p class="food-number">
+                        01 / DRINKS
+                    </p>
+
+                    <h3>DRYCK</h3>
+
+                    <p>
+                        Välj något kallt och uppfriskande
+                        mellan matcherna.
+                    </p>
+
+                    <div class="food-items">
+                        <span>LÄSK</span>
+                        <span>ENERGIDRYCK</span>
+                        <span>VATTEN</span>
+                    </div>
+
+                </article>
+
+
+                <article class="food-card featured">
+
+                    <p class="food-number">
+                        02 / SNACKS
+                    </p>
+
+                    <h3>SNACKS</h3>
+
+                    <p>
+                        Något gott att äta när det blir
+                        en lång gamingkväll.
+                    </p>
+
+                    <div class="food-items">
+                        <span>CHIPS</span>
+                        <span>GODIS</span>
+                        <span>POPCORN</span>
+                        <span>PROTEINBARS</span>
+                    </div>
+
+                </article>
+
+
+                <article class="food-card">
+
+                    <p class="food-number">
+                        03 / FOOD
+                    </p>
+
+                    <h3>MAT</h3>
+
+                    <p>
+                        Enkla måltider som passar perfekt
+                        under en spelpaus.
+                    </p>
+
+                    <div class="food-items">
+                        <span>TOAST</span>
+                        <span>WRAPS</span>
+                        <span>MACKOR</span>
+                        <span>KORV</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div class="food-cta">
+
+                <a href="menu.html" class="btn">
+                    SE HELA MENYN &rarr;
+                </a>
+
+            </div>
+
+            <p class="food-note">
+                Sortiment och priser är preliminära.
+                Beställning och betalning online är
+                inte aktiverade.
+            </p>
+
+        </section>
+
+
+        <!-- EVENTS -->
+
+        <section class="events-section" id="events">
+
+            <div class="events-header">
+
+                <p class="section-label">
+                    COMPETE. CONNECT. REPEAT.
+                </p>
+
+                <h2>EVENTS &amp; TURNERINGAR</h2>
+
+                <p>
+                    Från avslappnade spelkvällar till
+                    tävlingar. Håll utkik efter
+                    kommande event på Elysium.
+                </p>
+
+            </div>
+
+            <div class="events-grid">
+
+                <article class="event-card">
+
+                    <p class="event-number">
+                        01 / COMPETITIVE
+                    </p>
+
+                    <p class="event-type">
+                        COUNTER-STRIKE
+                    </p>
+
+                    <h3>CS2 NIGHT</h3>
+
+                    <p>
+                        Samla laget och gör er redo för
+                        en kväll fylld av intensiva
+                        matcher och gaminggemenskap.
+                    </p>
+
+                    <span>COMING SOON</span>
+
+                </article>
+
+
+                <article class="event-card featured">
+
+                    <p class="event-number">
+                        02 / TOURNAMENT
+                    </p>
+
+                    <p class="event-type">
+                        ELYSIUM EXCLUSIVE
+                    </p>
+
+                    <h3>ELYSIUM CUP</h3>
+
+                    <p>
+                        En planerad turnering för spelare
+                        som vill tävla och träffa andra
+                        i gamingcommunityt.
+                    </p>
+
+                    <span>COMING SOON</span>
+
+                </article>
+
+
+                <article class="event-card">
+
+                    <p class="event-number">
+                        03 / CONSOLE
+                    </p>
+
+                    <p class="event-type">
+                        FOOTBALL GAMING
+                    </p>
+
+                    <h3>FC NIGHT</h3>
+
+                    <p>
+                        Bjud in vännerna till
+                        fotbollsmatcher på PlayStation
+                        och tävla om kvällens ära.
+                    </p>
+
+                    <span>COMING SOON</span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- OM OSS -->
+
+        <section class="about-section" id="om-elysium">
+
+            <div class="about-container">
+
+                <div class="about-left">
+
+                    <p class="section-label">
+                        WELCOME TO ELYSIUM
+                    </p>
+
+                    <h2>MER ÄN BARA SPEL</h2>
+
+                    <p class="about-lead">
+                        Vi vill skapa en gaming lounge
+                        där gaming, aktiviteter och
+                        gemenskap möts.
+                    </p>
+
+                    <p class="about-text">
+                        Elysium Gaming Lounge planeras
+                        i Kristianstad och riktar sig
+                        till kompisgäng, studenter,
+                        familjer, gamers och företag.
+
+                        Med PC gaming, PS5, biljard,
+                        bordfotboll och kommande evenemang
+                        vill vi erbjuda en plats att
+                        spela, umgås och uppleva något
+                        tillsammans.
+                    </p>
+
+                </div>
+
+
+                <div class="about-right">
+
+                    <div class="about-stat">
+                        <strong>20</strong>
+                        <span>PLANERADE PC-STATIONER</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <strong>200 HZ</strong>
+                        <span>PLANERADE SKÄRMAR</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <strong>PS5</strong>
+                        <span>CONSOLE GAMING</span>
+                    </div>
+
+                    <div class="about-stat">
+                        <strong>KRSTD</strong>
+                        <span>KRISTIANSTAD</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- KONTAKT -->
+
+        <section class="contact-section" id="kontakt">
+
+            <div class="contact-container">
+
+                <div class="contact-header">
+
+                    <p class="section-label">
+                        FIND YOUR PLACE
+                    </p>
+
+                    <h2>HITTA TILL OSS</h2>
+
+                    <p>
+                        Elysium Gaming Lounge planeras
+                        öppna i Kristianstad.
+                        Mer information publiceras när
+                        öppningsdatumet är klart.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div class="contact-card">
+
+                        <span>01 / ADRESS</span>
+
+                        <strong>
+                            Kung Knuts väg 15E
+                        </strong>
+
+                        <p>
+                            Kristianstad – planerad adress.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>02 / ÖPPETTIDER</span>
+
+                        <strong>COMING SOON</strong>
+
+                        <p>
+                            Öppningsdatum och öppettider
+                            meddelas senare.
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>03 / SOCIALA MEDIER</span>
+
+                        <strong>HÅLL UTKIK</strong>
+
+                        <p>
+                            Våra officiella sociala
+                            kanaler publiceras när
+                            de lanseras.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FAQ -->
+
+        <section class="faq-section" id="faq">
+
+            <div class="faq-header">
+
+                <p class="section-label">
+                    FREQUENTLY ASKED QUESTIONS
+                </p>
+
+                <h2>VANLIGA FRÅGOR</h2>
+
+                <p>
+                    Här har vi samlat svar på
+                    några vanliga frågor inför öppningen.
+                </p>
+
+            </div>
+
+
+            <div class="faq-container">
+
+                <details class="faq-item">
+
+                    <summary>
+                        Kan jag boka en gamingdator i förväg?
+                    </summary>
+
+                    <p>
+                        Vi planerar att erbjuda bokning
+                        online längre fram.
+                        Bokningssystemet är ännu inte öppet.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Vilka spel kommer att finnas?
+                    </summary>
+
+                    <p>
+                        Vi planerar PC gaming och
+                        PlayStation 5.
+                        Den fullständiga spellistan
+                        presenteras inför öppningen.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Finns det mat och dryck?
+                    </summary>
+
+                    <p>
+                        Ja, vi planerar läsk,
+                        energidryck, snacks och enklare mat.
+                        Du kan se det preliminära
+                        sortimentet i
+                        <a href="menu.html">vår meny</a>.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Kan man boka lokalen för privata event?
+                    </summary>
+
+                    <p>
+                        Vi planerar att erbjuda
+                        privata bokningar, födelsedagar
+                        och aktiviteter för företag.
+                        Bokningsinformation kommer senare.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        Var ligger Elysium Gaming Lounge?
+                    </summary>
+
+                    <p>
+                        Vår planerade adress är
+                        Kung Knuts väg 15E i Kristianstad.
+                        Slutlig information publiceras
+                        före öppning.
+                    </p>
+
+                </details>
+
+
+                <details class="faq-item">
+
+                    <summary>
+                        När öppnar ni?
+                    </summary>
+
+                    <p>
+                        Vi har ännu inget bekräftat
+                        öppningsdatum.
+                        Håll utkik på hemsidan
+                        efter uppdateringar.
+                    </p>
+
+                </details>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ELYSIUM
+        </div>
+
+        <p>MORE THAN GAMING.</p>
+
+        <nav class="footer-links">
+
+            <a href="#home">Hem</a>
+            <a href="#gaming">Gaming</a>
+            <a href="#priser">Priser</a>
+            <a href="#mat-dryck">Mat &amp; Dryck</a>
+            <a href="#events">Events</a>
+            <a href="#om-elysium">Om oss</a>
+            <a href="#kontakt">Kontakt</a>
+            <a href="#faq">FAQ</a>
+            <a href="menu.html">Hela menyn</a>
+
+        </nav>
+
+        <small>
+            &copy; 2026 Elysium Gaming Lounge AB.
+            Alla rättigheter förbehållna.
+        </small>
+
+    </footer>
+
+</body>
+</html>
