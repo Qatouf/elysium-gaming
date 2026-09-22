@@ -1,1347 +1,1079 @@
+
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Boka | Elysium Gaming Lounge</title>
-
-    <meta
-        name="description"
-        content="Boka PC gaming hos Elysium Gaming Lounge i Kristianstad."
-    >
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            min-height: 100vh;
-            background: #05070a;
-            color: #ffffff;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        a {
-            color: inherit;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            width: 100%;
-            padding: 22px 7%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            background: rgba(5, 7, 10, 0.96);
-
-            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
-        }
-
-        .logo {
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 28px;
-            font-weight: 900;
-            letter-spacing: 4px;
-        }
-
-        .back-link {
-            color: #aeb4bd;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-
-            transition: 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #d4af37;
-        }
-
-
-        /* =========================
-           PAGE
-        ========================= */
-
-        .booking-page {
-            width: 100%;
-            padding: 80px 6% 100px;
-        }
-
-        .booking-intro {
-            max-width: 820px;
-            margin: 0 auto 55px;
-            text-align: center;
-        }
-
-        .section-label {
-            color: #d4af37;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 4px;
-            margin-bottom: 14px;
-        }
-
-        .booking-intro h1 {
-            font-size: clamp(38px, 7vw, 70px);
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-
-        .booking-intro > p:last-child {
-            color: #9ca3ad;
-            font-size: 16px;
-            line-height: 1.7;
-            max-width: 650px;
-            margin: auto;
-        }
-
-
-        /* =========================
-           LAYOUT
-        ========================= */
-
-        .booking-container {
-            max-width: 1150px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 30px;
-
-            align-items: start;
-        }
-
-        .booking-form,
-        .booking-summary {
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.035),
-                    rgba(255,255,255,0.01)
-                );
-
-            border: 1px solid rgba(212, 175, 55, 0.30);
-            border-radius: 10px;
-        }
-
-        .booking-form {
-            padding: 40px;
-        }
-
-        .booking-summary {
-            padding: 35px;
-            position: sticky;
-            top: 20px;
-        }
-
-
-        /* =========================
-           FORM
-        ========================= */
-
-        .form-section {
-            margin-bottom: 40px;
-        }
-
-        .form-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .form-section-title {
-            color: #d4af37;
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 2.5px;
-
-            margin-bottom: 22px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            font-size: 12px;
-            font-weight: 800;
-            color: #d6d8dc;
-        }
-
-        input,
-        select {
-            width: 100%;
-            min-height: 52px;
-
-            padding: 0 15px;
-
-            background: #090c10;
-            color: #ffffff;
-
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: 6px;
-
-            outline: none;
-
-            font-family: inherit;
-            font-size: 14px;
-
-            transition: 0.2s ease;
-        }
-
-        input:focus,
-        select:focus {
-            border-color: #d4af37;
-        }
-
-        select option {
-            background: #090c10;
-            color: #ffffff;
-        }
-
-
-        /* =========================
-           DURATION
-        ========================= */
-
-        .duration-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-
-        .duration-option {
-            position: relative;
-        }
-
-        .duration-option input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .duration-option label {
-            min-height: 120px;
-
-            padding: 20px 12px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            text-align: center;
-
-            cursor: pointer;
-
-            background: #090c10;
-
-            border: 1px solid rgba(212,175,55,0.25);
-            border-radius: 7px;
-
-            transition: 0.2s ease;
-        }
-
-        .duration-option label strong {
-            display: block;
-
-            color: #ffffff;
-            font-size: 20px;
-
-            margin-bottom: 8px;
-        }
-
-        .duration-option label span {
-            color: #d4af37;
-            font-size: 14px;
-            font-weight: 900;
-        }
-
-        .duration-option input:checked + label {
-            border-color: #d4af37;
-            background: rgba(212,175,55,0.09);
-
-            box-shadow:
-                0 0 0 1px rgba(212,175,55,0.18);
-        }
-
-
-        /* =========================
-           SUMMARY
-        ========================= */
-
-        .summary-label {
-            color: #d4af37;
-
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 3px;
-
-            margin-bottom: 10px;
-        }
-
-        .booking-summary h2 {
-            font-size: 27px;
-            margin-bottom: 28px;
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding: 15px 0;
-
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .summary-row span:first-child {
-            color: #818892;
-            font-size: 13px;
-        }
-
-        .summary-row span:last-child {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 800;
-
-            text-align: right;
-        }
-
-        .summary-total {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-
-            margin-top: 28px;
-        }
-
-        .summary-total span {
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        .summary-total strong {
-            color: #d4af37;
-            font-size: 35px;
-        }
-
-        .payment-box {
-            margin-top: 25px;
-            padding: 17px;
-
-            background: rgba(212,175,55,0.07);
-
-            border: 1px solid rgba(212,175,55,0.25);
-            border-radius: 6px;
-        }
-
-        .payment-box strong {
-            display: block;
-
-            color: #d4af37;
-            font-size: 12px;
-            letter-spacing: 1px;
-
-            margin-bottom: 7px;
-        }
-
-        .payment-box p {
-            color: #aeb4bd;
-
-            font-size: 12px;
-            line-height: 1.6;
-        }
-
-
-        /* =========================
-           BUTTON
-        ========================= */
-
-        .booking-button {
-            width: 100%;
-            min-height: 55px;
-
-            margin-top: 28px;
-
-            background: #d4af37;
-            color: #05070a;
-
-            border: none;
-            border-radius: 4px;
-
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 2px;
-
-            cursor: pointer;
-
-            transition: 0.25s ease;
-        }
-
-        .booking-button:hover {
-            background: #e3c35b;
-        }
-
-
-        /* =========================
-           PREVIEW
-        ========================= */
-
-        .booking-preview {
-            display: none;
-
-            max-width: 1150px;
-
-            margin: 30px auto 0;
-            padding: 32px;
-
-            border: 1px solid rgba(212,175,55,0.4);
-            border-radius: 8px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(212,175,55,0.10),
-                    rgba(255,255,255,0.02)
-                );
-        }
-
-        .booking-preview.show {
-            display: block;
-        }
-
-        .booking-preview h2 {
-            color: #d4af37;
-            margin-bottom: 15px;
-        }
-
-        .booking-preview p {
-            color: #b3b7be;
-            line-height: 1.7;
-            margin-bottom: 8px;
-        }
-
-        .booking-preview .warning {
-            margin-top: 20px;
-
-            padding: 15px;
-
-            color: #ffffff;
-
-            background: rgba(255,255,255,0.04);
-
-            border-left: 3px solid #d4af37;
-
-            font-size: 13px;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            padding: 40px 6%;
-
-            text-align: center;
-
-            border-top:
-                1px solid rgba(212,175,55,0.20);
-
-            color: #676c74;
-
-            font-size: 11px;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 850px) {
-
-            .booking-container {
-                grid-template-columns: 1fr;
-            }
-
-            .booking-summary {
-                position: static;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            header {
-                padding: 18px 5%;
-            }
-
-            .logo {
-                font-size: 21px;
-            }
-
-            .back-link {
-                font-size: 10px;
-            }
-
-            .booking-page {
-                padding: 55px 5% 70px;
-            }
-
-            .booking-intro {
-                margin-bottom: 35px;
-            }
-
-            .booking-intro h1 {
-                font-size: 38px;
-            }
-
-            .booking-form,
-            .booking-summary {
-                padding: 25px 18px;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group.full {
-                grid-column: auto;
-            }
-
-            .duration-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .duration-option label {
-                min-height: 90px;
-            }
-
-            .summary-total strong {
-                font-size: 30px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Boka PC Gaming | Elysium Gaming Lounge</title>
+
+<meta name="description"
+content="Boka PC Gaming hos Elysium Gaming Lounge i Kristianstad. Välj speltid, datum och antal personer. Betala på plats.">
+
+<style>
+:root {
+    --gold: #d4af37;
+    --bg: #05070a;
+    --card: #0b0e13;
+    --muted: #aeb4bd;
+    --border: rgba(212,175,55,.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+/* HEADER */
+
+header {
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+    background: #080a0e;
+}
+
+.logo {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 29px;
+    letter-spacing: 4px;
+    font-weight: 900;
+}
+
+.back {
+    font-size: 12px;
+    font-weight: 800;
+    color: #c4c7cd;
+    text-decoration: none;
+}
+
+.back:hover {
+    color: var(--gold);
+}
+
+/* PAGE */
+
+main {
+    padding: 80px 6% 100px;
+}
+
+.intro {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 55px;
+}
+
+.label {
+    color: var(--gold);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.intro h1 {
+    font-size: clamp(38px,7vw,68px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.intro p:last-child {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* LAYOUT */
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.3fr .7fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.form-card,
+.summary {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: linear-gradient(
+        145deg,
+        #101318,
+        #090b0f
+    );
+}
+
+.form-card {
+    padding: 35px;
+}
+
+.summary {
+    padding: 30px;
+    position: sticky;
+    top: 20px;
+}
+
+/* SECTIONS */
+
+.form-section {
+    margin-bottom: 37px;
+}
+
+.form-section h2 {
+    color: var(--gold);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 23px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.field.full {
+    grid-column: 1/-1;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: 800;
+    color: #e5e5e5;
+}
+
+.field input,
+.field select {
+    width: 100%;
+    min-height: 52px;
+    padding: 12px;
+    background: #05070a;
+    color: white;
+    border: 1px solid #34363b;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+    color-scheme: dark;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: 1px solid var(--gold);
+    border-color: var(--gold);
+}
+
+.field select:disabled {
+    opacity: .6;
+}
+
+/* DURATION */
+
+.duration-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.duration-option {
+    position: relative;
+}
+
+.duration-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.duration-option label {
+    background: #07090d;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 23px 12px;
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.duration-option strong {
+    font-size: 20px;
+}
+
+.duration-option span {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.duration-option input:checked + label {
+    background: rgba(212,175,55,.12);
+    border: 2px solid var(--gold);
+}
+
+.duration-option input:focus-visible + label {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+/* SUMMARY */
+
+.summary h2 {
+    font-size: 26px;
+    margin: 10px 0 25px;
+}
+
+.summary-row {
+    padding: 15px 0;
+    border-bottom: 1px solid #292c32;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    font-size: 13px;
+}
+
+.summary-row span:first-child {
+    color: var(--muted);
+}
+
+.summary-row span:last-child {
+    text-align: right;
+    font-weight: 800;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.total strong {
+    color: var(--gold);
+    font-size: 34px;
+}
+
+.payment {
+    margin-top: 28px;
+    padding: 20px;
+    background: rgba(212,175,55,.08);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.payment strong {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.payment p {
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.notice {
+    padding: 15px;
+    background: #12151a;
+    border-left: 3px solid var(--gold);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* SUBMIT */
+
+.submit {
+    width: 100%;
+    min-height: 57px;
+    border: 0;
+    border-radius: 5px;
+    background: var(--gold);
+    color: #05070a;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.submit:hover {
+    background: #e5c452;
+}
+
+.submit:disabled {
+    opacity: .55;
+    cursor: wait;
+}
+
+.form-note {
+    text-align: center;
+    color: #8f949d;
+    line-height: 1.6;
+    font-size: 12px;
+    margin-top: 17px;
+}
+
+.error {
+    display: none;
+    color: #ffb6b6;
+    background: rgba(255,0,0,.07);
+    border: 1px solid rgba(255,80,80,.4);
+    padding: 14px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.error.show {
+    display: block;
+}
+
+.hp {
+    position: absolute;
+    left: -9999px;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    border-top: 1px solid var(--border);
+    padding: 40px 20px;
+    color: #858993;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .summary {
+        position: static;
+    }
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 20px 5%;
+    }
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .back {
+        font-size: 10px;
+        text-align: right;
+    }
+
+    main {
+        padding: 55px 5% 75px;
+    }
+
+    .intro {
+        margin-bottom: 35px;
+    }
+
+    .form-card,
+    .summary {
+        padding: 24px 18px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .duration-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .duration-option label {
+        min-height: 85px;
+    }
+
+    .total strong {
+        font-size: 29px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
+<header>
+    <a href="index.html" class="logo">ELYSIUM</a>
+    <a href="index.html" class="back">
+        ← TILLBAKA TILL HEMSIDAN
+    </a>
+</header>
 
-    <!-- HEADER -->
+<main>
 
-    <header>
+    <div class="intro">
+        <p class="label">RESERVE YOUR SESSION</p>
 
-        <a href="index.html" class="logo">
-            ELYSIUM
-        </a>
+        <h1>BOKA PC GAMING</h1>
 
-        <a href="index.html" class="back-link">
-            ← TILLBAKA TILL HEMSIDAN
-        </a>
+        <p>
+            Välj datum, speltid och antal personer.
+            Betala enkelt på plats i kassan.
+        </p>
+    </div>
 
-    </header>
+    <div class="container">
 
+        <!-- BOKNINGSFORMULÄR -->
 
-    <main class="booking-page">
+        <form
+            id="bookingForm"
+            class="form-card"
+            method="POST"
+            action="https://script.google.com/macros/s/AKfycbxu-2-tKt2Ka82497zappvkTCEj8lbAZ0PT6_MhLiiGX020nLFJd72l8aTJH_83EYWUCA/exec"
+        >
 
+            <div class="notice">
+                Bokningen registreras först när du
+                har skickat formuläret och fått
+                en bekräftelse med bokningsnummer.
+                Betalning sker på plats.
+            </div>
 
-        <!-- INTRO -->
+            <!-- HONEYPOT -->
 
-        <section class="booking-intro">
+            <div class="hp" aria-hidden="true">
+                <label for="website">Webbplats</label>
+                <input
+                    type="text"
+                    name="website"
+                    id="website"
+                    tabindex="-1"
+                    autocomplete="off"
+                >
+            </div>
 
-            <p class="section-label">
-                RESERVE YOUR SESSION
-            </p>
+            <!-- STEG 1 -->
 
-            <h1>
-                BOKA PC GAMING
-            </h1>
+            <div class="form-section">
+                <h2>01 / VÄLJ DATUM</h2>
 
-            <p>
-                Välj datum, starttid, speltid och hur många
-                personer som ska spela. Betalning sker på
-                plats i kassan när ni kommer till Elysium.
-            </p>
+                <div class="field">
+                    <label for="date">Datum</label>
 
-        </section>
-
-
-        <div class="booking-container">
-
-
-            <!-- BOOKING FORM -->
-
-            <form
-                class="booking-form"
-                id="bookingForm"
-            >
-
-
-                <!-- DATE AND TIME -->
-
-                <div class="form-section">
-
-                    <p class="form-section-title">
-                        01 / DATUM & TID
-                    </p>
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label for="bookingDate">
-                                Datum
-                            </label>
-
-                            <input
-                                type="date"
-                                id="bookingDate"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="bookingTime">
-                                Starttid
-                            </label>
-
-                            <select
-                                id="bookingTime"
-                                required
-                            >
-
-                                <option value="">
-                                    Välj tid
-                                </option>
-
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                                <option value="19:00">19:00</option>
-                                <option value="20:00">20:00</option>
-                                <option value="21:00">21:00</option>
-                                <option value="22:00">22:00</option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
+                    <input
+                        type="date"
+                        name="date"
+                        id="date"
+                        required
+                    >
                 </div>
+            </div>
 
+            <!-- STEG 2 -->
 
-                <!-- DURATION -->
+            <div class="form-section">
+                <h2>02 / VÄLJ SPELTID</h2>
 
-                <div class="form-section">
+                <div class="duration-grid">
 
-                    <p class="form-section-title">
-                        02 / VÄLJ SPELTID
-                    </p>
-
-                    <div class="duration-grid">
-
-
-                        <div class="duration-option">
-
-                            <input
-                                type="radio"
-                                name="duration"
-                                id="duration1"
-                                value="1"
-                                data-price="49"
-                                required
-                            >
-
-                            <label for="duration1">
-
-                                <strong>
-                                    1 TIMME
-                                </strong>
-
-                                <span>
-                                    49 KR / PERSON
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="duration-option">
-
-                            <input
-                                type="radio"
-                                name="duration"
-                                id="duration3"
-                                value="3"
-                                data-price="129"
-                            >
-
-                            <label for="duration3">
-
-                                <strong>
-                                    3 TIMMAR
-                                </strong>
-
-                                <span>
-                                    129 KR / PERSON
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                        <div class="duration-option">
-
-                            <input
-                                type="radio"
-                                name="duration"
-                                id="duration5"
-                                value="5"
-                                data-price="199"
-                            >
-
-                            <label for="duration5">
-
-                                <strong>
-                                    5 TIMMAR
-                                </strong>
-
-                                <span>
-                                    199 KR / PERSON
-                                </span>
-
-                            </label>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-                <!-- PEOPLE -->
-
-                <div class="form-section">
-
-                    <p class="form-section-title">
-                        03 / ANTAL PERSONER
-                    </p>
-
-                    <div class="form-group">
-
-                        <label for="people">
-                            Hur många ska spela?
-                        </label>
-
-                        <select
-                            id="people"
+                    <div class="duration-option">
+                        <input
+                            type="radio"
+                            name="duration"
+                            id="duration1"
+                            value="1"
                             required
                         >
 
-                            <option value="">
-                                Välj antal personer
-                            </option>
+                        <label for="duration1">
+                            <strong>1 TIMME</strong>
+                            <span>49 KR / PERSON</span>
+                        </label>
+                    </div>
 
-                            <option value="1">1 person</option>
-                            <option value="2">2 personer</option>
-                            <option value="3">3 personer</option>
-                            <option value="4">4 personer</option>
-                            <option value="5">5 personer</option>
-                            <option value="6">6 personer</option>
-                            <option value="7">7 personer</option>
-                            <option value="8">8 personer</option>
-                            <option value="9">9 personer</option>
-                            <option value="10">10 personer</option>
-                            <option value="11">11 personer</option>
-                            <option value="12">12 personer</option>
-                            <option value="13">13 personer</option>
-                            <option value="14">14 personer</option>
-                            <option value="15">15 personer</option>
-                            <option value="16">16 personer</option>
-                            <option value="17">17 personer</option>
-                            <option value="18">18 personer</option>
-                            <option value="19">19 personer</option>
-                            <option value="20">20 personer</option>
+                    <div class="duration-option">
+                        <input
+                            type="radio"
+                            name="duration"
+                            id="duration3"
+                            value="3"
+                        >
 
-                        </select>
+                        <label for="duration3">
+                            <strong>3 TIMMAR</strong>
+                            <span>129 KR / PERSON</span>
+                        </label>
+                    </div>
 
+                    <div class="duration-option">
+                        <input
+                            type="radio"
+                            name="duration"
+                            id="duration5"
+                            value="5"
+                        >
+
+                        <label for="duration5">
+                            <strong>5 TIMMAR</strong>
+                            <span>199 KR / PERSON</span>
+                        </label>
                     </div>
 
                 </div>
-
-
-                <!-- CONTACT -->
-
-                <div class="form-section">
-
-                    <p class="form-section-title">
-                        04 / KONTAKTUPPGIFTER
-                    </p>
-
-                    <div class="form-grid">
-
-
-                        <div class="form-group">
-
-                            <label for="customerName">
-                                För- och efternamn
-                            </label>
-
-                            <input
-                                type="text"
-                                id="customerName"
-                                placeholder="Ditt namn"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label for="phone">
-                                Telefonnummer
-                            </label>
-
-                            <input
-                                type="tel"
-                                id="phone"
-                                placeholder="07X XXX XX XX"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="form-group full">
-
-                            <label for="email">
-                                E-post
-                            </label>
-
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="din@email.se"
-                                required
-                            >
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="booking-button"
-                >
-                    FÖRHANDSVISA BOKNING
-                </button>
-
-
-            </form>
-
-
-            <!-- SUMMARY -->
-
-            <aside class="booking-summary">
-
-                <p class="summary-label">
-                    YOUR BOOKING
-                </p>
-
-                <h2>
-                    DIN BOKNING
-                </h2>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Aktivitet
-                    </span>
-
-                    <span>
-                        PC Gaming
-                    </span>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Datum
-                    </span>
-
-                    <span id="summaryDate">
-                        Ej valt
-                    </span>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Starttid
-                    </span>
-
-                    <span id="summaryTime">
-                        Ej valt
-                    </span>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Speltid
-                    </span>
-
-                    <span id="summaryDuration">
-                        Ej valt
-                    </span>
-
-                </div>
-
-
-                <div class="summary-row">
-
-                    <span>
-                        Personer
-                    </span>
-
-                    <span id="summaryPeople">
-                        Ej valt
-                    </span>
-
-                </div>
-
-
-                <div class="summary-total">
-
-                    <span>
-                        TOTALT
-                    </span>
-
-                    <strong id="summaryTotal">
-                        0 KR
-                    </strong>
-
-                </div>
-
-
-                <div class="payment-box">
-
-                    <strong>
-                        BETALNING PÅ PLATS
-                    </strong>
-
-                    <p>
-                        Ingen betalning görs online.
-                        Hela beloppet betalas i kassan
-                        hos Elysium Gaming Lounge.
-                    </p>
-
-                </div>
-
-
-            </aside>
-
-
-        </div>
-
-
-        <!-- PREVIEW -->
-
-        <section
-            class="booking-preview"
-            id="bookingPreview"
-        >
-
-            <h2>
-                BOKNINGSÖVERSIKT
-            </h2>
-
-            <p id="previewText"></p>
-
-            <div class="warning">
-                Detta är just nu endast en förhandsvisning.
-                Bokningen har ännu inte skickats eller registrerats.
-                I nästa steg kopplar vi formuläret till Elysiums
-                bokningssystem.
             </div>
 
-        </section>
+            <!-- STEG 3 -->
+
+            <div class="form-section">
+                <h2>03 / VÄLJ STARTTID</h2>
+
+                <div class="field">
+
+                    <label for="startTime">
+                        När vill du börja spela?
+                    </label>
+
+                    <select
+                        name="startTime"
+                        id="startTime"
+                        required
+                        disabled
+                    >
+                        <option value="">
+                            Välj datum och speltid först
+                        </option>
+                    </select>
+
+                    <p class="form-note">
+                        Tiderna 10–23 är preliminära.
+                        Lediga datorer kontrolleras
+                        när bokningen skickas.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- STEG 4 -->
+
+            <div class="form-section">
+                <h2>04 / ANTAL PERSONER</h2>
+
+                <div class="field">
+
+                    <label for="people">
+                        Hur många ska spela?
+                    </label>
+
+                    <select
+                        name="people"
+                        id="people"
+                        required
+                    >
+                        <option value="">
+                            Välj antal personer
+                        </option>
+
+                        <option value="1">1 person</option>
+                        <option value="2">2 personer</option>
+                        <option value="3">3 personer</option>
+                        <option value="4">4 personer</option>
+                        <option value="5">5 personer</option>
+                        <option value="6">6 personer</option>
+                        <option value="7">7 personer</option>
+                        <option value="8">8 personer</option>
+                        <option value="9">9 personer</option>
+                        <option value="10">10 personer</option>
+                        <option value="11">11 personer</option>
+                        <option value="12">12 personer</option>
+                        <option value="13">13 personer</option>
+                        <option value="14">14 personer</option>
+                        <option value="15">15 personer</option>
+                        <option value="16">16 personer</option>
+                        <option value="17">17 personer</option>
+                        <option value="18">18 personer</option>
+                        <option value="19">19 personer</option>
+                        <option value="20">20 personer</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <!-- STEG 5 -->
+
+            <div class="form-section">
+                <h2>05 / KONTAKTUPPGIFTER</h2>
+
+                <div class="form-grid">
+
+                    <div class="field">
+                        <label for="name">
+                            För- och efternamn
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            placeholder="Ditt namn"
+                            minlength="2"
+                            maxlength="100"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">
+                            Telefonnummer
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            id="phone"
+                            placeholder="07X XXX XX XX"
+                            minlength="7"
+                            maxlength="30"
+                            autocomplete="tel"
+                            required
+                        >
+                    </div>
+
+                    <div class="field full">
+                        <label for="email">
+                            E-postadress
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="din@email.se"
+                            maxlength="150"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="error" class="error" role="alert"></div>
+
+            <button
+                type="submit"
+                id="submitBtn"
+                class="submit"
+            >
+                BEKRÄFTA BOKNING
+            </button>
+
+            <p class="form-note">
+                När du skickar formuläret öppnas
+                bokningsbekräftelsen. Ingen betalning
+                dras från ditt konto.
+            </p>
+
+        </form>
+
+        <!-- BOKNINGSÖVERSIKT -->
+
+        <aside class="summary">
+
+            <p class="label">YOUR BOOKING</p>
+
+            <h2>DIN BOKNING</h2>
+
+            <div class="summary-row">
+                <span>Aktivitet</span>
+                <span>PC Gaming</span>
+            </div>
 
+            <div class="summary-row">
+                <span>Datum</span>
+                <span id="summaryDate">Ej valt</span>
+            </div>
 
-    </main>
+            <div class="summary-row">
+                <span>Starttid</span>
+                <span id="summaryStart">Ej valt</span>
+            </div>
 
+            <div class="summary-row">
+                <span>Speltid</span>
+                <span id="summaryDuration">Ej valt</span>
+            </div>
 
-    <footer>
-        © 2026 Elysium Gaming Lounge AB
-    </footer>
+            <div class="summary-row">
+                <span>Sluttid</span>
+                <span id="summaryEnd">Ej valt</span>
+            </div>
 
+            <div class="summary-row">
+                <span>Antal personer</span>
+                <span id="summaryPeople">Ej valt</span>
+            </div>
 
-    <script>
+            <div class="total">
+                <span>TOTALT</span>
+                <strong id="summaryTotal">0 KR</strong>
+            </div>
 
-        /* =========================
-           ELEMENTS
-        ========================= */
+            <div class="payment">
+                <strong>BETALNING PÅ PLATS</strong>
 
-        const bookingForm =
-            document.getElementById("bookingForm");
+                <p>
+                    Du betalar hela beloppet i kassan
+                    när du kommer till Elysium Gaming Lounge.
+                </p>
+            </div>
 
-        const bookingDate =
-            document.getElementById("bookingDate");
+            <p class="form-note">
+                Visade tider garanterar inte lediga datorer.
+                Tillgänglighet kontrolleras när
+                bokningen skickas.
+            </p>
 
-        const bookingTime =
-            document.getElementById("bookingTime");
+        </aside>
 
-        const people =
-            document.getElementById("people");
+    </div>
 
-        const customerName =
-            document.getElementById("customerName");
+</main>
 
-        const phone =
-            document.getElementById("phone");
+<footer>
+    © 2026 Elysium Gaming Lounge AB
+    <br><br>
+    MORE THAN GAMING.
+</footer>
 
-        const email =
-            document.getElementById("email");
+<script>
 
+/* ELEMENT */
 
-        const summaryDate =
-            document.getElementById("summaryDate");
+const form = document.getElementById("bookingForm");
 
-        const summaryTime =
-            document.getElementById("summaryTime");
+const dateInput = document.getElementById("date");
+const timeInput = document.getElementById("startTime");
+const peopleInput = document.getElementById("people");
 
-        const summaryDuration =
-            document.getElementById("summaryDuration");
+const submitBtn = document.getElementById("submitBtn");
+const errorBox = document.getElementById("error");
 
-        const summaryPeople =
-            document.getElementById("summaryPeople");
+const prices = {
+    1: 49,
+    3: 129,
+    5: 199
+};
 
-        const summaryTotal =
-            document.getElementById("summaryTotal");
+const OPEN_HOUR = 10;
+const CLOSE_HOUR = 23;
 
 
-        const bookingPreview =
-            document.getElementById("bookingPreview");
+/* DATUM */
 
-        const previewText =
-            document.getElementById("previewText");
+function localDateString(date) {
+    const year = date.getFullYear();
 
+    const month = String(
+        date.getMonth() + 1
+    ).padStart(2, "0");
 
-        /* =========================
-           MINIMUM DATE = TODAY
-        ========================= */
+    const day = String(
+        date.getDate()
+    ).padStart(2, "0");
 
-        const today = new Date();
+    return `${year}-${month}-${day}`;
+}
 
-        const yyyy =
-            today.getFullYear();
+dateInput.min = localDateString(new Date());
 
-        const mm =
-            String(today.getMonth() + 1).padStart(2, "0");
 
-        const dd =
-            String(today.getDate()).padStart(2, "0");
+/* VALD SPELTID */
 
-        bookingDate.min =
-            `${yyyy}-${mm}-${dd}`;
+function getDuration() {
+    const checked = document.querySelector(
+        'input[name="duration"]:checked'
+    );
 
+    return checked ? Number(checked.value) : 0;
+}
 
-        /* =========================
-           FORMAT DATE
-        ========================= */
 
-        function formatDate(dateValue) {
+/* SKAPA STARTTIDER */
 
-            if (!dateValue) {
-                return "Ej valt";
-            }
+function updateTimes() {
 
-            const date =
-                new Date(dateValue + "T12:00:00");
+    const duration = getDuration();
+    const selectedDate = dateInput.value;
+    const previousTime = timeInput.value;
 
-            return date.toLocaleDateString(
-                "sv-SE",
-                {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                }
-            );
+    timeInput.innerHTML = "";
 
-        }
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "Välj starttid";
 
+    timeInput.appendChild(placeholder);
 
-        /* =========================
-           UPDATE SUMMARY
-        ========================= */
-
-        function updateSummary() {
-
-            const selectedDuration =
-                document.querySelector(
-                    'input[name="duration"]:checked'
-                );
-
-            summaryDate.textContent =
-                formatDate(bookingDate.value);
-
-            summaryTime.textContent =
-                bookingTime.value || "Ej valt";
-
-
-            if (selectedDuration) {
-
-                const hours =
-                    selectedDuration.value;
-
-                summaryDuration.textContent =
-                    hours === "1"
-                    ? "1 timme"
-                    : `${hours} timmar`;
-
-            }
-
-            else {
-
-                summaryDuration.textContent =
-                    "Ej valt";
-
-            }
-
-
-            const personCount =
-                Number(people.value || 0);
-
-
-            if (personCount > 0) {
-
-                summaryPeople.textContent =
-                    personCount === 1
-                    ? "1 person"
-                    : `${personCount} personer`;
-
-            }
-
-            else {
-
-                summaryPeople.textContent =
-                    "Ej valt";
-
-            }
-
-
-            if (
-                selectedDuration &&
-                personCount > 0
-            ) {
-
-                const pricePerPerson =
-                    Number(
-                        selectedDuration.dataset.price
-                    );
-
-                const total =
-                    pricePerPerson * personCount;
-
-                summaryTotal.textContent =
-                    `${total} KR`;
-
-            }
-
-            else {
-
-                summaryTotal.textContent =
-                    "0 KR";
-
-            }
-
-        }
-
-
-        /* =========================
-           EVENT LISTENERS
-        ========================= */
-
-        bookingDate.addEventListener(
-            "change",
-            updateSummary
-        );
-
-        bookingTime.addEventListener(
-            "change",
-            updateSummary
-        );
-
-        people.addEventListener(
-            "change",
-            updateSummary
-        );
-
-
-        document
-            .querySelectorAll(
-                'input[name="duration"]'
-            )
-            .forEach(
-                option => {
-
-                    option.addEventListener(
-                        "change",
-                        updateSummary
-                    );
-
-                }
-            );
-
-
-        /* =========================
-           PREVIEW BOOKING
-        ========================= */
-
-        bookingForm.addEventListener(
-            "submit",
-            function(event) {
-
-                event.preventDefault();
-
-
-                const selectedDuration =
-                    document.querySelector(
-                        'input[name="duration"]:checked'
-                    );
-
-
-                if (!selectedDuration) {
-                    return;
-                }
-
-
-                const hours =
-                    selectedDuration.value;
-
-                const pricePerPerson =
-                    Number(
-                        selectedDuration.dataset.price
-                    );
-
-                const personCount =
-                    Number(people.value);
-
-                const total =
-                    pricePerPerson * personCount;
-
-
-                const durationText =
-                    hours === "1"
-                    ? "1 timme"
-                    : `${hours} timmar`;
-
-
-                previewText.innerHTML =
-
-                    `<strong>${customerName.value}</strong>,
-                    du har valt PC Gaming för
-                    <strong>${personCount}
-                    ${personCount === 1
-                    ? "person"
-                    : "personer"}</strong>
-                    den
-                    <strong>${formatDate(
-                        bookingDate.value
-                    )}</strong>
-                    kl.
-                    <strong>${bookingTime.value}</strong>.
-                    Speltiden är
-                    <strong>${durationText}</strong>
-                    och det preliminära totalpriset är
-                    <strong>${total} kr</strong>.
-                    Betalning sker på plats i kassan.`;
-
-
-                bookingPreview.classList.add(
-                    "show"
-                );
-
-
-                bookingPreview.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-
-            }
-        );
-
-
+    if (!duration || !selectedDate) {
+        timeInput.disabled = true;
         updateSummary();
+        return;
+    }
 
-    </script>
+    timeInput.disabled = false;
 
+    const today = localDateString(new Date());
+    const now = new Date();
+
+    for (
+        let hour = OPEN_HOUR;
+        hour + duration <= CLOSE_HOUR;
+        hour++
+    ) {
+
+        // Visa inte tider som redan passerat.
+        if (
+            selectedDate === today &&
+            hour <= now.getHours()
+        ) {
+            continue;
+        }
+
+        const time =
+            String(hour).padStart(2, "0") + ":00";
+
+        const option = document.createElement("option");
+        option.value = time;
+        option.textContent = time;
+
+        timeInput.appendChild(option);
+    }
+
+    if (
+        [...timeInput.options].some(
+            option => option.value === previousTime
+        )
+    ) {
+        timeInput.value = previousTime;
+    }
+
+    updateSummary();
+}
+
+
+/* FORMATERA DATUM */
+
+function formatDate(value) {
+
+    if (!value) return "Ej valt";
+
+    const date = new Date(value + "T12:00:00");
+
+    return date.toLocaleDateString("sv-SE", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+
+/* UPPDATERA ÖVERSIKT */
+
+function updateSummary() {
+
+    const duration = getDuration();
+    const people = Number(peopleInput.value || 0);
+
+    const start = timeInput.value;
+
+    document.getElementById("summaryDate").textContent =
+        formatDate(dateInput.value);
+
+    document.getElementById("summaryStart").textContent =
+        start || "Ej valt";
+
+    document.getElementById("summaryDuration").textContent =
+        duration
+            ? duration + (duration === 1 ? " timme" : " timmar")
+            : "Ej valt";
+
+    document.getElementById("summaryPeople").textContent =
+        people
+            ? people + (people === 1 ? " person" : " personer")
+            : "Ej valt";
+
+
+    /* SLUTTID */
+
+    let endText = "Ej valt";
+
+    if (duration && start) {
+
+        const hour = Number(start.substring(0, 2));
+
+        const endHour = hour + duration;
+
+        endText =
+            String(endHour).padStart(2, "0") + ":00";
+    }
+
+    document.getElementById("summaryEnd").textContent =
+        endText;
+
+
+    /* TOTALPRIS */
+
+    const total =
+        duration && people
+            ? prices[duration] * people
+            : 0;
+
+    document.getElementById("summaryTotal").textContent =
+        total.toLocaleString("sv-SE") + " KR";
+
+}
+
+
+/* LYSSNA PÅ ÄNDRINGAR */
+
+dateInput.addEventListener("change", updateTimes);
+
+timeInput.addEventListener("change", updateSummary);
+
+peopleInput.addEventListener("change", updateSummary);
+
+document.querySelectorAll(
+    'input[name="duration"]'
+).forEach(input => {
+    input.addEventListener("change", updateTimes);
+});
+
+
+/* SKICKA BOKNING */
+
+form.addEventListener("submit", function(event) {
+
+    errorBox.classList.remove("show");
+
+    const duration = getDuration();
+    const people = Number(peopleInput.value);
+
+    if (
+        !dateInput.value ||
+        !timeInput.value ||
+        !duration ||
+        !people
+    ) {
+        event.preventDefault();
+
+        errorBox.textContent =
+            "Fyll i datum, starttid, speltid och antal personer.";
+
+        errorBox.classList.add("show");
+
+        return;
+    }
+
+    if (dateInput.value < localDateString(new Date())) {
+        event.preventDefault();
+
+        errorBox.textContent =
+            "Du kan inte boka ett datum som redan har passerat.";
+
+        errorBox.classList.add("show");
+
+        return;
+    }
+
+    const startHour =
+        Number(timeInput.value.substring(0, 2));
+
+    if (
+        startHour + duration > CLOSE_HOUR
+    ) {
+        event.preventDefault();
+
+        errorBox.textContent =
+            "Din bokning går utanför öppettiderna.";
+
+        errorBox.classList.add("show");
+
+        return;
+    }
+
+    /*
+      Formuläret skickas som en vanlig POST
+      till Google Apps Script.
+
+      Vi visar INTE en bekräftelse här.
+      Endast servern får bekräfta bokningen.
+    */
+
+    submitBtn.disabled = true;
+
+    submitBtn.textContent =
+        "SKICKAR BOKNING...";
+
+});
+
+
+/* ÅTERSTÄLL VID TILLBAKANAVIGERING */
+
+window.addEventListener("pageshow", function() {
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+        "BEKRÄFTA BOKNING";
+});
+
+
+updateSummary();
+
+</script>
 
 </body>
 </html>
