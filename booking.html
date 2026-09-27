@@ -105,10 +105,26 @@ main {
     margin-bottom: 20px;
 }
 
-.intro p:last-child {
+.intro p {
     color: var(--muted);
     font-size: 16px;
     line-height: 1.8;
+}
+
+.opening-hours {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 16px 24px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: rgba(212,175,55,.06);
+    color: #e5e5e5;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.opening-hours strong {
+    color: var(--gold);
 }
 
 /* LAYOUT */
@@ -297,7 +313,8 @@ main {
 
 .time-option label strong {
     color: white;
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .time-option label span {
@@ -458,6 +475,8 @@ main {
     display: block;
 }
 
+/* SKYDD MOT ENKLA BOTTAR */
+
 .hp {
     position: absolute;
     left: -9999px;
@@ -523,10 +542,7 @@ footer {
         grid-column: auto;
     }
 
-    .duration-option label {
-        min-height: 85px;
-    }
-
+    .duration-option label,
     .time-option label {
         min-height: 85px;
     }
@@ -556,15 +572,23 @@ footer {
     <!-- INTRO -->
 
     <section class="intro">
+
         <p class="section-label">RESERVE YOUR SESSION</p>
 
         <h1>BOKA PC GAMING</h1>
 
         <p>
             Välj datum, speltid och antal personer.
-            Se vilka tider som är lediga och boka
-            enkelt. Betalning sker på plats i kassan.
+            Se vilka tider som är lediga och boka enkelt.
+            Betalning sker på plats i kassan.
         </p>
+
+        <div class="opening-hours">
+            <strong>ÖPPETTIDER</strong><br>
+            Måndag–torsdag: 16:00–01:00<br>
+            Fredag–söndag: 16:00–03:00
+        </div>
+
     </section>
 
     <div class="container">
@@ -589,6 +613,7 @@ footer {
 
             <div class="hp" aria-hidden="true">
                 <label for="website">Webbplats</label>
+
                 <input
                     type="text"
                     id="website"
@@ -605,6 +630,7 @@ footer {
                 <h2>01 / VÄLJ DATUM</h2>
 
                 <div class="field">
+
                     <label for="date">Datum</label>
 
                     <input
@@ -613,6 +639,7 @@ footer {
                         name="date"
                         required
                     >
+
                 </div>
 
             </section>
@@ -695,6 +722,7 @@ footer {
                         name="people"
                         required
                     >
+
                         <option value="">
                             Välj antal personer
                         </option>
@@ -719,6 +747,7 @@ footer {
                         <option value="18">18 personer</option>
                         <option value="19">19 personer</option>
                         <option value="20">20 personer</option>
+
                     </select>
 
                 </div>
@@ -753,7 +782,8 @@ footer {
                     FÖRSÖK IGEN
                 </button>
 
-                <!-- Den valda tiden skickas till Apps Script -->
+                <!-- ORIGINALTIDEN SKICKAS TILL APPS SCRIPT -->
+
                 <input
                     type="hidden"
                     id="selectedStart"
@@ -764,8 +794,8 @@ footer {
                 <p class="form-note">
                     Antalet lediga datorer uppdateras när
                     du väljer datum eller speltid.
-                    Tillgängligheten kontrolleras
-                    igen när du bekräftar bokningen.
+                    Tillgängligheten kontrolleras igen
+                    när du bekräftar bokningen.
                 </p>
 
             </section>
@@ -860,8 +890,7 @@ footer {
 
         </form>
 
-
-        <!-- ÖVERSIKT -->
+        <!-- BOKNINGSÖVERSIKT -->
 
         <aside class="summary">
 
@@ -923,9 +952,9 @@ footer {
             </div>
 
             <p class="form-note">
-                Priser och öppettider är preliminära.
-                Bokningen blir bekräftad först
-                när systemet ger ett bokningsnummer.
+                Priserna är preliminära.
+                Bokningen blir bekräftad först när
+                systemet ger ett bokningsnummer.
             </p>
 
         </aside>
@@ -939,7 +968,6 @@ footer {
     <br>
     MORE THAN GAMING.
 </footer>
-
 
 <script>
 
@@ -1005,7 +1033,7 @@ let cancelCurrentRequest = null;
 
 
 /* ===================================
-   DATUM I SVENSK TIDSZON
+   DAGENS DATUM I SVERIGE
 =================================== */
 
 function stockholmToday() {
@@ -1078,6 +1106,61 @@ function formatDate(value) {
 
 
 /* ===================================
+   VISA NATTIDER KORREKT
+
+   Apps Script använder exempelvis:
+   24:00 = 00:00 nästa dag
+   25:00 = 01:00 nästa dag
+   26:00 = 02:00 nästa dag
+   27:00 = 03:00 nästa dag
+
+   Originaltiden behålls när
+   bokningen skickas.
+=================================== */
+
+function customerTime(value) {
+
+    if (!value) {
+        return "Ej valt";
+    }
+
+    const parts = String(value).split(":");
+
+    const hour = Number(parts[0]);
+    const minutes = parts[1];
+
+    if (
+        !Number.isInteger(hour) ||
+        !/^\d{2}$/.test(minutes)
+    ) {
+        return String(value);
+    }
+
+    const clock =
+        String(hour % 24).padStart(2, "0") +
+        ":" +
+        minutes;
+
+    if (hour >= 24) {
+        return clock + " nästa dag";
+    }
+
+    return clock;
+
+}
+
+function customerTimeRange(start, end) {
+
+    return (
+        customerTime(start) +
+        "–" +
+        customerTime(end)
+    );
+
+}
+
+
+/* ===================================
    VISA FEL
 =================================== */
 
@@ -1097,7 +1180,7 @@ function clearError() {
 
 
 /* ===================================
-   UPPDATERA ÖVERSIKT
+   UPPDATERA BOKNINGSÖVERSIKT
 =================================== */
 
 function updateSummary() {
@@ -1121,13 +1204,15 @@ function updateSummary() {
     document.getElementById(
         "summaryStart"
     ).textContent =
-        selectedTime || "Ej valt";
+        selectedTime
+            ? customerTime(selectedTime)
+            : "Ej valt";
 
     document.getElementById(
         "summaryEnd"
     ).textContent =
         chosenSlot
-            ? chosenSlot.end
+            ? customerTime(chosenSlot.end)
             : "Ej valt";
 
     document.getElementById(
@@ -1168,6 +1253,13 @@ function updateSummary() {
         total.toLocaleString("sv-SE") +
         " KR";
 
+    /*
+       OBS:
+       Skicka originaltiden till
+       Google Apps Script.
+       Ändra inte 25:00 till 01:00 här.
+    */
+
     selectedStartInput.value =
         selectedTime;
 
@@ -1202,8 +1294,12 @@ function renderTimes() {
         return;
     }
 
-    // Ta bort en vald tid om den inte
-    // längre räcker till antalet personer.
+    /*
+       Rensa vald tid om det inte
+       längre finns tillräckligt
+       många datorer.
+    */
+
     const selectedSlot = availableTimes.find(
         time => time.start === selectedTime
     );
@@ -1256,8 +1352,17 @@ function renderTimes() {
             const title =
                 document.createElement("strong");
 
+            /*
+               Visa tiderna för kunden.
+               Exempel:
+               23:00–02:00 nästa dag
+            */
+
             title.textContent =
-                slot.start + "–" + slot.end;
+                customerTimeRange(
+                    slot.start,
+                    slot.end
+                );
 
             const availability =
                 document.createElement("span");
@@ -1325,7 +1430,12 @@ function loadAvailability() {
 
     const myRequest = requestNumber;
 
-    // Avbryt eventuell äldre förfrågan.
+    /*
+       Avbryt eventuell äldre
+       förfrågan om kunden byter
+       datum eller speltid.
+    */
+
     if (cancelCurrentRequest) {
         cancelCurrentRequest();
         cancelCurrentRequest = null;
@@ -1337,6 +1447,7 @@ function loadAvailability() {
     loading = false;
 
     timeGrid.replaceChildren();
+
     retryButton.style.display = "none";
 
     clearError();
@@ -1374,8 +1485,11 @@ function loadAvailability() {
 
     updateSummary();
 
-    // Callback-namnet följer begränsningarna
-    // i vårt Google Apps Script.
+    /*
+       Callback-namnet fungerar
+       med vårt Google Apps Script.
+    */
+
     const callbackName =
         "elysiumAvail_" +
         Date.now().toString(36) +
@@ -1414,10 +1528,12 @@ function loadAvailability() {
         finished = true;
 
         cleanup();
+
         cancelCurrentRequest = null;
 
         loading = false;
         availabilityLoaded = false;
+
         availableTimes = [];
         selectedTime = "";
 
@@ -1444,6 +1560,7 @@ function loadAvailability() {
         finished = true;
 
         cleanup();
+
         cancelCurrentRequest = null;
 
         loading = false;
@@ -1465,31 +1582,43 @@ function loadAvailability() {
                 "inline-block";
 
             updateSummary();
+
             return;
 
         }
 
-        // Ta bara emot giltiga tidsuppgifter
-        // och antal lediga datorer.
+        /*
+           Ta bara emot giltiga
+           tidsuppgifter och antal
+           lediga datorer.
+        */
+
         availableTimes = result.times
+
             .filter(slot => {
 
                 return (
                     slot &&
+
                     /^\d{2}:\d{2}$/.test(
                         String(slot.start)
                     ) &&
+
                     /^\d{2}:\d{2}$/.test(
                         String(slot.end)
                     ) &&
+
                     Number.isInteger(
                         Number(slot.free)
                     ) &&
+
                     Number(slot.free) >= 0 &&
+
                     Number(slot.free) <= MAX_PC
                 );
 
             })
+
             .map(slot => ({
                 start: String(slot.start),
                 end: String(slot.end),
@@ -1526,8 +1655,11 @@ function loadAvailability() {
 
     };
 
-    // Appar Script kan behöva lite tid
-    // vid första förfrågan.
+    /*
+       Apps Script kan behöva lite
+       extra tid vid första förfrågan.
+    */
+
     timeoutId = setTimeout(
         function() {
 
@@ -1649,9 +1781,15 @@ form.addEventListener(
 
         }
 
-        // Bokningen skickas som vanlig POST.
-        // Apps Script kontrollerar tillgängligheten
-        // igen och visar bokningsnummer vid framgång.
+        /*
+           Bokningen skickas som
+           vanlig POST till Apps Script.
+
+           Apps Script kontrollerar
+           tillgängligheten igen och
+           ger ett bokningsnummer.
+        */
+
         submitButton.disabled = true;
 
         submitButton.textContent =
@@ -1673,13 +1811,22 @@ window.addEventListener(
             "BEKRÄFTA BOKNING";
 
         if (event.persisted) {
+
             loadAvailability();
+
         } else {
+
             updateSummary();
+
         }
 
     }
 );
+
+
+/* ===================================
+   STARTA SIDAN
+=================================== */
 
 updateSummary();
 
