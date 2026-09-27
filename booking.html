@@ -1,22 +1,28 @@
 
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#05070a">
 
 <title>Boka PC Gaming | Elysium Gaming Lounge</title>
 
 <meta name="description"
-content="Boka PC Gaming hos Elysium Gaming Lounge i Kristianstad. Välj speltid, datum och antal personer. Betala på plats.">
+content="Boka PC Gaming hos Elysium Gaming Lounge i Kristianstad. Se lediga datorer, välj speltid och betala på plats.">
 
 <style>
+
+/* ELYSIUM – DESIGN */
+
 :root {
     --gold: #d4af37;
-    --bg: #05070a;
+    --background: #05070a;
     --card: #0b0e13;
-    --muted: #aeb4bd;
-    --border: rgba(212,175,55,.3);
+    --text: #ffffff;
+    --muted: #9ca3ad;
+    --border: rgba(212,175,55,.30);
 }
 
 * {
@@ -30,8 +36,8 @@ html {
 }
 
 body {
-    background: var(--bg);
-    color: white;
+    background: var(--background);
+    color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
@@ -49,51 +55,51 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    border-bottom: 1px solid var(--border);
     background: #080a0e;
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
     color: var(--gold);
-    text-decoration: none;
     font-size: 29px;
-    letter-spacing: 4px;
     font-weight: 900;
+    letter-spacing: 4px;
+    text-decoration: none;
 }
 
-.back {
+.back-link {
+    text-decoration: none;
     font-size: 12px;
     font-weight: 800;
     color: #c4c7cd;
-    text-decoration: none;
 }
 
-.back:hover {
+.back-link:hover {
     color: var(--gold);
 }
 
-/* PAGE */
+/* SIDANS RUBRIK */
 
 main {
-    padding: 80px 6% 100px;
+    padding: 75px 6% 100px;
 }
 
 .intro {
-    text-align: center;
     max-width: 850px;
     margin: 0 auto 55px;
+    text-align: center;
 }
 
-.label {
+.section-label {
     color: var(--gold);
-    letter-spacing: 4px;
     font-size: 12px;
     font-weight: 900;
+    letter-spacing: 4px;
     margin-bottom: 15px;
 }
 
 .intro h1 {
-    font-size: clamp(38px,7vw,68px);
+    font-size: clamp(36px, 7vw, 68px);
     font-weight: 900;
     letter-spacing: 2px;
     margin-bottom: 20px;
@@ -101,8 +107,8 @@ main {
 
 .intro p:last-child {
     color: var(--muted);
-    line-height: 1.8;
     font-size: 16px;
+    line-height: 1.8;
 }
 
 /* LAYOUT */
@@ -118,13 +124,13 @@ main {
 
 .form-card,
 .summary {
-    border: 1px solid var(--border);
-    border-radius: 10px;
     background: linear-gradient(
         145deg,
         #101318,
         #090b0f
     );
+    border: 1px solid var(--border);
+    border-radius: 10px;
 }
 
 .form-card {
@@ -137,22 +143,23 @@ main {
     top: 20px;
 }
 
-/* SECTIONS */
+/* FORMULÄR */
 
 .form-section {
-    margin-bottom: 37px;
+    margin-bottom: 38px;
 }
 
 .form-section h2 {
     color: var(--gold);
     font-size: 13px;
+    font-weight: 900;
     letter-spacing: 2px;
     margin-bottom: 23px;
 }
 
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 18px;
 }
 
@@ -163,13 +170,13 @@ main {
 }
 
 .field.full {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
 }
 
 .field label {
+    color: #e5e5e5;
     font-size: 13px;
     font-weight: 800;
-    color: #e5e5e5;
 }
 
 .field input,
@@ -179,11 +186,11 @@ main {
     padding: 12px;
     background: #05070a;
     color: white;
+    color-scheme: dark;
     border: 1px solid #34363b;
     border-radius: 6px;
-    font-family: inherit;
+    font: inherit;
     font-size: 15px;
-    color-scheme: dark;
 }
 
 .field input:focus,
@@ -192,15 +199,11 @@ main {
     border-color: var(--gold);
 }
 
-.field select:disabled {
-    opacity: .6;
-}
-
-/* DURATION */
+/* SPELTID */
 
 .duration-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
 }
 
@@ -214,15 +217,15 @@ main {
 }
 
 .duration-option label {
+    min-height: 120px;
+    padding: 20px 10px;
     background: #07090d;
     border: 1px solid var(--border);
     border-radius: 7px;
-    padding: 23px 12px;
-    min-height: 125px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 12px;
     text-align: center;
     cursor: pointer;
@@ -234,13 +237,13 @@ main {
 
 .duration-option span {
     color: var(--gold);
-    font-weight: 900;
     font-size: 13px;
+    font-weight: 900;
 }
 
 .duration-option input:checked + label {
-    background: rgba(212,175,55,.12);
     border: 2px solid var(--gold);
+    background: rgba(212,175,55,.12);
 }
 
 .duration-option input:focus-visible + label {
@@ -248,7 +251,98 @@ main {
     outline-offset: 3px;
 }
 
-/* SUMMARY */
+/* LEDIGA TIDER */
+
+.availability-status {
+    padding: 16px;
+    background: #101318;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.time-option {
+    position: relative;
+}
+
+.time-option input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.time-option label {
+    min-height: 102px;
+    padding: 18px;
+    background: #090c10;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 11px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.time-option label strong {
+    color: white;
+    font-size: 18px;
+}
+
+.time-option label span {
+    color: #80dba4;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.time-option input:checked + label {
+    border: 2px solid var(--gold);
+    background: rgba(212,175,55,.10);
+}
+
+.time-option input:focus-visible + label {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
+.time-option input:disabled + label {
+    opacity: .45;
+    cursor: not-allowed;
+    border-color: #34363b;
+}
+
+.time-option input:disabled + label span {
+    color: #b0b0b0;
+}
+
+.time-option.limited label span {
+    color: #f0c36c;
+}
+
+.retry-button {
+    margin-top: 12px;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 5px;
+    padding: 12px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    display: none;
+}
+
+/* BOKNINGSÖVERSIKT */
 
 .summary h2 {
     font-size: 26px;
@@ -256,11 +350,11 @@ main {
 }
 
 .summary-row {
-    padding: 15px 0;
-    border-bottom: 1px solid #292c32;
     display: flex;
     justify-content: space-between;
     gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #292c32;
     font-size: 13px;
 }
 
@@ -269,14 +363,14 @@ main {
 }
 
 .summary-row span:last-child {
-    text-align: right;
     font-weight: 800;
+    text-align: right;
 }
 
 .total {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     margin-top: 30px;
 }
 
@@ -301,8 +395,8 @@ main {
 
 .payment p {
     color: var(--muted);
-    line-height: 1.7;
     font-size: 12px;
+    line-height: 1.7;
     margin-top: 10px;
 }
 
@@ -316,37 +410,36 @@ main {
     margin-bottom: 25px;
 }
 
-/* SUBMIT */
+/* KNAPP */
 
 .submit {
     width: 100%;
-    min-height: 57px;
-    border: 0;
-    border-radius: 5px;
+    min-height: 58px;
     background: var(--gold);
     color: #05070a;
+    border: 0;
+    border-radius: 5px;
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: .2s;
 }
 
-.submit:hover {
+.submit:hover:not(:disabled) {
     background: #e5c452;
 }
 
 .submit:disabled {
-    opacity: .55;
-    cursor: wait;
+    opacity: .45;
+    cursor: not-allowed;
 }
 
 .form-note {
     text-align: center;
     color: #8f949d;
-    line-height: 1.6;
     font-size: 12px;
-    margin-top: 17px;
+    line-height: 1.7;
+    margin-top: 16px;
 }
 
 .error {
@@ -374,15 +467,16 @@ main {
 
 footer {
     text-align: center;
-    border-top: 1px solid var(--border);
     padding: 40px 20px;
+    border-top: 1px solid var(--border);
     color: #858993;
     font-size: 12px;
+    line-height: 2;
 }
 
-/* MOBILE */
+/* MOBIL */
 
-@media(max-width:850px) {
+@media (max-width: 850px) {
     .container {
         grid-template-columns: 1fr;
     }
@@ -392,7 +486,7 @@ footer {
     }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
     header {
         padding: 20px 5%;
     }
@@ -401,7 +495,7 @@ footer {
         font-size: 21px;
     }
 
-    .back {
+    .back-link {
         font-size: 10px;
         text-align: right;
     }
@@ -419,7 +513,9 @@ footer {
         padding: 24px 18px;
     }
 
-    .form-grid {
+    .form-grid,
+    .duration-grid,
+    .time-grid {
         grid-template-columns: 1fr;
     }
 
@@ -427,11 +523,11 @@ footer {
         grid-column: auto;
     }
 
-    .duration-grid {
-        grid-template-columns: 1fr;
+    .duration-option label {
+        min-height: 85px;
     }
 
-    .duration-option label {
+    .time-option label {
         min-height: 85px;
     }
 
@@ -439,34 +535,41 @@ footer {
         font-size: 29px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
     <a href="index.html" class="logo">ELYSIUM</a>
-    <a href="index.html" class="back">
+
+    <a href="index.html" class="back-link">
         ← TILLBAKA TILL HEMSIDAN
     </a>
 </header>
 
 <main>
 
-    <div class="intro">
-        <p class="label">RESERVE YOUR SESSION</p>
+    <!-- INTRO -->
+
+    <section class="intro">
+        <p class="section-label">RESERVE YOUR SESSION</p>
 
         <h1>BOKA PC GAMING</h1>
 
         <p>
             Välj datum, speltid och antal personer.
-            Betala enkelt på plats i kassan.
+            Se vilka tider som är lediga och boka
+            enkelt. Betalning sker på plats i kassan.
         </p>
-    </div>
+    </section>
 
     <div class="container">
 
-        <!-- BOKNINGSFORMULÄR -->
+        <!-- FORMULÄR -->
 
         <form
             id="bookingForm"
@@ -476,28 +579,29 @@ footer {
         >
 
             <div class="notice">
-                Bokningen registreras först när du
-                har skickat formuläret och fått
-                en bekräftelse med bokningsnummer.
-                Betalning sker på plats.
+                Välj en ledig starttid och fyll i dina
+                kontaktuppgifter. Din bokning är
+                registrerad först när du har fått
+                ett bokningsnummer.
             </div>
 
-            <!-- HONEYPOT -->
+            <!-- SKYDD MOT ENKLA BOTTAR -->
 
             <div class="hp" aria-hidden="true">
                 <label for="website">Webbplats</label>
                 <input
                     type="text"
-                    name="website"
                     id="website"
+                    name="website"
                     tabindex="-1"
                     autocomplete="off"
                 >
             </div>
 
-            <!-- STEG 1 -->
+            <!-- 01 DATUM -->
 
-            <div class="form-section">
+            <section class="form-section">
+
                 <h2>01 / VÄLJ DATUM</h2>
 
                 <div class="field">
@@ -505,21 +609,24 @@ footer {
 
                     <input
                         type="date"
-                        name="date"
                         id="date"
+                        name="date"
                         required
                     >
                 </div>
-            </div>
 
-            <!-- STEG 2 -->
+            </section>
 
-            <div class="form-section">
+            <!-- 02 SPELTID -->
+
+            <section class="form-section">
+
                 <h2>02 / VÄLJ SPELTID</h2>
 
                 <div class="duration-grid">
 
                     <div class="duration-option">
+
                         <input
                             type="radio"
                             name="duration"
@@ -532,9 +639,11 @@ footer {
                             <strong>1 TIMME</strong>
                             <span>49 KR / PERSON</span>
                         </label>
+
                     </div>
 
                     <div class="duration-option">
+
                         <input
                             type="radio"
                             name="duration"
@@ -546,9 +655,11 @@ footer {
                             <strong>3 TIMMAR</strong>
                             <span>129 KR / PERSON</span>
                         </label>
+
                     </div>
 
                     <div class="duration-option">
+
                         <input
                             type="radio"
                             name="duration"
@@ -560,46 +671,18 @@ footer {
                             <strong>5 TIMMAR</strong>
                             <span>199 KR / PERSON</span>
                         </label>
+
                     </div>
 
                 </div>
-            </div>
 
-            <!-- STEG 3 -->
+            </section>
 
-            <div class="form-section">
-                <h2>03 / VÄLJ STARTTID</h2>
+            <!-- 03 PERSONER -->
 
-                <div class="field">
+            <section class="form-section">
 
-                    <label for="startTime">
-                        När vill du börja spela?
-                    </label>
-
-                    <select
-                        name="startTime"
-                        id="startTime"
-                        required
-                        disabled
-                    >
-                        <option value="">
-                            Välj datum och speltid först
-                        </option>
-                    </select>
-
-                    <p class="form-note">
-                        Tiderna 10–23 är preliminära.
-                        Lediga datorer kontrolleras
-                        när bokningen skickas.
-                    </p>
-
-                </div>
-            </div>
-
-            <!-- STEG 4 -->
-
-            <div class="form-section">
-                <h2>04 / ANTAL PERSONER</h2>
+                <h2>03 / ANTAL PERSONER</h2>
 
                 <div class="field">
 
@@ -608,8 +691,8 @@ footer {
                     </label>
 
                     <select
-                        name="people"
                         id="people"
+                        name="people"
                         required
                     >
                         <option value="">
@@ -639,91 +722,152 @@ footer {
                     </select>
 
                 </div>
-            </div>
 
-            <!-- STEG 5 -->
+            </section>
 
-            <div class="form-section">
+            <!-- 04 LEDIGA STARTTIDER -->
+
+            <section class="form-section">
+
+                <h2>04 / VÄLJ LEDIG STARTTID</h2>
+
+                <div
+                    id="availabilityStatus"
+                    class="availability-status"
+                    aria-live="polite"
+                >
+                    Välj datum och speltid för att se
+                    tillgängliga tider.
+                </div>
+
+                <div
+                    id="timeGrid"
+                    class="time-grid"
+                ></div>
+
+                <button
+                    type="button"
+                    id="retryButton"
+                    class="retry-button"
+                >
+                    FÖRSÖK IGEN
+                </button>
+
+                <!-- Den valda tiden skickas till Apps Script -->
+                <input
+                    type="hidden"
+                    id="selectedStart"
+                    name="startTime"
+                    value=""
+                >
+
+                <p class="form-note">
+                    Antalet lediga datorer uppdateras när
+                    du väljer datum eller speltid.
+                    Tillgängligheten kontrolleras
+                    igen när du bekräftar bokningen.
+                </p>
+
+            </section>
+
+            <!-- 05 KONTAKTUPPGIFTER -->
+
+            <section class="form-section">
+
                 <h2>05 / KONTAKTUPPGIFTER</h2>
 
                 <div class="form-grid">
 
                     <div class="field">
+
                         <label for="name">
                             För- och efternamn
                         </label>
 
                         <input
                             type="text"
-                            name="name"
                             id="name"
+                            name="name"
                             placeholder="Ditt namn"
                             minlength="2"
                             maxlength="100"
                             autocomplete="name"
                             required
                         >
+
                     </div>
 
                     <div class="field">
+
                         <label for="phone">
                             Telefonnummer
                         </label>
 
                         <input
                             type="tel"
-                            name="phone"
                             id="phone"
+                            name="phone"
                             placeholder="07X XXX XX XX"
                             minlength="7"
                             maxlength="30"
                             autocomplete="tel"
                             required
                         >
+
                     </div>
 
                     <div class="field full">
+
                         <label for="email">
                             E-postadress
                         </label>
 
                         <input
                             type="email"
-                            name="email"
                             id="email"
+                            name="email"
                             placeholder="din@email.se"
                             maxlength="150"
                             autocomplete="email"
                             required
                         >
+
                     </div>
 
                 </div>
-            </div>
 
-            <div id="error" class="error" role="alert"></div>
+            </section>
+
+            <div
+                id="errorBox"
+                class="error"
+                role="alert"
+            ></div>
 
             <button
                 type="submit"
-                id="submitBtn"
                 class="submit"
+                id="submitButton"
+                disabled
             >
                 BEKRÄFTA BOKNING
             </button>
 
             <p class="form-note">
-                När du skickar formuläret öppnas
-                bokningsbekräftelsen. Ingen betalning
-                dras från ditt konto.
+                Ingen betalning sker online.
+                Betalning görs på plats i kassan.
             </p>
 
         </form>
 
-        <!-- BOKNINGSÖVERSIKT -->
+
+        <!-- ÖVERSIKT -->
 
         <aside class="summary">
 
-            <p class="label">YOUR BOOKING</p>
+            <p class="section-label">
+                YOUR BOOKING
+            </p>
 
             <h2>DIN BOKNING</h2>
 
@@ -743,18 +887,23 @@ footer {
             </div>
 
             <div class="summary-row">
-                <span>Speltid</span>
-                <span id="summaryDuration">Ej valt</span>
-            </div>
-
-            <div class="summary-row">
                 <span>Sluttid</span>
                 <span id="summaryEnd">Ej valt</span>
             </div>
 
             <div class="summary-row">
-                <span>Antal personer</span>
+                <span>Speltid</span>
+                <span id="summaryDuration">Ej valt</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Personer</span>
                 <span id="summaryPeople">Ej valt</span>
+            </div>
+
+            <div class="summary-row">
+                <span>Lediga datorer</span>
+                <span id="summaryFree">Ej valt</span>
             </div>
 
             <div class="total">
@@ -763,18 +912,20 @@ footer {
             </div>
 
             <div class="payment">
+
                 <strong>BETALNING PÅ PLATS</strong>
 
                 <p>
                     Du betalar hela beloppet i kassan
                     när du kommer till Elysium Gaming Lounge.
                 </p>
+
             </div>
 
             <p class="form-note">
-                Visade tider garanterar inte lediga datorer.
-                Tillgänglighet kontrolleras när
-                bokningen skickas.
+                Priser och öppettider är preliminära.
+                Bokningen blir bekräftad först
+                när systemet ger ett bokningsnummer.
             </p>
 
         </aside>
@@ -785,291 +936,750 @@ footer {
 
 <footer>
     © 2026 Elysium Gaming Lounge AB
-    <br><br>
+    <br>
     MORE THAN GAMING.
 </footer>
 
+
 <script>
 
-/* ELEMENT */
+/* ===================================
+   ANSLUTNING TILL GOOGLE APPS SCRIPT
+=================================== */
 
-const form = document.getElementById("bookingForm");
+const SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbxu-2-tKt2Ka82497zappvkTCEj8lbAZ0PT6_MhLiiGX020nLFJd72l8aTJH_83EYWUCA/exec";
 
-const dateInput = document.getElementById("date");
-const timeInput = document.getElementById("startTime");
-const peopleInput = document.getElementById("people");
-
-const submitBtn = document.getElementById("submitBtn");
-const errorBox = document.getElementById("error");
-
-const prices = {
+const PRICES = {
     1: 49,
     3: 129,
     5: 199
 };
 
-const OPEN_HOUR = 10;
-const CLOSE_HOUR = 23;
+const MAX_PC = 20;
 
 
-/* DATUM */
+/* ===================================
+   ELEMENT
+=================================== */
 
-function localDateString(date) {
-    const year = date.getFullYear();
+const form =
+    document.getElementById("bookingForm");
 
-    const month = String(
-        date.getMonth() + 1
-    ).padStart(2, "0");
+const dateInput =
+    document.getElementById("date");
 
-    const day = String(
-        date.getDate()
-    ).padStart(2, "0");
+const peopleInput =
+    document.getElementById("people");
 
-    return `${year}-${month}-${day}`;
+const timeGrid =
+    document.getElementById("timeGrid");
+
+const statusBox =
+    document.getElementById("availabilityStatus");
+
+const retryButton =
+    document.getElementById("retryButton");
+
+const selectedStartInput =
+    document.getElementById("selectedStart");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const errorBox =
+    document.getElementById("errorBox");
+
+
+/* ===================================
+   TILLSTÅND
+=================================== */
+
+let availableTimes = [];
+let selectedTime = "";
+let availabilityLoaded = false;
+let loading = false;
+
+let requestNumber = 0;
+let cancelCurrentRequest = null;
+
+
+/* ===================================
+   DATUM I SVENSK TIDSZON
+=================================== */
+
+function stockholmToday() {
+
+    const parts = new Intl.DateTimeFormat(
+        "en-GB",
+        {
+            timeZone: "Europe/Stockholm",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit"
+        }
+    ).formatToParts(new Date());
+
+    const get = type =>
+        parts.find(part => part.type === type).value;
+
+    return (
+        get("year") + "-" +
+        get("month") + "-" +
+        get("day")
+    );
+
 }
 
-dateInput.min = localDateString(new Date());
+dateInput.min = stockholmToday();
 
 
-/* VALD SPELTID */
+/* ===================================
+   VALD SPELTID
+=================================== */
 
 function getDuration() {
-    const checked = document.querySelector(
+
+    const selected = document.querySelector(
         'input[name="duration"]:checked'
     );
 
-    return checked ? Number(checked.value) : 0;
+    return selected
+        ? Number(selected.value)
+        : 0;
+
 }
 
 
-/* SKAPA STARTTIDER */
-
-function updateTimes() {
-
-    const duration = getDuration();
-    const selectedDate = dateInput.value;
-    const previousTime = timeInput.value;
-
-    timeInput.innerHTML = "";
-
-    const placeholder = document.createElement("option");
-    placeholder.value = "";
-    placeholder.textContent = "Välj starttid";
-
-    timeInput.appendChild(placeholder);
-
-    if (!duration || !selectedDate) {
-        timeInput.disabled = true;
-        updateSummary();
-        return;
-    }
-
-    timeInput.disabled = false;
-
-    const today = localDateString(new Date());
-    const now = new Date();
-
-    for (
-        let hour = OPEN_HOUR;
-        hour + duration <= CLOSE_HOUR;
-        hour++
-    ) {
-
-        // Visa inte tider som redan passerat.
-        if (
-            selectedDate === today &&
-            hour <= now.getHours()
-        ) {
-            continue;
-        }
-
-        const time =
-            String(hour).padStart(2, "0") + ":00";
-
-        const option = document.createElement("option");
-        option.value = time;
-        option.textContent = time;
-
-        timeInput.appendChild(option);
-    }
-
-    if (
-        [...timeInput.options].some(
-            option => option.value === previousTime
-        )
-    ) {
-        timeInput.value = previousTime;
-    }
-
-    updateSummary();
-}
-
-
-/* FORMATERA DATUM */
+/* ===================================
+   FORMATERA DATUM
+=================================== */
 
 function formatDate(value) {
 
-    if (!value) return "Ej valt";
+    if (!value) {
+        return "Ej valt";
+    }
 
-    const date = new Date(value + "T12:00:00");
+    const date = new Date(
+        value + "T12:00:00"
+    );
 
-    return date.toLocaleDateString("sv-SE", {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    });
+    return date.toLocaleDateString(
+        "sv-SE",
+        {
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }
+    );
+
 }
 
 
-/* UPPDATERA ÖVERSIKT */
+/* ===================================
+   VISA FEL
+=================================== */
+
+function showError(message) {
+
+    errorBox.textContent = message;
+    errorBox.classList.add("show");
+
+}
+
+function clearError() {
+
+    errorBox.textContent = "";
+    errorBox.classList.remove("show");
+
+}
+
+
+/* ===================================
+   UPPDATERA ÖVERSIKT
+=================================== */
 
 function updateSummary() {
 
     const duration = getDuration();
-    const people = Number(peopleInput.value || 0);
 
-    const start = timeInput.value;
+    const people = Number(
+        peopleInput.value || 0
+    );
 
-    document.getElementById("summaryDate").textContent =
-        formatDate(dateInput.value);
+    const chosenSlot = availableTimes.find(
+        time => time.start === selectedTime
+    );
 
-    document.getElementById("summaryStart").textContent =
-        start || "Ej valt";
+    document.getElementById(
+        "summaryDate"
+    ).textContent = formatDate(
+        dateInput.value
+    );
 
-    document.getElementById("summaryDuration").textContent =
+    document.getElementById(
+        "summaryStart"
+    ).textContent =
+        selectedTime || "Ej valt";
+
+    document.getElementById(
+        "summaryEnd"
+    ).textContent =
+        chosenSlot
+            ? chosenSlot.end
+            : "Ej valt";
+
+    document.getElementById(
+        "summaryDuration"
+    ).textContent =
         duration
-            ? duration + (duration === 1 ? " timme" : " timmar")
+            ? duration +
+              (duration === 1
+                  ? " timme"
+                  : " timmar")
             : "Ej valt";
 
-    document.getElementById("summaryPeople").textContent =
+    document.getElementById(
+        "summaryPeople"
+    ).textContent =
         people
-            ? people + (people === 1 ? " person" : " personer")
+            ? people +
+              (people === 1
+                  ? " person"
+                  : " personer")
             : "Ej valt";
 
-
-    /* SLUTTID */
-
-    let endText = "Ej valt";
-
-    if (duration && start) {
-
-        const hour = Number(start.substring(0, 2));
-
-        const endHour = hour + duration;
-
-        endText =
-            String(endHour).padStart(2, "0") + ":00";
-    }
-
-    document.getElementById("summaryEnd").textContent =
-        endText;
-
-
-    /* TOTALPRIS */
+    document.getElementById(
+        "summaryFree"
+    ).textContent =
+        chosenSlot
+            ? chosenSlot.free + " lediga"
+            : "Ej valt";
 
     const total =
         duration && people
-            ? prices[duration] * people
+            ? PRICES[duration] * people
             : 0;
 
-    document.getElementById("summaryTotal").textContent =
-        total.toLocaleString("sv-SE") + " KR";
+    document.getElementById(
+        "summaryTotal"
+    ).textContent =
+        total.toLocaleString("sv-SE") +
+        " KR";
+
+    selectedStartInput.value =
+        selectedTime;
+
+    submitButton.disabled =
+        loading ||
+        !availabilityLoaded ||
+        !selectedTime ||
+        !people ||
+        !chosenSlot ||
+        chosenSlot.free < people;
 
 }
 
 
-/* LYSSNA PÅ ÄNDRINGAR */
+/* ===================================
+   VISA LEDIGA TIDER
+=================================== */
 
-dateInput.addEventListener("change", updateTimes);
+function renderTimes() {
 
-timeInput.addEventListener("change", updateSummary);
+    timeGrid.replaceChildren();
 
-peopleInput.addEventListener("change", updateSummary);
+    const people = Number(
+        peopleInput.value || 0
+    );
+
+    if (
+        !availabilityLoaded ||
+        !availableTimes.length
+    ) {
+        updateSummary();
+        return;
+    }
+
+    // Ta bort en vald tid om den inte
+    // längre räcker till antalet personer.
+    const selectedSlot = availableTimes.find(
+        time => time.start === selectedTime
+    );
+
+    if (
+        selectedSlot &&
+        selectedSlot.free < people
+    ) {
+        selectedTime = "";
+    }
+
+    availableTimes.forEach(
+        (slot, index) => {
+
+            const enough =
+                slot.free > 0 &&
+                (!people || slot.free >= people);
+
+            const wrapper =
+                document.createElement("div");
+
+            wrapper.className =
+                "time-option";
+
+            if (
+                slot.free > 0 &&
+                slot.free <= 5
+            ) {
+                wrapper.classList.add("limited");
+            }
+
+            const radio =
+                document.createElement("input");
+
+            radio.type = "radio";
+            radio.name = "startChoice";
+            radio.value = slot.start;
+            radio.id = "time_" + index;
+
+            radio.disabled = !enough;
+
+            radio.checked =
+                selectedTime === slot.start;
+
+            const label =
+                document.createElement("label");
+
+            label.htmlFor = radio.id;
+
+            const title =
+                document.createElement("strong");
+
+            title.textContent =
+                slot.start + "–" + slot.end;
+
+            const availability =
+                document.createElement("span");
+
+            if (slot.free === 0) {
+
+                availability.textContent =
+                    "FULLBOKAT";
+
+            } else if (
+                people &&
+                slot.free < people
+            ) {
+
+                availability.textContent =
+                    slot.free +
+                    " lediga – välj färre personer";
+
+            } else {
+
+                availability.textContent =
+                    slot.free +
+                    (slot.free === 1
+                        ? " dator ledig"
+                        : " datorer lediga");
+
+            }
+
+            label.appendChild(title);
+            label.appendChild(availability);
+
+            wrapper.appendChild(radio);
+            wrapper.appendChild(label);
+
+            radio.addEventListener(
+                "change",
+                function() {
+
+                    selectedTime = slot.start;
+
+                    clearError();
+
+                    updateSummary();
+
+                }
+            );
+
+            timeGrid.appendChild(wrapper);
+
+        }
+    );
+
+    updateSummary();
+
+}
+
+
+/* ===================================
+   HÄMTA LEDIGA TIDER VIA JSONP
+=================================== */
+
+function loadAvailability() {
+
+    requestNumber++;
+
+    const myRequest = requestNumber;
+
+    // Avbryt eventuell äldre förfrågan.
+    if (cancelCurrentRequest) {
+        cancelCurrentRequest();
+        cancelCurrentRequest = null;
+    }
+
+    availableTimes = [];
+    selectedTime = "";
+    availabilityLoaded = false;
+    loading = false;
+
+    timeGrid.replaceChildren();
+    retryButton.style.display = "none";
+
+    clearError();
+
+    const date = dateInput.value;
+    const duration = getDuration();
+
+    dateInput.min = stockholmToday();
+
+    if (!date || !duration) {
+
+        statusBox.textContent =
+            "Välj datum och speltid för " +
+            "att se lediga datorer.";
+
+        updateSummary();
+        return;
+
+    }
+
+    if (date < stockholmToday()) {
+
+        statusBox.textContent =
+            "Välj ett datum som inte har passerat.";
+
+        updateSummary();
+        return;
+
+    }
+
+    loading = true;
+
+    statusBox.textContent =
+        "Hämtar lediga datorer...";
+
+    updateSummary();
+
+    // Callback-namnet följer begränsningarna
+    // i vårt Google Apps Script.
+    const callbackName =
+        "elysiumAvail_" +
+        Date.now().toString(36) +
+        "_" +
+        Math.random().toString(36).slice(2, 8);
+
+    const script =
+        document.createElement("script");
+
+    let finished = false;
+    let timeoutId;
+
+    function cleanup() {
+
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+
+        script.remove();
+
+        delete window[callbackName];
+
+    }
+
+    cancelCurrentRequest = cleanup;
+
+    function fail(message) {
+
+        if (
+            finished ||
+            myRequest !== requestNumber
+        ) {
+            return;
+        }
+
+        finished = true;
+
+        cleanup();
+        cancelCurrentRequest = null;
+
+        loading = false;
+        availabilityLoaded = false;
+        availableTimes = [];
+        selectedTime = "";
+
+        timeGrid.replaceChildren();
+
+        statusBox.textContent = message;
+
+        retryButton.style.display =
+            "inline-block";
+
+        updateSummary();
+
+    }
+
+    window[callbackName] = function(result) {
+
+        if (
+            finished ||
+            myRequest !== requestNumber
+        ) {
+            return;
+        }
+
+        finished = true;
+
+        cleanup();
+        cancelCurrentRequest = null;
+
+        loading = false;
+
+        if (
+            !result ||
+            result.success !== true ||
+            !Array.isArray(result.times)
+        ) {
+
+            availabilityLoaded = false;
+
+            statusBox.textContent =
+                result && result.error
+                    ? String(result.error)
+                    : "Kunde inte läsa lediga tider.";
+
+            retryButton.style.display =
+                "inline-block";
+
+            updateSummary();
+            return;
+
+        }
+
+        // Ta bara emot giltiga tidsuppgifter
+        // och antal lediga datorer.
+        availableTimes = result.times
+            .filter(slot => {
+
+                return (
+                    slot &&
+                    /^\d{2}:\d{2}$/.test(
+                        String(slot.start)
+                    ) &&
+                    /^\d{2}:\d{2}$/.test(
+                        String(slot.end)
+                    ) &&
+                    Number.isInteger(
+                        Number(slot.free)
+                    ) &&
+                    Number(slot.free) >= 0 &&
+                    Number(slot.free) <= MAX_PC
+                );
+
+            })
+            .map(slot => ({
+                start: String(slot.start),
+                end: String(slot.end),
+                free: Number(slot.free)
+            }));
+
+        availabilityLoaded = true;
+
+        if (availableTimes.length === 0) {
+
+            statusBox.textContent =
+                "Inga bokningsbara tider finns " +
+                "för det valda datumet och speltiden.";
+
+        } else {
+
+            statusBox.textContent =
+                "Välj en av tiderna nedan. " +
+                "Antalet lediga datorer visas " +
+                "för hela ditt spelpass.";
+
+        }
+
+        renderTimes();
+
+    };
+
+    script.onerror = function() {
+
+        fail(
+            "Det gick inte att hämta lediga tider. " +
+            "Försök igen."
+        );
+
+    };
+
+    // Appar Script kan behöva lite tid
+    // vid första förfrågan.
+    timeoutId = setTimeout(
+        function() {
+
+            fail(
+                "Det tog för lång tid att hämta " +
+                "lediga tider. Försök igen."
+            );
+
+        },
+        25000
+    );
+
+    const params = new URLSearchParams({
+        action: "availability",
+        date: date,
+        duration: String(duration),
+        callback: callbackName,
+        _: String(Date.now())
+    });
+
+    script.src =
+        SCRIPT_URL + "?" + params.toString();
+
+    document.head.appendChild(script);
+
+}
+
+
+/* ===================================
+   HÄNDELSER
+=================================== */
+
+dateInput.addEventListener(
+    "change",
+    loadAvailability
+);
 
 document.querySelectorAll(
     'input[name="duration"]'
 ).forEach(input => {
-    input.addEventListener("change", updateTimes);
-});
 
-
-/* SKICKA BOKNING */
-
-form.addEventListener("submit", function(event) {
-
-    errorBox.classList.remove("show");
-
-    const duration = getDuration();
-    const people = Number(peopleInput.value);
-
-    if (
-        !dateInput.value ||
-        !timeInput.value ||
-        !duration ||
-        !people
-    ) {
-        event.preventDefault();
-
-        errorBox.textContent =
-            "Fyll i datum, starttid, speltid och antal personer.";
-
-        errorBox.classList.add("show");
-
-        return;
-    }
-
-    if (dateInput.value < localDateString(new Date())) {
-        event.preventDefault();
-
-        errorBox.textContent =
-            "Du kan inte boka ett datum som redan har passerat.";
-
-        errorBox.classList.add("show");
-
-        return;
-    }
-
-    const startHour =
-        Number(timeInput.value.substring(0, 2));
-
-    if (
-        startHour + duration > CLOSE_HOUR
-    ) {
-        event.preventDefault();
-
-        errorBox.textContent =
-            "Din bokning går utanför öppettiderna.";
-
-        errorBox.classList.add("show");
-
-        return;
-    }
-
-    /*
-      Formuläret skickas som en vanlig POST
-      till Google Apps Script.
-
-      Vi visar INTE en bekräftelse här.
-      Endast servern får bekräfta bokningen.
-    */
-
-    submitBtn.disabled = true;
-
-    submitBtn.textContent =
-        "SKICKAR BOKNING...";
+    input.addEventListener(
+        "change",
+        loadAvailability
+    );
 
 });
 
+peopleInput.addEventListener(
+    "change",
+    function() {
 
-/* ÅTERSTÄLL VID TILLBAKANAVIGERING */
+        clearError();
 
-window.addEventListener("pageshow", function() {
-    submitBtn.disabled = false;
+        renderTimes();
 
-    submitBtn.textContent =
-        "BEKRÄFTA BOKNING";
-});
+    }
+);
 
+retryButton.addEventListener(
+    "click",
+    loadAvailability
+);
+
+
+/* ===================================
+   SKICKA BOKNING
+=================================== */
+
+form.addEventListener(
+    "submit",
+    function(event) {
+
+        clearError();
+
+        const people = Number(
+            peopleInput.value
+        );
+
+        const chosenSlot = availableTimes.find(
+            slot => slot.start === selectedTime
+        );
+
+        if (
+            !availabilityLoaded ||
+            !chosenSlot ||
+            !people ||
+            chosenSlot.free < people
+        ) {
+
+            event.preventDefault();
+
+            showError(
+                "Välj en tillgänglig starttid " +
+                "med tillräckligt många lediga datorer."
+            );
+
+            errorBox.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+            return;
+
+        }
+
+        if (
+            dateInput.value < stockholmToday()
+        ) {
+
+            event.preventDefault();
+
+            showError(
+                "Det valda datumet har passerat. " +
+                "Välj ett nytt datum."
+            );
+
+            return;
+
+        }
+
+        // Bokningen skickas som vanlig POST.
+        // Apps Script kontrollerar tillgängligheten
+        // igen och visar bokningsnummer vid framgång.
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "SKICKAR BOKNING...";
+
+    }
+);
+
+
+/* ===================================
+   ÅTERSTÄLL OM KUNDEN GÅR TILLBAKA
+=================================== */
+
+window.addEventListener(
+    "pageshow",
+    function(event) {
+
+        submitButton.textContent =
+            "BEKRÄFTA BOKNING";
+
+        if (event.persisted) {
+            loadAvailability();
+        } else {
+            updateSummary();
+        }
+
+    }
+);
 
 updateSummary();
 
