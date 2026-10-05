@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="sv">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#05070a">
+<meta name="theme-color" content="#080A0E">
 
 <title>Boka PC Gaming | Elysium Gaming Lounge</title>
 
@@ -17,12 +16,14 @@ content="Boka PC Gaming hos Elysium Gaming Lounge i Kristianstad. Se lediga dato
 /* ELYSIUM – DESIGN */
 
 :root {
-    --gold: #d4af37;
-    --background: #05070a;
-    --card: #0b0e13;
-    --text: #ffffff;
-    --muted: #9ca3ad;
-    --border: rgba(212,175,55,.30);
+    --blue: #0084FF;
+    --cyan: #00D1FF;
+    --background: #080A0E;
+    --navy: #07111F;
+    --card: #0B1420;
+    --text: #F5F7FA;
+    --muted: #9CA6B5;
+    --border: rgba(0,132,255,.28);
 }
 
 * {
@@ -55,12 +56,12 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    background: #080a0e;
+    background: #050A12;
     border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 29px;
     font-weight: 900;
     letter-spacing: 4px;
@@ -75,7 +76,7 @@ header {
 }
 
 .back-link:hover {
-    color: var(--gold);
+    color: var(--blue);
 }
 
 /* SIDANS RUBRIK */
@@ -91,7 +92,7 @@ main {
 }
 
 .section-label {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 12px;
     font-weight: 900;
     letter-spacing: 4px;
@@ -117,14 +118,14 @@ main {
     padding: 16px 24px;
     border: 1px solid var(--border);
     border-radius: 7px;
-    background: rgba(212,175,55,.06);
+    background: rgba(0,132,255,.055);
     color: #e5e5e5;
     font-size: 13px;
     line-height: 2;
 }
 
 .opening-hours strong {
-    color: var(--gold);
+    color: var(--blue);
 }
 
 /* LAYOUT */
@@ -142,8 +143,8 @@ main {
 .summary {
     background: linear-gradient(
         145deg,
-        #101318,
-        #090b0f
+        #0D1520,
+        #070B11
     );
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -166,7 +167,7 @@ main {
 }
 
 .form-section h2 {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 13px;
     font-weight: 900;
     letter-spacing: 2px;
@@ -200,7 +201,7 @@ main {
     width: 100%;
     min-height: 52px;
     padding: 12px;
-    background: #05070a;
+    background: #080A0E;
     color: white;
     color-scheme: dark;
     border: 1px solid #34363b;
@@ -211,8 +212,8 @@ main {
 
 .field input:focus,
 .field select:focus {
-    outline: 1px solid var(--gold);
-    border-color: var(--gold);
+    outline: 1px solid var(--blue);
+    border-color: var(--blue);
 }
 
 /* SPELTID */
@@ -235,7 +236,7 @@ main {
 .duration-option label {
     min-height: 120px;
     padding: 20px 10px;
-    background: #07090d;
+    background: #080D15;
     border: 1px solid var(--border);
     border-radius: 7px;
     display: flex;
@@ -252,14 +253,14 @@ main {
 }
 
 .duration-option span {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 13px;
     font-weight: 900;
 }
 
 .duration-option input:checked + label {
-    border: 2px solid var(--gold);
-    background: rgba(212,175,55,.12);
+    border: 2px solid var(--blue);
+    background: rgba(0,132,255,.10);
 }
 
 .duration-option input:focus-visible + label {
@@ -271,7 +272,7 @@ main {
 
 .availability-status {
     padding: 16px;
-    background: #101318;
+    background: #0D1520;
     border: 1px solid var(--border);
     border-radius: 6px;
     color: var(--muted);
@@ -300,7 +301,7 @@ main {
 .time-option label {
     min-height: 102px;
     padding: 18px;
-    background: #090c10;
+    background: #080D15;
     border: 1px solid var(--border);
     border-radius: 7px;
     display: flex;
@@ -324,8 +325,8 @@ main {
 }
 
 .time-option input:checked + label {
-    border: 2px solid var(--gold);
-    background: rgba(212,175,55,.10);
+    border: 2px solid var(--blue);
+    background: rgba(0,132,255,.08);
 }
 
 .time-option input:focus-visible + label {
@@ -350,8 +351,8 @@ main {
 .retry-button {
     margin-top: 12px;
     background: transparent;
-    color: var(--gold);
-    border: 1px solid var(--gold);
+    color: var(--blue);
+    border: 1px solid var(--blue);
     border-radius: 5px;
     padding: 12px 18px;
     font-weight: 800;
@@ -392,20 +393,20 @@ main {
 }
 
 .total strong {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 34px;
 }
 
 .payment {
     margin-top: 28px;
     padding: 20px;
-    background: rgba(212,175,55,.08);
+    background: rgba(0,132,255,.065);
     border: 1px solid var(--border);
     border-radius: 6px;
 }
 
 .payment strong {
-    color: var(--gold);
+    color: var(--blue);
     font-size: 12px;
     letter-spacing: 1px;
 }
@@ -419,8 +420,8 @@ main {
 
 .notice {
     padding: 15px;
-    background: #12151a;
-    border-left: 3px solid var(--gold);
+    background: #0D1520;
+    border-left: 3px solid var(--blue);
     color: var(--muted);
     font-size: 13px;
     line-height: 1.7;
@@ -432,8 +433,8 @@ main {
 .submit {
     width: 100%;
     min-height: 58px;
-    background: var(--gold);
-    color: #05070a;
+    background: var(--blue);
+    color: #080A0E;
     border: 0;
     border-radius: 5px;
     font-size: 13px;
@@ -443,7 +444,7 @@ main {
 }
 
 .submit:hover:not(:disabled) {
-    background: #e5c452;
+    background: #00A8FF;
 }
 
 .submit:disabled {
@@ -552,6 +553,197 @@ footer {
     }
 }
 
+
+/* ===================================
+   ELYSIUM BLUE / CYAN PREMIUM FINISH
+   VISUAL ONLY - FUNCTIONALITY UNCHANGED
+=================================== */
+
+.logo-image-link {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.header-logo-img {
+    display: block;
+    width: 210px;
+    max-width: 28vw;
+    height: 54px;
+    object-fit: contain;
+    object-position: left center;
+    filter: drop-shadow(0 0 8px rgba(0,132,255,.18));
+}
+
+header {
+    min-height: 82px;
+    background: rgba(5,9,15,.97);
+    border-bottom: 1px solid rgba(0,132,255,.25);
+}
+
+.back-link {
+    transition: color .2s ease, text-shadow .2s ease;
+}
+
+.back-link:hover {
+    color: var(--cyan);
+    text-shadow: 0 0 12px rgba(0,209,255,.20);
+}
+
+.section-label {
+    color: var(--cyan);
+}
+
+.intro h1 {
+    color: var(--text);
+}
+
+.opening-hours {
+    background: linear-gradient(
+        145deg,
+        rgba(0,132,255,.055),
+        rgba(7,17,31,.82)
+    );
+}
+
+.opening-hours strong {
+    color: var(--cyan);
+}
+
+.form-card,
+.summary {
+    background: linear-gradient(
+        145deg,
+        rgba(12,19,29,.98),
+        rgba(7,11,17,.99)
+    );
+    box-shadow: 0 18px 50px rgba(0,0,0,.22);
+}
+
+.form-section h2 {
+    color: var(--cyan);
+}
+
+.field input,
+.field select {
+    background: #070B11;
+    border-color: #263445;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.field input:focus,
+.field select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,132,255,.09);
+}
+
+.duration-option label,
+.time-option label {
+    background: linear-gradient(
+        145deg,
+        #080D15,
+        #070B11
+    );
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+.duration-option label:hover,
+.time-option label:hover {
+    border-color: rgba(0,209,255,.50);
+}
+
+.duration-option input:checked + label,
+.time-option input:checked + label {
+    border: 2px solid var(--blue);
+    background: linear-gradient(
+        145deg,
+        rgba(0,132,255,.12),
+        rgba(0,209,255,.035)
+    );
+    box-shadow: 0 0 22px rgba(0,132,255,.10);
+}
+
+.duration-option span {
+    color: var(--blue);
+}
+
+.availability-status {
+    background: #0B1420;
+}
+
+.retry-button {
+    color: var(--cyan);
+    border-color: rgba(0,209,255,.55);
+}
+
+.retry-button:hover {
+    background: rgba(0,209,255,.06);
+}
+
+.total strong {
+    color: var(--cyan);
+    text-shadow: 0 0 18px rgba(0,209,255,.10);
+}
+
+.payment {
+    background: linear-gradient(
+        145deg,
+        rgba(0,132,255,.065),
+        rgba(7,17,31,.80)
+    );
+}
+
+.payment strong {
+    color: var(--cyan);
+}
+
+.notice {
+    background: #0D1520;
+    border-left-color: var(--blue);
+}
+
+.submit {
+    background: linear-gradient(135deg, #0084FF, #006FE6);
+    color: #ffffff;
+    box-shadow: 0 10px 28px rgba(0,132,255,.16);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.submit:hover:not(:disabled) {
+    background: linear-gradient(135deg, #00A8FF, #0084FF);
+    box-shadow:
+        0 12px 30px rgba(0,132,255,.24),
+        0 0 20px rgba(0,209,255,.10);
+    transform: translateY(-1px);
+}
+
+footer {
+    background: #05070A;
+    border-top-color: rgba(0,132,255,.20);
+}
+
+@media (max-width: 600px) {
+    .header-logo-img {
+        width: 165px;
+        max-width: 62vw;
+        height: 46px;
+    }
+
+    header {
+        min-height: auto;
+    }
+}
+
 </style>
 </head>
 
@@ -560,7 +752,9 @@ footer {
 <!-- HEADER -->
 
 <header>
-    <a href="index.html" class="logo">ELYSIUM</a>
+    <a href="index.html" class="logo logo-image-link" aria-label="Elysium Gaming Lounge">
+        <img src="elysium-header-logo.png" alt="Elysium Gaming Lounge" class="header-logo-img">
+    </a>
 
     <a href="index.html" class="back-link">
         ← TILLBAKA TILL HEMSIDAN
