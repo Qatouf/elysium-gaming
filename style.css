@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    background: #0A0A0A;
+    background: #080A0E;
     color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -216,7 +216,7 @@ nav a:hover {
 ========================================= */
 
 .gaming-section {
-    background: #07111F;
+    background: #050A12;
     padding: 110px 7%;
 }
 
@@ -290,7 +290,7 @@ nav a:hover {
 ========================================= */
 
 .pricing-section {
-    background: #0A0A0A;
+    background: #080A0E;
     padding: 110px 7%;
     text-align: center;
 }
@@ -337,7 +337,7 @@ nav a:hover {
 
     background: linear-gradient(
         145deg,
-        rgba(0,132,255,0.10),
+        rgba(0,132,255,0.055),
         rgba(255,255,255,0.02)
     );
 }
@@ -401,7 +401,7 @@ nav a:hover {
 ========================================= */
 
 .food-section {
-    background: #07111F;
+    background: #050A12;
     padding: 110px 7%;
 }
 
@@ -484,7 +484,7 @@ nav a:hover {
 ========================================= */
 
 .events-section {
-    background: #0A0A0A;
+    background: #080A0E;
     padding: 110px 7%;
 }
 
@@ -526,7 +526,7 @@ nav a:hover {
 
     background: linear-gradient(
         145deg,
-        rgba(0,132,255,0.10),
+        rgba(0,132,255,0.055),
         rgba(255,255,255,0.02)
     );
 }
@@ -573,7 +573,7 @@ nav a:hover {
 ========================================= */
 
 .about-section {
-    background: #07111F;
+    background: #050A12;
     padding: 110px 7%;
 }
 
@@ -658,7 +658,7 @@ nav a:hover {
 ========================================= */
 
 .contact-section {
-    background: #0A0A0A;
+    background: #080A0E;
     padding: 110px 7%;
 }
 
@@ -1032,7 +1032,7 @@ footer small {
 
 .menu-page {
     min-height: 100vh;
-    background: #0A0A0A;
+    background: #080A0E;
     color: #ffffff;
     padding: 100px 6% 60px;
 }
@@ -1258,7 +1258,7 @@ footer small {
 }
 
 .faq-item {
-    background: #0B1420;
+    background: #080D15;
     border: 1px solid rgba(0,132,255,0.22);
     border-radius: 6px;
     overflow: hidden;
@@ -1330,4 +1330,82 @@ footer small {
         font-size: 12px;
     }
 
+}
+
+/* =========================================
+   ELYSIUM PREMIUM DARK FINISH
+   Visual-only overrides. Layout/functionality unchanged.
+========================================= */
+
+body {
+    background: #080A0E;
+}
+
+header {
+    background: rgba(5, 9, 15, 0.96);
+    border-bottom-color: rgba(0, 132, 255, 0.28);
+}
+
+.gaming-section,
+.food-section,
+.about-section {
+    background: #070B11;
+}
+
+.pricing-section,
+.events-section,
+.contact-section {
+    background: #090B0F;
+}
+
+.gaming-card,
+.price-card,
+.event-card,
+.contact-card,
+.about-stat {
+    background: linear-gradient(
+        145deg,
+        rgba(12, 19, 29, 0.96),
+        rgba(7, 11, 17, 0.98)
+    );
+}
+
+.food-card {
+    background: linear-gradient(
+        145deg,
+        #0A111A,
+        #070B11
+    );
+}
+
+.price-card.featured,
+.event-card.featured {
+    background: linear-gradient(
+        145deg,
+        rgba(0, 132, 255, 0.065),
+        rgba(8, 13, 21, 0.98)
+    );
+    box-shadow: 0 0 28px rgba(0, 132, 255, 0.07);
+}
+
+.gaming-card:hover,
+.price-card:hover,
+.food-card:hover,
+.event-card:hover {
+    box-shadow:
+        0 18px 50px rgba(0,0,0,0.48),
+        0 0 22px rgba(0,132,255,0.07);
+}
+
+footer {
+    background: #05070A;
+}
+
+.menu-page {
+    background: #080A0E;
+}
+
+.menu-category,
+.faq-item {
+    background: #0A1018;
 }
