@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 
@@ -36,6 +37,67 @@
             scroll-margin-top: 120px;
         }
 
+        /* =========================================
+           ELYSIUM HEADER + LOGO
+        ========================================= */
+
+        header {
+            min-height: 82px;
+        }
+
+        .logo-image-link {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .header-logo-img {
+            display: block;
+            width: 220px;
+            max-width: 22vw;
+            height: 54px;
+            object-fit: contain;
+            object-position: left center;
+            filter: drop-shadow(0 0 8px rgba(0, 132, 255, 0.20));
+        }
+
+        .footer-logo-img {
+            display: block;
+            width: 250px;
+            max-width: 78vw;
+            height: auto;
+            margin: 0 auto 14px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(0, 132, 255, 0.18));
+        }
+
+        @media (max-width: 900px) {
+            .header-logo-img {
+                width: 190px;
+                max-width: 30vw;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            header {
+                min-height: auto;
+            }
+
+            .header-logo-img {
+                width: 175px;
+                max-width: 70vw;
+                height: 46px;
+                margin: 0 auto;
+            }
+
+            .footer-logo-img {
+                width: 215px;
+            }
+        }
+
         @media (max-width: 700px) {
             .food-cta .btn {
                 width: 100%;
@@ -56,7 +118,9 @@
     <header>
 
         <a href="#home" class="logo logo-image-link" aria-label="Elysium Gaming Lounge">
-            <img src="elysium-logo.png" alt="Elysium Gaming Lounge" class="header-logo-img">
+            <img src="elysium-header-logo.png"
+                 alt="Elysium Gaming Lounge"
+                 class="header-logo-img">
         </a>
 
         <nav aria-label="Huvudmeny">
@@ -776,7 +840,9 @@
     <footer>
 
         <div class="footer-logo">
-            <img src="elysium-logo.png" alt="Elysium Gaming Lounge" class="footer-logo-img">
+            <img src="elysium-header-logo.png"
+                 alt="Elysium Gaming Lounge"
+                 class="footer-logo-img">
         </div>
 
         <p>MORE THAN GAMING.</p>
