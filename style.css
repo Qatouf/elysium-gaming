@@ -1,20 +1,4 @@
 /* =========================================
-   ELYSIUM VISUAL IDENTITY
-   Black + Dark Navy + Electric Blue + Cyan
-========================================= */
-
-:root {
-    --elysium-bg: #0A0A0A;
-    --elysium-navy: #07111F;
-    --elysium-card: #0B1420;
-    --elysium-blue: #0084FF;
-    --elysium-cyan: #00D1FF;
-    --elysium-text: #F5F7FA;
-    --elysium-muted: #9CA6B5;
-    --elysium-border: rgba(0,132,255,0.30);
-}
-
-/* =========================================
    RESET
 ========================================= */
 
@@ -60,7 +44,7 @@ header {
 
     padding: 22px 7%;
 
-    background: rgba(7, 17, 31, 0.94);
+    background: rgba(5, 7, 10, 0.92);
     backdrop-filter: blur(12px);
 
     border-bottom: 1px solid rgba(0, 132, 255, 0.35);
@@ -94,3 +78,1256 @@ nav a:hover {
 
 
 /* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 150px 7% 90px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.86) 0%,
+            rgba(0,0,0,0.58) 45%,
+            rgba(0,0,0,0.30) 100%
+        ),
+        url("e5ccaa9f-6c6c-4a0d-b67c-213d4dc119f0.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero .small-title {
+    color: #00D1FF;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 12vw, 150px);
+    font-weight: 900;
+    line-height: 0.88;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+.tagline {
+    color: #0084FF;
+    font-size: clamp(24px, 4vw, 48px);
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 650px;
+    color: #d2d5da;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 24px;
+
+    border: 1px solid #0084FF;
+
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #0084FF;
+    color: #0A0A0A;
+}
+
+
+/* =========================================
+   COMMON TITLES
+========================================= */
+
+.section-label,
+.small-title {
+    color: #00D1FF;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.section-heading,
+.pricing-header,
+.food-header,
+.events-header,
+.contact-header {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.section-heading h2,
+.pricing-header h2,
+.food-header h2,
+.events-header h2,
+.contact-header h2 {
+    color: #ffffff;
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 12px 0 18px;
+}
+
+.section-heading > p:last-child,
+.pricing-header > p:last-child,
+.food-header > p:last-child,
+.events-header > p:last-child,
+.contact-header > p:last-child {
+    color: #9CA6B5;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   GAMING
+========================================= */
+
+.gaming-section {
+    background: #07111F;
+    padding: 110px 7%;
+}
+
+.gaming-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.gaming-card {
+    min-height: 360px;
+    padding: 40px 30px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(0,132,255,0.30);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.gaming-card:hover {
+    transform: translateY(-8px);
+    border-color: #0084FF;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.45);
+}
+
+.card-number {
+    color: #0084FF;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.gaming-card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.gaming-card p {
+    color: #9CA6B5;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.specs span {
+    border: 1px solid rgba(0,132,255,0.35);
+    color: #0084FF;
+    padding: 7px 10px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   PRICING
+========================================= */
+
+.pricing-section {
+    background: #0A0A0A;
+    padding: 110px 7%;
+    text-align: center;
+}
+
+.pricing-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.price-card {
+    position: relative;
+
+    min-height: 350px;
+    padding: 45px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(0,132,255,0.35);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-8px);
+    border-color: #0084FF;
+}
+
+.price-card.featured {
+    border: 2px solid #0084FF;
+    transform: scale(1.04);
+
+    background: linear-gradient(
+        145deg,
+        rgba(0,132,255,0.10),
+        rgba(255,255,255,0.02)
+    );
+}
+
+.popular {
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #0084FF;
+    color: #0A0A0A;
+
+    padding: 8px 20px;
+
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.price-label {
+    color: #0084FF;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.price-card h3 {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.price {
+    color: #0084FF;
+    font-size: 58px;
+    font-weight: 900;
+    margin-bottom: 22px;
+}
+
+.price span {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.price-card > p:last-child {
+    color: #9CA6B5;
+    line-height: 1.6;
+}
+
+.pricing-note {
+    margin-top: 40px;
+    color: #777b82;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   MAT & DRYCK
+========================================= */
+
+.food-section {
+    background: #07111F;
+    padding: 110px 7%;
+}
+
+.food-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.food-card {
+    padding: 45px 30px;
+
+    background: linear-gradient(
+        145deg,
+        #0B1420,
+        #08101A
+    );
+
+    border: 1px solid rgba(0,132,255,0.25);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-8px);
+    border-color: #0084FF;
+}
+
+.food-card.featured {
+    border-color: rgba(0,132,255,0.55);
+}
+
+.food-number {
+    color: #0084FF;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.food-card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.food-card > p {
+    color: #9CA6B5;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.food-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.food-items span {
+    color: #0084FF;
+    border: 1px solid rgba(0,132,255,0.35);
+    padding: 7px 11px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.food-note {
+    margin-top: 40px;
+    text-align: center;
+    color: #777b82;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
+.events-section {
+    background: #0A0A0A;
+    padding: 110px 7%;
+}
+
+.events-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.event-card {
+    min-height: 370px;
+    padding: 40px 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(0,132,255,0.30);
+    border-radius: 8px;
+
+    transition: 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    border-color: #0084FF;
+}
+
+.event-card.featured {
+    border: 2px solid #0084FF;
+
+    background: linear-gradient(
+        145deg,
+        rgba(0,132,255,0.10),
+        rgba(255,255,255,0.02)
+    );
+}
+
+.event-number {
+    color: #0084FF;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 45px;
+}
+
+.event-type {
+    color: #0084FF;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.event-card h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.event-card > p:not(.event-type) {
+    color: #9CA6B5;
+    line-height: 1.7;
+}
+
+.event-card > span {
+    margin-top: auto;
+    padding-top: 30px;
+
+    color: #0084FF;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   OM ELYSIUM
+========================================= */
+
+.about-section {
+    background: #07111F;
+    padding: 110px 7%;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-left .section-label {
+    margin-bottom: 14px;
+}
+
+.about-left h2 {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+.about-lead {
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-text {
+    color: #9CA6B5;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.about-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.about-stat {
+    min-height: 170px;
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(0,132,255,0.30);
+    border-radius: 8px;
+}
+
+.about-stat strong {
+    color: #0084FF;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.about-stat span {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   KONTAKT
+========================================= */
+
+.contact-section {
+    background: #0A0A0A;
+    padding: 110px 7%;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.contact-card {
+    min-height: 190px;
+    padding: 35px 30px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.035),
+        rgba(255,255,255,0.01)
+    );
+
+    border: 1px solid rgba(0,132,255,0.30);
+    border-radius: 8px;
+}
+
+.contact-card span {
+    display: block;
+
+    color: #0084FF;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+.contact-card strong {
+    display: block;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #9CA6B5;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #05080D;
+
+    border-top: 1px solid rgba(0,132,255,0.25);
+
+    padding: 55px 7% 35px;
+
+    text-align: center;
+}
+
+.footer-logo {
+    color: #0084FF;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+footer > p {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: #9CA6B5;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #0084FF;
+}
+
+footer small {
+    color: #60646b;
+    font-size: 11px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav {
+        gap: 16px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .gaming-grid,
+    .pricing-grid,
+    .food-grid,
+    .events-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card.featured {
+        transform: none;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    header {
+        position: sticky;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 5px;
+    }
+
+    nav a {
+        white-space: nowrap;
+    }
+
+    .hero {
+        min-height: 88vh;
+        padding: 120px 5% 70px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .tagline {
+        font-size: 25px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .gaming-section,
+    .pricing-section,
+    .food-section,
+    .events-section,
+    .about-section,
+    .contact-section {
+        padding: 80px 5%;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
+        font-size: 38px;
+    }
+
+    .about-right {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        gap: 15px;
+    }
+}
+/* =========================================
+   EXTRA MOBILE POLISH
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    header {
+        padding: 14px 5%;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 22px;
+        letter-spacing: 3px;
+    }
+
+    nav {
+        gap: 14px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    nav a {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero {
+        min-height: 85vh;
+        padding: 115px 5% 60px;
+        background-position: 58% center;
+    }
+
+    .hero .small-title {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: 2px;
+    }
+
+    .tagline {
+        font-size: 22px;
+        letter-spacing: 2px;
+    }
+
+    .description {
+        max-width: 95%;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        padding: 15px 18px;
+    }
+
+    .section-heading,
+    .pricing-header,
+    .food-header,
+    .events-header,
+    .contact-header {
+        margin-bottom: 40px;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
+        font-size: 34px;
+        line-height: 1.1;
+        letter-spacing: 1.5px;
+    }
+
+    .gaming-card,
+    .price-card,
+    .food-card,
+    .event-card,
+    .contact-card {
+        min-height: auto;
+        padding: 30px 22px;
+    }
+
+    .price {
+        font-size: 48px;
+    }
+
+    .about-container {
+        gap: 35px;
+    }
+
+    .about-lead {
+        font-size: 17px;
+    }
+
+    .about-text {
+        font-size: 15px;
+    }
+
+    .about-stat {
+        min-height: 135px;
+    }
+
+    .about-stat strong {
+        font-size: 26px;
+    }
+
+    footer {
+        padding: 45px 5% 30px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 44px;
+    }
+
+    .tagline {
+        font-size: 19px;
+    }
+
+    .section-heading h2,
+    .pricing-header h2,
+    .food-header h2,
+    .events-header h2,
+    .contact-header h2,
+    .about-left h2 {
+        font-size: 30px;
+    }
+}
+/* =========================================
+   QR MENU
+========================================= */
+
+.menu-page {
+    min-height: 100vh;
+    background: #0A0A0A;
+    color: #ffffff;
+    padding: 100px 6% 60px;
+}
+
+.menu-top {
+    max-width: 850px;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.menu-logo {
+    display: inline-block;
+    color: #0084FF;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 45px;
+}
+
+.menu-top .section-label {
+    margin-bottom: 12px;
+}
+
+.menu-top h1 {
+    font-size: clamp(42px, 8vw, 75px);
+    font-weight: 900;
+    letter-spacing: 3px;
+    margin-bottom: 18px;
+}
+
+.menu-intro {
+    color: #9CA6B5;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* MENU CATEGORIES */
+
+.menu-category {
+    max-width: 800px;
+    margin: 0 auto 35px;
+
+    background: linear-gradient(
+        145deg,
+        #0B1420,
+        #08101A
+    );
+
+    border: 1px solid rgba(0,132,255,0.30);
+    border-radius: 8px;
+
+    padding: 30px;
+}
+
+.menu-category h2 {
+    color: #0084FF;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    padding-bottom: 18px;
+    margin-bottom: 5px;
+
+    border-bottom: 1px solid rgba(0,132,255,0.20);
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item h3 {
+    color: #ffffff;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    color: #777f89;
+    font-size: 13px;
+}
+
+.menu-item strong {
+    color: #0084FF;
+    font-size: 17px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+
+/* MENU INFO */
+
+.menu-info {
+    max-width: 800px;
+    margin: 50px auto 0;
+    text-align: center;
+}
+
+.menu-info p {
+    color: #777f89;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.menu-info .btn {
+    display: inline-block;
+}
+
+
+/* MOBILE MENU */
+
+@media (max-width: 600px) {
+
+    .menu-page {
+        padding: 60px 5% 40px;
+    }
+
+    .menu-logo {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .menu-top {
+        margin-bottom: 40px;
+    }
+
+    .menu-top h1 {
+        font-size: 40px;
+    }
+
+    .menu-intro {
+        font-size: 15px;
+    }
+
+    .menu-category {
+        padding: 22px 18px;
+        margin-bottom: 20px;
+    }
+
+    .menu-category h2 {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        padding: 17px 0;
+    }
+
+    .menu-item h3 {
+        font-size: 15px;
+    }
+
+    .menu-item p {
+        font-size: 12px;
+    }
+
+    .menu-item strong {
+        font-size: 15px;
+    }
+
+    .menu-info {
+        margin-top: 35px;
+    }
+
+    .menu-info .btn {
+        width: 100%;
+    }
+}
+/* =========================
+   FAQ
+========================= */
+
+.faq-section {
+    max-width: 900px;
+    margin: 100px auto 80px;
+    padding: 0 20px;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.faq-header .section-label {
+    color: #00D1FF;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.faq-header h2 {
+    color: #ffffff;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.faq-header > p:last-child {
+    color: #9CA6B5;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faq-item {
+    background: #0B1420;
+    border: 1px solid rgba(0,132,255,0.22);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.faq-item summary {
+    position: relative;
+    padding: 20px 50px 20px 20px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0084FF;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.faq-item[open] summary {
+    color: #0084FF;
+}
+
+.faq-item[open] summary::after {
+    content: "−";
+}
+
+.faq-item p {
+    padding: 0 20px 20px;
+    color: #9CA6B5;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.faq-item a {
+    color: #0084FF;
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+
+    .faq-section {
+        margin: 70px auto 60px;
+        padding: 0 15px;
+    }
+
+    .faq-header h2 {
+        font-size: 28px;
+    }
+
+    .faq-item summary {
+        padding: 18px 45px 18px 16px;
+        font-size: 13px;
+    }
+
+    .faq-item p {
+        padding: 0 16px 18px;
+        font-size: 12px;
+    }
+
+}
