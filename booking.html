@@ -1,2030 +1,2585 @@
 <!DOCTYPE html>
 <html lang="sv">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080A0E">
-
-<title>Boka PC Gaming | Elysium Gaming Lounge</title>
-
-<meta name="description"
-content="Boka PC Gaming hos Elysium Gaming Lounge i Kristianstad. Se lediga datorer, välj speltid och betala på plats.">
-
-<style>
-
-/* ELYSIUM – DESIGN */
-
-:root {
-    --blue: #0084FF;
-    --cyan: #00D1FF;
-    --background: #080A0E;
-    --navy: #07111F;
-    --card: #0B1420;
-    --text: #F5F7FA;
-    --muted: #9CA6B5;
-    --border: rgba(0,132,255,.28);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: var(--background);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-a {
-    color: inherit;
-}
-
-/* HEADER */
-
-header {
-    padding: 22px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    background: #050A12;
-    border-bottom: 1px solid var(--border);
-}
-
-.logo {
-    color: var(--blue);
-    font-size: 29px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    text-decoration: none;
-}
-
-.back-link {
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 800;
-    color: #c4c7cd;
-}
-
-.back-link:hover {
-    color: var(--blue);
-}
-
-/* SIDANS RUBRIK */
-
-main {
-    padding: 75px 6% 100px;
-}
-
-.intro {
-    max-width: 850px;
-    margin: 0 auto 55px;
-    text-align: center;
-}
-
-.section-label {
-    color: var(--blue);
-    font-size: 12px;
-    font-weight: 900;
-    letter-spacing: 4px;
-    margin-bottom: 15px;
-}
-
-.intro h1 {
-    font-size: clamp(36px, 7vw, 68px);
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-}
-
-.intro p {
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-.opening-hours {
-    display: inline-block;
-    margin-top: 24px;
-    padding: 16px 24px;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    background: rgba(0,132,255,.055);
-    color: #e5e5e5;
-    font-size: 13px;
-    line-height: 2;
-}
-
-.opening-hours strong {
-    color: var(--blue);
-}
-
-/* LAYOUT */
-
-.container {
-    max-width: 1150px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 1.3fr .7fr;
-    gap: 28px;
-    align-items: start;
-}
-
-.form-card,
-.summary {
-    background: linear-gradient(
-        145deg,
-        #0D1520,
-        #070B11
-    );
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
-
-.form-card {
-    padding: 35px;
-}
-
-.summary {
-    padding: 30px;
-    position: sticky;
-    top: 20px;
-}
-
-/* FORMULÄR */
-
-.form-section {
-    margin-bottom: 38px;
-}
-
-.form-section h2 {
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    margin-bottom: 23px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-}
-
-.field.full {
-    grid-column: 1 / -1;
-}
-
-.field label {
-    color: #e5e5e5;
-    font-size: 13px;
-    font-weight: 800;
-}
-
-.field input,
-.field select {
-    width: 100%;
-    min-height: 52px;
-    padding: 12px;
-    background: #080A0E;
-    color: white;
-    color-scheme: dark;
-    border: 1px solid #34363b;
-    border-radius: 6px;
-    font: inherit;
-    font-size: 15px;
-}
-
-.field input:focus,
-.field select:focus {
-    outline: 1px solid var(--blue);
-    border-color: var(--blue);
-}
-
-/* SPELTID */
-
-.duration-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-}
-
-.duration-option {
-    position: relative;
-}
-
-.duration-option input {
-    position: absolute;
-    opacity: 0;
-}
-
-.duration-option label {
-    min-height: 120px;
-    padding: 20px 10px;
-    background: #080D15;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.duration-option strong {
-    font-size: 20px;
-}
-
-.duration-option span {
-    color: var(--blue);
-    font-size: 13px;
-    font-weight: 900;
-}
-
-.duration-option input:checked + label {
-    border: 2px solid var(--blue);
-    background: rgba(0,132,255,.10);
-}
-
-.duration-option input:focus-visible + label {
-    outline: 2px solid white;
-    outline-offset: 3px;
-}
-
-/* LEDIGA TIDER */
-
-.availability-status {
-    padding: 16px;
-    background: #0D1520;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.time-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-}
-
-.time-option {
-    position: relative;
-}
-
-.time-option input {
-    position: absolute;
-    opacity: 0;
-    width: 1px;
-    height: 1px;
-}
-
-.time-option label {
-    min-height: 102px;
-    padding: 18px;
-    background: #080D15;
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 11px;
-    cursor: pointer;
-    transition: .2s;
-}
-
-.time-option label strong {
-    color: white;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-.time-option label span {
-    color: #80dba4;
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.time-option input:checked + label {
-    border: 2px solid var(--blue);
-    background: rgba(0,132,255,.08);
-}
-
-.time-option input:focus-visible + label {
-    outline: 2px solid white;
-    outline-offset: 3px;
-}
-
-.time-option input:disabled + label {
-    opacity: .45;
-    cursor: not-allowed;
-    border-color: #34363b;
-}
-
-.time-option input:disabled + label span {
-    color: #b0b0b0;
-}
-
-.time-option.limited label span {
-    color: #f0c36c;
-}
-
-.retry-button {
-    margin-top: 12px;
-    background: transparent;
-    color: var(--blue);
-    border: 1px solid var(--blue);
-    border-radius: 5px;
-    padding: 12px 18px;
-    font-weight: 800;
-    cursor: pointer;
-    display: none;
-}
-
-/* BOKNINGSÖVERSIKT */
-
-.summary h2 {
-    font-size: 26px;
-    margin: 10px 0 25px;
-}
-
-.summary-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid #292c32;
-    font-size: 13px;
-}
-
-.summary-row span:first-child {
-    color: var(--muted);
-}
-
-.summary-row span:last-child {
-    font-weight: 800;
-    text-align: right;
-}
-
-.total {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-
-.total strong {
-    color: var(--blue);
-    font-size: 34px;
-}
-
-.payment {
-    margin-top: 28px;
-    padding: 20px;
-    background: rgba(0,132,255,.065);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-}
-
-.payment strong {
-    color: var(--blue);
-    font-size: 12px;
-    letter-spacing: 1px;
-}
-
-.payment p {
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.7;
-    margin-top: 10px;
-}
-
-.notice {
-    padding: 15px;
-    background: #0D1520;
-    border-left: 3px solid var(--blue);
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-/* KNAPP */
-
-.submit {
-    width: 100%;
-    min-height: 58px;
-    background: var(--blue);
-    color: #080A0E;
-    border: 0;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-
-.submit:hover:not(:disabled) {
-    background: #00A8FF;
-}
-
-.submit:disabled {
-    opacity: .45;
-    cursor: not-allowed;
-}
-
-.form-note {
-    text-align: center;
-    color: #8f949d;
-    font-size: 12px;
-    line-height: 1.7;
-    margin-top: 16px;
-}
-
-.error {
-    display: none;
-    color: #ffb6b6;
-    background: rgba(255,0,0,.07);
-    border: 1px solid rgba(255,80,80,.4);
-    padding: 14px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 13px;
-    line-height: 1.6;
-}
-
-.error.show {
-    display: block;
-}
-
-/* SKYDD MOT ENKLA BOTTAR */
-
-.hp {
-    position: absolute;
-    left: -9999px;
-}
-
-/* FOOTER */
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid var(--border);
-    color: #858993;
-    font-size: 12px;
-    line-height: 2;
-}
-
-/* MOBIL */
-
-@media (max-width: 850px) {
-    .container {
-        grid-template-columns: 1fr;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Boka | Elysium Gaming Lounge</title>
+
+  <meta
+    name="description"
+    content="Boka gaming-PC eller PS5 hos Elysium Gaming Lounge i Kristianstad."
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    .summary {
-        position: static;
-    }
-}
+    :root {
+      --bg: #05070a;
+      --bg2: #08101a;
+      --card: rgba(11, 20, 31, 0.92);
+      --card2: rgba(7, 14, 23, 0.96);
 
-@media (max-width: 600px) {
-    header {
-        padding: 20px 5%;
+      --blue: #0084ff;
+      --cyan: #00d1ff;
+
+      --text: #ffffff;
+      --muted: #9aa5b1;
+      --border: rgba(255, 255, 255, 0.08);
+
+      --success: #32d583;
+      --danger: #ff5a67;
     }
 
-    .logo {
-        font-size: 21px;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 20% 0%,
+          rgba(0, 132, 255, 0.15),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(0, 209, 255, 0.08),
+          transparent 28%
+        ),
+        linear-gradient(
+          180deg,
+          #05070a 0%,
+          #07101a 45%,
+          #05070a 100%
+        );
+
+      padding-bottom: 60px;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      background: rgba(5, 7, 10, 0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      min-height: 78px;
+
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo img {
+      width: 205px;
+      display: block;
     }
 
     .back-link {
-        font-size: 10px;
-        text-align: right;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: 0.2s ease;
     }
 
-    main {
-        padding: 55px 5% 75px;
+    .back-link:hover {
+      color: var(--cyan);
     }
 
-    .intro {
-        margin-bottom: 35px;
+    .page {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    .form-card,
-    .summary {
-        padding: 24px 18px;
+    .hero {
+      text-align: center;
+      padding: 70px 0 42px;
     }
 
-    .form-grid,
-    .duration-grid,
-    .time-grid {
-        grid-template-columns: 1fr;
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 12px;
+      letter-spacing: 4px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(
+        90deg,
+        var(--blue),
+        var(--cyan)
+      );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(310px, 0.6fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      border: 1px solid var(--border);
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(12, 23, 36, 0.95),
+          rgba(7, 14, 23, 0.97)
+        );
+
+      border-radius: 24px;
+      padding: 28px;
+
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    .panel-title {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .panel-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 26px;
+    }
+
+    .section {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .step-label {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 15px;
+      font-weight: 900;
+
+      margin-bottom: 15px;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      font-size: 13px;
+      color: white;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .type-card {
+      appearance: none;
+
+      width: 100%;
+      min-height: 125px;
+
+      padding: 20px;
+
+      border-radius: 18px;
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, 0.025);
+
+      color: white;
+      text-align: left;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .type-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(0, 209, 255, 0.35);
+    }
+
+    .type-card.active {
+      border-color: var(--cyan);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 132, 255, 0.16),
+          rgba(0, 209, 255, 0.08)
+        );
+
+      box-shadow:
+        0 0 0 1px rgba(0, 209, 255, 0.08),
+        0 15px 40px rgba(0, 132, 255, 0.08);
+    }
+
+    .type-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .type-title {
+      font-size: 17px;
+      font-weight: 900;
+      margin-bottom: 5px;
+    }
+
+    .type-desc {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-size: 13px;
+      color: #dce4ec;
+      font-weight: 800;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 50px;
+
+      border-radius: 13px;
+      border: 1px solid var(--border);
+
+      background: rgba(255, 255, 255, 0.035);
+      color: white;
+
+      padding: 0 14px;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--blue);
+
+      box-shadow:
+        0 0 0 3px rgba(0, 132, 255, 0.12);
+    }
+
+    input[type="date"] {
+      color-scheme: dark;
+    }
+
+    select option {
+      background: #0c1520;
+      color: white;
+    }
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .package {
+      border: 1px solid var(--border);
+
+      border-radius: 15px;
+
+      background: rgba(255, 255, 255, 0.025);
+      color: white;
+
+      padding: 16px 10px;
+
+      text-align: center;
+
+      transition:
+        0.2s ease;
+    }
+
+    .package:hover {
+      border-color: rgba(0, 209, 255, 0.4);
+    }
+
+    .package.active {
+      border-color: var(--cyan);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 132, 255, 0.18),
+          rgba(0, 209, 255, 0.07)
+        );
+    }
+
+    .package-hours {
+      font-weight: 900;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .package-price {
+      color: var(--cyan);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .times-status {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+      line-height: 1.45;
+    }
+
+    .time-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 9px;
+    }
+
+    .time-btn {
+      min-height: 58px;
+
+      border: 1px solid var(--border);
+      border-radius: 13px;
+
+      background: rgba(255, 255, 255, 0.025);
+
+      color: white;
+
+      padding: 8px;
+
+      transition: 0.2s ease;
+    }
+
+    .time-btn:hover:not(:disabled) {
+      border-color: var(--cyan);
+    }
+
+    .time-btn.active {
+      border-color: var(--cyan);
+      background: rgba(0, 132, 255, 0.16);
+    }
+
+    .time-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .time-clock {
+      display: block;
+      font-weight: 900;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .time-available {
+      display: block;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .loading-box {
+      grid-column: 1 / -1;
+
+      padding: 20px;
+
+      text-align: center;
+
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .summary {
+      position: sticky;
+      top: 102px;
+    }
+
+    .summary-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+
+      padding: 14px 0;
+
+      border-bottom: 1px solid var(--border);
+
+      font-size: 14px;
+    }
+
+    .summary-row span:first-child {
+      color: var(--muted);
+    }
+
+    .summary-row strong {
+      text-align: right;
+    }
+
+    .price-box {
+      margin-top: 20px;
+
+      padding: 20px;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0, 132, 255, 0.17),
+          rgba(0, 209, 255, 0.08)
+        );
+
+      border: 1px solid rgba(0, 209, 255, 0.2);
+    }
+
+    .price-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: 950;
+    }
+
+    .book-btn {
+      width: 100%;
+      min-height: 56px;
+
+      margin-top: 18px;
+
+      border: 0;
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      color: white;
+
+      font-weight: 950;
+      font-size: 15px;
+      letter-spacing: 0.4px;
+
+      box-shadow:
+        0 18px 40px rgba(0, 132, 255, 0.2);
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .book-btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .book-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .security-note {
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 13px;
+    }
+
+    .message {
+      margin-top: 15px;
+
+      border-radius: 13px;
+      padding: 13px 14px;
+
+      font-size: 13px;
+      line-height: 1.5;
+
+      display: none;
+    }
+
+    .message.error {
+      display: block;
+
+      color: #ffd4d8;
+
+      border: 1px solid rgba(255, 90, 103, 0.3);
+      background: rgba(255, 90, 103, 0.08);
+    }
+
+    .message.success {
+      display: block;
+
+      color: #caffdf;
+
+      border: 1px solid rgba(50, 213, 131, 0.28);
+      background: rgba(50, 213, 131, 0.08);
+    }
+
+    .info-strip {
+      margin-top: 25px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      border-radius: 17px;
+
+      background: rgba(255, 255, 255, 0.025);
+
+      padding: 18px;
+    }
+
+    .info-card strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      padding: 22px;
+
+      background: rgba(0, 0, 0, 0.78);
+
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      z-index: 100;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(500px, 100%);
+
+      border: 1px solid rgba(0, 209, 255, 0.22);
+
+      border-radius: 24px;
+
+      padding: 32px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #0c1724,
+          #07101a
+        );
+
+      text-align: center;
+
+      box-shadow:
+        0 40px 120px rgba(0, 0, 0, 0.55);
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+
+      display: grid;
+      place-items: center;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      font-size: 30px;
+      font-weight: 950;
+    }
+
+    .modal h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .booking-number-box {
+      margin: 22px 0;
+
+      padding: 18px;
+
+      border-radius: 15px;
+
+      background: rgba(0, 132, 255, 0.1);
+
+      border: 1px solid rgba(0, 209, 255, 0.18);
+    }
+
+    .booking-number-label {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 7px;
+    }
+
+    .booking-number {
+      font-size: 23px;
+      font-weight: 950;
+      letter-spacing: 1px;
+      color: var(--cyan);
+    }
+
+    .modal-close {
+      width: 100%;
+      min-height: 52px;
+
+      border: 0;
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--blue),
+          var(--cyan)
+        );
+
+      color: white;
+      font-weight: 900;
+    }
+
+    .footer {
+      max-width: 1180px;
+      width: calc(100% - 32px);
+
+      margin: 60px auto 0;
+
+      padding-top: 25px;
+
+      border-top: 1px solid var(--border);
+
+      text-align: center;
+
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .summary {
+        position: static;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar-inner {
+        min-height: 68px;
+        padding: 0 16px;
+      }
+
+      .logo img {
+        width: 160px;
+      }
+
+      .back-link {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 50px 0 30px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .panel {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .type-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .field.full {
         grid-column: auto;
+      }
+
+      .package-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .duration-option label,
-    .time-option label {
-        min-height: 85px;
+    @media (max-width: 420px) {
+      .time-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .package {
+        padding: 14px 6px;
+      }
+
+      .package-hours {
+        font-size: 14px;
+      }
+
+      .package-price {
+        font-size: 12px;
+      }
     }
-
-    .total strong {
-        font-size: 29px;
-    }
-}
-
-
-/* ===================================
-   ELYSIUM BLUE / CYAN PREMIUM FINISH
-   VISUAL ONLY - FUNCTIONALITY UNCHANGED
-=================================== */
-
-.logo-image-link {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    line-height: 1;
-    text-decoration: none;
-}
-
-.header-logo-img {
-    display: block;
-    width: 210px;
-    max-width: 28vw;
-    height: 54px;
-    object-fit: contain;
-    object-position: left center;
-    filter: drop-shadow(0 0 8px rgba(0,132,255,.18));
-}
-
-header {
-    min-height: 82px;
-    background: rgba(5,9,15,.97);
-    border-bottom: 1px solid rgba(0,132,255,.25);
-}
-
-.back-link {
-    transition: color .2s ease, text-shadow .2s ease;
-}
-
-.back-link:hover {
-    color: var(--cyan);
-    text-shadow: 0 0 12px rgba(0,209,255,.20);
-}
-
-.section-label {
-    color: var(--cyan);
-}
-
-.intro h1 {
-    color: var(--text);
-}
-
-.opening-hours {
-    background: linear-gradient(
-        145deg,
-        rgba(0,132,255,.055),
-        rgba(7,17,31,.82)
-    );
-}
-
-.opening-hours strong {
-    color: var(--cyan);
-}
-
-.form-card,
-.summary {
-    background: linear-gradient(
-        145deg,
-        rgba(12,19,29,.98),
-        rgba(7,11,17,.99)
-    );
-    box-shadow: 0 18px 50px rgba(0,0,0,.22);
-}
-
-.form-section h2 {
-    color: var(--cyan);
-}
-
-.field input,
-.field select {
-    background: #070B11;
-    border-color: #263445;
-    transition: border-color .2s ease, box-shadow .2s ease;
-}
-
-.field input:focus,
-.field select:focus {
-    outline: none;
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(0,132,255,.09);
-}
-
-.duration-option label,
-.time-option label {
-    background: linear-gradient(
-        145deg,
-        #080D15,
-        #070B11
-    );
-    transition:
-        border-color .2s ease,
-        background .2s ease,
-        box-shadow .2s ease,
-        transform .2s ease;
-}
-
-.duration-option label:hover,
-.time-option label:hover {
-    border-color: rgba(0,209,255,.50);
-}
-
-.duration-option input:checked + label,
-.time-option input:checked + label {
-    border: 2px solid var(--blue);
-    background: linear-gradient(
-        145deg,
-        rgba(0,132,255,.12),
-        rgba(0,209,255,.035)
-    );
-    box-shadow: 0 0 22px rgba(0,132,255,.10);
-}
-
-.duration-option span {
-    color: var(--blue);
-}
-
-.availability-status {
-    background: #0B1420;
-}
-
-.retry-button {
-    color: var(--cyan);
-    border-color: rgba(0,209,255,.55);
-}
-
-.retry-button:hover {
-    background: rgba(0,209,255,.06);
-}
-
-.total strong {
-    color: var(--cyan);
-    text-shadow: 0 0 18px rgba(0,209,255,.10);
-}
-
-.payment {
-    background: linear-gradient(
-        145deg,
-        rgba(0,132,255,.065),
-        rgba(7,17,31,.80)
-    );
-}
-
-.payment strong {
-    color: var(--cyan);
-}
-
-.notice {
-    background: #0D1520;
-    border-left-color: var(--blue);
-}
-
-.submit {
-    background: linear-gradient(135deg, #0084FF, #006FE6);
-    color: #ffffff;
-    box-shadow: 0 10px 28px rgba(0,132,255,.16);
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
-}
-
-.submit:hover:not(:disabled) {
-    background: linear-gradient(135deg, #00A8FF, #0084FF);
-    box-shadow:
-        0 12px 30px rgba(0,132,255,.24),
-        0 0 20px rgba(0,209,255,.10);
-    transform: translateY(-1px);
-}
-
-footer {
-    background: #05070A;
-    border-top-color: rgba(0,132,255,.20);
-}
-
-@media (max-width: 600px) {
-    .header-logo-img {
-        width: 165px;
-        max-width: 62vw;
-        height: 46px;
-    }
-
-    header {
-        min-height: auto;
-    }
-}
-
-</style>
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+  <header class="topbar">
+    <div class="topbar-inner">
 
-<header>
-    <a href="index.html" class="logo logo-image-link" aria-label="Elysium Gaming Lounge">
-        <img src="elysium-header-logo.png" alt="Elysium Gaming Lounge" class="header-logo-img">
-    </a>
+      <a class="logo" href="index.html">
+        <img
+          src="elysium-header-logo.png"
+          alt="Elysium Gaming Lounge"
+        />
+      </a>
 
-    <a href="index.html" class="back-link">
-        ← TILLBAKA TILL HEMSIDAN
-    </a>
-</header>
+      <a class="back-link" href="index.html">
+        ← TILL STARTSIDAN
+      </a>
 
-<main>
+    </div>
+  </header>
 
-    <!-- INTRO -->
 
-    <section class="intro">
+  <main class="page">
 
-        <p class="section-label">RESERVE YOUR SESSION</p>
+    <section class="hero">
 
-        <h1>BOKA PC GAMING</h1>
+      <div class="eyebrow">
+        ELYSIUM GAMING LOUNGE
+      </div>
 
-        <p>
-            Välj datum, speltid och antal personer.
-            Se vilka tider som är lediga och boka enkelt.
-            Betalning sker på plats i kassan.
-        </p>
+      <h1>
+        BOKA DIN
+        <span>GAMINGTID</span>
+      </h1>
 
-        <div class="opening-hours">
-            <strong>ÖPPETTIDER</strong><br>
-            Måndag–torsdag: 16:00–01:00<br>
-            Fredag–söndag: 16:00–03:00
-        </div>
+      <p>
+        Välj PC Gaming eller PS5, hitta en ledig tid och boka direkt.
+        Du behöver inget konto.
+      </p>
 
     </section>
 
-    <div class="container">
 
-        <!-- FORMULÄR -->
+    <div class="booking-layout">
 
-        <form
-            id="bookingForm"
-            class="form-card"
-            method="POST"
-            action="https://script.google.com/macros/s/AKfycbxu-2-tKt2Ka82497zappvkTCEj8lbAZ0PT6_MhLiiGX020nLFJd72l8aTJH_83EYWUCA/exec"
-        >
+      <!-- VÄNSTER -->
+      <section class="panel">
 
-            <div class="notice">
-                Välj en ledig starttid och fyll i dina
-                kontaktuppgifter. Din bokning är
-                registrerad först när du har fått
-                ett bokningsnummer.
-            </div>
+        <div class="panel-title">
+          Gör din bokning
+        </div>
 
-            <!-- SKYDD MOT ENKLA BOTTAR -->
+        <div class="panel-subtitle">
+          Följ stegen nedan. Tillgängligheten kontrolleras direkt mot Elysiums bokningssystem.
+        </div>
 
-            <div class="hp" aria-hidden="true">
-                <label for="website">Webbplats</label>
 
-                <input
-                    type="text"
-                    id="website"
-                    name="website"
-                    tabindex="-1"
-                    autocomplete="off"
-                >
-            </div>
+        <!-- STEG 1 -->
+        <div class="section">
 
-            <!-- 01 DATUM -->
+          <div class="step-label">
+            <span class="step-number">1</span>
+            Vad vill du boka?
+          </div>
 
-            <section class="form-section">
-
-                <h2>01 / VÄLJ DATUM</h2>
-
-                <div class="field">
-
-                    <label for="date">Datum</label>
-
-                    <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required
-                    >
-
-                </div>
-
-            </section>
-
-            <!-- 02 SPELTID -->
-
-            <section class="form-section">
-
-                <h2>02 / VÄLJ SPELTID</h2>
-
-                <div class="duration-grid">
-
-                    <div class="duration-option">
-
-                        <input
-                            type="radio"
-                            name="duration"
-                            id="duration1"
-                            value="1"
-                            required
-                        >
-
-                        <label for="duration1">
-                            <strong>1 TIMME</strong>
-                            <span>49 KR / PERSON</span>
-                        </label>
-
-                    </div>
-
-                    <div class="duration-option">
-
-                        <input
-                            type="radio"
-                            name="duration"
-                            id="duration3"
-                            value="3"
-                        >
-
-                        <label for="duration3">
-                            <strong>3 TIMMAR</strong>
-                            <span>129 KR / PERSON</span>
-                        </label>
-
-                    </div>
-
-                    <div class="duration-option">
-
-                        <input
-                            type="radio"
-                            name="duration"
-                            id="duration5"
-                            value="5"
-                        >
-
-                        <label for="duration5">
-                            <strong>5 TIMMAR</strong>
-                            <span>199 KR / PERSON</span>
-                        </label>
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- 03 PERSONER -->
-
-            <section class="form-section">
-
-                <h2>03 / ANTAL PERSONER</h2>
-
-                <div class="field">
-
-                    <label for="people">
-                        Hur många ska spela?
-                    </label>
-
-                    <select
-                        id="people"
-                        name="people"
-                        required
-                    >
-
-                        <option value="">
-                            Välj antal personer
-                        </option>
-
-                        <option value="1">1 person</option>
-                        <option value="2">2 personer</option>
-                        <option value="3">3 personer</option>
-                        <option value="4">4 personer</option>
-                        <option value="5">5 personer</option>
-                        <option value="6">6 personer</option>
-                        <option value="7">7 personer</option>
-                        <option value="8">8 personer</option>
-                        <option value="9">9 personer</option>
-                        <option value="10">10 personer</option>
-                        <option value="11">11 personer</option>
-                        <option value="12">12 personer</option>
-                        <option value="13">13 personer</option>
-                        <option value="14">14 personer</option>
-                        <option value="15">15 personer</option>
-                        <option value="16">16 personer</option>
-                        <option value="17">17 personer</option>
-                        <option value="18">18 personer</option>
-                        <option value="19">19 personer</option>
-                        <option value="20">20 personer</option>
-
-                    </select>
-
-                </div>
-
-            </section>
-
-            <!-- 04 LEDIGA STARTTIDER -->
-
-            <section class="form-section">
-
-                <h2>04 / VÄLJ LEDIG STARTTID</h2>
-
-                <div
-                    id="availabilityStatus"
-                    class="availability-status"
-                    aria-live="polite"
-                >
-                    Välj datum och speltid för att se
-                    tillgängliga tider.
-                </div>
-
-                <div
-                    id="timeGrid"
-                    class="time-grid"
-                ></div>
-
-                <button
-                    type="button"
-                    id="retryButton"
-                    class="retry-button"
-                >
-                    FÖRSÖK IGEN
-                </button>
-
-                <!-- ORIGINALTIDEN SKICKAS TILL APPS SCRIPT -->
-
-                <input
-                    type="hidden"
-                    id="selectedStart"
-                    name="startTime"
-                    value=""
-                >
-
-                <p class="form-note">
-                    Antalet lediga datorer uppdateras när
-                    du väljer datum eller speltid.
-                    Tillgängligheten kontrolleras igen
-                    när du bekräftar bokningen.
-                </p>
-
-            </section>
-
-            <!-- 05 KONTAKTUPPGIFTER -->
-
-            <section class="form-section">
-
-                <h2>05 / KONTAKTUPPGIFTER</h2>
-
-                <div class="form-grid">
-
-                    <div class="field">
-
-                        <label for="name">
-                            För- och efternamn
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="Ditt namn"
-                            minlength="2"
-                            maxlength="100"
-                            autocomplete="name"
-                            required
-                        >
-
-                    </div>
-
-                    <div class="field">
-
-                        <label for="phone">
-                            Telefonnummer
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="07X XXX XX XX"
-                            minlength="7"
-                            maxlength="30"
-                            autocomplete="tel"
-                            required
-                        >
-
-                    </div>
-
-                    <div class="field full">
-
-                        <label for="email">
-                            E-postadress
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="din@email.se"
-                            maxlength="150"
-                            autocomplete="email"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-            </section>
-
-            <div
-                id="errorBox"
-                class="error"
-                role="alert"
-            ></div>
+          <div class="type-grid">
 
             <button
-                type="submit"
-                class="submit"
-                id="submitButton"
-                disabled
+              type="button"
+              class="type-card active"
+              data-type="pc"
             >
-                BEKRÄFTA BOKNING
+              <div class="type-icon">🖥️</div>
+
+              <div class="type-title">
+                PC Gaming
+              </div>
+
+              <div class="type-desc">
+                Boka mellan 1 och 20 gaming-PC.
+              </div>
             </button>
 
-            <p class="form-note">
-                Ingen betalning sker online.
-                Betalning görs på plats i kassan.
-            </p>
 
-        </form>
+            <button
+              type="button"
+              class="type-card"
+              data-type="ps5"
+            >
+              <div class="type-icon">🎮</div>
 
-        <!-- BOKNINGSÖVERSIKT -->
+              <div class="type-title">
+                PS5
+              </div>
 
-        <aside class="summary">
+              <div class="type-desc">
+                Boka en eller båda PS5-zonerna.
+              </div>
+            </button>
 
-            <p class="section-label">
-                YOUR BOOKING
-            </p>
+          </div>
 
-            <h2>DIN BOKNING</h2>
+        </div>
 
-            <div class="summary-row">
-                <span>Aktivitet</span>
-                <span>PC Gaming</span>
+
+        <!-- STEG 2 -->
+        <div class="section">
+
+          <div class="step-label">
+            <span class="step-number">2</span>
+            Datum och antal
+          </div>
+
+          <div class="grid-2">
+
+            <div class="field">
+              <label for="bookingDate">
+                Datum
+              </label>
+
+              <input
+                type="date"
+                id="bookingDate"
+              />
             </div>
 
-            <div class="summary-row">
-                <span>Datum</span>
-                <span id="summaryDate">Ej valt</span>
+
+            <div class="field">
+              <label for="quantity">
+                Antal PC
+              </label>
+
+              <select id="quantity"></select>
             </div>
 
-            <div class="summary-row">
-                <span>Starttid</span>
-                <span id="summaryStart">Ej valt</span>
+          </div>
+
+        </div>
+
+
+        <!-- STEG 3 -->
+        <div class="section">
+
+          <div class="step-label">
+            <span class="step-number">3</span>
+            Välj paket
+          </div>
+
+          <div
+            class="package-grid"
+            id="packageGrid"
+          >
+            <div class="loading-box">
+              Hämtar priser...
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- STEG 4 -->
+        <div class="section">
+
+          <div class="step-label">
+            <span class="step-number">4</span>
+            Välj starttid
+          </div>
+
+          <div
+            class="times-status"
+            id="timesStatus"
+          >
+            Välj datum och paket för att se lediga tider.
+          </div>
+
+          <div
+            class="time-grid"
+            id="timeGrid"
+          ></div>
+
+        </div>
+
+
+        <!-- STEG 5 -->
+        <div class="section">
+
+          <div class="step-label">
+            <span class="step-number">5</span>
+            Dina uppgifter
+          </div>
+
+          <div class="grid-2">
+
+            <div class="field full">
+              <label for="customerName">
+                Namn
+              </label>
+
+              <input
+                type="text"
+                id="customerName"
+                placeholder="För- och efternamn"
+                maxlength="100"
+                autocomplete="name"
+              />
             </div>
 
-            <div class="summary-row">
-                <span>Sluttid</span>
-                <span id="summaryEnd">Ej valt</span>
+
+            <div class="field">
+              <label for="customerEmail">
+                E-post
+              </label>
+
+              <input
+                type="email"
+                id="customerEmail"
+                placeholder="din@email.se"
+                maxlength="150"
+                autocomplete="email"
+              />
             </div>
 
-            <div class="summary-row">
-                <span>Speltid</span>
-                <span id="summaryDuration">Ej valt</span>
+
+            <div class="field">
+              <label for="customerPhone">
+                Telefonnummer
+              </label>
+
+              <input
+                type="tel"
+                id="customerPhone"
+                placeholder="070 123 45 67"
+                maxlength="30"
+                autocomplete="tel"
+              />
             </div>
 
-            <div class="summary-row">
-                <span>Personer</span>
-                <span id="summaryPeople">Ej valt</span>
-            </div>
+          </div>
 
-            <div class="summary-row">
-                <span>Lediga datorer</span>
-                <span id="summaryFree">Ej valt</span>
-            </div>
+        </div>
 
-            <div class="total">
-                <span>TOTALT</span>
-                <strong id="summaryTotal">0 KR</strong>
-            </div>
+      </section>
 
-            <div class="payment">
 
-                <strong>BETALNING PÅ PLATS</strong>
+      <!-- HÖGER -->
+      <aside class="panel summary">
 
-                <p>
-                    Du betalar hela beloppet i kassan
-                    när du kommer till Elysium Gaming Lounge.
-                </p>
+        <div class="panel-title">
+          Din bokning
+        </div>
 
-            </div>
+        <div class="panel-subtitle">
+          Kontrollera uppgifterna innan du bokar.
+        </div>
 
-            <p class="form-note">
-                Priserna är preliminära.
-                Bokningen blir bekräftad först när
-                systemet ger ett bokningsnummer.
-            </p>
 
-        </aside>
+        <div class="summary-box">
+
+          <div class="summary-row">
+            <span>Aktivitet</span>
+            <strong id="summaryType">
+              PC Gaming
+            </strong>
+          </div>
+
+
+          <div class="summary-row">
+            <span>Datum</span>
+            <strong id="summaryDate">
+              –
+            </strong>
+          </div>
+
+
+          <div class="summary-row">
+            <span>Starttid</span>
+            <strong id="summaryTime">
+              –
+            </strong>
+          </div>
+
+
+          <div class="summary-row">
+            <span>Speltid</span>
+            <strong id="summaryDuration">
+              –
+            </strong>
+          </div>
+
+
+          <div class="summary-row">
+            <span>Antal</span>
+            <strong id="summaryQuantity">
+              1 PC
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="price-box">
+
+          <div class="price-label">
+            Totalt
+          </div>
+
+          <div
+            class="price"
+            id="summaryPrice"
+          >
+            – kr
+          </div>
+
+        </div>
+
+
+        <button
+          type="button"
+          class="book-btn"
+          id="bookButton"
+        >
+          BEKRÄFTA BOKNING
+        </button>
+
+
+        <div
+          class="message"
+          id="message"
+        ></div>
+
+
+        <div class="security-note">
+          Bokningen kontrolleras mot aktuell tillgänglighet när du bekräftar.
+        </div>
+
+      </aside>
 
     </div>
 
-</main>
 
-<footer>
-    © 2026 Elysium Gaming Lounge AB
-    <br>
-    MORE THAN GAMING.
-</footer>
+    <div class="info-strip">
 
-<script>
+      <div class="info-card">
+        <strong>20 Gaming-PC</strong>
+        <span>
+          Systemet tilldelar automatiskt lediga datorer.
+        </span>
+      </div>
 
-/* ===================================
-   ANSLUTNING TILL GOOGLE APPS SCRIPT
-=================================== */
+      <div class="info-card">
+        <strong>2 PS5-zoner</strong>
+        <span>
+          Boka en eller båda zonerna direkt.
+        </span>
+      </div>
 
-const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxu-2-tKt2Ka82497zappvkTCEj8lbAZ0PT6_MhLiiGX020nLFJd72l8aTJH_83EYWUCA/exec";
+      <div class="info-card">
+        <strong>Ingen inloggning</strong>
+        <span>
+          Kunden bokar snabbt med namn, e-post och telefonnummer.
+        </span>
+      </div>
 
-const PRICES = {
-    1: 49,
-    3: 129,
-    5: 199
-};
+    </div>
 
-const MAX_PC = 20;
-
-
-/* ===================================
-   ELEMENT
-=================================== */
-
-const form =
-    document.getElementById("bookingForm");
-
-const dateInput =
-    document.getElementById("date");
-
-const peopleInput =
-    document.getElementById("people");
-
-const timeGrid =
-    document.getElementById("timeGrid");
-
-const statusBox =
-    document.getElementById("availabilityStatus");
-
-const retryButton =
-    document.getElementById("retryButton");
-
-const selectedStartInput =
-    document.getElementById("selectedStart");
-
-const submitButton =
-    document.getElementById("submitButton");
-
-const errorBox =
-    document.getElementById("errorBox");
+  </main>
 
 
-/* ===================================
-   TILLSTÅND
-=================================== */
-
-let availableTimes = [];
-let selectedTime = "";
-let availabilityLoaded = false;
-let loading = false;
-
-let requestNumber = 0;
-let cancelCurrentRequest = null;
+  <footer class="footer">
+    © Elysium Gaming Lounge AB · Kristianstad
+  </footer>
 
 
-/* ===================================
-   DAGENS DATUM I SVERIGE
-=================================== */
+  <!-- BEKRÄFTELSE -->
+  <div
+    class="modal"
+    id="confirmationModal"
+  >
 
-function stockholmToday() {
+    <div class="modal-card">
 
-    const parts = new Intl.DateTimeFormat(
-        "en-GB",
-        {
-            timeZone: "Europe/Stockholm",
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit"
-        }
-    ).formatToParts(new Date());
+      <div class="success-icon">
+        ✓
+      </div>
 
-    const get = type =>
-        parts.find(part => part.type === type).value;
+      <h2>
+        Bokningen är klar
+      </h2>
 
-    return (
-        get("year") + "-" +
-        get("month") + "-" +
-        get("day")
+      <p>
+        Din tid är nu reserverad hos Elysium Gaming Lounge.
+        Spara ditt bokningsnummer.
+      </p>
+
+
+      <div class="booking-number-box">
+
+        <div class="booking-number-label">
+          Bokningsnummer
+        </div>
+
+        <div
+          class="booking-number"
+          id="confirmedBookingNumber"
+        >
+          –
+        </div>
+
+      </div>
+
+
+      <p id="confirmedDetails"></p>
+
+
+      <button
+        type="button"
+        class="modal-close"
+        id="modalClose"
+      >
+        KLAR
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <script>
+    // =====================================================
+    // SUPABASE
+    // =====================================================
+
+    const SUPABASE_URL =
+      "https://jbwebwdockhgivltgjdu.supabase.co";
+
+    const SUPABASE_KEY =
+      "sb_publishable_cDN31gaVNoAG5YdSw_vscw_rJhiZTz6";
+
+    const db = supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
     );
 
-}
 
-dateInput.min = stockholmToday();
+    // =====================================================
+    // STATE
+    // =====================================================
 
+    let selectedType = "pc";
 
-/* ===================================
-   VALD SPELTID
-=================================== */
+    let selectedDuration = null;
 
-function getDuration() {
+    let selectedPackagePrice = null;
 
-    const selected = document.querySelector(
-        'input[name="duration"]:checked'
-    );
+    let selectedStartTime = null;
 
-    return selected
-        ? Number(selected.value)
-        : 0;
+    let packages = [];
 
-}
+    let loadingTimes = false;
+
+    let bookingInProgress = false;
 
 
-/* ===================================
-   FORMATERA DATUM
-=================================== */
+    // =====================================================
+    // ELEMENT
+    // =====================================================
 
-function formatDate(value) {
+    const typeButtons =
+      document.querySelectorAll(".type-card");
 
-    if (!value) {
-        return "Ej valt";
+    const bookingDate =
+      document.getElementById("bookingDate");
+
+    const quantity =
+      document.getElementById("quantity");
+
+    const packageGrid =
+      document.getElementById("packageGrid");
+
+    const timeGrid =
+      document.getElementById("timeGrid");
+
+    const timesStatus =
+      document.getElementById("timesStatus");
+
+    const customerName =
+      document.getElementById("customerName");
+
+    const customerEmail =
+      document.getElementById("customerEmail");
+
+    const customerPhone =
+      document.getElementById("customerPhone");
+
+    const bookButton =
+      document.getElementById("bookButton");
+
+    const message =
+      document.getElementById("message");
+
+    const summaryType =
+      document.getElementById("summaryType");
+
+    const summaryDate =
+      document.getElementById("summaryDate");
+
+    const summaryTime =
+      document.getElementById("summaryTime");
+
+    const summaryDuration =
+      document.getElementById("summaryDuration");
+
+    const summaryQuantity =
+      document.getElementById("summaryQuantity");
+
+    const summaryPrice =
+      document.getElementById("summaryPrice");
+
+    const confirmationModal =
+      document.getElementById("confirmationModal");
+
+    const confirmedBookingNumber =
+      document.getElementById(
+        "confirmedBookingNumber"
+      );
+
+    const confirmedDetails =
+      document.getElementById(
+        "confirmedDetails"
+      );
+
+    const modalClose =
+      document.getElementById("modalClose");
+
+
+    // =====================================================
+    // DATUM
+    // =====================================================
+
+    function localDateString(date) {
+      const year = date.getFullYear();
+
+      const month =
+        String(date.getMonth() + 1)
+          .padStart(2, "0");
+
+      const day =
+        String(date.getDate())
+          .padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
     }
 
-    const date = new Date(
-        value + "T12:00:00"
+
+    const today =
+      new Date();
+
+    const maxDate =
+      new Date();
+
+    maxDate.setDate(
+      maxDate.getDate() + 90
     );
 
-    return date.toLocaleDateString(
+    bookingDate.min =
+      localDateString(today);
+
+    bookingDate.max =
+      localDateString(maxDate);
+
+
+    // =====================================================
+    // ANTAL
+    // =====================================================
+
+    function updateQuantityOptions() {
+
+      const oldValue =
+        Number(quantity.value) || 1;
+
+      quantity.innerHTML = "";
+
+      const max =
+        selectedType === "pc"
+          ? 20
+          : 2;
+
+      for (
+        let i = 1;
+        i <= max;
+        i++
+      ) {
+
+        const option =
+          document.createElement("option");
+
+        option.value = i;
+
+        if (selectedType === "pc") {
+
+          option.textContent =
+            i === 1
+              ? "1 PC"
+              : `${i} PC`;
+
+        } else {
+
+          option.textContent =
+            i === 1
+              ? "1 PS5-zon"
+              : "2 PS5-zoner";
+        }
+
+        quantity.appendChild(option);
+      }
+
+      quantity.value =
+        String(
+          Math.min(
+            oldValue,
+            max
+          )
+        );
+
+      updateSummary();
+    }
+
+
+    // =====================================================
+    // HÄMTA PAKET
+    // =====================================================
+
+    async function loadPackages() {
+
+      packageGrid.innerHTML =
+        `
+        <div class="loading-box">
+          Hämtar priser...
+        </div>
+        `;
+
+      const { data, error } =
+        await db
+          .from("booking_packages")
+          .select(
+            "resource_type, name, duration_minutes, price_sek, sort_order"
+          )
+          .eq(
+            "resource_type",
+            selectedType
+          )
+          .eq(
+            "active",
+            true
+          )
+          .order(
+            "sort_order",
+            {
+              ascending: true
+            }
+          );
+
+
+      if (error) {
+
+        console.error(error);
+
+        packageGrid.innerHTML =
+          `
+          <div class="loading-box">
+            Kunde inte hämta priser.
+          </div>
+          `;
+
+        return;
+      }
+
+
+      packages =
+        data || [];
+
+
+      renderPackages();
+    }
+
+
+    function renderPackages() {
+
+      packageGrid.innerHTML = "";
+
+      selectedDuration = null;
+      selectedPackagePrice = null;
+      selectedStartTime = null;
+
+      clearTimes();
+
+
+      if (!packages.length) {
+
+        packageGrid.innerHTML =
+          `
+          <div class="loading-box">
+            Inga bokningspaket hittades.
+          </div>
+          `;
+
+        updateSummary();
+
+        return;
+      }
+
+
+      packages.forEach(
+        (item) => {
+
+          const button =
+            document.createElement("button");
+
+          button.type = "button";
+
+          button.className =
+            "package";
+
+
+          const hours =
+            item.duration_minutes / 60;
+
+
+          button.innerHTML =
+            `
+            <div class="package-hours">
+              ${hours} ${hours === 1 ? "timme" : "timmar"}
+            </div>
+
+            <div class="package-price">
+              ${item.price_sek} kr
+            </div>
+            `;
+
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              document
+                .querySelectorAll(
+                  ".package"
+                )
+                .forEach(
+                  (el) =>
+                    el.classList.remove(
+                      "active"
+                    )
+                );
+
+
+              button.classList.add(
+                "active"
+              );
+
+
+              selectedDuration =
+                item.duration_minutes;
+
+              selectedPackagePrice =
+                item.price_sek;
+
+              selectedStartTime =
+                null;
+
+
+              updateSummary();
+
+              loadAvailableTimes();
+            }
+          );
+
+
+          packageGrid.appendChild(
+            button
+          );
+        }
+      );
+
+
+      updateSummary();
+    }
+
+
+    // =====================================================
+    // TIDHJÄLPARE
+    // =====================================================
+
+    function getOpeningWindow(
+      dateString
+    ) {
+
+      if (!dateString) {
+        return null;
+      }
+
+
+      const date =
+        new Date(
+          `${dateString}T12:00:00`
+        );
+
+
+      const day =
+        date.getDay();
+
+
+      // JS:
+      // 0 = söndag
+      // 1 = måndag
+      // ...
+      // 6 = lördag
+
+
+      const closingHour =
+        (
+          day === 5 ||
+          day === 6 ||
+          day === 0
+        )
+          ? 27
+          : 25;
+
+
+      return {
+        openMinutes: 16 * 60,
+        closeMinutes:
+          closingHour * 60
+      };
+    }
+
+
+    function minutesToTime(
+      minutes
+    ) {
+
+      let normalized =
+        minutes % (24 * 60);
+
+
+      const hours =
+        Math.floor(
+          normalized / 60
+        );
+
+
+      const mins =
+        normalized % 60;
+
+
+      return (
+        String(hours)
+          .padStart(2, "0")
+        +
+        ":"
+        +
+        String(mins)
+          .padStart(2, "0")
+      );
+    }
+
+
+    function getPossibleStartTimes() {
+
+      const window =
+        getOpeningWindow(
+          bookingDate.value
+        );
+
+
+      if (
+        !window ||
+        !selectedDuration
+      ) {
+
+        return [];
+      }
+
+
+      const times = [];
+
+
+      const latestStart =
+        window.closeMinutes
+        -
+        selectedDuration;
+
+
+      for (
+        let minute =
+          window.openMinutes;
+
+        minute <= latestStart;
+
+        minute += 30
+      ) {
+
+        times.push(
+          minutesToTime(minute)
+        );
+      }
+
+
+      return times;
+    }
+
+
+    // =====================================================
+    // LEDIGA TIDER
+    // =====================================================
+
+    function clearTimes() {
+
+      timeGrid.innerHTML = "";
+
+      timesStatus.textContent =
+        "Välj datum och paket för att se lediga tider.";
+    }
+
+
+    async function loadAvailableTimes() {
+
+      selectedStartTime = null;
+
+      updateSummary();
+
+
+      if (
+        !bookingDate.value ||
+        !selectedDuration
+      ) {
+
+        clearTimes();
+        return;
+      }
+
+
+      if (loadingTimes) {
+        return;
+      }
+
+
+      loadingTimes = true;
+
+
+      timeGrid.innerHTML =
+        `
+        <div class="loading-box">
+          Kontrollerar lediga tider...
+        </div>
+        `;
+
+
+      timesStatus.textContent =
+        "Hämtar aktuell tillgänglighet...";
+
+
+      const possibleTimes =
+        getPossibleStartTimes();
+
+
+      if (!possibleTimes.length) {
+
+        timeGrid.innerHTML =
+          `
+          <div class="loading-box">
+            Inga tider finns för detta paket.
+          </div>
+          `;
+
+        timesStatus.textContent =
+          "Inga möjliga starttider.";
+
+        loadingTimes = false;
+
+        return;
+      }
+
+
+      const requestedQuantity =
+        Number(quantity.value);
+
+
+      const requests =
+        possibleTimes.map(
+          async (time) => {
+
+            const {
+              data,
+              error
+            } =
+              await db.rpc(
+                "get_elysium_availability",
+                {
+                  p_resource_type:
+                    selectedType,
+
+                  p_booking_date:
+                    bookingDate.value,
+
+                  p_start_time:
+                    `${time}:00`,
+
+                  p_duration_minutes:
+                    selectedDuration
+                }
+              );
+
+
+            if (error) {
+
+              return {
+                time,
+                available: 0,
+                error: true
+              };
+            }
+
+
+            const result =
+              data &&
+              data.length
+                ? data[0]
+                : null;
+
+
+            return {
+              time,
+
+              available:
+                result
+                  ? Number(
+                      result
+                        .available_resources
+                    )
+                  : 0,
+
+              error: false
+            };
+          }
+        );
+
+
+      const results =
+        await Promise.all(
+          requests
+        );
+
+
+      timeGrid.innerHTML = "";
+
+
+      let bookableCount = 0;
+
+
+      results.forEach(
+        (result) => {
+
+          const button =
+            document.createElement(
+              "button"
+            );
+
+
+          button.type = "button";
+
+          button.className =
+            "time-btn";
+
+
+          const canBook =
+            !result.error
+            &&
+            result.available
+              >= requestedQuantity;
+
+
+          if (canBook) {
+            bookableCount++;
+          }
+
+
+          button.disabled =
+            !canBook;
+
+
+          button.innerHTML =
+            `
+            <span class="time-clock">
+              ${result.time}
+            </span>
+
+            <span class="time-available">
+              ${
+                result.error
+                  ? "Ej tillgänglig"
+                  : `${result.available} lediga`
+              }
+            </span>
+            `;
+
+
+          if (canBook) {
+
+            button.addEventListener(
+              "click",
+              () => {
+
+                document
+                  .querySelectorAll(
+                    ".time-btn"
+                  )
+                  .forEach(
+                    (el) =>
+                      el.classList.remove(
+                        "active"
+                      )
+                  );
+
+
+                button.classList.add(
+                  "active"
+                );
+
+
+                selectedStartTime =
+                  result.time;
+
+
+                updateSummary();
+              }
+            );
+          }
+
+
+          timeGrid.appendChild(
+            button
+          );
+        }
+      );
+
+
+      if (bookableCount > 0) {
+
+        timesStatus.textContent =
+          `${bookableCount} starttider är tillgängliga för ditt val.`;
+
+      } else {
+
+        timesStatus.textContent =
+          "Det finns inga lediga tider för valt antal platser.";
+      }
+
+
+      loadingTimes = false;
+    }
+
+
+    // =====================================================
+    // SUMMARY
+    // =====================================================
+
+    function formatDate(
+      dateString
+    ) {
+
+      if (!dateString) {
+        return "–";
+      }
+
+
+      const date =
+        new Date(
+          `${dateString}T12:00:00`
+        );
+
+
+      return date.toLocaleDateString(
         "sv-SE",
         {
-            day: "numeric",
-            month: "long",
-            year: "numeric"
+          weekday: "short",
+          day: "numeric",
+          month: "short",
+          year: "numeric"
         }
-    );
-
-}
-
-
-/* ===================================
-   VISA NATTIDER KORREKT
-
-   Apps Script använder exempelvis:
-   24:00 = 00:00 nästa dag
-   25:00 = 01:00 nästa dag
-   26:00 = 02:00 nästa dag
-   27:00 = 03:00 nästa dag
-
-   Originaltiden behålls när
-   bokningen skickas.
-=================================== */
-
-function customerTime(value) {
-
-    if (!value) {
-        return "Ej valt";
+      );
     }
 
-    const parts = String(value).split(":");
 
-    const hour = Number(parts[0]);
-    const minutes = parts[1];
+    function updateSummary() {
 
-    if (
-        !Number.isInteger(hour) ||
-        !/^\d{2}$/.test(minutes)
-    ) {
-        return String(value);
-    }
+      summaryType.textContent =
+        selectedType === "pc"
+          ? "PC Gaming"
+          : "PS5";
 
-    const clock =
-        String(hour % 24).padStart(2, "0") +
-        ":" +
-        minutes;
 
-    if (hour >= 24) {
-        return clock + " nästa dag";
-    }
-
-    return clock;
-
-}
-
-function customerTimeRange(start, end) {
-
-    return (
-        customerTime(start) +
-        "–" +
-        customerTime(end)
-    );
-
-}
-
-
-/* ===================================
-   VISA FEL
-=================================== */
-
-function showError(message) {
-
-    errorBox.textContent = message;
-    errorBox.classList.add("show");
-
-}
-
-function clearError() {
-
-    errorBox.textContent = "";
-    errorBox.classList.remove("show");
-
-}
-
-
-/* ===================================
-   UPPDATERA BOKNINGSÖVERSIKT
-=================================== */
-
-function updateSummary() {
-
-    const duration = getDuration();
-
-    const people = Number(
-        peopleInput.value || 0
-    );
-
-    const chosenSlot = availableTimes.find(
-        time => time.start === selectedTime
-    );
-
-    document.getElementById(
-        "summaryDate"
-    ).textContent = formatDate(
-        dateInput.value
-    );
-
-    document.getElementById(
-        "summaryStart"
-    ).textContent =
-        selectedTime
-            ? customerTime(selectedTime)
-            : "Ej valt";
-
-    document.getElementById(
-        "summaryEnd"
-    ).textContent =
-        chosenSlot
-            ? customerTime(chosenSlot.end)
-            : "Ej valt";
-
-    document.getElementById(
-        "summaryDuration"
-    ).textContent =
-        duration
-            ? duration +
-              (duration === 1
-                  ? " timme"
-                  : " timmar")
-            : "Ej valt";
-
-    document.getElementById(
-        "summaryPeople"
-    ).textContent =
-        people
-            ? people +
-              (people === 1
-                  ? " person"
-                  : " personer")
-            : "Ej valt";
-
-    document.getElementById(
-        "summaryFree"
-    ).textContent =
-        chosenSlot
-            ? chosenSlot.free + " lediga"
-            : "Ej valt";
-
-    const total =
-        duration && people
-            ? PRICES[duration] * people
-            : 0;
-
-    document.getElementById(
-        "summaryTotal"
-    ).textContent =
-        total.toLocaleString("sv-SE") +
-        " KR";
-
-    /*
-       OBS:
-       Skicka originaltiden till
-       Google Apps Script.
-       Ändra inte 25:00 till 01:00 här.
-    */
-
-    selectedStartInput.value =
-        selectedTime;
-
-    submitButton.disabled =
-        loading ||
-        !availabilityLoaded ||
-        !selectedTime ||
-        !people ||
-        !chosenSlot ||
-        chosenSlot.free < people;
-
-}
-
-
-/* ===================================
-   VISA LEDIGA TIDER
-=================================== */
-
-function renderTimes() {
-
-    timeGrid.replaceChildren();
-
-    const people = Number(
-        peopleInput.value || 0
-    );
-
-    if (
-        !availabilityLoaded ||
-        !availableTimes.length
-    ) {
-        updateSummary();
-        return;
-    }
-
-    /*
-       Rensa vald tid om det inte
-       längre finns tillräckligt
-       många datorer.
-    */
-
-    const selectedSlot = availableTimes.find(
-        time => time.start === selectedTime
-    );
-
-    if (
-        selectedSlot &&
-        selectedSlot.free < people
-    ) {
-        selectedTime = "";
-    }
-
-    availableTimes.forEach(
-        (slot, index) => {
-
-            const enough =
-                slot.free > 0 &&
-                (!people || slot.free >= people);
-
-            const wrapper =
-                document.createElement("div");
-
-            wrapper.className =
-                "time-option";
-
-            if (
-                slot.free > 0 &&
-                slot.free <= 5
-            ) {
-                wrapper.classList.add("limited");
-            }
-
-            const radio =
-                document.createElement("input");
-
-            radio.type = "radio";
-            radio.name = "startChoice";
-            radio.value = slot.start;
-            radio.id = "time_" + index;
-
-            radio.disabled = !enough;
-
-            radio.checked =
-                selectedTime === slot.start;
-
-            const label =
-                document.createElement("label");
-
-            label.htmlFor = radio.id;
-
-            const title =
-                document.createElement("strong");
-
-            /*
-               Visa tiderna för kunden.
-               Exempel:
-               23:00–02:00 nästa dag
-            */
-
-            title.textContent =
-                customerTimeRange(
-                    slot.start,
-                    slot.end
-                );
-
-            const availability =
-                document.createElement("span");
-
-            if (slot.free === 0) {
-
-                availability.textContent =
-                    "FULLBOKAT";
-
-            } else if (
-                people &&
-                slot.free < people
-            ) {
-
-                availability.textContent =
-                    slot.free +
-                    " lediga – välj färre personer";
-
-            } else {
-
-                availability.textContent =
-                    slot.free +
-                    (slot.free === 1
-                        ? " dator ledig"
-                        : " datorer lediga");
-
-            }
-
-            label.appendChild(title);
-            label.appendChild(availability);
-
-            wrapper.appendChild(radio);
-            wrapper.appendChild(label);
-
-            radio.addEventListener(
-                "change",
-                function() {
-
-                    selectedTime = slot.start;
-
-                    clearError();
-
-                    updateSummary();
-
-                }
-            );
-
-            timeGrid.appendChild(wrapper);
-
-        }
-    );
-
-    updateSummary();
-
-}
-
-
-/* ===================================
-   HÄMTA LEDIGA TIDER VIA JSONP
-=================================== */
-
-function loadAvailability() {
-
-    requestNumber++;
-
-    const myRequest = requestNumber;
-
-    /*
-       Avbryt eventuell äldre
-       förfrågan om kunden byter
-       datum eller speltid.
-    */
-
-    if (cancelCurrentRequest) {
-        cancelCurrentRequest();
-        cancelCurrentRequest = null;
-    }
-
-    availableTimes = [];
-    selectedTime = "";
-    availabilityLoaded = false;
-    loading = false;
-
-    timeGrid.replaceChildren();
-
-    retryButton.style.display = "none";
-
-    clearError();
-
-    const date = dateInput.value;
-    const duration = getDuration();
-
-    dateInput.min = stockholmToday();
-
-    if (!date || !duration) {
-
-        statusBox.textContent =
-            "Välj datum och speltid för " +
-            "att se lediga datorer.";
-
-        updateSummary();
-        return;
-
-    }
-
-    if (date < stockholmToday()) {
-
-        statusBox.textContent =
-            "Välj ett datum som inte har passerat.";
-
-        updateSummary();
-        return;
-
-    }
-
-    loading = true;
-
-    statusBox.textContent =
-        "Hämtar lediga datorer...";
-
-    updateSummary();
-
-    /*
-       Callback-namnet fungerar
-       med vårt Google Apps Script.
-    */
-
-    const callbackName =
-        "elysiumAvail_" +
-        Date.now().toString(36) +
-        "_" +
-        Math.random().toString(36).slice(2, 8);
-
-    const script =
-        document.createElement("script");
-
-    let finished = false;
-    let timeoutId;
-
-    function cleanup() {
-
-        if (timeoutId) {
-            clearTimeout(timeoutId);
-        }
-
-        script.remove();
-
-        delete window[callbackName];
-
-    }
-
-    cancelCurrentRequest = cleanup;
-
-    function fail(message) {
-
-        if (
-            finished ||
-            myRequest !== requestNumber
-        ) {
-            return;
-        }
-
-        finished = true;
-
-        cleanup();
-
-        cancelCurrentRequest = null;
-
-        loading = false;
-        availabilityLoaded = false;
-
-        availableTimes = [];
-        selectedTime = "";
-
-        timeGrid.replaceChildren();
-
-        statusBox.textContent = message;
-
-        retryButton.style.display =
-            "inline-block";
-
-        updateSummary();
-
-    }
-
-    window[callbackName] = function(result) {
-
-        if (
-            finished ||
-            myRequest !== requestNumber
-        ) {
-            return;
-        }
-
-        finished = true;
-
-        cleanup();
-
-        cancelCurrentRequest = null;
-
-        loading = false;
-
-        if (
-            !result ||
-            result.success !== true ||
-            !Array.isArray(result.times)
-        ) {
-
-            availabilityLoaded = false;
-
-            statusBox.textContent =
-                result && result.error
-                    ? String(result.error)
-                    : "Kunde inte läsa lediga tider.";
-
-            retryButton.style.display =
-                "inline-block";
-
-            updateSummary();
-
-            return;
-
-        }
-
-        /*
-           Ta bara emot giltiga
-           tidsuppgifter och antal
-           lediga datorer.
-        */
-
-        availableTimes = result.times
-
-            .filter(slot => {
-
-                return (
-                    slot &&
-
-                    /^\d{2}:\d{2}$/.test(
-                        String(slot.start)
-                    ) &&
-
-                    /^\d{2}:\d{2}$/.test(
-                        String(slot.end)
-                    ) &&
-
-                    Number.isInteger(
-                        Number(slot.free)
-                    ) &&
-
-                    Number(slot.free) >= 0 &&
-
-                    Number(slot.free) <= MAX_PC
-                );
-
-            })
-
-            .map(slot => ({
-                start: String(slot.start),
-                end: String(slot.end),
-                free: Number(slot.free)
-            }));
-
-        availabilityLoaded = true;
-
-        if (availableTimes.length === 0) {
-
-            statusBox.textContent =
-                "Inga bokningsbara tider finns " +
-                "för det valda datumet och speltiden.";
-
-        } else {
-
-            statusBox.textContent =
-                "Välj en av tiderna nedan. " +
-                "Antalet lediga datorer visas " +
-                "för hela ditt spelpass.";
-
-        }
-
-        renderTimes();
-
-    };
-
-    script.onerror = function() {
-
-        fail(
-            "Det gick inte att hämta lediga tider. " +
-            "Försök igen."
+      summaryDate.textContent =
+        formatDate(
+          bookingDate.value
         );
 
-    };
 
-    /*
-       Apps Script kan behöva lite
-       extra tid vid första förfrågan.
-    */
-
-    timeoutId = setTimeout(
-        function() {
-
-            fail(
-                "Det tog för lång tid att hämta " +
-                "lediga tider. Försök igen."
-            );
-
-        },
-        25000
-    );
-
-    const params = new URLSearchParams({
-        action: "availability",
-        date: date,
-        duration: String(duration),
-        callback: callbackName,
-        _: String(Date.now())
-    });
-
-    script.src =
-        SCRIPT_URL + "?" + params.toString();
-
-    document.head.appendChild(script);
-
-}
+      summaryTime.textContent =
+        selectedStartTime
+          || "–";
 
 
-/* ===================================
-   HÄNDELSER
-=================================== */
+      if (selectedDuration) {
 
-dateInput.addEventListener(
-    "change",
-    loadAvailability
-);
+        const hours =
+          selectedDuration / 60;
 
-document.querySelectorAll(
-    'input[name="duration"]'
-).forEach(input => {
+        summaryDuration.textContent =
+          `${hours} ${
+            hours === 1
+              ? "timme"
+              : "timmar"
+          }`;
 
-    input.addEventListener(
-        "change",
-        loadAvailability
-    );
+      } else {
 
-});
+        summaryDuration.textContent =
+          "–";
+      }
 
-peopleInput.addEventListener(
-    "change",
-    function() {
 
-        clearError();
+      const q =
+        Number(
+          quantity.value
+        ) || 1;
 
-        renderTimes();
 
+      if (selectedType === "pc") {
+
+        summaryQuantity.textContent =
+          q === 1
+            ? "1 PC"
+            : `${q} PC`;
+
+      } else {
+
+        summaryQuantity.textContent =
+          q === 1
+            ? "1 PS5-zon"
+            : "2 PS5-zoner";
+      }
+
+
+      if (
+        selectedPackagePrice !== null
+      ) {
+
+        summaryPrice.textContent =
+          `${
+            selectedPackagePrice
+            *
+            q
+          } kr`;
+
+      } else {
+
+        summaryPrice.textContent =
+          "– kr";
+      }
     }
-);
-
-retryButton.addEventListener(
-    "click",
-    loadAvailability
-);
 
 
-/* ===================================
-   SKICKA BOKNING
-=================================== */
+    // =====================================================
+    // MEDDELANDE
+    // =====================================================
 
-form.addEventListener(
-    "submit",
-    function(event) {
+    function showMessage(
+      text,
+      type = "error"
+    ) {
 
-        clearError();
+      message.textContent =
+        text;
 
-        const people = Number(
-            peopleInput.value
+      message.className =
+        `message ${type}`;
+    }
+
+
+    function clearMessage() {
+
+      message.textContent = "";
+      message.className =
+        "message";
+    }
+
+
+    // =====================================================
+    // BOKNING
+    // =====================================================
+
+    async function createBooking() {
+
+      if (bookingInProgress) {
+        return;
+      }
+
+
+      clearMessage();
+
+
+      const name =
+        customerName.value.trim();
+
+      const email =
+        customerEmail.value.trim();
+
+      const phone =
+        customerPhone.value.trim();
+
+      const q =
+        Number(
+          quantity.value
         );
 
-        const chosenSlot = availableTimes.find(
-            slot => slot.start === selectedTime
+
+      if (!bookingDate.value) {
+
+        showMessage(
+          "Välj ett datum."
         );
 
+        return;
+      }
+
+
+      if (!selectedDuration) {
+
+        showMessage(
+          "Välj hur länge du vill spela."
+        );
+
+        return;
+      }
+
+
+      if (!selectedStartTime) {
+
+        showMessage(
+          "Välj en ledig starttid."
+        );
+
+        return;
+      }
+
+
+      if (
+        name.length < 2
+      ) {
+
+        showMessage(
+          "Fyll i ditt namn."
+        );
+
+        customerName.focus();
+
+        return;
+      }
+
+
+      if (
+        !email ||
+        !email.includes("@")
+      ) {
+
+        showMessage(
+          "Fyll i en giltig e-postadress."
+        );
+
+        customerEmail.focus();
+
+        return;
+      }
+
+
+      if (
+        phone.length < 7
+      ) {
+
+        showMessage(
+          "Fyll i ett giltigt telefonnummer."
+        );
+
+        customerPhone.focus();
+
+        return;
+      }
+
+
+      bookingInProgress =
+        true;
+
+
+      bookButton.disabled =
+        true;
+
+      bookButton.textContent =
+        "SKAPAR BOKNING...";
+
+
+      const {
+        data,
+        error
+      } =
+        await db.rpc(
+          "create_elysium_booking",
+          {
+            p_resource_type:
+              selectedType,
+
+            p_booking_date:
+              bookingDate.value,
+
+            p_start_time:
+              `${selectedStartTime}:00`,
+
+            p_duration_minutes:
+              selectedDuration,
+
+            p_quantity:
+              q,
+
+            p_customer_name:
+              name,
+
+            p_customer_email:
+              email,
+
+            p_customer_phone:
+              phone
+          }
+        );
+
+
+      bookingInProgress =
+        false;
+
+
+      bookButton.disabled =
+        false;
+
+      bookButton.textContent =
+        "BEKRÄFTA BOKNING";
+
+
+      if (error) {
+
+        console.error(error);
+
+
+        let errorText =
+          error.message
+          ||
+          "Bokningen kunde inte genomföras.";
+
+
         if (
-            !availabilityLoaded ||
-            !chosenSlot ||
-            !people ||
-            chosenSlot.free < people
+          errorText.includes(
+            "Platserna hann bli bokade"
+          )
+          ||
+          errorText.includes(
+            "tillräckligt många lediga"
+          )
         ) {
 
-            event.preventDefault();
+          errorText =
+            "Någon hann boka platsen före dig. Välj en annan tid.";
+        }
 
-            showError(
-                "Välj en tillgänglig starttid " +
-                "med tillräckligt många lediga datorer."
+
+        showMessage(
+          errorText
+        );
+
+
+        await loadAvailableTimes();
+
+        return;
+      }
+
+
+      if (
+        !data ||
+        !data.length
+      ) {
+
+        showMessage(
+          "Bokningen skapades men bekräftelsen kunde inte hämtas."
+        );
+
+        return;
+      }
+
+
+      const booking =
+        data[0];
+
+
+      clearMessage();
+
+
+      confirmedBookingNumber.textContent =
+        booking.booking_number;
+
+
+      const hours =
+        selectedDuration / 60;
+
+
+      confirmedDetails.textContent =
+        `${
+          selectedType === "pc"
+            ? "PC Gaming"
+            : "PS5"
+        } · ${
+          formatDate(
+            bookingDate.value
+          )
+        } · ${
+          selectedStartTime
+        } · ${
+          hours
+        } ${
+          hours === 1
+            ? "timme"
+            : "timmar"
+        } · ${
+          booking.total_price_sek
+        } kr`;
+
+
+      confirmationModal
+        .classList
+        .add("show");
+    }
+
+
+    // =====================================================
+    // EVENTS
+    // =====================================================
+
+    typeButtons.forEach(
+      (button) => {
+
+        button.addEventListener(
+          "click",
+          async () => {
+
+            typeButtons.forEach(
+              (el) =>
+                el.classList.remove(
+                  "active"
+                )
             );
 
-            errorBox.scrollIntoView({
-                behavior: "smooth",
-                block: "center"
-            });
 
-            return;
+            button.classList.add(
+              "active"
+            );
 
-        }
+
+            selectedType =
+              button.dataset.type;
+
+
+            selectedStartTime =
+              null;
+
+
+            updateQuantityOptions();
+
+            await loadPackages();
+          }
+        );
+      }
+    );
+
+
+    bookingDate.addEventListener(
+      "change",
+      () => {
+
+        selectedStartTime =
+          null;
+
+        updateSummary();
+
+        loadAvailableTimes();
+      }
+    );
+
+
+    quantity.addEventListener(
+      "change",
+      () => {
+
+        selectedStartTime =
+          null;
+
+        updateSummary();
+
+        loadAvailableTimes();
+      }
+    );
+
+
+    customerName.addEventListener(
+      "input",
+      clearMessage
+    );
+
+    customerEmail.addEventListener(
+      "input",
+      clearMessage
+    );
+
+    customerPhone.addEventListener(
+      "input",
+      clearMessage
+    );
+
+
+    bookButton.addEventListener(
+      "click",
+      createBooking
+    );
+
+
+    modalClose.addEventListener(
+      "click",
+      async () => {
+
+        confirmationModal
+          .classList
+          .remove("show");
+
+
+        customerName.value = "";
+        customerEmail.value = "";
+        customerPhone.value = "";
+
+        selectedStartTime =
+          null;
+
+        updateSummary();
+
+        await loadAvailableTimes();
+      }
+    );
+
+
+    confirmationModal.addEventListener(
+      "click",
+      (event) => {
 
         if (
-            dateInput.value < stockholmToday()
+          event.target ===
+          confirmationModal
         ) {
 
-            event.preventDefault();
-
-            showError(
-                "Det valda datumet har passerat. " +
-                "Välj ett nytt datum."
-            );
-
-            return;
-
+          confirmationModal
+            .classList
+            .remove("show");
         }
+      }
+    );
 
-        /*
-           Bokningen skickas som
-           vanlig POST till Apps Script.
 
-           Apps Script kontrollerar
-           tillgängligheten igen och
-           ger ett bokningsnummer.
-        */
+    // =====================================================
+    // START
+    // =====================================================
 
-        submitButton.disabled = true;
+    async function init() {
 
-        submitButton.textContent =
-            "SKICKAR BOKNING...";
+      updateQuantityOptions();
 
+      updateSummary();
+
+      await loadPackages();
     }
-);
 
 
-/* ===================================
-   ÅTERSTÄLL OM KUNDEN GÅR TILLBAKA
-=================================== */
-
-window.addEventListener(
-    "pageshow",
-    function(event) {
-
-        submitButton.textContent =
-            "BEKRÄFTA BOKNING";
-
-        if (event.persisted) {
-
-            loadAvailability();
-
-        } else {
-
-            updateSummary();
-
-        }
-
-    }
-);
-
-
-/* ===================================
-   STARTA SIDAN
-=================================== */
-
-updateSummary();
-
-</script>
+    init();
+  </script>
 
 </body>
 </html>
