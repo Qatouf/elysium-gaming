@@ -25,14 +25,11 @@
       --bg2: #08101a;
       --card: rgba(11, 20, 31, 0.92);
       --card2: rgba(7, 14, 23, 0.96);
-
       --blue: #0084ff;
       --cyan: #00d1ff;
-
       --text: #ffffff;
       --muted: #9aa5b1;
       --border: rgba(255, 255, 255, 0.08);
-
       --success: #32d583;
       --danger: #ff5a67;
     }
@@ -43,33 +40,12 @@
 
     body {
       min-height: 100vh;
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-
       background:
-        radial-gradient(
-          circle at 20% 0%,
-          rgba(0, 132, 255, 0.15),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(0, 209, 255, 0.08),
-          transparent 28%
-        ),
-        linear-gradient(
-          180deg,
-          #05070a 0%,
-          #07101a 45%,
-          #05070a 100%
-        );
-
+        radial-gradient(circle at 20% 0%, rgba(0, 132, 255, 0.15), transparent 32%),
+        radial-gradient(circle at 90% 20%, rgba(0, 209, 255, 0.08), transparent 28%),
+        linear-gradient(180deg, #05070a 0%, #07101a 45%, #05070a 100%);
       padding-bottom: 60px;
     }
 
@@ -87,10 +63,8 @@
       position: sticky;
       top: 0;
       z-index: 50;
-
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-
       background: rgba(5, 7, 10, 0.82);
       border-bottom: 1px solid var(--border);
     }
@@ -99,9 +73,7 @@
       max-width: 1180px;
       margin: 0 auto;
       min-height: 78px;
-
       padding: 0 24px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -118,7 +90,6 @@
       text-decoration: none;
       font-size: 14px;
       font-weight: 700;
-
       transition: 0.2s ease;
     }
 
@@ -153,12 +124,7 @@
     }
 
     .hero h1 span {
-      background: linear-gradient(
-        90deg,
-        var(--blue),
-        var(--cyan)
-      );
-
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -167,7 +133,6 @@
     .hero p {
       max-width: 650px;
       margin: 0 auto;
-
       color: var(--muted);
       font-size: 16px;
       line-height: 1.7;
@@ -182,19 +147,14 @@
 
     .panel {
       border: 1px solid var(--border);
-
-      background:
-        linear-gradient(
-          180deg,
-          rgba(12, 23, 36, 0.95),
-          rgba(7, 14, 23, 0.97)
-        );
-
+      background: linear-gradient(
+        180deg,
+        rgba(12, 23, 36, 0.95),
+        rgba(7, 14, 23, 0.97)
+      );
       border-radius: 24px;
       padding: 28px;
-
-      box-shadow:
-        0 30px 70px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
     }
 
     .panel-title {
@@ -226,29 +186,18 @@
       display: flex;
       align-items: center;
       gap: 11px;
-
       font-size: 15px;
       font-weight: 900;
-
       margin-bottom: 15px;
     }
 
     .step-number {
       width: 28px;
       height: 28px;
-
       display: grid;
       place-items: center;
-
       border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue),
-          var(--cyan)
-        );
-
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
       font-size: 13px;
       color: white;
     }
@@ -261,25 +210,15 @@
 
     .type-card {
       appearance: none;
-
       width: 100%;
       min-height: 125px;
-
       padding: 20px;
-
       border-radius: 18px;
       border: 1px solid var(--border);
-
       background: rgba(255, 255, 255, 0.025);
-
       color: white;
       text-align: left;
-
-      transition:
-        border-color 0.2s ease,
-        background 0.2s ease,
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .type-card:hover {
@@ -289,14 +228,11 @@
 
     .type-card.active {
       border-color: var(--cyan);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(0, 132, 255, 0.16),
-          rgba(0, 209, 255, 0.08)
-        );
-
+      background: linear-gradient(
+        135deg,
+        rgba(0, 132, 255, 0.16),
+        rgba(0, 209, 255, 0.08)
+      );
       box-shadow:
         0 0 0 1px rgba(0, 209, 255, 0.08),
         0 15px 40px rgba(0, 132, 255, 0.08);
@@ -345,28 +281,19 @@
     select {
       width: 100%;
       height: 50px;
-
       border-radius: 13px;
       border: 1px solid var(--border);
-
       background: rgba(255, 255, 255, 0.035);
       color: white;
-
       padding: 0 14px;
-
       outline: none;
-
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: 0.2s ease;
     }
 
     input:focus,
     select:focus {
       border-color: var(--blue);
-
-      box-shadow:
-        0 0 0 3px rgba(0, 132, 255, 0.12);
+      box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.12);
     }
 
     input[type="date"] {
@@ -386,18 +313,12 @@
 
     .package {
       border: 1px solid var(--border);
-
       border-radius: 15px;
-
       background: rgba(255, 255, 255, 0.025);
       color: white;
-
       padding: 16px 10px;
-
       text-align: center;
-
-      transition:
-        0.2s ease;
+      transition: 0.2s ease;
     }
 
     .package:hover {
@@ -406,13 +327,11 @@
 
     .package.active {
       border-color: var(--cyan);
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(0, 132, 255, 0.18),
-          rgba(0, 209, 255, 0.07)
-        );
+      background: linear-gradient(
+        135deg,
+        rgba(0, 132, 255, 0.18),
+        rgba(0, 209, 255, 0.07)
+      );
     }
 
     .package-hours {
@@ -442,16 +361,11 @@
 
     .time-btn {
       min-height: 58px;
-
       border: 1px solid var(--border);
       border-radius: 13px;
-
       background: rgba(255, 255, 255, 0.025);
-
       color: white;
-
       padding: 8px;
-
       transition: 0.2s ease;
     }
 
@@ -484,14 +398,10 @@
 
     .loading-box {
       grid-column: 1 / -1;
-
       padding: 20px;
-
       text-align: center;
-
       border: 1px dashed var(--border);
       border-radius: 14px;
-
       color: var(--muted);
       font-size: 13px;
     }
@@ -504,18 +414,14 @@
     .summary-box {
       display: flex;
       flex-direction: column;
-      gap: 0;
     }
 
     .summary-row {
       display: flex;
       justify-content: space-between;
       gap: 18px;
-
       padding: 14px 0;
-
       border-bottom: 1px solid var(--border);
-
       font-size: 14px;
     }
 
@@ -529,18 +435,13 @@
 
     .price-box {
       margin-top: 20px;
-
       padding: 20px;
-
       border-radius: 17px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(0, 132, 255, 0.17),
-          rgba(0, 209, 255, 0.08)
-        );
-
+      background: linear-gradient(
+        135deg,
+        rgba(0, 132, 255, 0.17),
+        rgba(0, 209, 255, 0.08)
+      );
       border: 1px solid rgba(0, 209, 255, 0.2);
     }
 
@@ -561,31 +462,16 @@
     .book-btn {
       width: 100%;
       min-height: 56px;
-
       margin-top: 18px;
-
       border: 0;
       border-radius: 15px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--blue),
-          var(--cyan)
-        );
-
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
       color: white;
-
       font-weight: 950;
       font-size: 15px;
       letter-spacing: 0.4px;
-
-      box-shadow:
-        0 18px 40px rgba(0, 132, 255, 0.2);
-
-      transition:
-        opacity 0.2s ease,
-        transform 0.2s ease;
+      box-shadow: 0 18px 40px rgba(0, 132, 255, 0.2);
+      transition: 0.2s ease;
     }
 
     .book-btn:hover:not(:disabled) {
@@ -608,49 +494,38 @@
 
     .message {
       margin-top: 15px;
-
       border-radius: 13px;
       padding: 13px 14px;
-
       font-size: 13px;
       line-height: 1.5;
-
       display: none;
     }
 
     .message.error {
       display: block;
-
       color: #ffd4d8;
-
       border: 1px solid rgba(255, 90, 103, 0.3);
       background: rgba(255, 90, 103, 0.08);
     }
 
     .message.success {
       display: block;
-
       color: #caffdf;
-
       border: 1px solid rgba(50, 213, 131, 0.28);
       background: rgba(50, 213, 131, 0.08);
     }
 
     .info-strip {
       margin-top: 25px;
-
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
       gap: 12px;
     }
 
     .info-card {
       border: 1px solid var(--border);
       border-radius: 17px;
-
       background: rgba(255, 255, 255, 0.025);
-
       padding: 18px;
     }
 
@@ -669,18 +544,13 @@
     .modal {
       position: fixed;
       inset: 0;
-
       display: none;
       align-items: center;
       justify-content: center;
-
       padding: 22px;
-
       background: rgba(0, 0, 0, 0.78);
-
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-
       z-index: 100;
     }
 
@@ -690,44 +560,22 @@
 
     .modal-card {
       width: min(500px, 100%);
-
       border: 1px solid rgba(0, 209, 255, 0.22);
-
       border-radius: 24px;
-
       padding: 32px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #0c1724,
-          #07101a
-        );
-
+      background: linear-gradient(180deg, #0c1724, #07101a);
       text-align: center;
-
-      box-shadow:
-        0 40px 120px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.55);
     }
 
     .success-icon {
       width: 70px;
       height: 70px;
-
       display: grid;
       place-items: center;
-
       margin: 0 auto 20px;
-
       border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue),
-          var(--cyan)
-        );
-
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
       font-size: 30px;
       font-weight: 950;
     }
@@ -745,13 +593,9 @@
 
     .booking-number-box {
       margin: 22px 0;
-
       padding: 18px;
-
       border-radius: 15px;
-
       background: rgba(0, 132, 255, 0.1);
-
       border: 1px solid rgba(0, 209, 255, 0.18);
     }
 
@@ -773,17 +617,9 @@
     .modal-close {
       width: 100%;
       min-height: 52px;
-
       border: 0;
       border-radius: 14px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--blue),
-          var(--cyan)
-        );
-
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
       color: white;
       font-weight: 900;
     }
@@ -791,15 +627,10 @@
     .footer {
       max-width: 1180px;
       width: calc(100% - 32px);
-
       margin: 60px auto 0;
-
       padding-top: 25px;
-
       border-top: 1px solid var(--border);
-
       text-align: center;
-
       color: var(--muted);
       font-size: 12px;
     }
@@ -888,739 +719,1158 @@
 
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
+<header class="topbar">
+  <div class="topbar-inner">
 
-      <a class="logo" href="index.html">
-        <img
-          src="elysium-header-logo.png"
-          alt="Elysium Gaming Lounge"
-        />
-      </a>
+    <a class="logo" href="index.html">
+      <img
+        src="elysium-header-logo.png"
+        alt="Elysium Gaming Lounge"
+      />
+    </a>
 
-      <a class="back-link" href="index.html">
-        ← TILL STARTSIDAN
-      </a>
+    <a class="back-link" href="index.html">
+      ← TILL STARTSIDAN
+    </a>
 
+  </div>
+</header>
+
+
+<main class="page">
+
+  <section class="hero">
+
+    <div class="eyebrow">
+      ELYSIUM GAMING LOUNGE
     </div>
-  </header>
+
+    <h1>
+      BOKA DIN
+      <span>GAMINGTID</span>
+    </h1>
+
+    <p>
+      Välj PC Gaming eller PS5, hitta en ledig tid och boka direkt.
+      Du behöver inget konto.
+    </p>
+
+  </section>
 
 
-  <main class="page">
+  <div class="booking-layout">
 
-    <section class="hero">
+    <section class="panel">
 
-      <div class="eyebrow">
-        ELYSIUM GAMING LOUNGE
+      <div class="panel-title">
+        Gör din bokning
       </div>
 
-      <h1>
-        BOKA DIN
-        <span>GAMINGTID</span>
-      </h1>
+      <div class="panel-subtitle">
+        Följ stegen nedan. Tillgängligheten kontrolleras direkt mot Elysiums bokningssystem.
+      </div>
 
-      <p>
-        Välj PC Gaming eller PS5, hitta en ledig tid och boka direkt.
-        Du behöver inget konto.
-      </p>
+
+      <div class="section">
+
+        <div class="step-label">
+          <span class="step-number">1</span>
+          Vad vill du boka?
+        </div>
+
+        <div class="type-grid">
+
+          <button
+            type="button"
+            class="type-card active"
+            data-type="pc"
+          >
+            <div class="type-icon">🖥️</div>
+
+            <div class="type-title">
+              PC Gaming
+            </div>
+
+            <div class="type-desc">
+              Boka för mellan 1 och 20 personer.
+            </div>
+          </button>
+
+
+          <button
+            type="button"
+            class="type-card"
+            data-type="ps5"
+          >
+            <div class="type-icon">🎮</div>
+
+            <div class="type-title">
+              PS5
+            </div>
+
+            <div class="type-desc">
+              Boka en eller båda PS5-zonerna.
+            </div>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="section">
+
+        <div class="step-label">
+          <span class="step-number">2</span>
+          Datum och antal
+        </div>
+
+        <div class="grid-2">
+
+          <div class="field">
+            <label for="bookingDate">
+              Datum
+            </label>
+
+            <input
+              type="date"
+              id="bookingDate"
+            />
+          </div>
+
+
+          <div class="field">
+            <label
+              for="quantity"
+              id="quantityLabel"
+            >
+              Antal personer
+            </label>
+
+            <select id="quantity"></select>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="section">
+
+        <div class="step-label">
+          <span class="step-number">3</span>
+          Välj paket
+        </div>
+
+        <div
+          class="package-grid"
+          id="packageGrid"
+        >
+          <div class="loading-box">
+            Hämtar priser...
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="section">
+
+        <div class="step-label">
+          <span class="step-number">4</span>
+          Välj starttid
+        </div>
+
+        <div
+          class="times-status"
+          id="timesStatus"
+        >
+          Välj datum och paket för att se lediga tider.
+        </div>
+
+        <div
+          class="time-grid"
+          id="timeGrid"
+        ></div>
+
+      </div>
+
+
+      <div class="section">
+
+        <div class="step-label">
+          <span class="step-number">5</span>
+          Dina uppgifter
+        </div>
+
+        <div class="grid-2">
+
+          <div class="field full">
+            <label for="customerName">
+              Namn
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              placeholder="För- och efternamn"
+              maxlength="100"
+              autocomplete="name"
+            />
+          </div>
+
+
+          <div class="field">
+            <label for="customerEmail">
+              E-post
+            </label>
+
+            <input
+              type="email"
+              id="customerEmail"
+              placeholder="din@email.se"
+              maxlength="150"
+              autocomplete="email"
+            />
+          </div>
+
+
+          <div class="field">
+            <label for="customerPhone">
+              Telefonnummer
+            </label>
+
+            <input
+              type="tel"
+              id="customerPhone"
+              placeholder="070 123 45 67"
+              maxlength="30"
+              autocomplete="tel"
+            />
+          </div>
+
+        </div>
+
+      </div>
 
     </section>
 
 
-    <div class="booking-layout">
+    <aside class="panel summary">
 
-      <!-- VÄNSTER -->
-      <section class="panel">
-
-        <div class="panel-title">
-          Gör din bokning
-        </div>
-
-        <div class="panel-subtitle">
-          Följ stegen nedan. Tillgängligheten kontrolleras direkt mot Elysiums bokningssystem.
-        </div>
-
-
-        <!-- STEG 1 -->
-        <div class="section">
-
-          <div class="step-label">
-            <span class="step-number">1</span>
-            Vad vill du boka?
-          </div>
-
-          <div class="type-grid">
-
-            <button
-              type="button"
-              class="type-card active"
-              data-type="pc"
-            >
-              <div class="type-icon">🖥️</div>
-
-              <div class="type-title">
-                PC Gaming
-              </div>
-
-              <div class="type-desc">
-                Boka mellan 1 och 20 gaming-PC.
-              </div>
-            </button>
-
-
-            <button
-              type="button"
-              class="type-card"
-              data-type="ps5"
-            >
-              <div class="type-icon">🎮</div>
-
-              <div class="type-title">
-                PS5
-              </div>
-
-              <div class="type-desc">
-                Boka en eller båda PS5-zonerna.
-              </div>
-            </button>
-
-          </div>
-
-        </div>
-
-
-        <!-- STEG 2 -->
-        <div class="section">
-
-          <div class="step-label">
-            <span class="step-number">2</span>
-            Datum och antal
-          </div>
-
-          <div class="grid-2">
-
-            <div class="field">
-              <label for="bookingDate">
-                Datum
-              </label>
-
-              <input
-                type="date"
-                id="bookingDate"
-              />
-            </div>
-
-
-            <label for="quantity">
-  Antal personer
-</label>
-              <select id="quantity"></select>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <!-- STEG 3 -->
-        <div class="section">
-
-          <div class="step-label">
-            <span class="step-number">3</span>
-            Välj paket
-          </div>
-
-          <div
-            class="package-grid"
-            id="packageGrid"
-          >
-            <div class="loading-box">
-              Hämtar priser...
-            </div>
-          </div>
-
-        </div>
-
-
-        <!-- STEG 4 -->
-        <div class="section">
-
-          <div class="step-label">
-            <span class="step-number">4</span>
-            Välj starttid
-          </div>
-
-          <div
-            class="times-status"
-            id="timesStatus"
-          >
-            Välj datum och paket för att se lediga tider.
-          </div>
-
-          <div
-            class="time-grid"
-            id="timeGrid"
-          ></div>
-
-        </div>
-
-
-        <!-- STEG 5 -->
-        <div class="section">
-
-          <div class="step-label">
-            <span class="step-number">5</span>
-            Dina uppgifter
-          </div>
-
-          <div class="grid-2">
-
-            <div class="field full">
-              <label for="customerName">
-                Namn
-              </label>
-
-              <input
-                type="text"
-                id="customerName"
-                placeholder="För- och efternamn"
-                maxlength="100"
-                autocomplete="name"
-              />
-            </div>
-
-
-            <div class="field">
-              <label for="customerEmail">
-                E-post
-              </label>
-
-              <input
-                type="email"
-                id="customerEmail"
-                placeholder="din@email.se"
-                maxlength="150"
-                autocomplete="email"
-              />
-            </div>
-
-
-            <div class="field">
-              <label for="customerPhone">
-                Telefonnummer
-              </label>
-
-              <input
-                type="tel"
-                id="customerPhone"
-                placeholder="070 123 45 67"
-                maxlength="30"
-                autocomplete="tel"
-              />
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      <!-- HÖGER -->
-      <aside class="panel summary">
-
-        <div class="panel-title">
-          Din bokning
-        </div>
-
-        <div class="panel-subtitle">
-          Kontrollera uppgifterna innan du bokar.
-        </div>
-
-
-        <div class="summary-box">
-
-          <div class="summary-row">
-            <span>Aktivitet</span>
-            <strong id="summaryType">
-              PC Gaming
-            </strong>
-          </div>
-
-
-          <div class="summary-row">
-            <span>Datum</span>
-            <strong id="summaryDate">
-              –
-            </strong>
-          </div>
-
-
-          <div class="summary-row">
-            <span>Starttid</span>
-            <strong id="summaryTime">
-              –
-            </strong>
-          </div>
-
-
-          <div class="summary-row">
-            <span>Speltid</span>
-            <strong id="summaryDuration">
-              –
-            </strong>
-          </div>
-
-
-          <div class="summary-row">
-            <span>Antal</span>
-            <strong id="summaryQuantity">
-              1 PC
-            </strong>
-          </div>
-
-        </div>
-
-
-        <div class="price-box">
-
-          <div class="price-label">
-            Totalt
-          </div>
-
-          <div
-            class="price"
-            id="summaryPrice"
-          >
-            – kr
-          </div>
-
-        </div>
-
-
-        <button
-          type="button"
-          class="book-btn"
-          id="bookButton"
-        >
-          BEKRÄFTA BOKNING
-        </button>
-
-
-        <div
-          class="message"
-          id="message"
-        ></div>
-
-
-        <div class="security-note">
-          Bokningen kontrolleras mot aktuell tillgänglighet när du bekräftar.
-        </div>
-
-      </aside>
-
-    </div>
-
-
-    <div class="info-strip">
-
-      <div class="info-card">
-        <strong>20 Gaming-PC</strong>
-        <span>
-          Systemet tilldelar automatiskt lediga datorer.
-        </span>
+      <div class="panel-title">
+        Din bokning
       </div>
 
-      <div class="info-card">
-        <strong>2 PS5-zoner</strong>
-        <span>
-          Boka en eller båda zonerna direkt.
-        </span>
+      <div class="panel-subtitle">
+        Kontrollera uppgifterna innan du bokar.
       </div>
 
-      <div class="info-card">
-        <strong>Ingen inloggning</strong>
-        <span>
-          Kunden bokar snabbt med namn, e-post och telefonnummer.
-        </span>
+
+      <div class="summary-box">
+
+        <div class="summary-row">
+          <span>Aktivitet</span>
+          <strong id="summaryType">
+            PC Gaming
+          </strong>
+        </div>
+
+
+        <div class="summary-row">
+          <span>Datum</span>
+          <strong id="summaryDate">
+            –
+          </strong>
+        </div>
+
+
+        <div class="summary-row">
+          <span>Starttid</span>
+          <strong id="summaryTime">
+            –
+          </strong>
+        </div>
+
+
+        <div class="summary-row">
+          <span>Speltid</span>
+          <strong id="summaryDuration">
+            –
+          </strong>
+        </div>
+
+
+        <div class="summary-row">
+          <span id="summaryQuantityLabel">
+            Antal personer
+          </span>
+
+          <strong id="summaryQuantity">
+            1 person
+          </strong>
+        </div>
+
       </div>
 
-    </div>
 
-  </main>
+      <div class="price-box">
 
-
-  <footer class="footer">
-    © Elysium Gaming Lounge AB · Kristianstad
-  </footer>
-
-
-  <!-- BEKRÄFTELSE -->
-  <div
-    class="modal"
-    id="confirmationModal"
-  >
-
-    <div class="modal-card">
-
-      <div class="success-icon">
-        ✓
-      </div>
-
-      <h2>
-        Bokningen är klar
-      </h2>
-
-      <p>
-        Din tid är nu reserverad hos Elysium Gaming Lounge.
-        Spara ditt bokningsnummer.
-      </p>
-
-
-      <div class="booking-number-box">
-
-        <div class="booking-number-label">
-          Bokningsnummer
+        <div class="price-label">
+          Totalt
         </div>
 
         <div
-          class="booking-number"
-          id="confirmedBookingNumber"
+          class="price"
+          id="summaryPrice"
         >
-          –
+          – kr
         </div>
 
       </div>
-
-
-      <p id="confirmedDetails"></p>
 
 
       <button
         type="button"
-        class="modal-close"
-        id="modalClose"
+        class="book-btn"
+        id="bookButton"
       >
-        KLAR
+        BEKRÄFTA BOKNING
       </button>
 
-    </div>
+
+      <div
+        class="message"
+        id="message"
+      ></div>
+
+
+      <div class="security-note">
+        Bokningen kontrolleras mot aktuell tillgänglighet när du bekräftar.
+      </div>
+
+    </aside>
 
   </div>
 
 
-  <script>
-    // =====================================================
-    // SUPABASE
-    // =====================================================
+  <div class="info-strip">
 
-    const SUPABASE_URL =
-      "https://jbwebwdockhgivltgjdu.supabase.co";
+    <div class="info-card">
+      <strong>20 Gaming-PC</strong>
 
-    const SUPABASE_KEY =
-      "sb_publishable_cDN31gaVNoAG5YdSw_vscw_rJhiZTz6";
+      <span>
+        Välj antal personer. Systemet tilldelar automatiskt en ledig dator till varje spelare.
+      </span>
+    </div>
 
-    const db = supabase.createClient(
+    <div class="info-card">
+      <strong>2 PS5-zoner</strong>
+
+      <span>
+        Boka en eller båda zonerna direkt.
+      </span>
+    </div>
+
+    <div class="info-card">
+      <strong>Ingen inloggning</strong>
+
+      <span>
+        Boka snabbt med namn, e-post och telefonnummer.
+      </span>
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer class="footer">
+  © Elysium Gaming Lounge AB · Kristianstad
+</footer>
+
+
+<div
+  class="modal"
+  id="confirmationModal"
+>
+
+  <div class="modal-card">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h2>
+      Bokningen är klar
+    </h2>
+
+    <p>
+      Din tid är nu reserverad hos Elysium Gaming Lounge.
+      Spara ditt bokningsnummer.
+    </p>
+
+
+    <div class="booking-number-box">
+
+      <div class="booking-number-label">
+        Bokningsnummer
+      </div>
+
+      <div
+        class="booking-number"
+        id="confirmedBookingNumber"
+      >
+        –
+      </div>
+
+    </div>
+
+
+    <p id="confirmedDetails"></p>
+
+
+    <button
+      type="button"
+      class="modal-close"
+      id="modalClose"
+    >
+      KLAR
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+  const SUPABASE_URL =
+    "https://jbwebwdockhgivltgjdu.supabase.co";
+
+  const SUPABASE_KEY =
+    "sb_publishable_cDN31gaVNoAG5YdSw_vscw_rJhiZTz6";
+
+  const db =
+    supabase.createClient(
       SUPABASE_URL,
       SUPABASE_KEY
     );
 
 
-    // =====================================================
-    // STATE
-    // =====================================================
-
-    let selectedType = "pc";
-
-    let selectedDuration = null;
-
-    let selectedPackagePrice = null;
-
-    let selectedStartTime = null;
-
-    let packages = [];
-
-    let loadingTimes = false;
-
-    let bookingInProgress = false;
+  let selectedType = "pc";
+  let selectedDuration = null;
+  let selectedPackagePrice = null;
+  let selectedStartTime = null;
+  let packages = [];
+  let loadingTimes = false;
+  let bookingInProgress = false;
 
 
-    // =====================================================
-    // ELEMENT
-    // =====================================================
+  const typeButtons =
+    document.querySelectorAll(".type-card");
 
-    const typeButtons =
-      document.querySelectorAll(".type-card");
+  const bookingDate =
+    document.getElementById("bookingDate");
 
-    const bookingDate =
-      document.getElementById("bookingDate");
+  const quantity =
+    document.getElementById("quantity");
 
-    const quantity =
-      document.getElementById("quantity");
+  const quantityLabel =
+    document.getElementById("quantityLabel");
 
-    const packageGrid =
-      document.getElementById("packageGrid");
+  const packageGrid =
+    document.getElementById("packageGrid");
 
-    const timeGrid =
-      document.getElementById("timeGrid");
+  const timeGrid =
+    document.getElementById("timeGrid");
 
-    const timesStatus =
-      document.getElementById("timesStatus");
+  const timesStatus =
+    document.getElementById("timesStatus");
 
-    const customerName =
-      document.getElementById("customerName");
+  const customerName =
+    document.getElementById("customerName");
 
-    const customerEmail =
-      document.getElementById("customerEmail");
+  const customerEmail =
+    document.getElementById("customerEmail");
 
-    const customerPhone =
-      document.getElementById("customerPhone");
+  const customerPhone =
+    document.getElementById("customerPhone");
 
-    const bookButton =
-      document.getElementById("bookButton");
+  const bookButton =
+    document.getElementById("bookButton");
 
-    const message =
-      document.getElementById("message");
+  const message =
+    document.getElementById("message");
 
-    const summaryType =
-      document.getElementById("summaryType");
+  const summaryType =
+    document.getElementById("summaryType");
 
-    const summaryDate =
-      document.getElementById("summaryDate");
+  const summaryDate =
+    document.getElementById("summaryDate");
 
-    const summaryTime =
-      document.getElementById("summaryTime");
+  const summaryTime =
+    document.getElementById("summaryTime");
 
-    const summaryDuration =
-      document.getElementById("summaryDuration");
+  const summaryDuration =
+    document.getElementById("summaryDuration");
 
-    const summaryQuantity =
-      document.getElementById("summaryQuantity");
+  const summaryQuantity =
+    document.getElementById("summaryQuantity");
 
-    const summaryPrice =
-      document.getElementById("summaryPrice");
-
-    const confirmationModal =
-      document.getElementById("confirmationModal");
-
-    const confirmedBookingNumber =
-      document.getElementById(
-        "confirmedBookingNumber"
-      );
-
-    const confirmedDetails =
-      document.getElementById(
-        "confirmedDetails"
-      );
-
-    const modalClose =
-      document.getElementById("modalClose");
-
-
-    // =====================================================
-    // DATUM
-    // =====================================================
-
-    function localDateString(date) {
-      const year = date.getFullYear();
-
-      const month =
-        String(date.getMonth() + 1)
-          .padStart(2, "0");
-
-      const day =
-        String(date.getDate())
-          .padStart(2, "0");
-
-      return `${year}-${month}-${day}`;
-    }
-
-
-    const today =
-      new Date();
-
-    const maxDate =
-      new Date();
-
-    maxDate.setDate(
-      maxDate.getDate() + 90
+  const summaryQuantityLabel =
+    document.getElementById(
+      "summaryQuantityLabel"
     );
 
-    bookingDate.min =
-      localDateString(today);
+  const summaryPrice =
+    document.getElementById("summaryPrice");
 
-    bookingDate.max =
-      localDateString(maxDate);
+  const confirmationModal =
+    document.getElementById("confirmationModal");
+
+  const confirmedBookingNumber =
+    document.getElementById(
+      "confirmedBookingNumber"
+    );
+
+  const confirmedDetails =
+    document.getElementById(
+      "confirmedDetails"
+    );
+
+  const modalClose =
+    document.getElementById("modalClose");
 
 
-    // =====================================================
-    // ANTAL
-    // =====================================================
+  function localDateString(date) {
+    const year =
+      date.getFullYear();
 
-    function updateQuantityOptions() {
+    const month =
+      String(
+        date.getMonth() + 1
+      ).padStart(2, "0");
 
-      const oldValue =
-        Number(quantity.value) || 1;
+    const day =
+      String(
+        date.getDate()
+      ).padStart(2, "0");
 
-      quantity.innerHTML = "";
+    return `${year}-${month}-${day}`;
+  }
 
-      const max =
-        selectedType === "pc"
-          ? 20
-          : 2;
+
+  const today =
+    new Date();
+
+  const maxDate =
+    new Date();
+
+  maxDate.setDate(
+    maxDate.getDate() + 90
+  );
+
+  bookingDate.min =
+    localDateString(today);
+
+  bookingDate.max =
+    localDateString(maxDate);
+
+
+  function updateQuantityOptions() {
+
+    const oldValue =
+      Number(quantity.value) || 1;
+
+    quantity.innerHTML = "";
+
+
+    if (selectedType === "pc") {
+
+      quantityLabel.textContent =
+        "Antal personer";
+
+      summaryQuantityLabel.textContent =
+        "Antal personer";
+
 
       for (
         let i = 1;
-        i <= max;
+        i <= 20;
         i++
       ) {
 
         const option =
-          document.createElement("option");
+          document.createElement(
+            "option"
+          );
 
         option.value = i;
 
-        if (selectedType === "pc") {
+        option.textContent =
+          i === 1
+            ? "1 person"
+            : `${i} personer`;
 
-          option.textContent =
-            i === 1
-              ? "1 PC"
-              : `${i} PC`;
-
-        } else {
-
-          option.textContent =
-            i === 1
-              ? "1 PS5-zon"
-              : "2 PS5-zoner";
-        }
-
-        quantity.appendChild(option);
+        quantity.appendChild(
+          option
+        );
       }
+
 
       quantity.value =
         String(
           Math.min(
             oldValue,
-            max
+            20
           )
         );
 
-      updateSummary();
+    } else {
+
+      /*
+        PS5 ÄR MEDVETET OFÖRÄNDRAT
+      */
+
+      quantityLabel.textContent =
+        "Antal PS5-zoner";
+
+      summaryQuantityLabel.textContent =
+        "Antal";
+
+
+      for (
+        let i = 1;
+        i <= 2;
+        i++
+      ) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = i;
+
+        option.textContent =
+          i === 1
+            ? "1 PS5-zon"
+            : "2 PS5-zoner";
+
+        quantity.appendChild(
+          option
+        );
+      }
+
+
+      quantity.value =
+        String(
+          Math.min(
+            oldValue,
+            2
+          )
+        );
     }
 
 
-    // =====================================================
-    // HÄMTA PAKET
-    // =====================================================
+    updateSummary();
+  }
 
-    async function loadPackages() {
+
+  async function loadPackages() {
+
+    packageGrid.innerHTML =
+      `
+      <div class="loading-box">
+        Hämtar priser...
+      </div>
+      `;
+
+
+    const {
+      data,
+      error
+    } =
+      await db
+        .from("booking_packages")
+        .select(
+          "resource_type, name, duration_minutes, price_sek, sort_order"
+        )
+        .eq(
+          "resource_type",
+          selectedType
+        )
+        .eq(
+          "active",
+          true
+        )
+        .order(
+          "sort_order",
+          {
+            ascending: true
+          }
+        );
+
+
+    if (error) {
+
+      console.error(error);
 
       packageGrid.innerHTML =
         `
         <div class="loading-box">
-          Hämtar priser...
+          Kunde inte hämta priser.
         </div>
         `;
 
-      const { data, error } =
-        await db
-          .from("booking_packages")
-          .select(
-            "resource_type, name, duration_minutes, price_sek, sort_order"
-          )
-          .eq(
-            "resource_type",
-            selectedType
-          )
-          .eq(
-            "active",
-            true
-          )
-          .order(
-            "sort_order",
-            {
-              ascending: true
-            }
-          );
-
-
-      if (error) {
-
-        console.error(error);
-
-        packageGrid.innerHTML =
-          `
-          <div class="loading-box">
-            Kunde inte hämta priser.
-          </div>
-          `;
-
-        return;
-      }
-
-
-      packages =
-        data || [];
-
-
-      renderPackages();
+      return;
     }
 
 
-    function renderPackages() {
-
-      packageGrid.innerHTML = "";
-
-      selectedDuration = null;
-      selectedPackagePrice = null;
-      selectedStartTime = null;
-
-      clearTimes();
+    packages =
+      data || [];
 
 
-      if (!packages.length) {
+    renderPackages();
+  }
 
-        packageGrid.innerHTML =
+
+  function renderPackages() {
+
+    packageGrid.innerHTML = "";
+
+    selectedDuration = null;
+    selectedPackagePrice = null;
+    selectedStartTime = null;
+
+    clearTimes();
+
+
+    if (!packages.length) {
+
+      packageGrid.innerHTML =
+        `
+        <div class="loading-box">
+          Inga bokningspaket hittades.
+        </div>
+        `;
+
+      updateSummary();
+
+      return;
+    }
+
+
+    packages.forEach(
+      (item) => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+        button.type = "button";
+
+        button.className =
+          "package";
+
+
+        const hours =
+          item.duration_minutes / 60;
+
+
+        button.innerHTML =
           `
-          <div class="loading-box">
-            Inga bokningspaket hittades.
+          <div class="package-hours">
+            ${hours} ${
+              hours === 1
+                ? "timme"
+                : "timmar"
+            }
+          </div>
+
+          <div class="package-price">
+            ${item.price_sek} kr
           </div>
           `;
 
-        updateSummary();
 
-        return;
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(
+                ".package"
+              )
+              .forEach(
+                (el) =>
+                  el.classList.remove(
+                    "active"
+                  )
+              );
+
+
+            button.classList.add(
+              "active"
+            );
+
+
+            selectedDuration =
+              item.duration_minutes;
+
+            selectedPackagePrice =
+              item.price_sek;
+
+            selectedStartTime =
+              null;
+
+
+            updateSummary();
+
+            loadAvailableTimes();
+          }
+        );
+
+
+        packageGrid.appendChild(
+          button
+        );
       }
+    );
 
 
-      packages.forEach(
-        (item) => {
-
-          const button =
-            document.createElement("button");
-
-          button.type = "button";
-
-          button.className =
-            "package";
+    updateSummary();
+  }
 
 
-          const hours =
-            item.duration_minutes / 60;
+  function getOpeningWindow(
+    dateString
+  ) {
+
+    if (!dateString) {
+      return null;
+    }
 
 
-          button.innerHTML =
-            `
-            <div class="package-hours">
-              ${hours} ${hours === 1 ? "timme" : "timmar"}
-            </div>
+    const date =
+      new Date(
+        `${dateString}T12:00:00`
+      );
 
-            <div class="package-price">
-              ${item.price_sek} kr
-            </div>
-            `;
 
+    const day =
+      date.getDay();
+
+
+    const closingHour =
+      (
+        day === 5 ||
+        day === 6 ||
+        day === 0
+      )
+        ? 27
+        : 25;
+
+
+    return {
+      openMinutes: 16 * 60,
+      closeMinutes:
+        closingHour * 60
+    };
+  }
+
+
+  function minutesToTime(
+    minutes
+  ) {
+
+    const normalized =
+      minutes % (24 * 60);
+
+
+    const hours =
+      Math.floor(
+        normalized / 60
+      );
+
+
+    const mins =
+      normalized % 60;
+
+
+    return (
+      String(hours)
+        .padStart(2, "0")
+      +
+      ":"
+      +
+      String(mins)
+        .padStart(2, "0")
+    );
+  }
+
+
+  function getPossibleStartTimes() {
+
+    const window =
+      getOpeningWindow(
+        bookingDate.value
+      );
+
+
+    if (
+      !window ||
+      !selectedDuration
+    ) {
+
+      return [];
+    }
+
+
+    const times = [];
+
+
+    const latestStart =
+      window.closeMinutes
+      -
+      selectedDuration;
+
+
+    for (
+      let minute =
+        window.openMinutes;
+
+      minute <= latestStart;
+
+      minute += 30
+    ) {
+
+      times.push(
+        minutesToTime(minute)
+      );
+    }
+
+
+    return times;
+  }
+
+
+  function clearTimes() {
+
+    timeGrid.innerHTML = "";
+
+    timesStatus.textContent =
+      "Välj datum och paket för att se lediga tider.";
+  }
+
+
+  async function loadAvailableTimes() {
+
+    selectedStartTime = null;
+
+    updateSummary();
+
+
+    if (
+      !bookingDate.value ||
+      !selectedDuration
+    ) {
+
+      clearTimes();
+      return;
+    }
+
+
+    if (loadingTimes) {
+      return;
+    }
+
+
+    loadingTimes = true;
+
+
+    timeGrid.innerHTML =
+      `
+      <div class="loading-box">
+        Kontrollerar lediga tider...
+      </div>
+      `;
+
+
+    timesStatus.textContent =
+      "Hämtar aktuell tillgänglighet...";
+
+
+    const possibleTimes =
+      getPossibleStartTimes();
+
+
+    if (!possibleTimes.length) {
+
+      timeGrid.innerHTML =
+        `
+        <div class="loading-box">
+          Inga tider finns för detta paket.
+        </div>
+        `;
+
+      timesStatus.textContent =
+        "Inga möjliga starttider.";
+
+      loadingTimes = false;
+
+      return;
+    }
+
+
+    const requestedQuantity =
+      Number(quantity.value);
+
+
+    const requests =
+      possibleTimes.map(
+        async (time) => {
+
+          const {
+            data,
+            error
+          } =
+            await db.rpc(
+              "get_elysium_availability",
+              {
+                p_resource_type:
+                  selectedType,
+
+                p_booking_date:
+                  bookingDate.value,
+
+                p_start_time:
+                  `${time}:00`,
+
+                p_duration_minutes:
+                  selectedDuration
+              }
+            );
+
+
+          if (error) {
+
+            console.error(
+              "Availability error:",
+              error
+            );
+
+            return {
+              time,
+              available: 0,
+              error: true
+            };
+          }
+
+
+          const result =
+            data &&
+            data.length
+              ? data[0]
+              : null;
+
+
+          return {
+            time,
+
+            available:
+              result
+                ? Number(
+                    result
+                      .available_resources
+                  )
+                : 0,
+
+            error: false
+          };
+        }
+      );
+
+
+    const results =
+      await Promise.all(
+        requests
+      );
+
+
+    timeGrid.innerHTML = "";
+
+
+    let bookableCount = 0;
+
+
+    results.forEach(
+      (result) => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type = "button";
+
+        button.className =
+          "time-btn";
+
+
+        const canBook =
+          !result.error
+          &&
+          result.available
+            >= requestedQuantity;
+
+
+        if (canBook) {
+          bookableCount++;
+        }
+
+
+        button.disabled =
+          !canBook;
+
+
+        let availabilityText;
+
+
+        if (result.error) {
+
+          availabilityText =
+            "Ej tillgänglig";
+
+        } else if (
+          selectedType === "pc"
+        ) {
+
+          availabilityText =
+            `${result.available} lediga`;
+
+        } else {
+
+          availabilityText =
+            `${result.available} lediga`;
+        }
+
+
+        button.innerHTML =
+          `
+          <span class="time-clock">
+            ${result.time}
+          </span>
+
+          <span class="time-available">
+            ${availabilityText}
+          </span>
+          `;
+
+
+        if (canBook) {
 
           button.addEventListener(
             "click",
@@ -1628,7 +1878,7 @@
 
               document
                 .querySelectorAll(
-                  ".package"
+                  ".time-btn"
                 )
                 .forEach(
                   (el) =>
@@ -1643,941 +1893,566 @@
               );
 
 
-              selectedDuration =
-                item.duration_minutes;
-
-              selectedPackagePrice =
-                item.price_sek;
-
               selectedStartTime =
-                null;
+                result.time;
 
 
               updateSummary();
-
-              loadAvailableTimes();
             }
           );
+        }
 
 
-          packageGrid.appendChild(
-            button
-          );
+        timeGrid.appendChild(
+          button
+        );
+      }
+    );
+
+
+    if (bookableCount > 0) {
+
+      timesStatus.textContent =
+        `${bookableCount} starttider är tillgängliga för ditt val.`;
+
+    } else {
+
+      timesStatus.textContent =
+        selectedType === "pc"
+          ? "Det finns inga tider med tillräckligt många lediga datorer för ert sällskap."
+          : "Det finns inga lediga tider för valt antal PS5-zoner.";
+    }
+
+
+    loadingTimes = false;
+  }
+
+
+  function formatDate(
+    dateString
+  ) {
+
+    if (!dateString) {
+      return "–";
+    }
+
+
+    const date =
+      new Date(
+        `${dateString}T12:00:00`
+      );
+
+
+    return date.toLocaleDateString(
+      "sv-SE",
+      {
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }
+    );
+  }
+
+
+  function updateSummary() {
+
+    summaryType.textContent =
+      selectedType === "pc"
+        ? "PC Gaming"
+        : "PS5";
+
+
+    summaryDate.textContent =
+      formatDate(
+        bookingDate.value
+      );
+
+
+    summaryTime.textContent =
+      selectedStartTime
+        || "–";
+
+
+    if (selectedDuration) {
+
+      const hours =
+        selectedDuration / 60;
+
+      summaryDuration.textContent =
+        `${hours} ${
+          hours === 1
+            ? "timme"
+            : "timmar"
+        }`;
+
+    } else {
+
+      summaryDuration.textContent =
+        "–";
+    }
+
+
+    const q =
+      Number(
+        quantity.value
+      ) || 1;
+
+
+    if (selectedType === "pc") {
+
+      summaryQuantityLabel.textContent =
+        "Antal personer";
+
+      summaryQuantity.textContent =
+        q === 1
+          ? "1 person"
+          : `${q} personer`;
+
+    } else {
+
+      summaryQuantityLabel.textContent =
+        "Antal";
+
+      summaryQuantity.textContent =
+        q === 1
+          ? "1 PS5-zon"
+          : "2 PS5-zoner";
+    }
+
+
+    if (
+      selectedPackagePrice !== null
+    ) {
+
+      summaryPrice.textContent =
+        `${
+          selectedPackagePrice * q
+        } kr`;
+
+    } else {
+
+      summaryPrice.textContent =
+        "– kr";
+    }
+  }
+
+
+  function showMessage(
+    text,
+    type = "error"
+  ) {
+
+    message.textContent =
+      text;
+
+    message.className =
+      `message ${type}`;
+  }
+
+
+  function clearMessage() {
+
+    message.textContent = "";
+
+    message.className =
+      "message";
+  }
+
+
+  async function createBooking() {
+
+    if (bookingInProgress) {
+      return;
+    }
+
+
+    clearMessage();
+
+
+    const name =
+      customerName.value.trim();
+
+    const email =
+      customerEmail.value.trim();
+
+    const phone =
+      customerPhone.value.trim();
+
+    const q =
+      Number(
+        quantity.value
+      );
+
+
+    if (!bookingDate.value) {
+
+      showMessage(
+        "Välj ett datum."
+      );
+
+      return;
+    }
+
+
+    if (!selectedDuration) {
+
+      showMessage(
+        "Välj hur länge du vill spela."
+      );
+
+      return;
+    }
+
+
+    if (!selectedStartTime) {
+
+      showMessage(
+        "Välj en ledig starttid."
+      );
+
+      return;
+    }
+
+
+    if (name.length < 2) {
+
+      showMessage(
+        "Fyll i ditt namn."
+      );
+
+      customerName.focus();
+
+      return;
+    }
+
+
+    if (
+      !email ||
+      !email.includes("@")
+    ) {
+
+      showMessage(
+        "Fyll i en giltig e-postadress."
+      );
+
+      customerEmail.focus();
+
+      return;
+    }
+
+
+    if (phone.length < 7) {
+
+      showMessage(
+        "Fyll i ett giltigt telefonnummer."
+      );
+
+      customerPhone.focus();
+
+      return;
+    }
+
+
+    bookingInProgress = true;
+
+    bookButton.disabled = true;
+
+    bookButton.textContent =
+      "SKAPAR BOKNING...";
+
+
+    const {
+      data,
+      error
+    } =
+      await db.rpc(
+        "create_elysium_booking",
+        {
+          p_resource_type:
+            selectedType,
+
+          p_booking_date:
+            bookingDate.value,
+
+          p_start_time:
+            `${selectedStartTime}:00`,
+
+          p_duration_minutes:
+            selectedDuration,
+
+          p_quantity:
+            q,
+
+          p_customer_name:
+            name,
+
+          p_customer_email:
+            email,
+
+          p_customer_phone:
+            phone
         }
       );
 
 
-      updateSummary();
-    }
+    bookingInProgress = false;
+
+    bookButton.disabled = false;
+
+    bookButton.textContent =
+      "BEKRÄFTA BOKNING";
 
 
-    // =====================================================
-    // TIDHJÄLPARE
-    // =====================================================
+    if (error) {
 
-    function getOpeningWindow(
-      dateString
-    ) {
-
-      if (!dateString) {
-        return null;
-      }
+      console.error(error);
 
 
-      const date =
-        new Date(
-          `${dateString}T12:00:00`
-        );
-
-
-      const day =
-        date.getDay();
-
-
-      // JS:
-      // 0 = söndag
-      // 1 = måndag
-      // ...
-      // 6 = lördag
-
-
-      const closingHour =
-        (
-          day === 5 ||
-          day === 6 ||
-          day === 0
-        )
-          ? 27
-          : 25;
-
-
-      return {
-        openMinutes: 16 * 60,
-        closeMinutes:
-          closingHour * 60
-      };
-    }
-
-
-    function minutesToTime(
-      minutes
-    ) {
-
-      let normalized =
-        minutes % (24 * 60);
-
-
-      const hours =
-        Math.floor(
-          normalized / 60
-        );
-
-
-      const mins =
-        normalized % 60;
-
-
-      return (
-        String(hours)
-          .padStart(2, "0")
-        +
-        ":"
-        +
-        String(mins)
-          .padStart(2, "0")
-      );
-    }
-
-
-    function getPossibleStartTimes() {
-
-      const window =
-        getOpeningWindow(
-          bookingDate.value
-        );
+      let errorText =
+        error.message ||
+        "Bokningen kunde inte genomföras.";
 
 
       if (
-        !window ||
-        !selectedDuration
+        errorText.includes(
+          "Platserna hann bli bokade"
+        )
+        ||
+        errorText.includes(
+          "tillräckligt många lediga"
+        )
       ) {
 
-        return [];
+        errorText =
+          "Någon hann boka platserna före dig. Välj en annan tid.";
       }
 
 
-      const times = [];
+      showMessage(
+        errorText
+      );
 
 
-      const latestStart =
-        window.closeMinutes
-        -
-        selectedDuration;
+      await loadAvailableTimes();
 
-
-      for (
-        let minute =
-          window.openMinutes;
-
-        minute <= latestStart;
-
-        minute += 30
-      ) {
-
-        times.push(
-          minutesToTime(minute)
-        );
-      }
-
-
-      return times;
+      return;
     }
 
 
-    // =====================================================
-    // LEDIGA TIDER
-    // =====================================================
+    if (
+      !data ||
+      !data.length
+    ) {
 
-    function clearTimes() {
+      showMessage(
+        "Bokningen skapades men bekräftelsen kunde inte hämtas."
+      );
 
-      timeGrid.innerHTML = "";
-
-      timesStatus.textContent =
-        "Välj datum och paket för att se lediga tider.";
+      return;
     }
 
 
-    async function loadAvailableTimes() {
+    const booking =
+      data[0];
+
+
+    clearMessage();
+
+
+    confirmedBookingNumber.textContent =
+      booking.booking_number;
+
+
+    const hours =
+      selectedDuration / 60;
+
+
+    let bookingTypeDetails;
+
+
+    if (selectedType === "pc") {
+
+      bookingTypeDetails =
+        q === 1
+          ? "1 person"
+          : `${q} personer`;
+
+    } else {
+
+      bookingTypeDetails =
+        q === 1
+          ? "1 PS5-zon"
+          : "2 PS5-zoner";
+    }
+
+
+    confirmedDetails.textContent =
+      `${
+        selectedType === "pc"
+          ? "PC Gaming"
+          : "PS5"
+      } · ${
+        bookingTypeDetails
+      } · ${
+        formatDate(
+          bookingDate.value
+        )
+      } · ${
+        selectedStartTime
+      } · ${
+        hours
+      } ${
+        hours === 1
+          ? "timme"
+          : "timmar"
+      } · ${
+        booking.total_price_sek
+      } kr`;
+
+
+    confirmationModal
+      .classList
+      .add("show");
+  }
+
+
+  typeButtons.forEach(
+    (button) => {
+
+      button.addEventListener(
+        "click",
+        async () => {
+
+          typeButtons.forEach(
+            (el) =>
+              el.classList.remove(
+                "active"
+              )
+          );
+
+
+          button.classList.add(
+            "active"
+          );
+
+
+          selectedType =
+            button.dataset.type;
+
+
+          selectedStartTime =
+            null;
+
+
+          updateQuantityOptions();
+
+          await loadPackages();
+        }
+      );
+    }
+  );
+
+
+  bookingDate.addEventListener(
+    "change",
+    () => {
 
       selectedStartTime = null;
 
       updateSummary();
 
-
-      if (
-        !bookingDate.value ||
-        !selectedDuration
-      ) {
-
-        clearTimes();
-        return;
-      }
-
-
-      if (loadingTimes) {
-        return;
-      }
-
-
-      loadingTimes = true;
-
-
-      timeGrid.innerHTML =
-        `
-        <div class="loading-box">
-          Kontrollerar lediga tider...
-        </div>
-        `;
-
-
-      timesStatus.textContent =
-        "Hämtar aktuell tillgänglighet...";
-
-
-      const possibleTimes =
-        getPossibleStartTimes();
-
-
-      if (!possibleTimes.length) {
-
-        timeGrid.innerHTML =
-          `
-          <div class="loading-box">
-            Inga tider finns för detta paket.
-          </div>
-          `;
-
-        timesStatus.textContent =
-          "Inga möjliga starttider.";
-
-        loadingTimes = false;
-
-        return;
-      }
-
-
-      const requestedQuantity =
-        Number(quantity.value);
-
-
-      const requests =
-        possibleTimes.map(
-          async (time) => {
-
-            const {
-              data,
-              error
-            } =
-              await db.rpc(
-                "get_elysium_availability",
-                {
-                  p_resource_type:
-                    selectedType,
-
-                  p_booking_date:
-                    bookingDate.value,
-
-                  p_start_time:
-                    `${time}:00`,
-
-                  p_duration_minutes:
-                    selectedDuration
-                }
-              );
-
-
-            if (error) {
-
-              return {
-                time,
-                available: 0,
-                error: true
-              };
-            }
-
-
-            const result =
-              data &&
-              data.length
-                ? data[0]
-                : null;
-
-
-            return {
-              time,
-
-              available:
-                result
-                  ? Number(
-                      result
-                        .available_resources
-                    )
-                  : 0,
-
-              error: false
-            };
-          }
-        );
-
-
-      const results =
-        await Promise.all(
-          requests
-        );
-
-
-      timeGrid.innerHTML = "";
-
-
-      let bookableCount = 0;
-
-
-      results.forEach(
-        (result) => {
-
-          const button =
-            document.createElement(
-              "button"
-            );
-
-
-          button.type = "button";
-
-          button.className =
-            "time-btn";
-
-
-          const canBook =
-            !result.error
-            &&
-            result.available
-              >= requestedQuantity;
-
-
-          if (canBook) {
-            bookableCount++;
-          }
-
-
-          button.disabled =
-            !canBook;
-
-
-          button.innerHTML =
-            `
-            <span class="time-clock">
-              ${result.time}
-            </span>
-
-            <span class="time-available">
-              ${
-                result.error
-                  ? "Ej tillgänglig"
-                  : `${result.available} lediga`
-              }
-            </span>
-            `;
-
-
-          if (canBook) {
-
-            button.addEventListener(
-              "click",
-              () => {
-
-                document
-                  .querySelectorAll(
-                    ".time-btn"
-                  )
-                  .forEach(
-                    (el) =>
-                      el.classList.remove(
-                        "active"
-                      )
-                  );
-
-
-                button.classList.add(
-                  "active"
-                );
-
-
-                selectedStartTime =
-                  result.time;
-
-
-                updateSummary();
-              }
-            );
-          }
-
-
-          timeGrid.appendChild(
-            button
-          );
-        }
-      );
-
-
-      if (bookableCount > 0) {
-
-        timesStatus.textContent =
-          `${bookableCount} starttider är tillgängliga för ditt val.`;
-
-      } else {
-
-        timesStatus.textContent =
-          "Det finns inga lediga tider för valt antal platser.";
-      }
-
-
-      loadingTimes = false;
+      loadAvailableTimes();
     }
+  );
 
 
-    // =====================================================
-    // SUMMARY
-    // =====================================================
+  quantity.addEventListener(
+    "change",
+    () => {
 
-    function formatDate(
-      dateString
-    ) {
+      selectedStartTime = null;
 
-      if (!dateString) {
-        return "–";
-      }
+      updateSummary();
 
-
-      const date =
-        new Date(
-          `${dateString}T12:00:00`
-        );
-
-
-      return date.toLocaleDateString(
-        "sv-SE",
-        {
-          weekday: "short",
-          day: "numeric",
-          month: "short",
-          year: "numeric"
-        }
-      );
+      loadAvailableTimes();
     }
+  );
 
 
-    function updateSummary() {
+  customerName.addEventListener(
+    "input",
+    clearMessage
+  );
 
-      summaryType.textContent =
-        selectedType === "pc"
-          ? "PC Gaming"
-          : "PS5";
+  customerEmail.addEventListener(
+    "input",
+    clearMessage
+  );
 
+  customerPhone.addEventListener(
+    "input",
+    clearMessage
+  );
 
-      summaryDate.textContent =
-        formatDate(
-          bookingDate.value
-        );
 
+  bookButton.addEventListener(
+    "click",
+    createBooking
+  );
 
-      summaryTime.textContent =
-        selectedStartTime
-          || "–";
 
-
-      if (selectedDuration) {
-
-        const hours =
-          selectedDuration / 60;
-
-        summaryDuration.textContent =
-          `${hours} ${
-            hours === 1
-              ? "timme"
-              : "timmar"
-          }`;
-
-      } else {
-
-        summaryDuration.textContent =
-          "–";
-      }
-
-
-      const q =
-        Number(
-          quantity.value
-        ) || 1;
-
-
-      if (selectedType === "pc") {
-
-        summaryQuantity.textContent =
-          q === 1
-            ? "1 PC"
-            : `${q} PC`;
-
-      } else {
-
-        summaryQuantity.textContent =
-          q === 1
-            ? "1 PS5-zon"
-            : "2 PS5-zoner";
-      }
-
-
-      if (
-        selectedPackagePrice !== null
-      ) {
-
-        summaryPrice.textContent =
-          `${
-            selectedPackagePrice
-            *
-            q
-          } kr`;
-
-      } else {
-
-        summaryPrice.textContent =
-          "– kr";
-      }
-    }
-
-
-    // =====================================================
-    // MEDDELANDE
-    // =====================================================
-
-    function showMessage(
-      text,
-      type = "error"
-    ) {
-
-      message.textContent =
-        text;
-
-      message.className =
-        `message ${type}`;
-    }
-
-
-    function clearMessage() {
-
-      message.textContent = "";
-      message.className =
-        "message";
-    }
-
-
-    // =====================================================
-    // BOKNING
-    // =====================================================
-
-    async function createBooking() {
-
-      if (bookingInProgress) {
-        return;
-      }
-
-
-      clearMessage();
-
-
-      const name =
-        customerName.value.trim();
-
-      const email =
-        customerEmail.value.trim();
-
-      const phone =
-        customerPhone.value.trim();
-
-      const q =
-        Number(
-          quantity.value
-        );
-
-
-      if (!bookingDate.value) {
-
-        showMessage(
-          "Välj ett datum."
-        );
-
-        return;
-      }
-
-
-      if (!selectedDuration) {
-
-        showMessage(
-          "Välj hur länge du vill spela."
-        );
-
-        return;
-      }
-
-
-      if (!selectedStartTime) {
-
-        showMessage(
-          "Välj en ledig starttid."
-        );
-
-        return;
-      }
-
-
-      if (
-        name.length < 2
-      ) {
-
-        showMessage(
-          "Fyll i ditt namn."
-        );
-
-        customerName.focus();
-
-        return;
-      }
-
-
-      if (
-        !email ||
-        !email.includes("@")
-      ) {
-
-        showMessage(
-          "Fyll i en giltig e-postadress."
-        );
-
-        customerEmail.focus();
-
-        return;
-      }
-
-
-      if (
-        phone.length < 7
-      ) {
-
-        showMessage(
-          "Fyll i ett giltigt telefonnummer."
-        );
-
-        customerPhone.focus();
-
-        return;
-      }
-
-
-      bookingInProgress =
-        true;
-
-
-      bookButton.disabled =
-        true;
-
-      bookButton.textContent =
-        "SKAPAR BOKNING...";
-
-
-      const {
-        data,
-        error
-      } =
-        await db.rpc(
-          "create_elysium_booking",
-          {
-            p_resource_type:
-              selectedType,
-
-            p_booking_date:
-              bookingDate.value,
-
-            p_start_time:
-              `${selectedStartTime}:00`,
-
-            p_duration_minutes:
-              selectedDuration,
-
-            p_quantity:
-              q,
-
-            p_customer_name:
-              name,
-
-            p_customer_email:
-              email,
-
-            p_customer_phone:
-              phone
-          }
-        );
-
-
-      bookingInProgress =
-        false;
-
-
-      bookButton.disabled =
-        false;
-
-      bookButton.textContent =
-        "BEKRÄFTA BOKNING";
-
-
-      if (error) {
-
-        console.error(error);
-
-
-        let errorText =
-          error.message
-          ||
-          "Bokningen kunde inte genomföras.";
-
-
-        if (
-          errorText.includes(
-            "Platserna hann bli bokade"
-          )
-          ||
-          errorText.includes(
-            "tillräckligt många lediga"
-          )
-        ) {
-
-          errorText =
-            "Någon hann boka platsen före dig. Välj en annan tid.";
-        }
-
-
-        showMessage(
-          errorText
-        );
-
-
-        await loadAvailableTimes();
-
-        return;
-      }
-
-
-      if (
-        !data ||
-        !data.length
-      ) {
-
-        showMessage(
-          "Bokningen skapades men bekräftelsen kunde inte hämtas."
-        );
-
-        return;
-      }
-
-
-      const booking =
-        data[0];
-
-
-      clearMessage();
-
-
-      confirmedBookingNumber.textContent =
-        booking.booking_number;
-
-
-      const hours =
-        selectedDuration / 60;
-
-
-      confirmedDetails.textContent =
-        `${
-          selectedType === "pc"
-            ? "PC Gaming"
-            : "PS5"
-        } · ${
-          formatDate(
-            bookingDate.value
-          )
-        } · ${
-          selectedStartTime
-        } · ${
-          hours
-        } ${
-          hours === 1
-            ? "timme"
-            : "timmar"
-        } · ${
-          booking.total_price_sek
-        } kr`;
-
+  modalClose.addEventListener(
+    "click",
+    async () => {
 
       confirmationModal
         .classList
-        .add("show");
+        .remove("show");
+
+
+      customerName.value = "";
+      customerEmail.value = "";
+      customerPhone.value = "";
+
+      selectedStartTime = null;
+
+      updateSummary();
+
+      await loadAvailableTimes();
     }
+  );
 
 
-    // =====================================================
-    // EVENTS
-    // =====================================================
+  confirmationModal.addEventListener(
+    "click",
+    (event) => {
 
-    typeButtons.forEach(
-      (button) => {
-
-        button.addEventListener(
-          "click",
-          async () => {
-
-            typeButtons.forEach(
-              (el) =>
-                el.classList.remove(
-                  "active"
-                )
-            );
-
-
-            button.classList.add(
-              "active"
-            );
-
-
-            selectedType =
-              button.dataset.type;
-
-
-            selectedStartTime =
-              null;
-
-
-            updateQuantityOptions();
-
-            await loadPackages();
-          }
-        );
-      }
-    );
-
-
-    bookingDate.addEventListener(
-      "change",
-      () => {
-
-        selectedStartTime =
-          null;
-
-        updateSummary();
-
-        loadAvailableTimes();
-      }
-    );
-
-
-    quantity.addEventListener(
-      "change",
-      () => {
-
-        selectedStartTime =
-          null;
-
-        updateSummary();
-
-        loadAvailableTimes();
-      }
-    );
-
-
-    customerName.addEventListener(
-      "input",
-      clearMessage
-    );
-
-    customerEmail.addEventListener(
-      "input",
-      clearMessage
-    );
-
-    customerPhone.addEventListener(
-      "input",
-      clearMessage
-    );
-
-
-    bookButton.addEventListener(
-      "click",
-      createBooking
-    );
-
-
-    modalClose.addEventListener(
-      "click",
-      async () => {
+      if (
+        event.target ===
+        confirmationModal
+      ) {
 
         confirmationModal
           .classList
           .remove("show");
-
-
-        customerName.value = "";
-        customerEmail.value = "";
-        customerPhone.value = "";
-
-        selectedStartTime =
-          null;
-
-        updateSummary();
-
-        await loadAvailableTimes();
       }
-    );
-
-
-    confirmationModal.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          event.target ===
-          confirmationModal
-        ) {
-
-          confirmationModal
-            .classList
-            .remove("show");
-        }
-      }
-    );
-
-
-    // =====================================================
-    // START
-    // =====================================================
-
-    async function init() {
-
-      updateQuantityOptions();
-
-      updateSummary();
-
-      await loadPackages();
     }
+  );
 
 
-    init();
-  </script>
+  async function init() {
+
+    updateQuantityOptions();
+
+    updateSummary();
+
+    await loadPackages();
+  }
+
+
+  init();
+</script>
 
 </body>
 </html>
