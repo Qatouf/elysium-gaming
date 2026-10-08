@@ -714,7 +714,45 @@
         font-size: 12px;
       }
     }
-  </style>
+  
+/* ELYSIUM MOBILE POLISH */
+@media(max-width:760px){
+ html,body{max-width:100%;overflow-x:hidden}
+ .topbar-inner{min-height:64px;padding:10px 16px;gap:10px}
+ .logo{max-width:45vw;height:auto;object-fit:contain}
+ .back-link{font-size:11px;white-space:nowrap}
+ .page{width:100%;padding:30px 15px 60px}
+ .hero{padding:20px 0 28px;text-align:left}
+ .hero h1{font-size:clamp(30px,9vw,44px);line-height:1.07}
+ .hero p{font-size:14px;line-height:1.6}
+ .booking-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+ .panel{min-width:0;padding:23px 17px;border-radius:17px}
+ .panel-title{font-size:21px;line-height:1.2}
+ .grid-2,.type-grid,.package-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .type-card{min-width:0;padding:14px 10px}
+ .type-title{font-size:14px}
+ .type-desc{font-size:11px;line-height:1.4}
+ .field{min-width:0}
+ input,select{max-width:100%;min-height:44px;font-size:16px}
+ .time-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .time-grid button{min-width:0}
+ .summary{position:static;top:auto}
+ .summary-box,.price-box{min-width:0}
+ .summary-row{gap:12px}
+ .summary-row>*{min-width:0;overflow-wrap:anywhere}
+ .book-btn{min-height:50px;width:100%}
+ .modal{padding:15px}
+ .modal-card{width:100%;max-height:90dvh;overflow:auto;padding:24px 18px}
+ .booking-number{overflow-wrap:anywhere}
+ .info-strip{display:grid;grid-template-columns:1fr;gap:12px}
+}
+@media(max-width:390px){
+ .grid-2,.type-grid,.package-grid{grid-template-columns:minmax(0,1fr)}
+ .time-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .panel{padding:20px 15px}
+}
+
+</style>
 </head>
 
 <body>
