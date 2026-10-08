@@ -1647,349 +1647,21 @@ footer small {
    TABLET
    ========================================================= */
 
-@media (max-width: 1000px) {
 
-    header {
-        padding:
-            14px 4%;
-    }
-
-    header nav {
-        gap: 17px;
-    }
-
-    header nav a {
-        font-size: 11px;
-    }
-
-    .gaming-grid,
-    .pricing-grid,
-    .food-grid,
-    .events-grid,
-    .contact-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .about-container {
-        grid-template-columns:
-            1fr;
-
-        gap: 45px;
-    }
-
-    .price-card.featured {
-        transform: none;
-    }
-}
 
 
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media (max-width: 700px) {
 
-    header {
-        position: sticky;
-
-        min-height: auto;
-
-        flex-direction: column;
-
-        gap: 10px;
-
-        padding:
-            11px 5%
-            9px;
-    }
-
-    .header-logo-img {
-        width: 175px;
-        max-width: 72vw;
-        height: 44px;
-
-        object-position: center;
-    }
-
-    header nav {
-        width: 100%;
-
-        justify-content: flex-start;
-
-        gap: 17px;
-
-        overflow-x: auto;
-
-        padding:
-            4px 0
-            7px;
-
-        scrollbar-width: none;
-    }
-
-    header nav::-webkit-scrollbar {
-        display: none;
-    }
-
-    header nav a {
-        white-space: nowrap;
-
-        font-size: 10px;
-    }
-
-    header nav a::after {
-        display: none;
-    }
-
-    .hero {
-        min-height: 86vh;
-
-        align-items: flex-end;
-
-        padding:
-            95px 5%
-            65px;
-
-        background-position:
-            58% center;
-    }
-
-    .hero::before {
-        width: 420px;
-        height: 420px;
-
-        right: -190px;
-        top: 42%;
-    }
-
-    .hero .small-title,
-    .hero-eyebrow {
-        font-size: 9px;
-        letter-spacing: 2px;
-
-        margin-bottom: 16px;
-    }
-
-    .hero h1 {
-        font-size:
-            clamp(
-                49px,
-                16vw,
-                69px
-            );
-
-        letter-spacing: -2px;
-
-        margin-bottom: 14px;
-    }
-
-    .tagline {
-        font-size: 20px;
-
-        letter-spacing: 2px;
-    }
-
-    .description {
-        max-width: 94%;
-
-        font-size: 14px;
-        line-height: 1.65;
-
-        margin-bottom: 26px;
-    }
-
-    .buttons {
-        width: 100%;
-
-        flex-direction: column;
-    }
-
-    .btn,
-    .primary-btn,
-    .secondary-btn {
-        width: 100%;
-
-        min-height: 50px;
-    }
-
-    .hero-stats {
-        display: grid;
-        grid-template-columns:
-            repeat(3, 1fr);
-
-        width: 100%;
-
-        gap: 7px;
-
-        margin-top: 28px;
-    }
-
-    .hero-stat {
-        min-width: 0;
-
-        padding:
-            12px 7px;
-    }
-
-    .hero-stat strong {
-        font-size: 16px;
-    }
-
-    .hero-stat span {
-        font-size: 7px;
-        letter-spacing: .8px;
-    }
-
-    .gaming-section,
-    .pricing-section,
-    .food-section,
-    .events-section,
-    .about-section,
-    .contact-section,
-    .faq-section {
-        padding:
-            78px 5%;
-    }
-
-    .section-heading,
-    .pricing-header,
-    .food-header,
-    .events-header,
-    .contact-header,
-    .faq-header {
-        margin-bottom: 38px;
-    }
-
-    .section-heading h2,
-    .pricing-header h2,
-    .food-header h2,
-    .events-header h2,
-    .contact-header h2,
-    .faq-header h2,
-    .about-left h2 {
-        font-size: 34px;
-
-        letter-spacing: -1px;
-    }
-
-    .section-heading > p:last-child,
-    .pricing-header > p:last-child,
-    .food-header > p:last-child,
-    .events-header > p:last-child,
-    .contact-header > p:last-child,
-    .faq-header > p:last-child {
-        font-size: 14px;
-    }
-
-    .gaming-card,
-    .price-card,
-    .food-card,
-    .event-card,
-    .contact-card {
-        min-height: auto;
-
-        padding: 26px 22px;
-    }
-
-    .gaming-card h3,
-    .food-card h3,
-    .event-card h3 {
-        font-size: 23px;
-    }
-
-    .price {
-        font-size: 52px;
-    }
-
-    .about-right {
-        grid-template-columns:
-            repeat(2, 1fr);
-
-        gap: 9px;
-    }
-
-    .about-stat {
-        min-height: 130px;
-
-        padding: 18px 10px;
-    }
-
-    .about-stat strong {
-        font-size: 24px;
-    }
-
-    .about-stat span {
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
-
-    .about-lead {
-        font-size: 17px;
-    }
-
-    .about-text {
-        font-size: 14px;
-    }
-
-    .footer-links {
-        gap:
-            13px
-            18px;
-    }
-
-    .menu-page {
-        padding:
-            65px 5%
-            40px;
-    }
-
-    .menu-category {
-        padding:
-            22px 18px;
-    }
-
-    .menu-item {
-        padding:
-            16px 0;
-    }
-}
 
 
 /* =========================================================
    SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 420px) {
 
-    .hero h1 {
-        font-size: 46px;
-    }
-
-    .tagline {
-        font-size: 18px;
-    }
-
-    .section-heading h2,
-    .pricing-header h2,
-    .food-header h2,
-    .events-header h2,
-    .contact-header h2,
-    .faq-header h2,
-    .about-left h2 {
-        font-size: 30px;
-    }
-
-    .about-right {
-        grid-template-columns:
-            1fr;
-    }
-
-    .hero-stats {
-        grid-template-columns:
-            1fr;
-    }
-}
 /* =========================================================
    FIX: PREMIUM HEADER
    ========================================================= */
@@ -2168,762 +1840,30 @@ footer small {
 
 /* TABLET */
 
-@media (max-width: 1050px) {
 
-    .header-inner {
-        padding: 0 22px;
-        gap: 20px;
-    }
-
-    .logo-link .header-logo-img {
-        width: 165px;
-    }
-
-    .desktop-nav {
-        gap: 18px;
-    }
-
-    .desktop-nav a {
-        font-size: 10px;
-    }
-
-    .header-book-btn {
-        padding: 0 15px;
-        font-size: 10px;
-    }
-}
 
 
 /* MOBILE */
 
-@media (max-width: 760px) {
 
-    .site-header {
-        position: sticky;
-    }
-
-    .header-inner {
-        min-height: 68px;
-
-        padding: 0 16px;
-
-        flex-direction: row;
-        gap: 15px;
-    }
-
-    .logo-link .header-logo-img {
-        width: 165px;
-        height: 46px;
-    }
-
-    .desktop-nav {
-        display: none;
-    }
-
-    .header-actions {
-        margin-left: auto;
-        gap: 10px;
-    }
-
-    .header-book-btn {
-        min-height: 38px;
-        padding: 0 13px;
-
-        font-size: 9px;
-    }
-
-    .mobile-menu-button {
-        width: 38px;
-        height: 38px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: 5px;
-
-        border: 1px solid rgba(255,255,255,.10);
-        border-radius: 9px;
-
-        background: rgba(255,255,255,.035);
-
-        cursor: pointer;
-    }
-
-    .mobile-menu-button span {
-        display: block;
-
-        width: 17px;
-        height: 2px;
-
-        border-radius: 999px;
-
-        background: #ffffff;
-    }
-
-    .mobile-nav {
-        display: none;
-
-        width: 100%;
-
-        padding: 12px 16px 18px;
-
-        flex-direction: column;
-        align-items: stretch;
-
-        gap: 5px;
-
-        background: rgba(5,7,10,.98);
-
-        border-top: 1px solid rgba(255,255,255,.06);
-    }
-
-    .mobile-nav.active {
-        display: flex;
-    }
-
-    .mobile-nav a {
-        padding: 12px 10px;
-
-        color: #c0c8d5;
-        text-decoration: none;
-
-        font-size: 12px;
-        font-weight: 700;
-
-        border-radius: 7px;
-    }
-
-    .mobile-nav a:hover {
-        color: #ffffff;
-        background: rgba(0,132,255,.08);
-    }
-
-    .mobile-book-link {
-        margin-top: 7px;
-
-        text-align: center;
-
-        border: 1px solid rgba(0,230,199,.40);
-
-        color: #00e6c7 !important;
-    }
-}
 /* =========================================================
    ELYSIUM — MOBILE PREMIUM FIX
    ========================================================= */
 
-@media (max-width: 760px) {
 
-    /* HERO */
-
-    .hero {
-        min-height: auto;
-        padding: 72px 20px 48px;
-        align-items: flex-start;
-        background-position: 58% center;
-    }
-
-    .hero-container {
-        width: 100%;
-        display: block;
-    }
-
-    .hero-content {
-        width: 100%;
-        max-width: 100%;
-        padding-top: 60px;
-    }
-
-    .status-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-
-        margin-bottom: 12px;
-
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: 1.2px;
-    }
-
-    .hero h1 {
-        font-size: clamp(48px, 14vw, 66px);
-        line-height: .91;
-        letter-spacing: -2.5px;
-        margin-bottom: 22px;
-    }
-
-    .hero-lead {
-        font-size: 18px;
-        margin-bottom: 5px;
-    }
-
-    .hero-description {
-        max-width: 100%;
-        margin-bottom: 24px;
-
-        font-size: 15px;
-        line-height: 1.55;
-
-        color: #c4ccd8;
-    }
-
-
-    /* HERO BUTTONS */
-
-    .hero-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-
-        width: 100%;
-    }
-
-    .hero-buttons .btn {
-        width: 100%;
-        min-height: 48px;
-        padding: 0 12px;
-
-        font-size: 10px;
-        letter-spacing: 1.1px;
-    }
-
-
-    /* HERO STATS */
-
-    .hero-stats {
-        display: grid !important;
-        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-
-        gap: 8px !important;
-
-        width: 100%;
-        margin-top: 24px;
-    }
-
-    .hero-stat {
-        min-width: 0 !important;
-        min-height: 88px !important;
-
-        padding: 12px 10px !important;
-
-        display: flex !important;
-        align-items: flex-start !important;
-        justify-content: flex-start !important;
-        gap: 7px !important;
-
-        border-radius: 12px !important;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(13,22,36,.92),
-                rgba(7,12,20,.94)
-            ) !important;
-    }
-
-    .hero-stat .stat-icon {
-        font-size: 7px;
-        letter-spacing: .5px;
-        color: #8490a2;
-        padding-top: 3px;
-    }
-
-    .hero-stat div {
-        min-width: 0;
-    }
-
-    .hero-stat strong {
-        display: block;
-
-        margin: 0 0 4px;
-
-        font-size: 16px !important;
-        line-height: 1;
-
-        color: #00e6c7;
-    }
-
-    .hero-stat small {
-        display: block;
-
-        font-size: 8px !important;
-        line-height: 1.25;
-
-        color: #aeb8c7;
-    }
-
-
-    /* DESKTOP HERO VISUAL BORT PÅ MOBIL */
-
-    .hero-visual {
-        display: none !important;
-    }
-
-    .scroll-indicator {
-        display: none !important;
-    }
-
-
-    /* EXPERIENCE STRIP */
-
-    .experience-strip {
-        width: 100%;
-
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-
-        padding: 0 !important;
-
-        background: #07101f;
-
-        border-top: 1px solid rgba(0,230,199,.12);
-        border-bottom: 1px solid rgba(0,132,255,.15);
-    }
-
-    .experience-item {
-        min-height: 72px;
-
-        padding: 15px 16px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-
-        border-right: 1px solid rgba(255,255,255,.06);
-        border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-
-    .experience-item span {
-        margin-bottom: 5px;
-
-        color: #00e6c7;
-
-        font-size: 8px;
-        font-weight: 900;
-        letter-spacing: 1px;
-    }
-
-    .experience-item strong {
-        color: #eaf0f8;
-
-        font-size: 9px;
-        line-height: 1.25;
-        letter-spacing: .6px;
-    }
-
-    .experience-divider {
-        display: none !important;
-    }
-
-
-    /* ALL SECTIONS */
-
-    .section {
-        padding: 72px 20px !important;
-    }
-
-    .section-shell {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .section-header {
-        display: block !important;
-        margin-bottom: 30px;
-    }
-
-    .section-label {
-        margin-bottom: 13px;
-
-        font-size: 9px;
-        letter-spacing: 2.5px;
-    }
-
-    .section-header h2,
-    .center-heading h2,
-    .about-content h2 {
-        font-size: 37px !important;
-        line-height: .98 !important;
-        letter-spacing: -1.4px !important;
-    }
-
-    .section-description,
-    .center-heading > p:last-child {
-        max-width: 100%;
-
-        margin-top: 13px;
-
-        font-size: 14px !important;
-        line-height: 1.55 !important;
-
-        color: #9da8b8;
-    }
-
-
-    /* GAMING CARDS */
-
-    .gaming-grid,
-    .pricing-grid,
-    .food-grid,
-    .events-grid,
-    .contact-grid {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 14px !important;
-    }
-
-    .gaming-card,
-    .price-card,
-    .food-card,
-    .event-card,
-    .contact-card {
-        width: 100% !important;
-        min-height: 0 !important;
-
-        padding: 24px !important;
-
-        border-radius: 18px !important;
-    }
-
-    .gaming-card-large {
-        grid-column: auto !important;
-        grid-row: auto !important;
-    }
-
-    .card-top {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-        margin-bottom: 24px;
-    }
-
-    .card-index,
-    .card-category {
-        font-size: 9px;
-        letter-spacing: 1.2px;
-    }
-
-    .card-icon {
-        margin-bottom: 15px;
-    }
-
-    .gaming-card h3,
-    .food-card h3,
-    .event-card h3 {
-        font-size: 24px !important;
-        line-height: 1.05;
-    }
-
-    .gaming-card p,
-    .food-card p,
-    .event-card p {
-        font-size: 13px;
-        line-height: 1.65;
-    }
-
-
-    /* ABOUT */
-
-    .about-container {
-        display: block !important;
-    }
-
-    .about-dashboard {
-        margin-top: 38px;
-
-        padding: 20px;
-
-        border: 1px solid rgba(0,132,255,.18);
-        border-radius: 18px;
-
-        background:
-            linear-gradient(
-                145deg,
-                rgba(13,22,36,.92),
-                rgba(6,11,18,.96)
-            );
-    }
-
-    .dashboard-header {
-        display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-
-        padding-bottom: 15px;
-        margin-bottom: 14px;
-
-        border-bottom: 1px solid rgba(255,255,255,.07);
-
-        font-size: 8px;
-        letter-spacing: 1.3px;
-    }
-
-    .dashboard-live {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-
-        color: #00e6c7;
-    }
-
-    .dashboard-live i {
-        width: 6px;
-        height: 6px;
-
-        border-radius: 50%;
-        background: #00e6c7;
-
-        box-shadow: 0 0 9px rgba(0,230,199,.8);
-    }
-
-    .dashboard-grid {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-
-        gap: 8px;
-    }
-
-    .dashboard-card {
-        min-height: 105px;
-
-        padding: 15px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        border: 1px solid rgba(255,255,255,.07);
-        border-radius: 12px;
-
-        background: rgba(255,255,255,.025);
-    }
-
-    .dashboard-card small {
-        margin-bottom: 8px;
-
-        color: #748093;
-
-        font-size: 7px;
-        letter-spacing: 1px;
-    }
-
-    .dashboard-card strong {
-        display: block;
-
-        margin-bottom: 5px;
-
-        color: #ffffff;
-
-        font-size: 22px;
-        line-height: 1;
-    }
-
-    .dashboard-card span {
-        color: #8d98aa;
-        font-size: 9px;
-    }
-
-    .dashboard-status {
-        margin-top: 10px;
-        padding: 14px;
-
-        border-radius: 11px;
-
-        background: rgba(0,230,199,.035);
-        border: 1px solid rgba(0,230,199,.10);
-    }
-
-    .dashboard-status > div:first-child {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        margin-bottom: 10px;
-    }
-
-    .dashboard-status span {
-        color: #8792a2;
-
-        font-size: 8px;
-        letter-spacing: 1px;
-    }
-
-    .dashboard-status strong {
-        color: #00e6c7;
-
-        font-size: 10px;
-        letter-spacing: 1px;
-    }
-
-    .status-bar {
-        width: 100%;
-        height: 4px;
-
-        overflow: hidden;
-
-        border-radius: 999px;
-
-        background: rgba(255,255,255,.06);
-    }
-
-    .status-bar span {
-        display: block;
-
-        width: 100%;
-        height: 100%;
-
-        background:
-            linear-gradient(
-                90deg,
-                #00e6c7,
-                #0084ff
-            );
-    }
-
-
-    /* CONTACT */
-
-    .contact-card {
-        padding: 26px 22px !important;
-    }
-
-    .contact-index {
-        display: block;
-
-        margin-bottom: 26px;
-
-        color: #00e6c7;
-
-        font-size: 9px;
-        font-weight: 900;
-        letter-spacing: 2px;
-    }
-
-    .contact-card small {
-        display: block;
-
-        margin-bottom: 8px;
-
-        color: #8d98aa;
-
-        font-size: 9px;
-        letter-spacing: 1.5px;
-    }
-
-    .contact-card strong {
-        font-size: 22px !important;
-        line-height: 1.2;
-    }
-
-    .contact-card p {
-        margin-top: 8px;
-
-        font-size: 13px;
-    }
-}
 
 
 /* EXTRA SMALL PHONES */
 
-@media (max-width: 390px) {
 
-    .logo-link .header-logo-img {
-        width: 145px;
-    }
-
-    .header-book-btn {
-        padding: 0 10px;
-        font-size: 8px;
-    }
-
-    .hero {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .hero h1 {
-        font-size: 44px;
-    }
-
-    .hero-buttons {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-stat {
-        padding: 10px 7px !important;
-    }
-
-    .hero-stat strong {
-        font-size: 14px !important;
-    }
-
-    .section {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-}
 
 
 /* =========================================================
    ELYSIUM — RESPONSIVE HOMEPAGE REFINEMENT (2026-10)
    Scoped to homepage components; preserves existing design.
    ========================================================= */
-@media (max-width: 760px) {
-  html, body { width: 100%; max-width: 100%; overflow-x: clip; }
-  .site-header { position: sticky; top: 0; width: 100%; z-index: 2000; }
-  .header-inner { width: 100%; min-width: 0; }
-  .hero { padding: 44px 18px 54px; min-height: 0; background-position: 58% center; }
-  .hero-container, .hero-content { width: 100%; min-width: 0; max-width: 100%; }
-  .hero-content { padding-top: 12px; }
-  .hero h1 { font-size: clamp(42px, 11.5vw, 62px); line-height: .98; letter-spacing: -.045em; overflow-wrap: normal; }
-  .hero h1 span { display: block; }
-  .hero-lead { font-size: clamp(17px, 4.7vw, 21px); line-height: 1.35; }
-  .hero-description { font-size: 14px; line-height: 1.65; max-width: 36rem; }
-  .hero-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .hero-buttons .btn { min-width: 0; width: 100%; padding: 10px 12px; min-height: 52px; font-size: 10px; letter-spacing: .6px; text-align: center; white-space: normal; }
-  .hero-stats { display: grid !important; grid-template-columns: repeat(3, minmax(0,1fr)) !important; gap: 9px !important; }
-  .hero-stat { min-width: 0 !important; min-height: 92px; padding: 13px 9px !important; flex-direction: column; gap: 5px; }
-  .hero-stat strong { font-size: clamp(14px, 4vw, 19px) !important; overflow-wrap: anywhere; }
-  .hero-stat small { font-size: 9px !important; line-height: 1.3; overflow-wrap: anywhere; }
-  .hero-visual, .scroll-indicator { display: none !important; }
-  .experience-strip { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 0 !important; }
-  .experience-item { min-width: 0; padding: 18px 16px; min-height: 74px; }
-  .experience-item strong { font-size: 11px; line-height: 1.4; }
-  .experience-divider { display: none !important; }
-  .section, .gaming-section, .pricing-section, .food-section, .events-section, .about-section, .contact-section, .faq-section { padding: 68px 18px !important; }
-  .section-shell { width: 100%; min-width: 0; max-width: 100%; }
-  .section-header, .center-heading { margin-bottom: 30px; }
-  .section-header h2, .center-heading h2, .about-content h2 { font-size: clamp(30px, 9vw, 42px) !important; line-height: 1.06 !important; overflow-wrap: break-word; }
-  .section-description, .center-heading > p:last-child { font-size: 14px !important; line-height: 1.65 !important; }
-  .gaming-grid, .pricing-grid, .food-grid, .events-grid, .contact-grid { grid-template-columns: minmax(0,1fr) !important; gap: 14px !important; }
-  .gaming-card, .price-card, .food-card, .event-card, .contact-card { width: 100%; min-width: 0; padding: 23px !important; }
-  .gaming-card-large { grid-column: auto !important; grid-row: auto !important; }
-  .feature-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-  .feature-tags span { max-width: 100%; }
-  .about-container { display: grid !important; grid-template-columns: minmax(0,1fr) !important; gap: 30px; }
-  .about-dashboard { min-width: 0; width: 100%; }
-  .dashboard-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
-  .dashboard-card { min-width: 0; }
-  .dashboard-card strong { overflow-wrap: anywhere; }
-  .contact-card strong { overflow-wrap: anywhere; }
-}
-@media (max-width: 390px) {
-  .header-inner { padding: 0 12px; gap: 8px; }
-  .logo-link .header-logo-img { width: 135px; }
-  .header-actions { gap: 7px; }
-  .header-book-btn { padding: 0 9px; }
-  .hero { padding-left: 15px; padding-right: 15px; }
-  .hero h1 { font-size: clamp(39px, 11vw, 45px); }
-  .hero-buttons { grid-template-columns: minmax(0,1fr); }
-  .hero-stats { grid-template-columns: repeat(3,minmax(0,1fr)) !important; }
-  .hero-stat { padding: 10px 6px !important; }
-  .section { padding-left: 15px !important; padding-right: 15px !important; }
-}
+
+
 
 
 /* =========================================================
@@ -2999,17 +1939,7 @@ footer small {
 .event-meta span:last-child { color: #9daac0; }
 .event-body h3 { font-size: 26px; margin-bottom: 12px; }
 .event-body p { color: #a0acbd; line-height: 1.7; font-size: 14px; }
-@media(max-width:760px) {
-  .center-heading { margin-bottom: 30px; }
-  .price-card { min-height: 330px !important; }
-  .price-card-top { margin-bottom: 20px; }
-  .price-value strong { font-size: 58px; }
-  .event-card { padding: 0 !important; }
-  .event-image { min-height: 150px; }
-  .event-body { padding: 22px; }
-  .event-body h3 { font-size: 23px; }
-  .hero-buttons .btn { letter-spacing: .3px; }
-}
+
 
 
 /* =========================================================
@@ -3054,26 +1984,132 @@ footer small {
 .contact-card { min-width: 0; overflow-wrap: anywhere; }
 .contact-index { display: block; color: #00e6c7; font-size: 11px; font-weight: 900; letter-spacing: 2px; margin-bottom: 25px; }
 .contact-card small { display: block; color: #8e9fb3; font-size: 10px; font-weight: 900; letter-spacing: 1.4px; margin-bottom: 12px; }
-@media (max-width: 1000px) {
- .section-header { align-items: flex-start; flex-direction: column; gap: 12px; }
- .section-description { flex: auto; max-width: 650px; }
- .gaming-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
- .gaming-card-large { grid-column: 1 / -1; }
+
+
+
+
+/* =========================================================
+   ELYSIUM RESPONSIVE SYSTEM — ONE SOURCE OF TRUTH
+   ========================================================= */
+@media (max-width: 1100px) {
+  .header-inner { padding-inline: 22px; gap: 16px; }
+  .desktop-nav { gap: 14px; }
+  .desktop-nav a { font-size: 11px; }
+  .logo-link .header-logo-img { width: 165px; max-width: none; }
+  .gaming-grid, .pricing-grid, .food-grid, .events-grid, .contact-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .gaming-card-large { grid-column: 1 / -1; }
+  .about-container { grid-template-columns: 1fr; gap: 32px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .section-description { flex: none; max-width: 660px; }
 }
 @media (max-width: 760px) {
- .section-header { gap: 12px; margin-bottom: 28px; }
- .section-header h2, .about-content h2 { font-size: clamp(32px,9vw,40px) !important; line-height: 1.06 !important; }
- .section-description { font-size: 14px; }
- .gaming-grid { grid-template-columns: minmax(0,1fr) !important; gap: 14px; }
- .gaming-card-large { grid-column: auto; }
- .gaming-card { min-height: 0; padding: 24px !important; }
- .card-top { margin-bottom: 22px; }
- .card-icon { width: 50px; height: 50px; margin-bottom: 18px; }
- .gaming-card .feature-tags { margin-top: 0; padding-top: 0; }
- .about-dashboard { padding: 18px; margin-top: 28px; }
- .dashboard-card { min-height: 106px; padding: 14px; }
- .dashboard-card strong { font-size: 24px; }
- .dashboard-card small { font-size: 9px; }
- .dashboard-card span { font-size: 10px; }
- .contact-card strong { overflow-wrap: anywhere; }
+  html { scroll-padding-top: 76px; }
+  body { overflow-x: hidden; }
+  .site-header { position: sticky; top: 0; z-index: 2000; width: 100%; min-height: 0; padding: 0; }
+  .header-inner { width: 100%; min-height: 68px; padding: 0 15px; display: flex; flex-direction: row; align-items: center; gap: 10px; }
+  .logo-link { flex: 0 1 auto; min-width: 0; }
+  .logo-link .header-logo-img { display: block; width: clamp(120px,36vw,160px); max-width: 100%; height: 45px; object-fit: contain; }
+  .desktop-nav { display: none; }
+  .header-actions { margin-left: auto; display: flex; align-items: center; flex-shrink: 0; gap: 8px; }
+  .header-book-btn { min-height: 38px; padding: 0 11px; font-size: 10px; letter-spacing: .5px; white-space: nowrap; }
+  .mobile-menu-button { display: flex; width: 40px; height: 40px; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border: 1px solid rgba(255,255,255,.17); border-radius: 10px; background: #101a29; cursor: pointer; }
+  .mobile-menu-button span { display: block; width: 18px; height: 2px; border-radius: 4px; background: #f7f9fc; }
+  .mobile-nav { display: none; width: 100%; padding: 10px 15px 17px; flex-direction: column; gap: 2px; background: rgba(5,9,16,.99); border-top: 1px solid rgba(255,255,255,.08); max-height: calc(100dvh - 68px); overflow-y: auto; }
+  .mobile-nav.active { display: flex; }
+  .mobile-nav a { display: block; padding: 12px 13px; border-radius: 9px; text-decoration: none; color: #dbe5f1; font-size: 13px; font-weight: 750; }
+  .mobile-nav a:hover, .mobile-nav a:focus-visible { background: rgba(0,132,255,.13); color: #fff; }
+  .mobile-book-link { border: 1px solid rgba(0,230,199,.35); color: #00e6c7 !important; text-align: center; margin-top: 5px; }
+  .hero { min-height: 0; display: block; padding: 58px 18px 48px; background-position: 60% center; }
+  .hero::before { width: 340px; height: 340px; right: -200px; top: 35%; }
+  .hero-container, .hero-content { display: block; width: 100%; max-width: 100%; min-width: 0; }
+  .hero-content { padding: 0; }
+  .status-pill { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; margin-bottom: 19px; font-size: 10px; letter-spacing: 1.2px; }
+  .status-dot { display: inline-block; width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: #00e6c7; box-shadow: 0 0 10px #00e6c7; }
+  .hero h1 { font-size: clamp(40px,11.3vw,65px); line-height: .96; letter-spacing: -.055em; margin-bottom: 20px; max-width: 100%; }
+  .hero h1 span { display: block; }
+  .hero-lead { color: #f1f7ff; font-size: 19px; font-weight: 750; line-height: 1.35; margin-bottom: 10px; }
+  .hero-description { max-width: 38rem; color: #bdc9d8; font-size: 14px; line-height: 1.7; margin-bottom: 25px; }
+  .hero-buttons { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; width: 100%; }
+  .hero-buttons .btn { display: flex; width: 100%; min-width: 0; min-height: 51px; padding: 10px 11px; font-size: 10px; letter-spacing: .4px; line-height: 1.25; text-align: center; white-space: normal; }
+  .hero-buttons .btn-arrow { margin-left: 7px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); width: 100%; gap: 8px; margin-top: 24px; }
+  .hero-stat { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; min-width: 0; min-height: 92px; padding: 13px 9px; border-radius: 12px; }
+  .hero-stat .stat-icon { color: #a0b1c6; font-size: 9px; font-weight: 850; letter-spacing: .5px; }
+  .hero-stat div { min-width: 0; }
+  .hero-stat strong { display: block; color: #00e6c7; font-size: clamp(14px,4vw,19px); line-height: 1.1; overflow-wrap: anywhere; }
+  .hero-stat small { display: block; color: #b0bbca; font-size: 9px; line-height: 1.3; overflow-wrap: anywhere; }
+  .hero-visual, .scroll-indicator { display: none; }
+  .experience-strip { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0; padding: 0; border-top: 1px solid rgba(0,230,199,.16); border-bottom: 1px solid rgba(0,132,255,.18); background: #0a1422; }
+  .experience-divider { display: none; }
+  .experience-item { min-width: 0; min-height: 76px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; padding: 15px 17px; border-right: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); }
+  .experience-item span { color: #00e6c7; font-size: 10px; font-weight: 900; }
+  .experience-item strong { color: #f2f7ff; font-size: 11px; line-height: 1.3; letter-spacing: .4px; }
+  .section, .gaming-section, .pricing-section, .food-section, .events-section, .about-section, .contact-section, .faq-section { padding: 70px 18px; }
+  .section-shell { width: 100%; max-width: 100%; min-width: 0; }
+  .section-header { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-bottom: 29px; }
+  .section-header > div { min-width: 0; width: 100%; }
+  .section-header h2, .center-heading h2, .about-content h2 { font-size: clamp(32px,9vw,42px); line-height: 1.06; letter-spacing: -.04em; overflow-wrap: break-word; }
+  .center-heading { max-width: 100%; margin-bottom: 29px; }
+  .section-label { font-size: 10px; letter-spacing: 2px; }
+  .section-description, .center-heading > p:last-child { flex: none; max-width: 100%; font-size: 14px; line-height: 1.65; }
+  .gaming-grid, .pricing-grid, .food-grid, .events-grid, .contact-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 14px; }
+  .gaming-card, .price-card, .food-card, .event-card, .contact-card { width: 100%; min-width: 0; min-height: 0; border-radius: 17px; }
+  .gaming-card { padding: 24px; }
+  .gaming-card-large { grid-column: auto; grid-row: auto; }
+  .card-top { margin-bottom: 20px; }
+  .card-icon { width: 52px; height: 52px; margin-bottom: 18px; }
+  .gaming-card h3, .food-card h3 { font-size: 23px; line-height: 1.15; }
+  .gaming-card p, .food-card p { font-size: 14px; line-height: 1.65; }
+  .gaming-card .feature-tags { margin-top: 20px; padding-top: 0; }
+  .feature-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+  .feature-tags span { max-width: 100%; font-size: 9px; }
+  .price-card { padding: 25px 23px; min-height: 320px; }
+  .price-card-top { margin-bottom: 18px; }
+  .price-value strong { font-size: 60px; }
+  .popular-badge { top: 10px; right: 12px; }
+  .price-card.featured .price-card-top { padding-top: 19px; }
+  .food-card { padding: 24px; }
+  .event-card { padding: 0; }
+  .event-image { min-height: 148px; }
+  .event-body { padding: 23px; }
+  .event-body h3 { font-size: 23px; }
+  .event-meta { gap: 6px; }
+  .section-cta { margin-top: 24px; }
+  .about-container { display: grid; grid-template-columns: minmax(0,1fr); gap: 30px; }
+  .about-content { min-width: 0; }
+  .about-lead { font-size: 17px; }
+  .about-text { font-size: 14px; }
+  .about-dashboard { width: 100%; min-width: 0; margin-top: 0; padding: 18px; border-radius: 17px; }
+  .dashboard-header { font-size: 9px; letter-spacing: .5px; gap: 6px; }
+  .dashboard-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+  .dashboard-card { min-width: 0; min-height: 104px; padding: 13px; }
+  .dashboard-card small { font-size: 9px; letter-spacing: .5px; }
+  .dashboard-card strong { font-size: clamp(19px,6vw,26px); overflow-wrap: anywhere; }
+  .dashboard-card span { font-size: 10px; }
+  .dashboard-status { padding: 13px; }
+  .contact-card { padding: 24px; overflow-wrap: anywhere; }
+  .contact-card strong { font-size: 20px; }
+  .faq-item summary { padding: 18px 45px 18px 18px; }
+  .faq-item p { padding: 0 18px 18px; }
+  footer { padding: 55px 18px 30px; }
+  .footer-links { gap: 14px 20px; }
+  .menu-page { padding: 72px 18px 40px; }
+  .menu-category { padding: 22px 18px; }
+  .menu-item { gap: 12px; }
+}
+@media (max-width: 390px) {
+  .header-inner { padding-inline: 11px; gap: 6px; }
+  .logo-link .header-logo-img { width: 125px; }
+  .header-actions { gap: 6px; }
+  .header-book-btn { padding-inline: 8px; font-size: 9px; }
+  .mobile-menu-button { width: 37px; height: 37px; }
+  .hero { padding-inline: 15px; }
+  .hero h1 { font-size: clamp(38px,10.9vw,43px); }
+  .hero-buttons { grid-template-columns: 1fr; }
+  .hero-stat { padding-inline: 7px; }
+  .hero-stat small { font-size: 8px; }
+  .section, .gaming-section, .pricing-section, .food-section, .events-section, .about-section, .contact-section, .faq-section { padding-inline: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
