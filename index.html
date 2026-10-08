@@ -849,3 +849,26 @@
 
                         <p>
                             Boka din gamingtid direkt via hemsidan.
+
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    const menuButton = document.getElementById('mobileMenuButton');
+    const mobileNav = document.getElementById('mobileNav');
+    if (menuButton && mobileNav) {
+      menuButton.addEventListener('click', () => {
+        const opened = mobileNav.classList.toggle('active');
+        menuButton.setAttribute('aria-expanded', String(opened));
+        menuButton.setAttribute('aria-label', opened ? 'Stäng meny' : 'Öppna meny');
+      });
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        menuButton.setAttribute('aria-expanded', 'false');
+      }));
+    }
+    </script>
+</body>
+</html>
