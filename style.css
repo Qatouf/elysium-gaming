@@ -2924,3 +2924,89 @@ footer small {
   .hero-stat { padding: 10px 6px !important; }
   .section { padding-left: 15px !important; padding-right: 15px !important; }
 }
+
+
+/* =========================================================
+   ELYSIUM — PREMIUM PRICING, EVENTS & CTA COMPONENTS
+   ========================================================= */
+.hero-buttons .btn-primary,
+.about-button.btn-primary {
+  border: 1px solid rgba(0,230,199,.65);
+  background: linear-gradient(115deg,#00e6c7,#0084ff);
+  color: #031016;
+  box-shadow: 0 12px 35px rgba(0,132,255,.22);
+}
+.hero-buttons .btn-secondary,
+.section-cta .btn-secondary {
+  border: 1px solid rgba(0,230,199,.48);
+  background: rgba(4,15,25,.72);
+  color: #eefcff;
+}
+.hero-buttons .btn-primary:hover,
+.about-button.btn-primary:hover { box-shadow: 0 16px 42px rgba(0,230,199,.24); }
+.btn-arrow { margin-left: 9px; font-size: 17px; }
+.center-heading { max-width: 760px; margin: 0 auto 54px; text-align: center; }
+.center-heading h2 { font-size: clamp(36px,5vw,66px); line-height: 1.04; letter-spacing: -.045em; margin: 12px 0 18px; }
+.center-heading h2 span, .section-header h2 span, .about-content h2 span {
+  color: #00e6c7;
+  background: linear-gradient(95deg,#00e6c7,#0084ff,#685cff);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.center-heading > p:last-child { color: #a4afc0; line-height: 1.7; font-size: 16px; }
+.section-note { color: #8290a3; font-size: 12px; line-height: 1.6; margin-top: 25px; }
+.center-note { text-align: center; }
+.feature-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.feature-tags span {
+  border: 1px solid rgba(0,230,199,.20); border-radius: 6px;
+  padding: 7px 10px; font-size: 10px; font-weight: 800; letter-spacing: .7px;
+  color: #a9fff2; background: rgba(0,230,199,.045);
+}
+.price-card { padding: 36px 28px; min-height: 370px; justify-content: flex-start; gap: 0; }
+.price-card-top { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 33px; }
+.price-card-top span { color: #00e6c7; font-weight: 900; font-size: 11px; }
+.price-card-top small { color: #8695a9; font-size: 10px; letter-spacing: 1.3px; font-weight: 800; }
+.price-card h3 { margin: 0 0 18px; font-size: 25px; font-weight: 900; }
+.price-value { display: flex; justify-content: center; align-items: baseline; gap: 9px; margin-bottom: 20px; }
+.price-value strong { color: #fff; font-size: clamp(55px,5.5vw,78px); line-height: 1; letter-spacing: -.07em; font-weight: 950; }
+.price-value span { color: #00e6c7; font-size: 13px; font-weight: 900; letter-spacing: 1.2px; }
+.price-card > p { color: #a1aec0; font-size: 14px; line-height: 1.65; margin-bottom: 24px; }
+.price-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 100%; min-height: 48px; margin-top: auto; padding: 12px 16px;
+  border: 1px solid rgba(0,230,199,.45); border-radius: 9px;
+  color: #eafffc; text-decoration: none; font-size: 11px; font-weight: 900;
+  letter-spacing: 1px; background: rgba(0,230,199,.075);
+  transition: background .2s, transform .2s;
+}
+.price-button:hover { background: rgba(0,230,199,.20); transform: translateY(-2px); }
+.price-card.featured .price-button { background: linear-gradient(100deg,#00e6c7,#0084ff); color: #031016; }
+.popular-badge {
+  position: absolute; right: 16px; top: 13px; border-radius: 999px;
+  padding: 7px 10px; color: #031016; background: #00e6c7;
+  font-size: 9px; font-weight: 900; letter-spacing: .6px;
+}
+.price-card.featured .price-card-top { padding-top: 18px; }
+.section-cta { display: flex; justify-content: center; margin-top: 32px; }
+.food-icon { display: inline-flex; margin-bottom: 16px; color: #00e6c7; font-size: 11px; font-weight: 900; letter-spacing: 2px; }
+.event-card { padding: 0; min-height: 0; display: flex; flex-direction: column; }
+.event-image { position: relative; min-height: 175px; background: radial-gradient(circle at 65% 35%,rgba(0,230,199,.16),transparent 45%),linear-gradient(135deg,#11253b,#090e1a 75%); border-bottom: 1px solid rgba(255,255,255,.08); }
+.event-image-two { background: radial-gradient(circle at 55% 40%,rgba(104,92,255,.28),transparent 50%),linear-gradient(130deg,#101c38,#080d19); }
+.event-image-three { background: radial-gradient(circle at 65% 35%,rgba(0,132,255,.23),transparent 45%),linear-gradient(135deg,#0d2536,#080d19); }
+.event-image::after { content: "ELYSIUM / EVENTS"; position: absolute; bottom: 20px; left: 23px; font-size: 11px; font-weight: 900; letter-spacing: 2px; color: rgba(230,248,255,.8); }
+.event-body { padding: 26px; flex: 1; }
+.event-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.event-meta span { color: #00e6c7; font-size: 9px; font-weight: 900; letter-spacing: .9px; }
+.event-meta span:last-child { color: #9daac0; }
+.event-body h3 { font-size: 26px; margin-bottom: 12px; }
+.event-body p { color: #a0acbd; line-height: 1.7; font-size: 14px; }
+@media(max-width:760px) {
+  .center-heading { margin-bottom: 30px; }
+  .price-card { min-height: 330px !important; }
+  .price-card-top { margin-bottom: 20px; }
+  .price-value strong { font-size: 58px; }
+  .event-card { padding: 0 !important; }
+  .event-image { min-height: 150px; }
+  .event-body { padding: 22px; }
+  .event-body h3 { font-size: 23px; }
+  .hero-buttons .btn { letter-spacing: .3px; }
+}
