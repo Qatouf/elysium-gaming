@@ -917,6 +917,44 @@ body{
 
 }
 
+
+/* ELYSIUM MENU — MOBILE EXPERIENCE */
+@media(max-width:760px){
+ html,body{max-width:100%;overflow-x:hidden}
+ .top-header{min-height:66px;padding:9px 15px;gap:10px}
+ .header-logo{min-width:0}
+ .header-logo img{width:clamp(118px,35vw,165px);max-width:100%;height:44px}
+ .home-link{font-size:10px;letter-spacing:.3px;white-space:nowrap}
+ .menu-page{width:100%;padding:30px 15px 110px}
+ .menu-header{padding:20px 0 26px}
+ .menu-header h1{font-size:clamp(31px,9vw,46px);line-height:1.05}
+ .intro{font-size:14px;line-height:1.6}
+ .category{min-width:0;margin-bottom:20px;padding:20px 15px;border-radius:16px}
+ .category-title{font-size:18px}
+ .item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:center;padding:15px 0}
+ .item-info{grid-column:1;grid-row:1;min-width:0}
+ .item-name{font-size:15px;line-height:1.3;overflow-wrap:anywhere}
+ .item-description{font-size:12px;line-height:1.45}
+ .item-price{grid-column:2;grid-row:1;white-space:nowrap;font-size:14px}
+ .quantity{grid-column:1 / -1;grid-row:2;justify-self:end;display:flex;align-items:center;gap:12px}
+ .quantity button{width:40px;height:40px;min-width:40px;touch-action:manipulation}
+ .order-box{width:100%;max-width:100%;padding:12px 15px;bottom:0;z-index:800}
+ .order-inner{gap:12px}
+ .total-area{min-width:0}
+ .view-cart-button{min-height:46px}
+ .cart-overlay,.confirmation-overlay{padding:12px;overflow-y:auto}
+ .cart-box,.confirmation-box{width:100%;max-width:100%;max-height:92dvh;overflow-y:auto;padding:23px 17px;border-radius:17px}
+ .cart-place,.confirmation-place,.confirmation-order{overflow-wrap:anywhere}
+ .payment-button,.confirmation-close{min-height:46px}
+}
+@media(max-width:390px){
+ .top-header{padding-inline:10px}
+ .header-logo img{width:118px}
+ .home-link{font-size:9px}
+ .menu-page{padding-inline:12px}
+ .category{padding:17px 13px}
+}
+
 </style>
 </head>
 
