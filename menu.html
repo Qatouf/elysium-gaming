@@ -1961,7 +1961,7 @@ body{
 
 
     <h2>
-        BESTÄLLNING MOTTAGEN
+        BESTÄLLNING SKICKAD
     </h2>
 
 
@@ -2558,7 +2558,7 @@ function continueToPayment(){
    PLACE ORDER
 ========================= */
 
-function placeOrder(){
+async function placeOrder(){
 
     const orderItems = [];
 
@@ -2660,7 +2660,8 @@ function placeOrder(){
     };
 
 
-    fetch(
+    try {
+        await fetch(
 
         "https://script.google.com/macros/s/AKfycbxKtmlUDW2E263v_H3WAgHCwDeMqZ-6n2dDpLc_z6964UEpSDj04GkXXY_WSJlDOeApGg/exec",
 
@@ -2687,6 +2688,11 @@ function placeOrder(){
         }
 
     );
+    } catch (error) {
+        console.error("Order transmission failed", error);
+        alert("Beställningen kunde inte skickas. Försök igen eller kontakta personalen.");
+        return;
+    }
 
 
     document
@@ -2781,6 +2787,7 @@ function closeConfirmation(){
 </script>
 
 
+<script>/* Obs: Google Apps Script används med no-cors, så mottagning kan inte bekräftas automatiskt. */</script>
 </body>
 
 </html>
