@@ -1492,6 +1492,7 @@ async function logout(){
     bookings = [];
     selectedBooking = null;
     currentStaff = null;
+    renderElysiumReport();
 
 
     document
@@ -1522,6 +1523,11 @@ async function loadBookings(){
         </div>
         `;
 
+
+    if(!currentStaff){
+        bookingContent.textContent="Du måste vara inloggad som personal.";
+        return;
+    }
 
     const {
         data,
@@ -1556,6 +1562,9 @@ async function loadBookings(){
 
 
     if(error){
+        bookings=[];
+        renderElysiumReport();
+
 
         console.error(
             "Load bookings:",
