@@ -752,6 +752,42 @@
  .panel{padding:20px 15px}
 }
 
+
+/* ELYSIUM MAIN-SITE DESIGN MATCH — BOOKING */
+:root{--bg:#05070a;--bg2:#080d15;--card:rgba(11,18,32,.94);--card2:rgba(13,23,39,.96);--blue:#0084ff;--cyan:#00e6c7;--text:#f7f9fc;--muted:#a7b3c4;--border:rgba(255,255,255,.09)}
+body{background:radial-gradient(ellipse 55% 30% at 15% 0%,rgba(0,132,255,.16),transparent 80%),radial-gradient(ellipse 45% 25% at 100% 23%,rgba(104,92,255,.08),transparent 80%),#05070a;color:#f7f9fc}
+.topbar{background:rgba(5,9,16,.96);border-bottom:1px solid rgba(0,132,255,.17);box-shadow:0 8px 35px rgba(0,0,0,.18)}
+.back-link{border:1px solid rgba(0,132,255,.3);border-radius:10px;background:rgba(0,132,255,.08);color:#dfeeff;text-decoration:none;font-weight:850;letter-spacing:.7px;padding:12px 16px;transition:background .2s,border-color .2s}
+.back-link:hover{background:rgba(0,132,255,.17);border-color:rgba(0,230,199,.45)}
+.page{max-width:1200px}
+.hero{position:relative;overflow:hidden}
+.eyebrow{color:#00e6c7;font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase}
+.hero h1{font-weight:950;letter-spacing:-.055em;line-height:1.02;text-transform:uppercase}
+.hero h1 span{color:#0084ff;background:linear-gradient(110deg,#0084ff,#00e6c7);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#a7b3c4;line-height:1.7}
+.panel{background:linear-gradient(145deg,rgba(13,23,39,.96),rgba(7,12,21,.98));border:1px solid rgba(0,132,255,.19);box-shadow:0 20px 60px rgba(0,0,0,.18);border-radius:21px}
+.panel-title{color:#fff;font-weight:900;letter-spacing:-.6px}
+.panel-subtitle{color:#a7b3c4;line-height:1.65}
+.step-number{background:linear-gradient(135deg,#0084ff,#00e6c7);color:#04101b;border:none;box-shadow:0 4px 18px rgba(0,132,255,.25)}
+.step-label{color:#eaf3ff;font-weight:850}
+.type-card,.package-card,.time-slot{border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.025);transition:border-color .2s,background .2s,transform .2s}
+.type-card:hover,.package-card:hover,.time-slot:hover{border-color:rgba(0,132,255,.55);background:rgba(0,132,255,.075)}
+.type-card.active,.package-card.active,.time-slot.active,.time-slot.selected{border-color:#00e6c7;background:rgba(0,230,199,.08);box-shadow:inset 0 0 0 1px rgba(0,230,199,.1)}
+.field label{color:#c8d7e8;font-weight:750}
+.field input,.field select{background:#081321;color:#f7f9fc;border:1px solid rgba(255,255,255,.16);border-radius:10px}
+.field input:focus,.field select:focus{outline:2px solid rgba(0,230,199,.25);border-color:#00e6c7}
+.summary-box{background:rgba(0,132,255,.055);border-color:rgba(0,132,255,.2);border-radius:14px}
+.price-box{background:linear-gradient(130deg,rgba(0,132,255,.13),rgba(0,230,199,.045));border-color:rgba(0,230,199,.22);border-radius:14px}
+.price{color:#00e6c7}
+.book-btn{background:linear-gradient(110deg,#0084ff,#006bd6);color:white;border:1px solid rgba(0,230,199,.2);border-radius:11px;box-shadow:0 9px 30px rgba(0,132,255,.22);font-weight:900;letter-spacing:.5px}
+.book-btn:hover:not(:disabled){filter:brightness(1.14);transform:translateY(-1px)}
+.info-card{background:rgba(11,18,32,.65);border:1px solid rgba(255,255,255,.09);border-radius:15px}
+.modal-card{background:linear-gradient(145deg,#0c1928,#060b13);border:1px solid rgba(0,230,199,.22);box-shadow:0 35px 90px rgba(0,0,0,.55);border-radius:22px}
+.booking-number-box{background:rgba(0,230,199,.07);border-color:rgba(0,230,199,.24)}
+.booking-number{color:#00e6c7}
+button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3px}
+@media(max-width:760px){.hero h1{font-size:clamp(34px,9vw,48px)}.panel{border-radius:17px}.back-link{padding:10px 11px;font-size:10px}.type-card,.package-card{border-radius:12px}.book-btn{min-height:52px}}
+
 </style>
 </head>
 
