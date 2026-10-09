@@ -2380,56 +2380,18 @@ function closeModal(){
 ===================================================== */
 
 async function togglePayment(){
-
-    if(!selectedBooking){
-        return;
-    }
-
-
-    const newStatus =
-        selectedBooking.payment_status === "paid"
-        ?
-        "unpaid"
-        :
-        "paid";
-
-
-    const {
-        error
-    } =
-    await supabaseClient
-        .from("bookings")
-        .update({
-            payment_status:
-                newStatus
-        })
-        .eq(
-            "id",
-            selectedBooking.id
-        );
-
-
-    if(error){
-
-        console.error(
-            "Payment update:",
-            error
-        );
-
-
-        alert(
-            "Kunde inte ändra betalstatus: "
-            +
-            error.message
-        );
-
-        return;
-    }
-
-
-    closeModal();
-
-    await loadBookings();
+    if(!selectedBooking)return;
+    if(selectedBooking.status==="cancelled"){alert("Avbokade bokningar kan inte ändra betalstatus här.");return;}
+    if(selectedBooking.payment_status==="refunded"){alert("Återbetalningar måste hanteras separat.");return;}
+    const newStatus=selectedBooking.payment_status==="paid"?"unpaid":"paid";
+    const action=newStatus==="paid"?"betald":"obetald";
+    if(!confirm("Markera "+selectedBooking.booking_number+" som "+action+"? Kontrollera att betalningen stämmer med kassasystemet."))return;
+    const button=document.getElementById("paidButton");button.disabled=true;
+    try{
+        const {error}=await supabaseClient.rpc("set_elysium_payment_status",{p_booking_id:selectedBooking.id,p_new_status:newStatus});
+        if(error)throw error;
+        closeModal();await loadBookings();
+    }catch(error){console.error("Payment update:",error);alert("Kunde inte ändra betalstatus: "+error.message);button.disabled=false;}
 }
 
 
