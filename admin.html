@@ -767,6 +767,9 @@ tbody tr:hover{
  .detail{min-width:0;overflow-wrap:anywhere}
 }
 
+
+/* Reports: scoped styling, no changes to existing cards */
+.ely-report{margin-top:22px;padding:24px;border:1px solid #19344d;border-radius:14px;background:#0b1422;color:#e7f2ff}.ely-report h3{margin:0 0 8px}.ely-report p{color:#a8b8ca;font-size:13px}.ely-report-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:18px 0}.ely-report-controls label{display:grid;gap:5px;font-size:12px;color:#a8b8ca}.ely-report-controls input{padding:10px;border:1px solid #2b4965;border-radius:7px;background:#09101c;color:#fff;color-scheme:dark}.ely-report-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.ely-report-card{padding:16px;border:1px solid #213b54;border-radius:10px;background:#101e2e}.ely-report-card strong{display:block;font-size:22px;color:#fff;overflow-wrap:anywhere}.ely-report-card span{font-size:12px;color:#a8b8ca}.ely-report-split{margin-top:16px;font-size:13px;line-height:1.8}.ely-report-bar{height:9px;border-radius:9px;background:#243549;overflow:hidden}.ely-report-bar>span{display:block;height:100%;background:#0084ff}.ely-report-export{background:#0084ff;color:#fff;border:0;border-radius:7px;padding:11px 15px;cursor:pointer}@media(max-width:760px){.ely-report{padding:16px}.ely-report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ely-report-card strong{font-size:19px}}
 </style>
 </head>
 
@@ -1048,7 +1051,9 @@ tbody tr:hover{
             </section>
 
 
-            <section
+            
+<section id="elysiumReports" class="ely-report" aria-label="Rapporter och statistik"><h3>Rapporter &amp; statistik</h3><p>Välj bokningsdatum för perioden. Betalt belopp baseras på registrerad betalstatus, inte bankavstämning. Avbokade bokningar räknas separat.</p><div class="ely-report-controls"><label>Från datum<input type="date" id="reportFrom" onchange="renderElysiumReport()"></label><label>Till datum<input type="date" id="reportTo" onchange="renderElysiumReport()"></label><button type="button" class="ely-report-export" onclick="exportElysiumReport()">Exportera CSV</button></div><div class="ely-report-grid"><div class="ely-report-card"><strong id="repConfirmed">–</strong><span>Ej avbokade bokningar</span></div><div class="ely-report-card"><strong id="repCancelled">–</strong><span>Avbokningar</span></div><div class="ely-report-card"><strong id="repValue">–</strong><span>Bokningsvärde (ej avbokade)</span></div><div class="ely-report-card"><strong id="repPaid">–</strong><span>Markerat som betalt</span></div><div class="ely-report-card"><strong id="repUnpaid">–</strong><span>Markerat som obetalt</span></div><div class="ely-report-card"><strong id="repSeats">–</strong><span>Bokade platser</span></div><div class="ely-report-card"><strong id="repPc">–</strong><span>PC-bokningar</span></div><div class="ely-report-card"><strong id="repPs5">–</strong><span>PS5-bokningar</span></div></div><div class="ely-report-split"><span id="repSplitLabel">Fördelning PC / PS5</span><div class="ely-report-bar"><span id="repPcBar" style="width:0%"></span></div><p id="repNotice" role="status"></p></div></section>
+<section
                 id="bookingsSection"
                 class="panel"
             >
@@ -1250,6 +1255,7 @@ document.addEventListener(
     async () => {
 
         setCurrentDate();
+        initElysiumReport();
 
 
         const {
@@ -1577,6 +1583,7 @@ async function loadBookings(){
     updateStats();
 
     renderBookings();
+    renderElysiumReport();
 }
 
 
@@ -2949,6 +2956,13 @@ document
         }
     }
 );
+
+
+/* REPORTING – derives values only from staff-authorized loaded bookings */
+function initElysiumReport(){const today=getLocalDate();const first=today.slice(0,7)+"-01";document.getElementById("reportFrom").value=first;document.getElementById("reportTo").value=today;renderElysiumReport();}
+function getElysiumReportRows(){const from=document.getElementById("reportFrom")?.value;const to=document.getElementById("reportTo")?.value;if(!from||!to||from>to)return null;return bookings.filter(b=>b.booking_date>=from&&b.booking_date<=to);}
+function renderElysiumReport(){const rows=getElysiumReportRows();const note=document.getElementById("repNotice");if(!note)return;if(rows===null){note.textContent="Välj ett giltigt datumintervall.";return;}const active=rows.filter(b=>b.status!=="cancelled");const sum=(items)=>items.reduce((n,b)=>n+Number(b.total_price_sek||0),0);const set=(id,v)=>{document.getElementById(id).textContent=v};set("repConfirmed",active.length.toLocaleString("sv-SE"));set("repCancelled",rows.length-active.length);set("repValue",formatMoney(sum(active)));set("repPaid",formatMoney(sum(active.filter(b=>b.payment_status==="paid"))));set("repUnpaid",formatMoney(sum(active.filter(b=>b.payment_status!=="paid"&&b.payment_status!=="refunded"))));set("repSeats",active.reduce((n,b)=>n+Number(b.quantity||0),0));const pc=active.filter(b=>b.resource_type==="pc").length,ps5=active.filter(b=>b.resource_type==="ps5").length;set("repPc",pc);set("repPs5",ps5);set("repSplitLabel","PC: "+pc+" bokningar · PS5: "+ps5+" bokningar");document.getElementById("repPcBar").style.width=(pc+ps5?Math.round(pc/(pc+ps5)*100):0)+"%";note.textContent=rows.length+" bokningar i vald period. Rapporten använder bokningsdatum och registrerad betalstatus; återbetalningar och faktisk kassaintäkt måste stämmas av separat."}
+function exportElysiumReport(){const rows=getElysiumReportRows();if(rows===null){alert("Välj ett giltigt datumintervall.");return;}const fields=["booking_number","booking_date","start_time","resource_type","quantity","duration_minutes","status","payment_status","total_price_sek"];const escapeCsv=v=>'"'+String(v??"").replace(/"/g,'""')+'"';const csv="\uFEFF"+[fields.join(";"),...rows.map(b=>fields.map(f=>escapeCsv(b[f])).join(";"))].join("\r\n");const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="elysium-rapport-"+document.getElementById("reportFrom").value+"-"+document.getElementById("reportTo").value+".csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
 
 </script>
 
