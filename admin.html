@@ -931,6 +931,35 @@ tbody tr:hover{
 @media(max-width:1150px){#elysiumReports .ely-report-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){#elysiumReports{padding:16px}#elysiumReports h3{font-size:21px}#elysiumReports .ely-report-controls{padding:12px;gap:10px}#elysiumReports .report-presets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}#elysiumReports .report-presets button{padding:10px 7px}#elysiumReports .ely-report-export{width:100%}#elysiumReports .ely-report-card{padding:13px;min-height:105px}#elysiumReports .ely-report-card strong{font-size:21px}}
 
+
+/* Admin navigation and application shell — visual only */
+.sidebar{width:255px;padding:28px 17px 24px;background:linear-gradient(180deg,#101f30 0%,#0b1725 65%,#09131f 100%);border-right:1px solid #294258;box-shadow:9px 0 35px rgba(0,0,0,.12)}
+.side-logo{width:min(185px,100%);max-height:95px;object-fit:contain;margin:0 auto 34px}
+.side-title{font-size:10px;letter-spacing:1.9px;color:#7698b4;padding:0 15px;margin-bottom:13px}
+.nav-item{position:relative;min-height:47px;padding:12px 15px;margin-bottom:7px;border:1px solid transparent;border-radius:12px;color:#b2c9dc;font-size:13px;font-weight:750;transition:background .16s,border-color .16s,color .16s}
+.nav-item:hover{background:#19364e;color:#fff;border-color:#30536c}
+.nav-item.active{background:linear-gradient(90deg,#164e79,#15344c);border:1px solid #2b7eb4;color:#fff;box-shadow:inset 3px 0 #48c5ff,0 6px 18px rgba(0,132,255,.09)}
+.nav-icon{width:24px;flex-shrink:0;color:#73cfff;font-size:19px}
+.sidebar-bottom{left:17px;right:17px;bottom:22px}
+.admin-user{padding:16px;border:1px solid #2b475d;border-radius:13px;background:#12283b;margin-bottom:11px}
+.admin-user strong{font-size:13px;color:#f0f8ff;margin-bottom:5px}
+.admin-user span{font-size:11px;line-height:1.5;color:#a0b9cc}
+.logout-btn{min-height:43px;border:1px solid #34526a;border-radius:11px;background:#132a3e;color:#d6e7f4;font-weight:750;transition:background .15s}
+.logout-btn:hover{background:#20435e}
+.main{margin-left:255px}
+.topbar{min-height:83px;padding:17px 30px;border-bottom:1px solid #2b445a;background:rgba(13,29,45,.95);box-shadow:0 7px 24px rgba(0,0,0,.1)}
+.topbar h2{font-size:22px;letter-spacing:-.5px;color:#f0f8ff;font-weight:850}
+.topbar p{color:#98b6cb;font-size:12px;margin-top:5px}
+.top-actions{gap:10px;align-items:center}
+.top-actions .btn{min-height:43px;padding:11px 17px;border:1px solid #34536b;border-radius:11px;background:#183248;color:#e6f3ff;font-size:12px;font-weight:750;transition:background .15s,transform .15s}
+.top-actions .btn:hover{background:#224a68;transform:translateY(-1px)}
+.top-actions .btn-primary{border-color:#1688dd;background:linear-gradient(105deg,#0878d5,#0b9ee5);box-shadow:0 5px 18px rgba(0,132,255,.18);color:white}
+.top-actions .btn-primary:hover{background:linear-gradient(105deg,#118ce8,#23b6fa)}
+.content{padding:31px 30px 65px;max-width:1550px}
+.sidebar button:focus-visible,.topbar button:focus-visible{outline:2px solid #74d6ff;outline-offset:2px}
+@media(max-width:1050px){.sidebar{width:255px}.main{margin-left:0}.content{padding:23px 20px 55px}}
+@media(max-width:650px){.topbar{padding:14px 15px;min-height:73px;gap:9px}.topbar h2{font-size:19px}.top-actions{gap:6px}.top-actions .btn{padding:10px 11px;font-size:11px;min-height:40px}.content{padding:18px 13px 45px}}
+
 </style>
 </head>
 
