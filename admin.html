@@ -850,6 +850,37 @@ tbody tr:hover{
 @media(max-width:1050px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{padding:15px}.stat-value{font-size:25px}.stat-label{font-size:10px}.ops-grid{grid-template-columns:1fr}}
 
+
+/* Booking management: visual-only refinement, no authentication or booking logic changes */
+#bookingsSection{background:linear-gradient(150deg,#101f31,#0b1725);border:1px solid #294159;border-radius:20px;box-shadow:0 14px 40px rgba(0,0,0,.13);scroll-margin-top:95px}
+#bookingsSection .panel-header{padding:24px 24px 21px;align-items:flex-start;gap:20px;border-bottom:1px solid #294157;flex-wrap:wrap}
+#bookingsSection .panel-header h3{font-size:23px;font-weight:800;letter-spacing:-.5px;color:#f2f9ff;margin:4px 0 0}
+#bookingsSection .filters{gap:9px;align-items:center;flex:1;justify-content:flex-end}
+#bookingsSection .filters input,#bookingsSection .filters select{height:44px;border-radius:11px;border:1px solid #34536d;background:#0b1d30;color:#e7f4ff;font-size:13px;padding:0 13px;transition:border-color .15s,box-shadow .15s}
+#bookingsSection .filters input{flex:1 1 270px;min-width:180px;max-width:410px}
+#bookingsSection .filters input::placeholder{color:#8ca8bd}
+#bookingsSection .filters select{min-width:145px;cursor:pointer}
+#bookingsSection .filters input:focus,#bookingsSection .filters select:focus{outline:0;border-color:#4dbbff;box-shadow:0 0 0 3px rgba(0,132,255,.16)}
+#bookingsSection .table-wrap{overflow:auto;max-height:680px;scrollbar-color:#355c79 #0e1d2e}
+#bookingsSection table{min-width:1030px}
+#bookingsSection th{position:sticky;top:0;z-index:2;background:#172d42;color:#b7cde0;font-size:10px;font-weight:800;letter-spacing:.65px;padding:16px 14px;border-bottom:1px solid #345069;white-space:nowrap}
+#bookingsSection td{padding:16px 14px;border-bottom:1px solid #24394c;color:#dcebf6;line-height:1.45}
+#bookingsSection tbody tr:nth-child(even){background:rgba(23,46,68,.23)}
+#bookingsSection tbody tr:hover{background:#18354d}
+#bookingsSection .booking-number{font-size:12px;color:#6dd3ff}
+#bookingsSection .customer-name{color:#f1f8ff}
+#bookingsSection .customer-email{color:#9bb4c8}
+#bookingsSection .badge{padding:7px 11px;font-size:10px;letter-spacing:.3px;border:1px solid transparent;white-space:nowrap}
+#bookingsSection .badge-confirmed,#bookingsSection .badge-paid{border-color:rgba(39,217,128,.22)}
+#bookingsSection .badge-unpaid,#bookingsSection .badge-pending{border-color:rgba(255,179,71,.24)}
+#bookingsSection .badge-cancelled{border-color:rgba(255,79,103,.23)}
+#bookingsSection .action-btn{padding:9px 12px;border-radius:9px;border-color:#33516a;background:#19334a;color:#e8f6ff;transition:background .15s,border-color .15s}
+#bookingsSection .action-btn:hover{background:#23547a;border-color:#55b7ed}
+#bookingsSection .action-btn:focus-visible{outline:2px solid #6bd3ff;outline-offset:2px}
+#bookingsSection .empty,#bookingsSection .loading{padding:55px 22px;color:#adc4d7}
+@media(max-width:1050px){#bookingsSection .filters{justify-content:flex-start;width:100%}#bookingsSection .filters input{max-width:none}}
+@media(max-width:600px){#bookingsSection .panel-header{padding:18px;gap:14px}#bookingsSection .panel-header h3{font-size:21px}#bookingsSection .filters input{flex-basis:100%}#bookingsSection .filters select{flex:1 1 135px;min-width:0}#bookingsSection td{padding:13px}}
+
 </style>
 </head>
 
