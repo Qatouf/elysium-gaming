@@ -969,6 +969,17 @@ tbody tr:hover{
 .nav-item:focus-visible{outline:2px solid #70d4ff;outline-offset:2px}
 @media(max-height:740px){.sidebar-bottom{top:auto;position:relative;margin-top:24px}}
 
+
+/* Booking list productivity controls */
+#bookingsSection .booking-list-tools{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #2a455c;background:#102337}
+#bookingResultCount{font-size:12px;font-weight:750;color:#b8d6e9;font-variant-numeric:tabular-nums}
+.booking-list-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.booking-list-actions label{font-size:11px;color:#94b5cb;font-weight:700}
+.booking-list-actions select,.booking-list-actions button{min-height:36px;border:1px solid #365a75;background:#17354c;border-radius:9px;padding:8px 11px;color:#e7f5ff;font-size:12px;font-weight:700;cursor:pointer}
+.booking-list-actions button:hover{background:#215477}
+.booking-list-actions :is(select,button):focus-visible{outline:2px solid #5bcbff;outline-offset:2px}
+@media(max-width:650px){#bookingsSection .booking-list-tools{padding:12px;align-items:stretch}.booking-list-actions{width:100%}.booking-list-actions select{flex:1;min-width:155px}}
+
 </style>
 </head>
 
@@ -1348,7 +1359,18 @@ tbody tr:hover{
                     </div>
 
                 </div>
-
+                <div class="booking-list-tools">
+                    <span id="bookingResultCount" role="status" aria-live="polite">Laddar bokningar…</span>
+                    <div class="booking-list-actions">
+                        <label for="bookingSort">Sortera</label>
+                        <select id="bookingSort" onchange="renderBookings()" aria-label="Sortera bokningar">
+                            <option value="newest">Senaste datum först</option>
+                            <option value="oldest">Äldsta datum först</option>
+                            <option value="priceHigh">Högsta bokningsvärde</option>
+                        </select>
+                        <button type="button" onclick="resetBookingFilters()">Rensa filter</button>
+                    </div>
+                </div>
 
                 <div id="bookingContent">
 
@@ -1745,6 +1767,7 @@ async function loadBookings(){
     document.getElementById("opsNextList").innerHTML="<li>Uppdaterar bokningar…</li>";
     document.getElementById("calendarContent").textContent="Uppdaterar stationskalendern…";
 
+    document.getElementById("bookingResultCount").textContent="Laddar bokningar…";
     bookingContent.innerHTML =
         `
         <div class="loading">
@@ -1792,6 +1815,7 @@ async function loadBookings(){
 
     if(error){
         bookings=[];
+        document.getElementById("bookingResultCount").textContent="Kunde inte hämta bokningar";
         document.getElementById("opsNextList").innerHTML="<li>Kunde inte läsa bokningarna. Försök uppdatera igen.</li>";
         document.getElementById("calendarContent").textContent="Stationskalendern kunde inte laddas. Kontrollera bokningsanslutningen.";
         document.getElementById("opsUnpaidCount").textContent="–";
@@ -2037,6 +2061,12 @@ function renderBookings(){
             }
         );
 
+
+    const sortMode=document.getElementById("bookingSort").value;
+    if(sortMode==="oldest")filtered.sort((a,b)=>(String(a.booking_date)+" "+String(a.start_time)).localeCompare(String(b.booking_date)+" "+String(b.start_time)));
+    else if(sortMode==="priceHigh")filtered.sort((a,b)=>Number(b.total_price_sek||0)-Number(a.total_price_sek||0));
+    else filtered.sort((a,b)=>(String(b.booking_date)+" "+String(b.start_time)).localeCompare(String(a.booking_date)+" "+String(a.start_time)));
+    document.getElementById("bookingResultCount").textContent=filtered.length.toLocaleString("sv-SE")+" av "+bookings.length.toLocaleString("sv-SE")+" inlästa bokningar";
 
     if(!filtered.length){
 
@@ -3192,6 +3222,12 @@ function setReportPeriod(period){const now=new Date();const local=new Date(now.t
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){const modal=document.getElementById("bookingModal");if(modal&&!modal.classList.contains("hidden"))closeModal();else document.getElementById("sidebar")?.classList.remove("open");}});
 
 function renderOpsOverview(){const el=document.getElementById("opsUnpaidCount");if(!el)return;const today=getLocalDate();const endDate=new Date(today+"T12:00:00");endDate.setDate(endDate.getDate()+6);const end=[endDate.getFullYear(),String(endDate.getMonth()+1).padStart(2,"0"),String(endDate.getDate()).padStart(2,"0")].join("-");const active=bookings.filter(b=>b.status!=="cancelled");const unpaid=active.filter(b=>!b.payment_status||b.payment_status==="unpaid"||b.payment_status==="pending");const upcoming=active.filter(b=>b.booking_date>=today&&b.booking_date<=end);el.textContent=unpaid.length.toLocaleString("sv-SE");document.getElementById("opsUnpaidValue").textContent=formatMoney(unpaid.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";document.getElementById("opsWeekCount").textContent=upcoming.length.toLocaleString("sv-SE");document.getElementById("opsWeekValue").textContent=formatMoney(upcoming.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";const clock=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());const nearest=active.filter(b=>b.booking_date>today||(b.booking_date===today&&String(b.start_time||"").slice(0,5)>=clock)).sort((a,b)=>(a.booking_date+" "+a.start_time).localeCompare(b.booking_date+" "+b.start_time)).slice(0,4);document.getElementById("opsNextList").innerHTML=nearest.length?nearest.map(b=>"<li><strong>"+escapeHTML(formatDate(b.booking_date)+" "+formatTime(b.start_time))+"</strong> · "+escapeHTML(activityName(b.resource_type))+" · "+escapeHTML(b.booking_number||"Bokning")+"</li>").join(""):"<li>Inga kommande bokningar.</li>";}
+function resetBookingFilters(){
+    for(const id of ["statusFilter","dateFilter","paymentFilter","typeFilter"])document.getElementById(id).value="all";
+    document.getElementById("searchInput").value="";
+    document.getElementById("bookingSort").value="newest";
+    renderBookings();
+}
 function showUnpaidBookings(){document.getElementById("dateFilter").value="all";document.getElementById("statusFilter").value="all";document.getElementById("typeFilter").value="all";document.getElementById("paymentFilter").value="unpaid";document.getElementById("searchInput").value="";renderBookings();document.getElementById("bookingsSection").scrollIntoView({behavior:"smooth",block:"start"});}
 
 function calendarToday(){document.getElementById("calendarDate").value=getLocalDate();renderStationCalendar();}
