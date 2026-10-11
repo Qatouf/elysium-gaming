@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avboka bokning | Elysium Gaming Lounge</title>
+<meta name="description" content="Avboka din bokning hos Elysium Gaming Lounge med en verifieringskod till din e-post.">
+<style>
+:root{color-scheme:dark;--blue:#0084ff;--cyan:#00d1ff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,rgba(0,132,255,.18),transparent 55%),#080e18;color:#f4f8ff;font:16px system-ui,-apple-system,sans-serif;min-height:100vh}header{max-width:900px;margin:auto;padding:24px 20px}a{color:#8ddaff}main{max-width:530px;margin:45px auto;padding:0 18px}.card{padding:clamp(22px,5vw,38px);background:#101d30;border:1px solid #274363;border-radius:22px;box-shadow:0 25px 80px #0005}h1{font-size:clamp(27px,5vw,38px);margin:0 0 14px}p{color:#bbccdf;line-height:1.6}label{display:block;margin:20px 0 8px;font-weight:700}input{display:block;width:100%;padding:15px;border:1px solid #47617e;border-radius:11px;background:#081321;color:white;font:inherit}input:focus{outline:2px solid var(--cyan)}button{margin-top:22px;padding:16px;width:100%;border:0;border-radius:12px;background:linear-gradient(100deg,var(--blue),var(--cyan));color:#001326;font:inherit;font-weight:800;cursor:pointer}button:disabled{opacity:.6;cursor:wait}.message{margin-top:18px;padding:13px;border-radius:9px;background:#162c45;line-height:1.5}.error{border:1px solid #ff7a89}.success{border:1px solid #32d583}[hidden]{display:none!important}small{display:block;color:#a8bad0;line-height:1.5;margin-top:18px}
+</style></head><body><header><a href="./booking.html">← Tillbaka till bokning</a></header>
+<main><div class="card"><h1>Avboka din bokning</h1><p>Ange bokningsnumret och samma e-postadress som du använde vid bokningen. Vi skickar en engångskod till din e-post.</p>
+<form id="request"><label for="number">Bokningsnummer</label><input id="number" maxlength="60" autocomplete="off" placeholder="ELY-..." required><label for="email">E-postadress</label><input id="email" type="email" maxlength="150" autocomplete="email" required><button type="submit">Skicka verifieringskod</button></form>
+<form id="confirm" hidden><label for="code">Sexsiffrig kod från mejlet</label><input id="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required><button type="submit">Bekräfta avbokning</button></form>
+<div id="message" role="status" aria-live="polite" hidden></div>
+<small>Du kan själv avboka en obetald bokning senast två timmar före start. För betalda bokningar, sena avbokningar eller problem med mejlet, kontakta <a href="mailto:info@elysiumgaming.se">info@elysiumgaming.se</a>. Eventuell återbetalning hanteras av personal.</small>
+</div></main>
+<script>
+const endpoint="https://jbwebwdockhgivltgjdu.supabase.co/functions/v1/customer-cancellation";
+const requestForm=document.getElementById("request"),confirmForm=document.getElementById("confirm"),message=document.getElementById("message");
+function show(text,error=false){message.hidden=false;message.className="message "+(error?"error":"success");message.textContent=text}
+async function send(action,code){const buttons=document.querySelectorAll("button");buttons.forEach(b=>b.disabled=true);try{const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,booking_number:document.getElementById("number").value.trim(),email:document.getElementById("email").value.trim(),code})});const data=await response.json();if(!response.ok)throw Error(data.error||"Något gick fel. Försök igen.");return data}finally{buttons.forEach(b=>b.disabled=false)}}
+requestForm.addEventListener("submit",async event=>{event.preventDefault();try{const data=await send("request");show(data.message);confirmForm.hidden=false;document.getElementById("code").focus()}catch(e){show(e.message,true)}});
+confirmForm.addEventListener("submit",async event=>{event.preventDefault();try{const data=await send("confirm",document.getElementById("code").value.trim());if(data.cancelled){requestForm.hidden=true;confirmForm.hidden=true;show("Din bokning är avbokad. De reserverade platserna har frigjorts.")}}catch(e){show(e.message,true)}});
+</script></body></html>
