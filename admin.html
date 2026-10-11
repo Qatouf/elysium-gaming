@@ -3336,6 +3336,34 @@ function renderStationCalendar(){
     note.textContent=model.items.size+" bokningar berör "+day+". Bokningar över midnatt ingår. Överlapp beräknas på exakta tider. "+(model.unplaced?model.unplaced+" stationskopplingar behöver kontrolleras. ":"")+"Inte live-status i Gizmo eller blockerade tider.";
 }
 
+// Recheck staff permissions when the tab becomes active again.
+// Database RLS remains the authoritative permission boundary.
+let lastStaffCheck=0;
+let staffCheckInProgress=false;
+async function recheckActiveStaff(){
+    if(staffCheckInProgress||!currentStaff||document.hidden)return;
+    if(Date.now()-lastStaffCheck<30000)return;
+    staffCheckInProgress=true;
+    lastStaffCheck=Date.now();
+    try{
+        const {data:{user},error:authError}=await supabaseClient.auth.getUser();
+        if(authError||!user){showLogin();return;}
+        const {data:profile,error:profileError}=await supabaseClient.from("staff_profiles")
+            .select("display_name,role,active").eq("user_id",user.id).maybeSingle();
+        if(profileError){return;} // Keep the view; database RLS still prevents unauthorized access.
+        if(!profile||profile.active!==true||!["admin","staff"].includes(profile.role)){
+            showLogin();
+            await supabaseClient.auth.signOut();
+            return;
+        }
+        currentStaff=profile;
+        document.getElementById("adminName").textContent=profile.display_name||"Elysium Personal";
+    }catch(error){console.warn("Kunde inte kontrollera personalbehörighet",error);}
+    finally{staffCheckInProgress=false;}
+}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden)void recheckActiveStaff();});
+window.addEventListener("focus",()=>{void recheckActiveStaff();});
+
 // Clear protected data immediately when a session expires or another tab signs out.
 supabaseClient.auth.onAuthStateChange((event,session)=>{
     if(event==="SIGNED_OUT"||(event==="TOKEN_REFRESHED"&&!session))showLogin();
