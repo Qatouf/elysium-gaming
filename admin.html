@@ -1313,6 +1313,14 @@ tbody tr:hover{
                         </select>
 
 
+                        <select id="dateFilter" aria-label="Filtrera bokningsdatum" onchange="renderBookings()">
+                            <option value="all">Alla datum</option>
+                            <option value="today">Idag</option>
+                            <option value="week">Kommande 7 dagar</option>
+                            <option value="future">Framtida bokningar</option>
+                            <option value="past">Tidigare datum</option>
+                        </select>
+
                         <select id="paymentFilter" aria-label="Filtrera betalningsstatus" onchange="renderBookings()">
                             <option value="all">Alla betalningar</option>
                             <option value="unpaid">Obetalda</option>
@@ -1973,6 +1981,12 @@ function renderBookings(){
 
 
     const payment=document.getElementById("paymentFilter").value;
+    const dateFilter=document.getElementById("dateFilter").value;
+    const today=getLocalDate();
+    const weekEndDate=new Date(today+"T12:00:00");
+    weekEndDate.setDate(weekEndDate.getDate()+6);
+    const weekEnd=[weekEndDate.getFullYear(),String(weekEndDate.getMonth()+1).padStart(2,"0"),String(weekEndDate.getDate()).padStart(2,"0")].join("-");
+
 
     const filtered =
         bookings.filter(
@@ -2017,6 +2031,8 @@ function renderBookings(){
                     typeOK
                     &&
                     (payment==="all" || (payment==="unpaid" ? (b.status!=="cancelled" && (!b.payment_status || b.payment_status==="unpaid" || b.payment_status==="pending")) : b.payment_status===payment))
+                    &&
+                    (dateFilter==="all" || (dateFilter==="today" && b.booking_date===today) || (dateFilter==="week" && b.booking_date>=today && b.booking_date<=weekEnd) || (dateFilter==="future" && b.booking_date>=today) || (dateFilter==="past" && b.booking_date<today))
                 );
             }
         );
@@ -3176,7 +3192,7 @@ function setReportPeriod(period){const now=new Date();const local=new Date(now.t
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){const modal=document.getElementById("bookingModal");if(modal&&!modal.classList.contains("hidden"))closeModal();else document.getElementById("sidebar")?.classList.remove("open");}});
 
 function renderOpsOverview(){const el=document.getElementById("opsUnpaidCount");if(!el)return;const today=getLocalDate();const endDate=new Date(today+"T12:00:00");endDate.setDate(endDate.getDate()+6);const end=[endDate.getFullYear(),String(endDate.getMonth()+1).padStart(2,"0"),String(endDate.getDate()).padStart(2,"0")].join("-");const active=bookings.filter(b=>b.status!=="cancelled");const unpaid=active.filter(b=>!b.payment_status||b.payment_status==="unpaid"||b.payment_status==="pending");const upcoming=active.filter(b=>b.booking_date>=today&&b.booking_date<=end);el.textContent=unpaid.length.toLocaleString("sv-SE");document.getElementById("opsUnpaidValue").textContent=formatMoney(unpaid.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";document.getElementById("opsWeekCount").textContent=upcoming.length.toLocaleString("sv-SE");document.getElementById("opsWeekValue").textContent=formatMoney(upcoming.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";const clock=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());const nearest=active.filter(b=>b.booking_date>today||(b.booking_date===today&&String(b.start_time||"").slice(0,5)>=clock)).sort((a,b)=>(a.booking_date+" "+a.start_time).localeCompare(b.booking_date+" "+b.start_time)).slice(0,4);document.getElementById("opsNextList").innerHTML=nearest.length?nearest.map(b=>"<li><strong>"+escapeHTML(formatDate(b.booking_date)+" "+formatTime(b.start_time))+"</strong> · "+escapeHTML(activityName(b.resource_type))+" · "+escapeHTML(b.booking_number||"Bokning")+"</li>").join(""):"<li>Inga kommande bokningar.</li>";}
-function showUnpaidBookings(){document.getElementById("statusFilter").value="all";document.getElementById("typeFilter").value="all";document.getElementById("paymentFilter").value="unpaid";document.getElementById("searchInput").value="";renderBookings();document.getElementById("bookingsSection").scrollIntoView({behavior:"smooth",block:"start"});}
+function showUnpaidBookings(){document.getElementById("dateFilter").value="all";document.getElementById("statusFilter").value="all";document.getElementById("typeFilter").value="all";document.getElementById("paymentFilter").value="unpaid";document.getElementById("searchInput").value="";renderBookings();document.getElementById("bookingsSection").scrollIntoView({behavior:"smooth",block:"start"});}
 
 function calendarToday(){document.getElementById("calendarDate").value=getLocalDate();renderStationCalendar();}
 function moveCalendarDay(offset){const field=document.getElementById("calendarDate");const d=new Date((field.value||getLocalDate())+"T12:00:00");d.setDate(d.getDate()+offset);field.value=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");renderStationCalendar();}
