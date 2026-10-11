@@ -6,37 +6,7 @@
 
 <title>Elysium Admin</title>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">function setReportPeriod(period){const now=new Date();const local=new Date(now.toLocaleString("en-US",{timeZone:"Europe/Stockholm"}));const iso=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");let start=new Date(local.getFullYear(),local.getMonth(),local.getDate());let end=new Date(start);if(period==="week")start.setDate(start.getDate()-6);else if(period==="month")start.setDate(1);else if(period==="previous"){start=new Date(local.getFullYear(),local.getMonth()-1,1);end=new Date(local.getFullYear(),local.getMonth(),0);}document.getElementById("reportFrom").value=iso(start);document.getElementById("reportTo").value=iso(end);renderElysiumReport();document.getElementById("elysiumReports").scrollIntoView({behavior:"smooth",block:"start"});}
-document.addEventListener("keydown",e=>{if(e.key==="Escape"){const modal=document.getElementById("bookingModal");if(modal&&!modal.classList.contains("hidden"))closeModal();else document.getElementById("sidebar")?.classList.remove("open");}});
-
-function renderOpsOverview(){const el=document.getElementById("opsUnpaidCount");if(!el)return;const today=getLocalDate();const endDate=new Date(today+"T12:00:00");endDate.setDate(endDate.getDate()+6);const end=[endDate.getFullYear(),String(endDate.getMonth()+1).padStart(2,"0"),String(endDate.getDate()).padStart(2,"0")].join("-");const active=bookings.filter(b=>b.status!=="cancelled");const unpaid=active.filter(b=>!b.payment_status||b.payment_status==="unpaid"||b.payment_status==="pending");const upcoming=active.filter(b=>b.booking_date>=today&&b.booking_date<=end);el.textContent=unpaid.length.toLocaleString("sv-SE");document.getElementById("opsUnpaidValue").textContent=formatMoney(unpaid.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";document.getElementById("opsWeekCount").textContent=upcoming.length.toLocaleString("sv-SE");document.getElementById("opsWeekValue").textContent=formatMoney(upcoming.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";const clock=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());const nearest=active.filter(b=>b.booking_date>today||(b.booking_date===today&&String(b.start_time||"").slice(0,5)>=clock)).sort((a,b)=>(a.booking_date+" "+a.start_time).localeCompare(b.booking_date+" "+b.start_time)).slice(0,4);document.getElementById("opsNextList").innerHTML=nearest.length?nearest.map(b=>"<li><strong>"+escapeHTML(formatDate(b.booking_date)+" "+formatTime(b.start_time))+"</strong> · "+escapeHTML(activityName(b.resource_type))+" · "+escapeHTML(b.booking_number||"Bokning")+"</li>").join(""):"<li>Inga kommande bokningar.</li>";}
-function showUnpaidBookings(){document.getElementById("statusFilter").value="all";document.getElementById("typeFilter").value="all";document.getElementById("searchInput").value="";renderBookings();document.getElementById("bookingsSection").scrollIntoView({behavior:"smooth"});document.querySelectorAll("#bookingContent tbody tr").forEach(row=>{row.style.display=row.querySelector(".badge-paid,.badge-refunded,.badge-cancelled")?"none":"";});}
-
-function calendarToday(){document.getElementById("calendarDate").value=getLocalDate();renderStationCalendar();}
-function moveCalendarDay(offset){const field=document.getElementById("calendarDate");const d=new Date((field.value||getLocalDate())+"T12:00:00");d.setDate(d.getDate()+offset);field.value=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");renderStationCalendar();}
-function renderStationCalendar(){
-const field=document.getElementById("calendarDate"),target=document.getElementById("calendarContent"),note=document.getElementById("calendarNote");if(!field||!target)return;
-if(!field.value)field.value=getLocalDate();
-if(!currentStaff){target.textContent="Logga in för att se stationskalendern.";return;}
-const day=field.value,items=bookings.filter(b=>b.booking_date===day&&b.status!=="cancelled");
-const stations=[...Array.from({length:20},(_,i)=>"PC"+String(i+1).padStart(2,"0")),"PS01","PS02"];
-const slots=new Map();let unplaced=0;
-for(const b of items){
-const parts=String(b.start_time||"").split(":");const start=Number(parts[0])+Number(parts[1]||0)/60;const duration=Number(b.duration_minutes)/60;
-if(!Number.isFinite(start)||!Number.isFinite(duration)||duration<=0){unplaced++;continue;}
-const assigned=(b.booking_resources||[]).filter(x=>x.active!==false&&x.resources?.code).map(x=>String(x.resources.code).toUpperCase().replace(/[^A-Z0-9]/g,""));
-if(!assigned.length){unplaced++;continue;}
-for(const raw of assigned){
-const station=stations.find(code=>code===raw||(code.startsWith("PS")&&raw==="PS5"+code.slice(2)));
-if(!station){unplaced++;continue;}
-for(let hour=0;hour<24;hour++)if(hour<start+duration&&hour+1>start){const key=station+":"+hour;slots.set(key,(slots.get(key)||0)+1);}
-}}
-let html='<table class="calendar-grid"><thead><tr><th>Station</th>'+Array.from({length:24},(_,h)=>'<th>'+String(h).padStart(2,"0")+'</th>').join("")+'</tr></thead><tbody>';
-for(const station of stations){html+='<tr><td>'+station+'</td>';for(let h=0;h<24;h++){const occupied=slots.get(station+":"+h)||0;html+='<td class="'+(occupied?'occupied':'available')+'" title="'+(occupied?'Bokad':'Ingen bokning registrerad')+'">'+(occupied?'●':'·')+'</td>';}html+='</tr>';}
-target.innerHTML=html+'</tbody></table>';
-note.textContent=items.length+" aktiva bokningar för "+day+". "+(unplaced?unplaced+" stationskopplingar kunde inte placeras i rutnätet. ":"")+"Visar registrerade bokningar per timme, inte blockerade tider eller live-status. Bokningar över midnatt måste kontrolleras separat.";
-}
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 *{
@@ -1292,6 +1262,7 @@ document.addEventListener(
     async () => {
 
         setCurrentDate();
+        document.getElementById("calendarDate").value=getLocalDate();
         initElysiumReport();
 
 
@@ -1551,7 +1522,8 @@ async function loadBookings(){
         document.getElementById(
             "bookingContent"
         );
-
+    document.getElementById("opsNextList").innerHTML="<li>Uppdaterar bokningar…</li>";
+    document.getElementById("calendarContent").textContent="Uppdaterar stationskalendern…";
 
     bookingContent.innerHTML =
         `
@@ -1600,6 +1572,12 @@ async function loadBookings(){
 
     if(error){
         bookings=[];
+        document.getElementById("opsNextList").innerHTML="<li>Kunde inte läsa bokningarna. Försök uppdatera igen.</li>";
+        document.getElementById("calendarContent").textContent="Stationskalendern kunde inte laddas. Kontrollera bokningsanslutningen.";
+        document.getElementById("opsUnpaidCount").textContent="–";
+        document.getElementById("opsWeekCount").textContent="–";
+        document.getElementById("opsUnpaidValue").textContent="Data saknas";
+        document.getElementById("opsWeekValue").textContent="Data saknas";
         renderElysiumReport();
 
 
@@ -2973,6 +2951,39 @@ function initElysiumReport(){const today=getLocalDate();const first=today.slice(
 function getElysiumReportRows(){const from=document.getElementById("reportFrom")?.value;const to=document.getElementById("reportTo")?.value;if(!from||!to||from>to)return null;return bookings.filter(b=>b.booking_date>=from&&b.booking_date<=to);}
 function renderElysiumReport(){const rows=getElysiumReportRows();const note=document.getElementById("repNotice");if(!note)return;if(rows===null){note.textContent="Välj ett giltigt datumintervall.";return;}const active=rows.filter(b=>b.status!=="cancelled");const sum=(items)=>items.reduce((n,b)=>n+Number(b.total_price_sek||0),0);const set=(id,v)=>{document.getElementById(id).textContent=v};set("repConfirmed",active.length.toLocaleString("sv-SE"));set("repCancelled",rows.length-active.length);set("repValue",formatMoney(sum(active)));set("repPaid",formatMoney(sum(active.filter(b=>b.payment_status==="paid"))));set("repUnpaid",formatMoney(sum(active.filter(b=>b.payment_status!=="paid"&&b.payment_status!=="refunded"))));set("repSeats",active.reduce((n,b)=>n+Number(b.quantity||0),0));const pc=active.filter(b=>b.resource_type==="pc").length,ps5=active.filter(b=>b.resource_type==="ps5").length;set("repPc",pc);set("repPs5",ps5);set("repSplitLabel","PC: "+pc+" bokningar · PS5: "+ps5+" bokningar");document.getElementById("repPcBar").style.width=(pc+ps5?Math.round(pc/(pc+ps5)*100):0)+"%";note.textContent=rows.length+" bokningar i vald period. Rapporten använder bokningsdatum och registrerad betalstatus; återbetalningar och faktisk kassaintäkt måste stämmas av separat."}
 function exportElysiumReport(){const rows=getElysiumReportRows();if(rows===null){alert("Välj ett giltigt datumintervall.");return;}const fields=["booking_number","booking_date","start_time","resource_type","quantity","duration_minutes","status","payment_status","total_price_sek"];const escapeCsv=v=>'"'+String(v??"").replace(/"/g,'""')+'"';const csv="\uFEFF"+[fields.join(";"),...rows.map(b=>fields.map(f=>escapeCsv(b[f])).join(";"))].join("\r\n");const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="elysium-rapport-"+document.getElementById("reportFrom").value+"-"+document.getElementById("reportTo").value+".csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+
+
+/* Dashboard functions loaded as executable inline JavaScript */
+function setReportPeriod(period){const now=new Date();const local=new Date(now.toLocaleString("en-US",{timeZone:"Europe/Stockholm"}));const iso=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");let start=new Date(local.getFullYear(),local.getMonth(),local.getDate());let end=new Date(start);if(period==="week")start.setDate(start.getDate()-6);else if(period==="month")start.setDate(1);else if(period==="previous"){start=new Date(local.getFullYear(),local.getMonth()-1,1);end=new Date(local.getFullYear(),local.getMonth(),0);}document.getElementById("reportFrom").value=iso(start);document.getElementById("reportTo").value=iso(end);renderElysiumReport();document.getElementById("elysiumReports").scrollIntoView({behavior:"smooth",block:"start"});}
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){const modal=document.getElementById("bookingModal");if(modal&&!modal.classList.contains("hidden"))closeModal();else document.getElementById("sidebar")?.classList.remove("open");}});
+
+function renderOpsOverview(){const el=document.getElementById("opsUnpaidCount");if(!el)return;const today=getLocalDate();const endDate=new Date(today+"T12:00:00");endDate.setDate(endDate.getDate()+6);const end=[endDate.getFullYear(),String(endDate.getMonth()+1).padStart(2,"0"),String(endDate.getDate()).padStart(2,"0")].join("-");const active=bookings.filter(b=>b.status!=="cancelled");const unpaid=active.filter(b=>!b.payment_status||b.payment_status==="unpaid"||b.payment_status==="pending");const upcoming=active.filter(b=>b.booking_date>=today&&b.booking_date<=end);el.textContent=unpaid.length.toLocaleString("sv-SE");document.getElementById("opsUnpaidValue").textContent=formatMoney(unpaid.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";document.getElementById("opsWeekCount").textContent=upcoming.length.toLocaleString("sv-SE");document.getElementById("opsWeekValue").textContent=formatMoney(upcoming.reduce((n,b)=>n+Number(b.total_price_sek||0),0))+" i bokningsvärde";const clock=new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date());const nearest=active.filter(b=>b.booking_date>today||(b.booking_date===today&&String(b.start_time||"").slice(0,5)>=clock)).sort((a,b)=>(a.booking_date+" "+a.start_time).localeCompare(b.booking_date+" "+b.start_time)).slice(0,4);document.getElementById("opsNextList").innerHTML=nearest.length?nearest.map(b=>"<li><strong>"+escapeHTML(formatDate(b.booking_date)+" "+formatTime(b.start_time))+"</strong> · "+escapeHTML(activityName(b.resource_type))+" · "+escapeHTML(b.booking_number||"Bokning")+"</li>").join(""):"<li>Inga kommande bokningar.</li>";}
+function showUnpaidBookings(){document.getElementById("statusFilter").value="all";document.getElementById("typeFilter").value="all";document.getElementById("searchInput").value="";renderBookings();document.getElementById("bookingsSection").scrollIntoView({behavior:"smooth"});document.querySelectorAll("#bookingContent tbody tr").forEach(row=>{row.style.display=row.querySelector(".badge-paid,.badge-refunded,.badge-cancelled")?"none":"";});}
+
+function calendarToday(){document.getElementById("calendarDate").value=getLocalDate();renderStationCalendar();}
+function moveCalendarDay(offset){const field=document.getElementById("calendarDate");const d=new Date((field.value||getLocalDate())+"T12:00:00");d.setDate(d.getDate()+offset);field.value=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");renderStationCalendar();}
+function renderStationCalendar(){
+const field=document.getElementById("calendarDate"),target=document.getElementById("calendarContent"),note=document.getElementById("calendarNote");if(!field||!target)return;
+if(!field.value)field.value=getLocalDate();
+if(!currentStaff){target.textContent="Logga in för att se stationskalendern.";return;}
+const day=field.value,items=bookings.filter(b=>b.booking_date===day&&b.status!=="cancelled");
+const stations=[...Array.from({length:20},(_,i)=>"PC"+String(i+1).padStart(2,"0")),"PS01","PS02"];
+const slots=new Map();let unplaced=0;
+for(const b of items){
+const parts=String(b.start_time||"").split(":");const start=Number(parts[0])+Number(parts[1]||0)/60;const duration=Number(b.duration_minutes)/60;
+if(!Number.isFinite(start)||!Number.isFinite(duration)||duration<=0){unplaced++;continue;}
+const assigned=(b.booking_resources||[]).filter(x=>x.active!==false&&x.resources?.code).map(x=>String(x.resources.code).toUpperCase().replace(/[^A-Z0-9]/g,""));
+if(!assigned.length){unplaced++;continue;}
+for(const raw of assigned){
+const station=stations.find(code=>code===raw||(code.startsWith("PS")&&raw==="PS5"+code.slice(2)));
+if(!station){unplaced++;continue;}
+for(let hour=0;hour<24;hour++)if(hour<start+duration&&hour+1>start){const key=station+":"+hour;slots.set(key,(slots.get(key)||0)+1);}
+}}
+let html='<table class="calendar-grid"><thead><tr><th>Station</th>'+Array.from({length:24},(_,h)=>'<th>'+String(h).padStart(2,"0")+'</th>').join("")+'</tr></thead><tbody>';
+for(const station of stations){html+='<tr><td>'+station+'</td>';for(let h=0;h<24;h++){const occupied=slots.get(station+":"+h)||0;html+='<td class="'+(occupied?'occupied':'available')+'" title="'+(occupied?'Bokad':'Ingen bokning registrerad')+'">'+(occupied?'●':'·')+'</td>';}html+='</tr>';}
+target.innerHTML=html+'</tbody></table>';
+note.textContent=items.length+" aktiva bokningar för "+day+". "+(unplaced?unplaced+" stationskopplingar kunde inte placeras i rutnätet. ":"")+"Visar registrerade bokningar per timme, inte blockerade tider eller live-status. Bokningar över midnatt måste kontrolleras separat.";
+}
 
 </script>
 
