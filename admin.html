@@ -832,6 +832,24 @@ tbody tr:hover{
 .calendar-note{padding-top:3px}
 @media(max-width:760px){.calendar-box{padding:15px}.calendar-kpis{gap:7px}.calendar-kpis>div{padding:11px}.calendar-kpis strong{font-size:19px}.calendar-tabs{width:100%;overflow-x:auto}.calendar-tabs button{white-space:nowrap;padding:10px}.calendar-controls{width:100%;justify-content:center}.calendar-legend{gap:10px}}
 
+
+/* Dashboard visual hierarchy and clarity */
+.stats{gap:13px;margin-bottom:25px}
+.stat{position:relative;overflow:hidden;padding:23px;border:1px solid #284058;border-radius:17px;background:linear-gradient(145deg,#102338,#0c1929);box-shadow:0 8px 25px rgba(0,0,0,.09)}
+.stat:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#1689ef,transparent);opacity:.75}
+.stat-label{font-size:11px;letter-spacing:.9px;text-transform:uppercase;color:#a3bad0;margin-bottom:16px}
+.stat-value{font-size:clamp(25px,2.6vw,36px);font-variant-numeric:tabular-nums}
+.stat-sub{color:#9cb1c5;font-size:12px;margin-top:10px}
+.ops-heading{font-size:21px;letter-spacing:-.4px;margin-bottom:8px}
+.ops-meta{line-height:1.7}
+#dashboardUpdated{display:inline-block;margin-left:8px;color:#72caff;font-weight:700}
+.ops-grid{gap:14px}
+.ops-card{background:linear-gradient(145deg,#102337,#0d1c2c);border:1px solid #29455c;border-radius:17px}
+.ops-card button{transition:background .15s,transform .15s}
+.ops-card button:hover{transform:translateY(-1px)}
+@media(max-width:1050px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{padding:15px}.stat-value{font-size:25px}.stat-label{font-size:10px}.ops-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -1074,7 +1092,7 @@ tbody tr:hover{
                 <div class="stat">
 
                     <div class="stat-label">
-                        OMSÄTTNING IDAG
+                        BOKNINGSVÄRDE IDAG
                     </div>
 
                     <div
@@ -1085,7 +1103,7 @@ tbody tr:hover{
                     </div>
 
                     <div class="stat-sub">
-                        Bokningsvärde
+                        Ej verifierad intäkt
                     </div>
 
                 </div>
@@ -1114,8 +1132,8 @@ tbody tr:hover{
 
 
             
-<section id="opsOverview" aria-label="Driftöversikt" style="margin-bottom:24px"><h3 class="ops-heading">Driftöversikt</h3><p class="ops-meta">Baserat på bokningar som personalkontot får se. Belopp är bokningsvärde, inte verifierad kassa.</p><div class="ops-grid"><article class="ops-card"><h3>Obetalda bokningar</h3><div class="ops-number" id="opsUnpaidCount">–</div><p class="ops-caption" id="opsUnpaidValue">–</p><button type="button" onclick="showUnpaidBookings()">Visa obetalda</button></article><article class="ops-card"><h3>Kommande 7 dagar</h3><div class="ops-number" id="opsWeekCount">–</div><p class="ops-caption" id="opsWeekValue">–</p><button type="button" onclick="scrollBookings()">Visa bokningar</button></article><article class="ops-card"><h3>Nästa bokningar</h3><ul class="ops-list" id="opsNextList"><li>Hämtar bokningar...</li></ul></article></div></section>
-<section id="stationCalendar" class="calendar-box"><div class="calendar-head"><div><span class="calendar-eyebrow">BOKNINGSÖVERSIKT</span><h3>Stationsplanering</h3><p class="calendar-intro">Se registrerade bokningar för varje station och tid.</p></div><div class="calendar-controls"><button type="button" onclick="moveCalendarDay(-1)" aria-label="Föregående dag">←</button><input id="calendarDate" type="date" aria-label="Välj kalenderdatum" onchange="renderStationCalendar()"><button type="button" onclick="moveCalendarDay(1)" aria-label="Nästa dag">→</button><button type="button" onclick="calendarToday()">Idag</button></div></div><div class="calendar-kpis"><div><span>Bokningar idag</span><strong id="calendarBookingCount">–</strong></div><div><span>Stationer med bokningar</span><strong id="calendarUsedCount">–</strong></div><div><span>Stationskopplingar att kontrollera</span><strong id="calendarUnplacedCount">–</strong></div></div><div class="calendar-toolbar"><div class="calendar-tabs" role="group" aria-label="Välj stationstyp"><button type="button" class="active" data-cal-view="pc" onclick="setCalendarView('pc')">Datorer <small>20</small></button><button type="button" data-cal-view="ps5" onclick="setCalendarView('ps5')">PlayStation 5 <small>2</small></button><button type="button" data-cal-view="all" onclick="setCalendarView('all')">Alla stationer</button></div><div class="calendar-legend" aria-label="Färgförklaring"><span><i></i> Bokad</span><span class="free"><i></i> Ingen registrerad bokning</span><span class="conflict"><i></i> Överlapp</span></div></div><div class="calendar-scroll" id="calendarContent"><p class="loading">Väntar på bokningsdata...</p></div><p class="calendar-note" id="calendarNote">Kalendern visar registrerade bokningar, inte live-status i Gizmo.</p></section>
+<section id="opsOverview" aria-label="Driftöversikt" style="margin-bottom:24px"><h3 class="ops-heading">Driftöversikt</h3><p class="ops-meta">Baserat på bokningar som personalkontot får se. Belopp är bokningsvärde, inte verifierad kassa. <span id="dashboardUpdated" role="status" aria-live="polite">Inväntar uppdatering</span></p><div class="ops-grid"><article class="ops-card"><h3>Obetalda bokningar</h3><div class="ops-number" id="opsUnpaidCount">–</div><p class="ops-caption" id="opsUnpaidValue">–</p><button type="button" onclick="showUnpaidBookings()">Visa obetalda</button></article><article class="ops-card"><h3>Kommande 7 dagar</h3><div class="ops-number" id="opsWeekCount">–</div><p class="ops-caption" id="opsWeekValue">–</p><button type="button" onclick="scrollBookings()">Visa bokningar</button></article><article class="ops-card"><h3>Nästa bokningar</h3><ul class="ops-list" id="opsNextList"><li>Hämtar bokningar...</li></ul></article></div></section>
+<section id="stationCalendar" class="calendar-box"><div class="calendar-head"><div><span class="calendar-eyebrow">BOKNINGSÖVERSIKT</span><h3>Stationsplanering</h3><p class="calendar-intro">Se registrerade bokningar för varje station och tid.</p></div><div class="calendar-controls"><button type="button" onclick="moveCalendarDay(-1)" aria-label="Föregående dag">←</button><input id="calendarDate" type="date" aria-label="Välj kalenderdatum" onchange="renderStationCalendar()"><button type="button" onclick="moveCalendarDay(1)" aria-label="Nästa dag">→</button><button type="button" onclick="calendarToday()">Idag</button></div></div><div class="calendar-kpis"><div><span>Bokningar valt datum</span><strong id="calendarBookingCount">–</strong></div><div><span>Stationer med bokningar</span><strong id="calendarUsedCount">–</strong></div><div><span>Stationskopplingar att kontrollera</span><strong id="calendarUnplacedCount">–</strong></div></div><div class="calendar-toolbar"><div class="calendar-tabs" role="group" aria-label="Välj stationstyp"><button type="button" class="active" data-cal-view="pc" onclick="setCalendarView('pc')">Datorer <small>20</small></button><button type="button" data-cal-view="ps5" onclick="setCalendarView('ps5')">PlayStation 5 <small>2</small></button><button type="button" data-cal-view="all" onclick="setCalendarView('all')">Alla stationer</button></div><div class="calendar-legend" aria-label="Färgförklaring"><span><i></i> Bokad</span><span class="free"><i></i> Ingen registrerad bokning</span><span class="conflict"><i></i> Överlapp</span></div></div><div class="calendar-scroll" id="calendarContent"><p class="loading">Väntar på bokningsdata...</p></div><p class="calendar-note" id="calendarNote">Kalendern visar registrerade bokningar, inte live-status i Gizmo.</p></section>
 <section id="elysiumReports" class="ely-report" aria-label="Rapporter och statistik"><h3>Rapporter &amp; statistik</h3><p>Välj bokningsdatum för perioden. Betalt belopp baseras på registrerad betalstatus, inte bankavstämning. Avbokade bokningar räknas separat.</p><div class="ely-report-controls"><div class="report-presets" role="group" aria-label="Snabbval för rapportperiod"><button type="button" onclick="setReportPeriod('today')">Idag</button><button type="button" onclick="setReportPeriod('week')">7 dagar</button><button type="button" onclick="setReportPeriod('month')">Denna månad</button><button type="button" onclick="setReportPeriod('previous')">Förra månaden</button></div><label>Från datum<input type="date" id="reportFrom" onchange="renderElysiumReport()"></label><label>Till datum<input type="date" id="reportTo" onchange="renderElysiumReport()"></label><button type="button" class="ely-report-export" onclick="exportElysiumReport()">Exportera CSV</button></div><div class="ely-report-grid"><div class="ely-report-card"><strong id="repConfirmed">–</strong><span>Ej avbokade bokningar</span></div><div class="ely-report-card"><strong id="repCancelled">–</strong><span>Avbokningar</span></div><div class="ely-report-card"><strong id="repValue">–</strong><span>Bokningsvärde (ej avbokade)</span></div><div class="ely-report-card"><strong id="repPaid">–</strong><span>Markerat som betalt</span></div><div class="ely-report-card"><strong id="repUnpaid">–</strong><span>Markerat som obetalt</span></div><div class="ely-report-card"><strong id="repSeats">–</strong><span>Bokade platser</span></div><div class="ely-report-card"><strong id="repPc">–</strong><span>PC-bokningar</span></div><div class="ely-report-card"><strong id="repPs5">–</strong><span>PS5-bokningar</span></div></div><div class="ely-report-split"><span id="repSplitLabel">Fördelning PC / PS5</span><div class="ely-report-bar"><span id="repPcBar" style="width:0%"></span></div><p id="repNotice" role="status"></p></div></section>
 <section
                 id="bookingsSection"
@@ -1579,6 +1597,7 @@ async function loadBookings(){
         document.getElementById(
             "bookingContent"
         );
+    const updated=document.getElementById("dashboardUpdated");if(updated)updated.textContent="Uppdaterar…";
     document.getElementById("opsNextList").innerHTML="<li>Uppdaterar bokningar…</li>";
     document.getElementById("calendarContent").textContent="Uppdaterar stationskalendern…";
 
@@ -1633,6 +1652,7 @@ async function loadBookings(){
         document.getElementById("calendarContent").textContent="Stationskalendern kunde inte laddas. Kontrollera bokningsanslutningen.";
         document.getElementById("opsUnpaidCount").textContent="–";
         document.getElementById("opsWeekCount").textContent="–";
+        const updated=document.getElementById("dashboardUpdated");if(updated)updated.textContent="Kunde inte uppdatera – kontrollera anslutningen";
         document.getElementById("opsUnpaidValue").textContent="Data saknas";
         document.getElementById("opsWeekValue").textContent="Data saknas";
         renderElysiumReport();
@@ -1667,6 +1687,8 @@ async function loadBookings(){
     renderElysiumReport();
     renderOpsOverview();
     renderStationCalendar();
+    const updated=document.getElementById("dashboardUpdated");
+    if(updated)updated.textContent="Senast uppdaterad "+new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit"}).format(new Date());
 }
 
 
