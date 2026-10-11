@@ -2208,6 +2208,15 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
     if(!Number.isInteger(q)||q<1||q>(selectedType==="pc"?20:2)||bookingDate.value<bookingDate.min||bookingDate.value>bookingDate.max){showMessage("Kontrollera datum och antal platser.");return;}
     const submittedType=selectedType,submittedDuration=selectedDuration,submittedTime=selectedStartTime,submittedDate=effectiveBookingDate(selectedStartTime);
+    const requestFingerprint=JSON.stringify([submittedType,submittedDate,submittedTime,submittedDuration,q,name.trim().toLowerCase(),email.trim().toLowerCase(),phone.trim()]);
+    let requestId;
+    try {
+      const saved=JSON.parse(sessionStorage.getItem("elysium_booking_attempt")||"null");
+      requestId=saved?.fingerprint===requestFingerprint?saved.id:crypto.randomUUID();
+      sessionStorage.setItem("elysium_booking_attempt",JSON.stringify({fingerprint:requestFingerprint,id:requestId}));
+    } catch {
+      requestId=crypto.randomUUID();
+    }
     bookingInProgress = true;
 
     bookButton.disabled = true;
@@ -2221,8 +2230,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       error
     } =
       await db.rpc(
-        "create_elysium_booking",
+        "create_elysium_booking_once",
         {
+          p_request_id: requestId,
           p_resource_type:
             submittedType,
 
@@ -2250,11 +2260,12 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       ).then(result=>result).catch(()=>({data:null,error:{message:"Anslutningen bröts. Bokningen kan ha skapats. Kontakta Elysium innan du försöker igen."}}));
 
 
+    if (!error && data?.length) { try { sessionStorage.removeItem("elysium_booking_attempt"); } catch {} }
     const uncertainResult = Boolean(error && ["Anslutningen bröts", "Failed to fetch", "NetworkError", "fetch failed", "Load failed", "timeout", "timed out"].some(term => (error.message || "").toLowerCase().includes(term.toLowerCase())));
-    bookingInProgress = uncertainResult;
-    bookButton.disabled = uncertainResult;
+    bookingInProgress = false;
+    bookButton.disabled = false;
     bookButton.textContent = uncertainResult
-      ? "KONTROLLERA BOKNINGEN MED ELYSIUM"
+      ? "FÖRSÖK HÄMTA SAMMA BOKNING IGEN"
       : "BEKRÄFTA BOKNING";
 
 
@@ -2288,6 +2299,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       );
 
 
+      if (uncertainResult) showMessage("Anslutningen bröts. Försök igen med samma uppgifter – systemet återanvänder samma bokningsförsök och skapar inte en extra bokning.");
       if (!uncertainResult) await loadAvailableTimes();
 
       return;
