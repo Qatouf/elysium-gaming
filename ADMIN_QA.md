@@ -28,11 +28,16 @@ Scope: admin.html, public booking flow, Supabase project jbwebwdockhgivltgjdu.
 - RLS enabled on all 10 public tables. Anonymous booking reads are denied at table privileges. Authenticated role without staff identity sees zero bookings.
 - Authenticated UPDATE grants checked after migration: status only. Trigger function execute permission revoked and verified.
 - Email Edge Function source reviewed: server-held credentials, idempotency keys, atomic claims, failure records. Existing logs show 3 confirmations and 1 cancellation marked sent; this means provider accepted, not verified inbox delivery.
-- Public admin login screen opened in cloud browser before deployment. Public release confirmation is recorded in the delivery message.
+- GitHub main commit f65c971efdcdd65494885c56c9f96c186fd978a7 published. Public admin URL returned HTTP 200 and exact bytes matching the syntax-tested local admin.html.
+- Actual secure staff login succeeded. Session restored after navigating/reloading the published admin page and all 8 bookings loaded.
+- Live UI checks passed: unpaid filter returns 6/8 rows; search for an existing cancelled test booking returns 1/8; its detail dialog opens and disables payment/cancellation controls; today's date filter returns 0/8; price sort displays descending 645, 645, 258, 258, 129, 98, 49, 49; calendar renders 22 station rows and shows 6 bookings with no unplaced assignments on 2026-10-10.
+- Desktop screenshot visually inspected: light blue/white layout, readable headings, station controls and calendar. Screenshot containing account information is retained internally and not published.
+- Final Supabase advisor query completed after migration; intentional privileged RPC warnings and leaked-password protection setting still need review.
 
 ## Remaining verification / limitations
 
-- Actual staff browser login/logout, authenticated UI interactions, focus management, and visual checks at mobile/tablet/desktop sizes require a signed-in browser session. Not certified complete until these pass.
+- Login, session restoration and the listed authenticated desktop interactions passed. Actual logout, remaining keyboard focus tests and mobile/tablet visual checks remain. Browser runtime refused further observations after native credential delivery; it could not safely resume the session.
+- Actual CSV download was attempted but blocked by that browser-session restriction. CSV generation logic and formula guard were checked in source; full download/file verification remains pending.
 - CSS responsiveness reviewed in source; this is not equivalent to visual device testing.
 - No new real email delivery tested. No automatic retry job added; stalled processing/retry recovery needs further work before claiming resilient email delivery.
 - Email endpoints accept the configured legacy JWT at the platform gateway and check Bearer presence internally; review a dedicated webhook secret and request authorization before widening exposure. No credentials printed or changed.
