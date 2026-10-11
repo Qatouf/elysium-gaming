@@ -20,7 +20,7 @@
     content="Boka gaming-PC eller PS5 hos Elysium Gaming Lounge i Kristianstad."
   />
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3"></script>
 
   <style>
     * {
@@ -1477,7 +1477,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           {
             ascending: true
           }
-        ).catch(()=>({data:null,error:{message:"Kunde inte nå prislistan"}}));
+        ).then(result=>result).catch(()=>({data:null,error:{message:"Kunde inte nå prislistan"}}));
     if(requestVersion!==packageVersion)return;
 
     if (error) {
@@ -1800,7 +1800,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
                 p_duration_minutes:
                   requestDuration
               }
-            ).catch(()=>({data:null,error:{message:"Anslutningen kunde inte nås"}}));
+            ).then(result=>result).catch(()=>({data:null,error:{message:"Anslutningen kunde inte nås"}}));
 
 
           if (error) {
@@ -2247,7 +2247,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           p_customer_phone:
             phone
         }
-      ).catch(()=>({data:null,error:{message:"Anslutningen bröts. Bokningen kan ha skapats. Kontakta Elysium innan du försöker igen."}}));
+      ).then(result=>result).catch(()=>({data:null,error:{message:"Anslutningen bröts. Bokningen kan ha skapats. Kontakta Elysium innan du försöker igen."}}));
 
 
     const uncertainResult = Boolean(error && ["Anslutningen bröts", "Failed to fetch", "NetworkError", "fetch failed", "Load failed", "timeout", "timed out"].some(term => (error.message || "").toLowerCase().includes(term.toLowerCase())));

@@ -72,3 +72,13 @@ Mejltester ersätter nätverket helt. TypeScriptens begränsade typannoteringar 
 ## Publiceringskontroll
 
 Funktionsändringar publicerade i commit 8d40408fd914d2fb5fc427c701afd56d0e4d6733. Ordinarie https://www.elysiumgaming.se/booking.html matchade den testade filen byte för byte, SHA-256 eaf3411bf72b21c81ccc57ecb45408b615833c155ea4c52844f52ad6ff2398b8. Bekräftelsefunktionen är version 4 och avbokningsfunktionen version 2, båda ACTIVE med verify_jwt=true. HTTP-kontrollen innebär inte att webbläsarflödet är sluttestat.
+
+## Rättning efter användarrapport om laddningsfel
+
+Användarens bild visade att uppstarten av kundsidan misslyckades. Orsaken var direkt .catch() på Supabases PostgREST-frågeobjekt: dessa har .then() men ingen .catch(). Felet fanns i paket-, tillgänglighets- och bokningsanrop. De tidigare testerna använde vanliga Promise-objekt och missade SDK-skillnaden; tidigare GODKÄND för dessa klientflöden var därför för brett formulerat.
+
+Samtliga tre anrop omvandlas nu till Promise via .then() innan felhanteringen. Biblioteket är låst till den verifierade versionen 2.117.3. Inga färger eller databaser ändras av denna rättning. Senaste publicerade skyddet mot omedelbart nytt bokningsförsök efter osäkert nätavbrott har bevarats.
+
+Nytt regressionstest tests/booking-sdk.test.cjs kör den riktiga Supabase SDK-koden i Node, med helt ersatt transport: sidans init, öppettider, paket, tillgänglighet, syntetisk bokning samt API-fel är GODKÄND. Samma test med LIVE_READ_ONLY=1 använder offentliga produktions-API:er och tillåter uttryckligen bara öppettider, paket och availability. Init, 3 PC-paket och tillgänglighet är GODKÄND. Inga bokningar eller mejl skapas i det verkliga API-testet.
+
+Kör med SUPABASE_SDK_PATH som pekar på den låsta UMD-filen från https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3. Visuell webbläsartestning är fortfarande EJ TESTAD.
