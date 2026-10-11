@@ -1246,6 +1246,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
   let selectedStartTime = null;
   let packages = [];
   let loadingTimes = false;
+  let availabilityRequestId = 0;
+  let packageRequestId = 0;
   let bookingInProgress = false;
 
 
@@ -1461,6 +1463,14 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   async function loadPackages() {
+    const requestId = ++packageRequestId;
+    ++availabilityRequestId;
+    loadingTimes = false;
+    selectedStartTime = null;
+    selectedDuration = null;
+    selectedPackagePrice = null;
+    clearTimes();
+    updateSummary();
 
     packageGrid.innerHTML =
       `
@@ -1494,6 +1504,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           }
         );
 
+
+    if (requestId !== packageRequestId) return;
 
     if (error) {
 
@@ -1556,6 +1568,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
         button.className =
           "package";
+        const isBookable = Number(item.price_sek) > 0;
+        button.disabled = !isBookable;
+        if (!isBookable) button.title = "Paketet är inte aktiverat för bokning ännu.";
 
 
         const hours =
@@ -1573,7 +1588,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           </div>
 
           <div class="package-price">
-            ${item.price_sek} kr
+            ${isBookable ? item.price_sek + " kr" : "Ej bokningsbart ännu"}
           </div>
           `;
 
@@ -1740,7 +1755,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   function clearTimes() {
-
+    ++availabilityRequestId;
+    loadingTimes = false;
     timeGrid.innerHTML = "";
 
     timesStatus.textContent =
@@ -1765,11 +1781,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     }
 
 
-    if (loadingTimes) {
-      return;
-    }
-
-
+    const requestId = ++availabilityRequestId;
     loadingTimes = true;
 
 
@@ -1881,6 +1893,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         requests
       );
 
+    if (requestId !== availabilityRequestId) return;
 
     timeGrid.innerHTML = "";
 
