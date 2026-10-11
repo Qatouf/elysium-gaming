@@ -30,5 +30,7 @@ el('quantity').value='2';run('selectedPackagePrice=129;updateSummary()');assert.
  el('customerEmail').value='qa-isolated@example.com';let captured;
  rpc=async(name,args)=>{captured=args;run('selectedType="ps5";selectedDuration=300');return {data:[{booking_number:'SYNTHETIC',total_price_sek:49}],error:null}};
  await run('createBooking()');assert.equal(captured.p_booking_date,'2026-10-18');assert.equal(captured.p_resource_type,'pc');assert(el('confirmedDetails').textContent.includes('PC Gaming'));assert(el('confirmedDetails').textContent.includes('1 timme'));assert.equal(run('selectedStartTime'),null);assert.equal(el('bookButton').disabled,false);
+ let finish;calls=0;run('selectedType="pc";selectedDuration=60;selectedStartTime="16:00"');rpc=()=>{calls++;return new Promise(resolve=>finish=resolve)};const first=run('createBooking()');await run('createBooking()');assert.equal(calls,1);finish({data:[{booking_number:'SYNTHETIC',total_price_sek:49}],error:null});await first;
+ run('packages=[{duration_minutes:60,price_sek:0},{duration_minutes:180,price_sek:129}];renderPackages()');assert.equal(el('packageGrid').children[0].disabled,true);assert.equal(el('packageGrid').children[1].disabled,false);
  console.log('PASS: Stockholm dates, calendar rollover, opening windows, overnight/max date, PC/PS5 quantities, totals, stale responses, network failures, validation, submitted confirmation snapshot, duplicate click guard');
 })().catch(e=>{console.error(e);process.exitCode=1});

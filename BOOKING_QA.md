@@ -28,6 +28,7 @@
 | Automatisk återhämtning av misslyckade mejl | UNDERKÄND | Fel registreras och ny intern begäran kan återförsöka failed, men automatisk retry/övervakning och återtagning av fastnad processing saknas. Ingen retry-jobb aktiverades mot kunddata. |
 | Bokning efter osäkert nätavbrott | UNDERKÄND | Klienten varnar att bokningen kan ha skapats. Serverbaserad idempotensnyckel för kundens bokningsförsök saknas; manuell kontroll behövs före nytt försök. |
 | Mobil, surfplatta, dator – visuell/interaktiv | EJ TESTAD | Webbläsarverktyget stoppades: native credential state kunde inte återupptas säkert. CSS-granskning ersätter inte dessa tester. |
+| Publicering och offentlig tillgänglighets-API | GODKÄND | GitHub main uppdaterad; ordinarie booking.html gav HTTP 200 och exakt testad fil. Offentliga read-only RPC gav 20 PC/2 PS5. Edge Functions ACTIVE med JWT och intern token. |
 | Publicerat fullständigt kundflöde i webbläsare | EJ TESTAD | Samma webbläsarblockering. HTTP- och källkodskontroll redovisas separat. |
 | Tidigare adminfunktioner | GODKÄND | Befintliga automatiserade adminregressioner: kalender, överlapp, DST 23/25 h, rapporter, filter, sortering, betalningsknappar och sessionsrensning. Ingen faktisk betalning ändrad. |
 
@@ -67,3 +68,7 @@ Mejltester ersätter nätverket helt. TypeScriptens begränsade typannoteringar 
 - Ett uttryckligen godkänt mejltest till en kontrollerad testinkorg samt extern mall-/leveranskontroll.
 - Bokningsidempotens vid osäkert nätavbrott och säker automatisk mejlåterhämtning/övervakning.
 - Parallellt klienttest och relevanta belastningsgränser.
+
+## Publiceringskontroll
+
+Funktionsändringar publicerade i commit 8d40408fd914d2fb5fc427c701afd56d0e4d6733. Ordinarie https://www.elysiumgaming.se/booking.html matchade den testade filen byte för byte, SHA-256 eaf3411bf72b21c81ccc57ecb45408b615833c155ea4c52844f52ad6ff2398b8. Bekräftelsefunktionen är version 4 och avbokningsfunktionen version 2, båda ACTIVE med verify_jwt=true. HTTP-kontrollen innebär inte att webbläsarflödet är sluttestat.
