@@ -881,6 +881,30 @@ tbody tr:hover{
 @media(max-width:1050px){#bookingsSection .filters{justify-content:flex-start;width:100%}#bookingsSection .filters input{max-width:none}}
 @media(max-width:600px){#bookingsSection .panel-header{padding:18px;gap:14px}#bookingsSection .panel-header h3{font-size:21px}#bookingsSection .filters input{flex-basis:100%}#bookingsSection .filters select{flex:1 1 135px;min-width:0}#bookingsSection td{padding:13px}}
 
+
+/* Booking detail workspace — presentation only */
+#bookingModal{padding:22px;background:rgba(3,9,16,.82)}
+#bookingModal .modal{max-width:740px;width:100%;max-height:min(90vh,880px);padding:0;overflow:auto;background:linear-gradient(160deg,#12273b,#0b1725);border:1px solid #35536b;border-radius:21px;box-shadow:0 35px 110px rgba(0,0,0,.62);scrollbar-color:#355c79 #101e2e}
+#bookingModal .modal-head{position:sticky;top:0;z-index:5;align-items:center;margin:0;padding:25px 29px 21px;background:#142a3f;border-bottom:1px solid #345169}
+#bookingModal .modal-head .login-badge{color:#79d5ff;font-size:10px;letter-spacing:2px;margin-bottom:8px}
+#bookingModal .modal-head h2{font-size:24px;line-height:1.3;letter-spacing:-.5px;color:#f0f9ff;overflow-wrap:anywhere}
+#bookingModal .modal-close{width:42px;height:42px;flex-shrink:0;font-size:24px;background:#1c3850;border-color:#45647b;color:#d5eafa;transition:background .15s}
+#bookingModal .modal-close:hover{background:#28516d}
+#bookingModal #modalDetails{padding:26px 29px 5px}
+#bookingModal .detail-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#bookingModal .detail{padding:17px 18px;border-radius:13px;background:#102337;border:1px solid #2b465e;min-width:0}
+#bookingModal .detail span{font-size:10px;letter-spacing:1px;font-weight:750;color:#94b5ce;margin-bottom:10px}
+#bookingModal .detail strong{font-size:15px;line-height:1.55;font-weight:750;color:#f0f8ff;overflow-wrap:anywhere}
+#bookingModal .detail.full{grid-column:1/-1}
+#bookingModal .modal-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;padding:23px 29px 29px;margin-top:20px;background:#0e1d2e;border-top:1px solid #29465e}
+#bookingModal .modal-actions button{min-height:47px;padding:12px 14px;background:#172f45;border:1px solid #35546d;border-radius:11px;color:#dbeeff;font-size:13px;line-height:1.3;font-weight:750;transition:background .15s,border-color .15s}
+#bookingModal .modal-actions button:hover:not(:disabled){background:#20425d;border-color:#62b9ed}
+#bookingModal .modal-actions button.green{background:#12382f;border-color:#2b765e;color:#90f0bf}
+#bookingModal .modal-actions button.blue{background:#133955;border-color:#2776aa;color:#93dcff}
+#bookingModal .modal-actions button.red{background:#3a202b;border-color:#79404c;color:#ff9ca9}
+#bookingModal .modal-actions button:focus-visible,#bookingModal .modal-close:focus-visible{outline:2px solid #72d4ff;outline-offset:2px}
+@media(max-width:600px){#bookingModal{padding:9px;align-items:center}#bookingModal .modal{max-height:95vh;border-radius:16px}#bookingModal .modal-head{padding:19px}#bookingModal .modal-head h2{font-size:19px}#bookingModal #modalDetails{padding:17px 16px 0}#bookingModal .detail-grid{gap:9px}#bookingModal .detail{padding:12px}#bookingModal .detail strong{font-size:13px}#bookingModal .modal-actions{padding:17px 16px 20px;gap:9px}#bookingModal .modal-actions button{font-size:12px;padding:11px 7px}}
+
 </style>
 </head>
 
