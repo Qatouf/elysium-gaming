@@ -916,7 +916,7 @@ tbody tr:hover{
 #elysiumReports .ely-report-export{height:44px;white-space:nowrap;border-radius:10px;padding:0 20px;font-size:12px;font-weight:850;background:#ffffff;box-shadow:0 5px 20px rgba(0,132,255,.15)}
 #elysiumReports .ely-report-export:hover{filter:brightness(1.14)}
 #elysiumReports .ely-report-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-#elysiumReports .ely-report-card{position:relative;min-height:116px;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:19px;border-radius:14px;border:1px solid #cbddee;background:linear-gradient(155deg,#152c41,#0f2032)}
+#elysiumReports .ely-report-card{position:relative;min-height:116px;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:19px;border-radius:14px;border:1px solid #b9d2ed;background:#edf5ff}
 #elysiumReports .ely-report-card:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:#ffffff;opacity:.7}
 #elysiumReports .ely-report-card strong{font-size:clamp(19px,2vw,28px);font-weight:850;letter-spacing:-.6px;line-height:1.15;font-variant-numeric:tabular-nums}
 #elysiumReports .ely-report-card span{font-size:11px;line-height:1.4;color:#244969;font-weight:650}
@@ -998,6 +998,25 @@ button:disabled{opacity:.55}.main,.content{min-width:0}input,select{max-width:10
 #bookingModal .modal-actions button.green{color:#076443;background:#dff6eb}#bookingModal .modal-actions button.blue{color:#075aa8;background:#e1f1ff}#bookingModal .modal-actions button.red{color:#a71e3b;background:#ffe1e8}
 .top-actions .btn-primary{background:#0878d5;color:#fff}.calendar-grid td:first-child{background:#edf5ff}.calendar-grid tbody tr:nth-child(even) td:first-child{background:#e5f0fc}
 .calendar-tabs button.active{background:#0878d5;color:#fff}.calendar-tabs button:hover:not(.active){background:#dceeff;color:#075aa8}
+
+/* Light theme: explicit section selectors keep older dark styles from winning. */
+#elysiumReports .ely-report-card strong{color:#073d70}
+#elysiumReports .ely-report-card span{color:#314c68}
+#elysiumReports .ely-report-card:before{height:3px;background:#0084ff;opacity:1;border-radius:14px 14px 0 0}
+#stationCalendar .calendar-grid th,#stationCalendar .calendar-grid td{border-color:#aec5df}
+#stationCalendar .calendar-grid thead th{background:#d6e8fa;color:#163a60}
+#stationCalendar .calendar-grid td.available{background:#eef5fe}
+#stationCalendar .calendar-grid tbody tr:nth-child(even) td.available{background:#e5effa}
+#stationCalendar .calendar-grid tbody tr:hover td.available{background:#d7e7f8}
+#stationCalendar .calendar-grid tbody tr:hover td{filter:none}
+#stationCalendar .calendar-grid td.occupied{background:#89c8ff;color:#073d70;box-shadow:inset 0 0 0 1px #479bea}
+#stationCalendar .calendar-grid td.occupied.conflict{background:#ffc0cb;color:#8b1833;box-shadow:inset 0 0 0 1px #db7188}
+#stationCalendar .calendar-grid td.available:after,#stationCalendar .calendar-grid td.occupied:after{content:none}
+#stationCalendar .calendar-booking{display:block;width:100%;height:40px;min-height:40px;padding:0;border:0;background:transparent;color:#073d70;font-size:17px;font-weight:800}
+#stationCalendar .calendar-grid td.conflict .calendar-booking{color:#8b1833}
+#stationCalendar .calendar-legend i{background:#89c8ff;border:1px solid #479bea}
+#stationCalendar .calendar-legend .free i{background:#eef5fe;border-color:#aec5df}
+#stationCalendar .calendar-legend .conflict i{background:#ffc0cb;border-color:#db7188}
 </style>
 </head>
 
