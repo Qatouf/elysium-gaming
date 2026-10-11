@@ -1687,7 +1687,6 @@ async function loadBookings(){
     renderElysiumReport();
     renderOpsOverview();
     renderStationCalendar();
-    const updated=document.getElementById("dashboardUpdated");
     if(updated)updated.textContent="Senast uppdaterad "+new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",hour:"2-digit",minute:"2-digit"}).format(new Date());
 }
 
