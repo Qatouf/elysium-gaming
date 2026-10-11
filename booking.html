@@ -1963,7 +1963,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     if (bookableCount > 0) {
 
       timesStatus.textContent =
-        `${bookableCount} starttider är tillgängliga för ditt val.`;
+        `${bookableCount} starttider är tillgängliga för ditt val.` +
+        (results.some(r=>r.error) ? " Vissa tider kunde inte kontrolleras. Försök igen för att se alla alternativ." : "");
 
     } else if(results.some(r=>r.error)) {
       timesStatus.textContent="Tillgängligheten kunde inte kontrolleras för alla tider. Försök igen eller välj ett annat datum.";
