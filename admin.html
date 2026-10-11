@@ -960,6 +960,15 @@ tbody tr:hover{
 @media(max-width:1050px){.sidebar{width:255px}.main{margin-left:0}.content{padding:23px 20px 55px}}
 @media(max-width:650px){.topbar{padding:14px 15px;min-height:73px;gap:9px}.topbar h2{font-size:19px}.top-actions{gap:6px}.top-actions .btn{padding:10px 11px;font-size:11px;min-height:40px}.content{padding:18px 13px 45px}}
 
+
+/* Clear and accessible section shortcuts */
+#opsOverview,#stationCalendar,#elysiumReports,#bookingsSection{scroll-margin-top:105px}
+.sidebar{overflow-y:auto;scrollbar-width:thin;scrollbar-color:#35566d transparent}
+.sidebar-bottom{position:sticky;top:calc(100vh - 173px);bottom:auto;margin-top:34px;left:auto;right:auto;padding-top:13px;background:linear-gradient(180deg,transparent,#0a1624 13%)}
+.nav-item{cursor:pointer}
+.nav-item:focus-visible{outline:2px solid #70d4ff;outline-offset:2px}
+@media(max-height:740px){.sidebar-bottom{top:auto;position:relative;margin-top:24px}}
+
 </style>
 </head>
 
@@ -1075,6 +1084,16 @@ tbody tr:hover{
         >
             <span class="nav-icon">◷</span>
             Bokningar
+        </button>
+
+        <button type="button" class="nav-item" onclick="document.getElementById('stationCalendar').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('sidebar').classList.remove('open')">
+            <span class="nav-icon" aria-hidden="true">▤</span>
+            Stationskalender
+        </button>
+
+        <button type="button" class="nav-item" onclick="document.getElementById('elysiumReports').scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('sidebar').classList.remove('open')">
+            <span class="nav-icon" aria-hidden="true">▥</span>
+            Rapporter &amp; statistik
         </button>
 
         <button
