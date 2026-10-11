@@ -1,0 +1,34 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const html=fs.readFileSync(require('node:path').join(__dirname,'../booking.html'),'utf8');
+const script=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m=>m[1]).join('\n').replace(/\n  init\(\);/,'');
+class Element{constructor(){this.value='';this.textContent='';this.children=[];this.classList={add(){},remove(){}}}set innerHTML(v){this.html=v;this.children=[]}get innerHTML(){return this.html||''}appendChild(e){this.children.push(e)}addEventListener(){}focus(){}}
+const elements=new Map(),el=id=>{if(!elements.has(id))elements.set(id,new Element());return elements.get(id)};
+let rpc=async()=>({data:[{available_resources:20}],error:null});
+const ctx=vm.createContext({supabase:{createClient:()=>({rpc:(...a)=>rpc(...a)})},document:{getElementById:el,querySelectorAll:()=>[],createElement:()=>new Element()},Date,Intl,console:{error(){}},setTimeout});
+vm.runInContext(script,ctx);const run=s=>vm.runInContext(s,ctx);
+run('openingHours=Array.from({length:7},(_,i)=>({day_of_week:i+1,active:true,open_time:"16:00:00",close_time:i<4?"01:00:00":"03:00:00",next_day_close:true}))');
+assert.equal(run('localDateString(new Date("2026-10-11T22:30:00Z"))'),'2026-10-12');
+assert.equal(run('addCalendarDays("2026-12-31",1)'),'2027-01-01');
+el('bookingDate').value='2026-10-16';el('bookingDate').min='2026-10-11';el('bookingDate').max='2027-01-09';el('quantity').value='1';
+run('selectedDuration=60;selectedPackagePrice=49');
+assert.equal(run('effectiveBookingDate("00:30")'),'2026-10-17');assert.equal(run('effectiveBookingDate("23:30")'),'2026-10-16');
+assert.equal(run('getPossibleStartTimes().at(-1)'),'02:00');
+el('bookingDate').value='2026-10-15';assert.equal(run('getPossibleStartTimes().at(-1)'),'00:00');
+el('bookingDate').value='2027-01-09';assert(!run('getPossibleStartTimes().includes("00:00")'));
+run('selectedType="pc";updateQuantityOptions()');assert.equal(el('quantity').children.length,20);
+run('selectedType="ps5";updateQuantityOptions()');assert.equal(el('quantity').children.length,2);
+el('quantity').value='2';run('selectedPackagePrice=129;updateSummary()');assert.equal(el('summaryPrice').textContent,'258 kr');
+(async()=>{
+ el('bookingDate').value='2026-10-16';el('quantity').value='1';run('selectedType="pc";selectedDuration=60');
+ const pending=[];rpc=()=>new Promise(resolve=>pending.push(resolve));const old=run('loadAvailableTimes()');
+ el('bookingDate').value='2026-10-17';rpc=async()=>({data:[{available_resources:1}],error:null});await run('loadAvailableTimes()');
+ const current=el('timeGrid').children;pending.forEach(resolve=>resolve({data:[{available_resources:20}],error:null}));await old;
+ assert.equal(el('timeGrid').children,current);assert(current.every(e=>e.innerHTML.includes('1 lediga')));
+ rpc=async()=>{throw Error('network')};await run('loadAvailableTimes()');assert(el('timesStatus').textContent.includes('kunde inte kontrolleras'));assert.equal(run('loadingTimes'),false);assert(el('timeGrid').children.every(e=>e.disabled));
+ el('customerName').value='QA isolated';el('customerEmail').value='invalid';el('customerPhone').value='0700000000';run('selectedStartTime="00:30"');let calls=0;rpc=async()=>{calls++;return {data:[]}};
+ await run('createBooking()');assert.equal(calls,0);assert(el('message').textContent.includes('e-post'));
+ el('customerEmail').value='qa-isolated@example.com';let captured;
+ rpc=async(name,args)=>{captured=args;run('selectedType="ps5";selectedDuration=300');return {data:[{booking_number:'SYNTHETIC',total_price_sek:49}],error:null}};
+ await run('createBooking()');assert.equal(captured.p_booking_date,'2026-10-18');assert.equal(captured.p_resource_type,'pc');assert(el('confirmedDetails').textContent.includes('PC Gaming'));assert(el('confirmedDetails').textContent.includes('1 timme'));assert.equal(run('selectedStartTime'),null);assert.equal(el('bookButton').disabled,false);
+ console.log('PASS: Stockholm dates, calendar rollover, opening windows, overnight/max date, PC/PS5 quantities, totals, stale responses, network failures, validation, submitted confirmation snapshot, duplicate click guard');
+})().catch(e=>{console.error(e);process.exitCode=1});

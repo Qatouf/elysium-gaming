@@ -1246,8 +1246,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
   let selectedStartTime = null;
   let packages = [];
   let loadingTimes = false;
-  let availabilityRequestId = 0;
-  let packageRequestId = 0;
+  let availabilityVersion = 0;
+  let packageVersion = 0;
+  let openingHours = [];
   let bookingInProgress = false;
 
 
@@ -1328,38 +1329,18 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   function localDateString(date) {
-    const year =
-      date.getFullYear();
-
-    const month =
-      String(
-        date.getMonth() + 1
-      ).padStart(2, "0");
-
-    const day =
-      String(
-        date.getDate()
-      ).padStart(2, "0");
-
-    return `${year}-${month}-${day}`;
+    return new Intl.DateTimeFormat("sv-SE",{timeZone:"Europe/Stockholm",year:"numeric",month:"2-digit",day:"2-digit"}).format(date);
   }
-
-
-  const today =
-    new Date();
-
-  const maxDate =
-    new Date();
-
-  maxDate.setDate(
-    maxDate.getDate() + 90
-  );
-
-  bookingDate.min =
-    localDateString(today);
-
-  bookingDate.max =
-    localDateString(maxDate);
+  function addCalendarDays(day,offset){
+    return new Date(Date.parse(day+"T12:00:00Z")+offset*86400000).toISOString().slice(0,10);
+  }
+  bookingDate.min=localDateString(new Date());
+  bookingDate.max=addCalendarDays(bookingDate.min,90);
+  function effectiveBookingDate(time,day=bookingDate.value){
+    const window=getOpeningWindow(day);
+    const [h,m]=String(time).split(":").map(Number);
+    return window&&h*60+m<window.openMinutes?addCalendarDays(day,1):day;
+  }
 
 
   function updateQuantityOptions() {
@@ -1463,14 +1444,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   async function loadPackages() {
-    const requestId = ++packageRequestId;
-    ++availabilityRequestId;
-    loadingTimes = false;
-    selectedStartTime = null;
-    selectedDuration = null;
-    selectedPackagePrice = null;
-    clearTimes();
-    updateSummary();
+    const requestVersion=++packageVersion,requestType=selectedType;
+    selectedDuration=null;selectedPackagePrice=null;selectedStartTime=null;clearTimes();updateSummary();
 
     packageGrid.innerHTML =
       `
@@ -1491,7 +1466,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         )
         .eq(
           "resource_type",
-          selectedType
+          requestType
         )
         .eq(
           "active",
@@ -1502,10 +1477,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           {
             ascending: true
           }
-        );
-
-
-    if (requestId !== packageRequestId) return;
+        ).catch(()=>({data:null,error:{message:"Kunde inte nå prislistan"}}));
+    if(requestVersion!==packageVersion)return;
 
     if (error) {
 
@@ -1588,7 +1561,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           </div>
 
           <div class="package-price">
-            ${isBookable ? item.price_sek + " kr" : "Ej bokningsbart ännu"}
+            ${item.price_sek} kr
           </div>
           `;
 
@@ -1642,42 +1615,19 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
   }
 
 
-  function getOpeningWindow(
-    dateString
-  ) {
-
-    if (!dateString) {
-      return null;
-    }
-
-
-    const date =
-      new Date(
-        `${dateString}T12:00:00`
-      );
-
-
-    const day =
-      date.getDay();
-
-
-    const closingHour =
-      (
-        day === 5 ||
-        day === 6 ||
-        day === 0
-      )
-        ? 27
-        : 25;
-
-
-    return {
-      openMinutes: 16 * 60,
-      closeMinutes:
-        closingHour * 60
-    };
+  function getOpeningWindow(dateString){
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(dateString||""))return null;
+    const day=new Date(dateString+"T12:00:00Z").getUTCDay()||7;
+    const row=openingHours.find(r=>r.day_of_week===day&&r.active);
+    if(!row)return null;
+    const minutes=t=>Number(t.slice(0,2))*60+Number(t.slice(3,5));
+    return {openMinutes:minutes(row.open_time),closeMinutes:minutes(row.close_time)+(row.next_day_close?1440:0)};
   }
-
+  async function loadOpeningHours(){
+    const {data,error}=await db.from("opening_hours").select("day_of_week,open_time,close_time,next_day_close,active").eq("active",true);
+    if(error)throw error;
+    openingHours=data||[];
+  }
 
   function minutesToTime(
     minutes
@@ -1744,9 +1694,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       minute += 30
     ) {
 
-      times.push(
-        minutesToTime(minute)
-      );
+      const time=minutesToTime(minute);
+      if(effectiveBookingDate(time)<=bookingDate.max)times.push(time);
     }
 
 
@@ -1755,8 +1704,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   function clearTimes() {
-    ++availabilityRequestId;
-    loadingTimes = false;
+    ++availabilityVersion;
+    loadingTimes=false;
+
     timeGrid.innerHTML = "";
 
     timesStatus.textContent =
@@ -1765,6 +1715,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
   async function loadAvailableTimes() {
+    const requestVersion=++availabilityVersion;
+    const requestType=selectedType, requestDate=bookingDate.value, requestDuration=selectedDuration;
 
     selectedStartTime = null;
 
@@ -1781,7 +1733,9 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     }
 
 
-    const requestId = ++availabilityRequestId;
+    if(requestDate<bookingDate.min||requestDate>bookingDate.max){clearTimes();timesStatus.textContent="Välj ett datum inom de kommande 90 dagarna.";return;}
+
+
     loadingTimes = true;
 
 
@@ -1835,18 +1789,18 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
               "get_elysium_availability",
               {
                 p_resource_type:
-                  selectedType,
+                  requestType,
 
                 p_booking_date:
-                  bookingDate.value,
+                  effectiveBookingDate(time,requestDate),
 
                 p_start_time:
                   `${time}:00`,
 
                 p_duration_minutes:
-                  selectedDuration
+                  requestDuration
               }
-            );
+            ).catch(()=>({data:null,error:{message:"Anslutningen kunde inte nås"}}));
 
 
           if (error) {
@@ -1893,8 +1847,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         requests
       );
 
-    if (requestId !== availabilityRequestId) return;
 
+    if(requestVersion!==availabilityVersion)return;
     timeGrid.innerHTML = "";
 
 
@@ -1938,7 +1892,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         if (result.error) {
 
           availabilityText =
-            "Ej tillgänglig";
+            "Kunde inte kontrolleras";
 
         } else if (
           selectedType === "pc"
@@ -1957,7 +1911,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         button.innerHTML =
           `
           <span class="time-clock">
-            ${result.time}
+            ${result.time}${effectiveBookingDate(result.time,requestDate)!==requestDate?" (+1 dag)":""}
           </span>
 
           <span class="time-available">
@@ -2011,6 +1965,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       timesStatus.textContent =
         `${bookableCount} starttider är tillgängliga för ditt val.`;
 
+    } else if(results.some(r=>r.error)) {
+      timesStatus.textContent="Tillgängligheten kunde inte kontrolleras för alla tider. Försök igen eller välj ett annat datum.";
     } else {
 
       timesStatus.textContent =
@@ -2061,7 +2017,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
     summaryDate.textContent =
       formatDate(
-        bookingDate.value
+        selectedStartTime?effectiveBookingDate(selectedStartTime):bookingDate.value
       );
 
 
@@ -2211,7 +2167,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     }
 
 
-    if (name.length < 2) {
+    if (name.length < 2 || name.length > 100) {
 
       showMessage(
         "Fyll i ditt namn."
@@ -2224,8 +2180,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
     if (
-      !email ||
-      !email.includes("@")
+      !email || email.length>150 ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
     ) {
 
       showMessage(
@@ -2238,7 +2194,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     }
 
 
-    if (phone.length < 7) {
+    if (phone.length < 7 || phone.length > 30 || !/^[+\d ()-]+$/.test(phone) || phone.replace(/\D/g, "").length < 7) {
 
       showMessage(
         "Fyll i ett giltigt telefonnummer."
@@ -2250,6 +2206,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
     }
 
 
+    if(!Number.isInteger(q)||q<1||q>(selectedType==="pc"?20:2)||bookingDate.value<bookingDate.min||bookingDate.value>bookingDate.max){showMessage("Kontrollera datum och antal platser.");return;}
+    const submittedType=selectedType,submittedDuration=selectedDuration,submittedTime=selectedStartTime,submittedDate=effectiveBookingDate(selectedStartTime);
     bookingInProgress = true;
 
     bookButton.disabled = true;
@@ -2266,16 +2224,16 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
         "create_elysium_booking",
         {
           p_resource_type:
-            selectedType,
+            submittedType,
 
           p_booking_date:
-            bookingDate.value,
+            submittedDate,
 
           p_start_time:
-            `${selectedStartTime}:00`,
+            `${submittedTime}:00`,
 
           p_duration_minutes:
-            selectedDuration,
+            submittedDuration,
 
           p_quantity:
             q,
@@ -2289,7 +2247,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
           p_customer_phone:
             phone
         }
-      );
+      ).catch(()=>({data:null,error:{message:"Anslutningen bröts. Bokningen kan ha skapats. Kontakta Elysium innan du försöker igen."}}));
 
 
     bookingInProgress = false;
@@ -2361,13 +2319,13 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
 
     const hours =
-      selectedDuration / 60;
+      submittedDuration / 60;
 
 
     let bookingTypeDetails;
 
 
-    if (selectedType === "pc") {
+    if (submittedType === "pc") {
 
       bookingTypeDetails =
         q === 1
@@ -2385,17 +2343,17 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
     confirmedDetails.textContent =
       `${
-        selectedType === "pc"
+        submittedType === "pc"
           ? "PC Gaming"
           : "PS5"
       } · ${
         bookingTypeDetails
       } · ${
         formatDate(
-          bookingDate.value
+          submittedDate
         )
       } · ${
-        selectedStartTime
+        submittedTime
       } · ${
         hours
       } ${
@@ -2407,6 +2365,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
       } kr`;
 
 
+    selectedStartTime=null;
     confirmationModal
       .classList
       .add("show");
@@ -2543,7 +2502,8 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
     updateSummary();
 
-    await loadPackages();
+    try{await loadOpeningHours();await loadPackages();}
+    catch(error){showMessage("Bokningssystemet kunde inte laddas. Ladda om sidan och försök igen.");clearTimes();}
   }
 
 
