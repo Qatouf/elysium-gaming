@@ -803,6 +803,35 @@ tbody tr:hover{
 .calendar-note{color:#91aec5}
 @media(max-width:700px){.calendar-box{padding:14px}.calendar-controls{flex-wrap:wrap}.calendar-grid{min-width:1190px}}
 
+
+/* Calendar workspace layout */
+.calendar-box{padding:26px 26px 20px;border-radius:20px}
+.calendar-head{align-items:flex-start;margin-bottom:22px}
+.calendar-eyebrow{display:block;color:#60c9ff;font-size:10px;font-weight:800;letter-spacing:2px;margin-bottom:9px}
+.calendar-head h3{font-size:25px;letter-spacing:-.6px;margin:0 0 7px}
+.calendar-intro{color:#94abc0;font-size:13px;line-height:1.5}
+.calendar-controls{background:#0b1c2d;padding:5px;border:1px solid #294057;border-radius:13px}
+.calendar-controls button{min-height:38px;min-width:39px}
+.calendar-controls input{min-height:38px}
+.calendar-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.calendar-kpis>div{background:#102235;border:1px solid #294159;border-radius:13px;padding:15px 18px}
+.calendar-kpis span{display:block;color:#96b1c6;font-size:11px;margin-bottom:7px}
+.calendar-kpis strong{font-size:24px;color:#edf8ff;letter-spacing:-.6px}
+.calendar-toolbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:13px}
+.calendar-tabs{display:flex;align-items:center;gap:5px;background:#0a1928;border:1px solid #284057;border-radius:12px;padding:5px}
+.calendar-tabs button{border:0;background:transparent;color:#94b0c7;padding:11px 15px;border-radius:9px;font-size:12px;font-weight:750;cursor:pointer}
+.calendar-tabs button.active{background:#1769ad;color:#fff;box-shadow:0 3px 14px rgba(0,132,255,.16)}
+.calendar-tabs button:hover:not(.active){background:#1a3247;color:#fff}
+.calendar-tabs small{opacity:.7;font-size:10px;margin-left:5px}
+.calendar-legend{margin:0;gap:12px;font-size:11px}
+.calendar-scroll{margin-top:0;max-height:560px}
+.calendar-grid th,.calendar-grid td{height:41px}
+.calendar-grid thead th{height:46px}
+.calendar-grid tbody tr:nth-child(2n) .available{background:#14283b}
+.calendar-grid tbody tr:hover .available{background:#1a3953}
+.calendar-note{padding-top:3px}
+@media(max-width:760px){.calendar-box{padding:15px}.calendar-kpis{gap:7px}.calendar-kpis>div{padding:11px}.calendar-kpis strong{font-size:19px}.calendar-tabs{width:100%;overflow-x:auto}.calendar-tabs button{white-space:nowrap;padding:10px}.calendar-controls{width:100%;justify-content:center}.calendar-legend{gap:10px}}
+
 </style>
 </head>
 
@@ -1086,7 +1115,7 @@ tbody tr:hover{
 
             
 <section id="opsOverview" aria-label="Driftöversikt" style="margin-bottom:24px"><h3 class="ops-heading">Driftöversikt</h3><p class="ops-meta">Baserat på bokningar som personalkontot får se. Belopp är bokningsvärde, inte verifierad kassa.</p><div class="ops-grid"><article class="ops-card"><h3>Obetalda bokningar</h3><div class="ops-number" id="opsUnpaidCount">–</div><p class="ops-caption" id="opsUnpaidValue">–</p><button type="button" onclick="showUnpaidBookings()">Visa obetalda</button></article><article class="ops-card"><h3>Kommande 7 dagar</h3><div class="ops-number" id="opsWeekCount">–</div><p class="ops-caption" id="opsWeekValue">–</p><button type="button" onclick="scrollBookings()">Visa bokningar</button></article><article class="ops-card"><h3>Nästa bokningar</h3><ul class="ops-list" id="opsNextList"><li>Hämtar bokningar...</li></ul></article></div></section>
-<section id="stationCalendar" class="calendar-box"><div class="calendar-head"><h3>Stationskalender · PC och PS5</h3><div class="calendar-controls"><button type="button" onclick="moveCalendarDay(-1)" aria-label="Föregående dag">←</button><input id="calendarDate" type="date" aria-label="Välj kalenderdatum" onchange="renderStationCalendar()"><button type="button" onclick="moveCalendarDay(1)" aria-label="Nästa dag">→</button><button type="button" onclick="calendarToday()">Idag</button></div></div><div class="calendar-legend" aria-label="Färgförklaring"><span><i></i> Bokad</span><span class="free"><i></i> Ingen bokning registrerad</span><span class="conflict"><i></i> Flera bokningar samma timme</span></div><div class="calendar-scroll" id="calendarContent"><p class="loading">Väntar på bokningsdata...</p></div><p class="calendar-note" id="calendarNote">Blått = bokat. Grönt = ingen bokning registrerad. Kalendern visar inte Gizmos live-status eller blockerade tider.</p></section>
+<section id="stationCalendar" class="calendar-box"><div class="calendar-head"><div><span class="calendar-eyebrow">BOKNINGSÖVERSIKT</span><h3>Stationsplanering</h3><p class="calendar-intro">Se registrerade bokningar för varje station och tid.</p></div><div class="calendar-controls"><button type="button" onclick="moveCalendarDay(-1)" aria-label="Föregående dag">←</button><input id="calendarDate" type="date" aria-label="Välj kalenderdatum" onchange="renderStationCalendar()"><button type="button" onclick="moveCalendarDay(1)" aria-label="Nästa dag">→</button><button type="button" onclick="calendarToday()">Idag</button></div></div><div class="calendar-kpis"><div><span>Bokningar idag</span><strong id="calendarBookingCount">–</strong></div><div><span>Stationer med bokningar</span><strong id="calendarUsedCount">–</strong></div><div><span>Stationskopplingar att kontrollera</span><strong id="calendarUnplacedCount">–</strong></div></div><div class="calendar-toolbar"><div class="calendar-tabs" role="group" aria-label="Välj stationstyp"><button type="button" class="active" data-cal-view="pc" onclick="setCalendarView('pc')">Datorer <small>20</small></button><button type="button" data-cal-view="ps5" onclick="setCalendarView('ps5')">PlayStation 5 <small>2</small></button><button type="button" data-cal-view="all" onclick="setCalendarView('all')">Alla stationer</button></div><div class="calendar-legend" aria-label="Färgförklaring"><span><i></i> Bokad</span><span class="free"><i></i> Ingen registrerad bokning</span><span class="conflict"><i></i> Överlapp</span></div></div><div class="calendar-scroll" id="calendarContent"><p class="loading">Väntar på bokningsdata...</p></div><p class="calendar-note" id="calendarNote">Kalendern visar registrerade bokningar, inte live-status i Gizmo.</p></section>
 <section id="elysiumReports" class="ely-report" aria-label="Rapporter och statistik"><h3>Rapporter &amp; statistik</h3><p>Välj bokningsdatum för perioden. Betalt belopp baseras på registrerad betalstatus, inte bankavstämning. Avbokade bokningar räknas separat.</p><div class="ely-report-controls"><div class="report-presets" role="group" aria-label="Snabbval för rapportperiod"><button type="button" onclick="setReportPeriod('today')">Idag</button><button type="button" onclick="setReportPeriod('week')">7 dagar</button><button type="button" onclick="setReportPeriod('month')">Denna månad</button><button type="button" onclick="setReportPeriod('previous')">Förra månaden</button></div><label>Från datum<input type="date" id="reportFrom" onchange="renderElysiumReport()"></label><label>Till datum<input type="date" id="reportTo" onchange="renderElysiumReport()"></label><button type="button" class="ely-report-export" onclick="exportElysiumReport()">Exportera CSV</button></div><div class="ely-report-grid"><div class="ely-report-card"><strong id="repConfirmed">–</strong><span>Ej avbokade bokningar</span></div><div class="ely-report-card"><strong id="repCancelled">–</strong><span>Avbokningar</span></div><div class="ely-report-card"><strong id="repValue">–</strong><span>Bokningsvärde (ej avbokade)</span></div><div class="ely-report-card"><strong id="repPaid">–</strong><span>Markerat som betalt</span></div><div class="ely-report-card"><strong id="repUnpaid">–</strong><span>Markerat som obetalt</span></div><div class="ely-report-card"><strong id="repSeats">–</strong><span>Bokade platser</span></div><div class="ely-report-card"><strong id="repPc">–</strong><span>PC-bokningar</span></div><div class="ely-report-card"><strong id="repPs5">–</strong><span>PS5-bokningar</span></div></div><div class="ely-report-split"><span id="repSplitLabel">Fördelning PC / PS5</span><div class="ely-report-bar"><span id="repPcBar" style="width:0%"></span></div><p id="repNotice" role="status"></p></div></section>
 <section
                 id="bookingsSection"
@@ -2990,12 +3019,15 @@ function showUnpaidBookings(){document.getElementById("statusFilter").value="all
 
 function calendarToday(){document.getElementById("calendarDate").value=getLocalDate();renderStationCalendar();}
 function moveCalendarDay(offset){const field=document.getElementById("calendarDate");const d=new Date((field.value||getLocalDate())+"T12:00:00");d.setDate(d.getDate()+offset);field.value=[d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");renderStationCalendar();}
+let calendarView="pc";
+function setCalendarView(view){calendarView=["pc","ps5","all"].includes(view)?view:"pc";document.querySelectorAll("[data-cal-view]").forEach(b=>{const active=b.dataset.calView===calendarView;b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active));});renderStationCalendar();}
 function renderStationCalendar(){
 const field=document.getElementById("calendarDate"),target=document.getElementById("calendarContent"),note=document.getElementById("calendarNote");if(!field||!target)return;
 if(!field.value)field.value=getLocalDate();
 if(!currentStaff){target.textContent="Logga in för att se stationskalendern.";return;}
 const day=field.value,items=bookings.filter(b=>b.booking_date===day&&b.status!=="cancelled");
-const stations=[...Array.from({length:20},(_,i)=>"PC"+String(i+1).padStart(2,"0")),"PS01","PS02"];
+const allStations=[...Array.from({length:20},(_,i)=>"PC"+String(i+1).padStart(2,"0")),"PS01","PS02"];
+const stations=allStations.filter(code=>calendarView==="all"||(calendarView==="pc"?code.startsWith("PC"):code.startsWith("PS")));
 const slots=new Map();let unplaced=0;
 for(const b of items){
 const parts=String(b.start_time||"").split(":");const start=Number(parts[0])+Number(parts[1]||0)/60;const duration=Number(b.duration_minutes)/60;
@@ -3003,10 +3035,14 @@ if(!Number.isFinite(start)||!Number.isFinite(duration)||duration<=0){unplaced++;
 const assigned=(b.booking_resources||[]).filter(x=>x.active!==false&&x.resources?.code).map(x=>String(x.resources.code).toUpperCase().replace(/[^A-Z0-9]/g,""));
 if(!assigned.length){unplaced++;continue;}
 for(const raw of assigned){
-const station=stations.find(code=>code===raw||(code.startsWith("PS")&&raw==="PS5"+code.slice(2)));
+const station=allStations.find(code=>code===raw||(code.startsWith("PS")&&raw==="PS5"+code.slice(2)));
 if(!station){unplaced++;continue;}
 for(let hour=0;hour<24;hour++)if(hour<start+duration&&hour+1>start){const key=station+":"+hour;slots.set(key,(slots.get(key)||0)+1);}
 }}
+const used=new Set([...slots.keys()].map(k=>k.split(':')[0]));
+document.getElementById('calendarBookingCount').textContent=items.length;
+document.getElementById('calendarUsedCount').textContent=used.size+' / 22';
+document.getElementById('calendarUnplacedCount').textContent=unplaced;
 let html='<table class="calendar-grid"><thead><tr><th>Station</th>'+Array.from({length:24},(_,h)=>'<th>'+String(h).padStart(2,"0")+'</th>').join("")+'</tr></thead><tbody>';
 for(const station of stations){html+='<tr><td>'+station+'</td>';for(let h=0;h<24;h++){const occupied=slots.get(station+":"+h)||0;html+='<td class="'+(occupied>1?'occupied conflict':occupied?'occupied':'available')+'" title="'+(occupied>1?occupied+' bokningar – kontrollera':occupied?'Bokad':'Ingen bokning registrerad')+'" aria-label="'+station+' kl '+String(h).padStart(2,'0')+': '+(occupied?occupied+' bokning(ar)':'ingen bokning registrerad')+'"></td>';}html+='</tr>';}
 target.innerHTML=html+'</tbody></table>';
