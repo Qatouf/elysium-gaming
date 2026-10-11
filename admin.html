@@ -3293,7 +3293,12 @@ function stationIntervals(day,rows){
         if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start){if(b.booking_date===day)unplaced++;continue;}
         if(start>=endDay||end<=midnight)continue;
         items.add(b.id);
-        const assigned=(b.booking_resources||[]).filter(r=>r.active!==false);
+        // Count only active assignments that overlap the displayed calendar day.
+        const assigned=(b.booking_resources||[]).filter(r=>{
+            if(r.active===false)return false;
+            const a=Date.parse(r.start_at||b.start_at),z=Date.parse(r.end_at||b.end_at);
+            return Number.isFinite(a)&&Number.isFinite(z)&&a<endDay&&z>midnight;
+        });
         if(assigned.length!==Number(b.quantity))unplaced++;
         for(const r of assigned){
             const station=normalizeStation(r.resources?.code);
