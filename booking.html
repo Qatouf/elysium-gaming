@@ -2010,6 +2010,11 @@ button:focus-visible,a:focus-visible{outline:2px solid #00e6c7;outline-offset:3p
 
   function updateSummary() {
 
+    bookButton.disabled = !selectedStartTime || bookingInProgress;
+    if (!bookingInProgress) {
+      bookButton.textContent = selectedStartTime ? "BEKRÄFTA BOKNING" : "VÄLJ EN STARTTID FÖRST";
+    }
+
     summaryType.textContent =
       selectedType === "pc"
         ? "PC Gaming"
