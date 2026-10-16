@@ -2120,16 +2120,17 @@ footer small {
   .site-header { display: block; isolation: isolate; }
   .header-inner { position: relative; z-index: 2; box-sizing: border-box; }
   .mobile-nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 68px;
     left: 0;
     right: 0;
-    bottom: auto;
-    z-index: 3;
+    bottom: 0;
+    z-index: 2001;
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
     height: calc(100dvh - 68px);
-    max-height: none;
+    max-height: calc(100dvh - 68px);
     margin: 0;
     padding: 18px max(20px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left));
     overflow-x: hidden;
