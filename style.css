@@ -2120,12 +2120,12 @@ footer small {
   .site-header { display: block; isolation: isolate; }
   .header-inner { position: relative; z-index: 2; box-sizing: border-box; }
   .mobile-nav {
-    position: fixed;
-    top: 68px;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
-    bottom: 0;
-    z-index: 1;
+    bottom: auto;
+    z-index: 3;
     box-sizing: border-box;
     width: 100%;
     height: calc(100dvh - 68px);
