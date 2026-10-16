@@ -908,15 +908,26 @@
     const menuButton = document.getElementById('mobileMenuButton');
     const mobileNav = document.getElementById('mobileNav');
     if (menuButton && mobileNav) {
-      menuButton.addEventListener('click', () => {
-        const opened = mobileNav.classList.toggle('active');
+      menuButton.setAttribute('aria-controls', 'mobileNav');
+      const setMenuOpen = (opened) => {
+        mobileNav.classList.toggle('active', opened);
+        document.body.classList.toggle('mobile-menu-open', opened);
         menuButton.setAttribute('aria-expanded', String(opened));
         menuButton.setAttribute('aria-label', opened ? 'Stäng meny' : 'Öppna meny');
+      };
+      menuButton.addEventListener('click', () => {
+        setMenuOpen(!mobileNav.classList.contains('active'));
       });
-      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-        menuButton.setAttribute('aria-expanded', 'false');
-      }));
+      mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileNav.classList.contains('active')) {
+          setMenuOpen(false);
+          menuButton.focus();
+        }
+      });
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 760 && mobileNav.classList.contains('active')) setMenuOpen(false);
+      });
     }
     </script>
 </body>
